@@ -6834,22 +6834,6 @@ PPU-120fb71f7352d62521c639b0e99f960018c10a56:
     Patch Version: 2.0
     Patch:
       - [ load, *tlou111_db ]
-  "WCB/WDB Performance fix":
-    Games: *tlou111_title
-    Author: "ZEROx"
-    Notes: "Disables Depth Buffer Reload, reduces performance penalty using WCB/WDB."
-    Patch Version: 1.0
-    Patch:
-      - [ be16, 0x00aaa030, 0x9b83 ] # Speedup 1571ad8 (WCB)
-      - [ be32, 0x00a974f4, 0x4bfd4ef1 ] # Call
-      - [ be32, 0x00a6c3e4, 0x3c600142 ] # r3 = 0x1420000
-      - [ be32, 0x00a6c3e8, 0xa0639ef4 ] # lhz r3,0x9ef4(r3)
-      - [ be32, 0x00a6c3ec, 0x2f83080c ] # r3 vs 0x80c
-      - [ be32, 0x00a6c3f0, 0x419e000c ] # beq
-      - [ be32, 0x00a6c3f4, 0xc1a9038c ] # f13 original load
-      - [ be32, 0x00a6c3f8, 0x48000008 ]
-      - [ be32, 0x00a6c3fc, 0xc1be8100 ] # f13 == f0
-      - [ be32, 0x00a6c400, 0x4e800020 ] # ret
   "Speedboost":
     Games: *tlou111_title
     Author: "ZEROx, illusion"
@@ -8094,10 +8078,6 @@ Anchors:
   uc2_Disc_100_mesh: &uc2_Disc_100_mesh
     - [ be16, 0x0072ec3c, 0x9949 ] # Disable mesh trimming                   (mem address: 0x0f995d0)
 
-  uc2_Disc_100_ref: &uc2_Disc_100_ref
-    - [ be32, 0x0006a958, 0x38000001 ] # Reflections
-    - [ be32, 0x0077f970, 0x3a400001 ] # Heat waves
-
   uc2_Disc_100_mb: &uc2_Disc_100_mb
     - [ byte, 0x0075a7e4, 0x41 ] # Motion blur                               (mem address: 0x0e9b64f)
     - [ byte, 0x0075b454, 0x40 ]
@@ -8129,10 +8109,6 @@ Anchors:
   uc2_Disc_109_mesh: &uc2_Disc_109_mesh
     - [ be16, 0x0072d44c, 0x9949 ] # Disable mesh trimming                   (mem address: 0x0f9bfd0)
 
-  uc2_Disc_109_ref: &uc2_Disc_109_ref
-    - [ be32, 0x000688f4, 0x38000001 ] # Reflections
-    - [ be32, 0x0077e1e8, 0x3a400001 ] # Heat waves
-
   uc2_Disc_109_mb: &uc2_Disc_109_mb
     - [ byte, 0x00758ff4, 0x41 ] # Motion blur                               (mem address: 0x0e9c24f)
     - [ byte, 0x00759c64, 0x40 ]
@@ -8163,10 +8139,6 @@ Anchors:
 
   uc2_PSN_mesh: &uc2_PSN_mesh
     - [ be16, 0x0072d394, 0x9949 ] # Disable mesh trimming                   (mem address: 0x0f9bfd0)
-
-  uc2_PSN_ref: &uc2_PSN_ref
-    - [ be32, 0x00071b0c, 0x38000001 ] # Reflections
-    - [ be32, 0x00786508, 0x3a400001 ] # Heat waves
 
   uc2_PSN_mb: &uc2_PSN_mb
     - [ byte, 0x00758f74, 0x41 ] # Motion blur                               (mem address: 0x0e9c24f)
@@ -8216,8 +8188,6 @@ Anchors:
     "Completely unlocks the framerate."
   uc2_spulighting_notes: &uc2_spulighting_notes
     "Improves performance slightly by using GPU path for lighting.\nFixes lighting issues in Chapter 9 when shining the beams of light onto the statues."
-  uc2_water_ref_notes: &uc2_water_ref_notes
-    "Version 1.0 - Fixes flickering water reflections under Approximate ZCull, normally this effect requires Precise ZCull, but Precise ZCull has a big speed impact.\nVErsion 2.0 - Enables rendering of Heat Wave effect under Approximate ZCull, again, normally works with Precise ZCull only."
 
   uc2_disc100title: &uc2_disc100title
     "Uncharted 2: Among Thieves":
@@ -8309,13 +8279,6 @@ PPU-7b8a70c24456205b776915643a2acacb6ef6ea56:
     Patch Version: 1.2
     Patch:
       - [ load, *uc2_Disc_100_vmb ]
-  "Approximate ZCull graphic fixes":
-    Games: *uc2_disc100title
-    Author: "ZEROx"
-    Notes: *uc2_water_ref_notes
-    Patch Version: 2.0
-    Patch:
-      - [ load, *uc2_Disc_100_ref ]
   "Debug Menu":
     Games: *uc2_disc100title
     Author: "dron_3, HdHereidme, illusion"
@@ -8514,13 +8477,6 @@ PPU-a3a5789c12711291dfe16a7d5d81c906d2b4c0c2:
     Patch Version: 1.2
     Patch:
       - [ load, *uc2_Disc_109_vmb ]
-  "Approximate ZCull graphic fixes":
-    Games: *uc2_disc109title
-    Author: "ZEROx"
-    Notes: *uc2_water_ref_notes
-    Patch Version: 2.0
-    Patch:
-      - [ load, *uc2_Disc_109_ref ]
   "Debug Menu":
     Games: *uc2_disc109title
     Author: "dron_3, HdHereidme"
@@ -8632,13 +8588,6 @@ PPU-599461c6c88935ff0ed26ef20e649c8c38b7be9c:
     Patch Version: 1.2
     Patch:
       - [ load, *uc2_PSN_vmb ]
-  "Approximate ZCull graphic fixes":
-    Games: *uc2_PSN110title
-    Author: "ZEROx"
-    Notes: *uc2_water_ref_notes
-    Patch Version: 2.0
-    Patch:
-      - [ load, *uc2_PSN_ref ]
   "Debug Menu":
     Games: *uc2_PSN110title
     Author: "dron_3, HdHereidme, illusion"
