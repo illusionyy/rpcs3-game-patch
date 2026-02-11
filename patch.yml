@@ -5865,9 +5865,6 @@ Anchors:
     - [ be16, 0x00a7a7b8, 0x90e3 ]     # Depth buffer                (r27 => r6 ) (mem address: 0x14c7f93)
     - [ be16, 0x00a516ec, 0x4800 ]     # Cabin resort crash fix
 
-  tlou100_speed: &tlou100_speed
-    - [ be16, 0x00a7a6b8, 0x9383 ]     # Speedboost                               (mem address: 0x14c7e5f)
-
   tlou100_devmenu: &tlou100_devmenu
     # debug menu
     - [ be32, 0x000399c8, 0x39c00001 ]
@@ -6261,9 +6258,6 @@ Anchors:
     - [ be32, 0x00a8013c, 0x38920001 ] # Restore r4
     - [ be32, 0x00a80140, 0x4e800020 ] # Return
 
-  tlou111_speed: &tlou111_speed
-    - [ be16, 0x00aaa1e8, 0x9383 ]     # Speedboost                               (mem address: 0x1571d03)
-
   tlou111_devplus: &tlou111_devplus
     - [ be32, 0x012850e8, 0x00e8c3e7 ] # str ptr
     - [ be32, 0x0128515c, 0x00e8c57f ] # str ptr
@@ -6545,9 +6539,6 @@ Anchors:
   tlou_gpulighting_notes: &tlou_gpulighting_notes
     "Uses GPU (RSX) path for lighting effects instead of SPU.\nFixes rendering of lightning effects that are being rendered broken via SPU path and greatly improves performance over it.\nThis path is incomplete and results in some missing effects such as Volumetric lighting.\nVersion 2.0 - Fixes Cabin Resort level crashes/artifacts without removing the fog (1.11 only)"
 
-  tlou_speed_notes: &tlou_speed_notes
-    "Improves performance in certain areas. May cause issues."
-
   tlou_debugmenu_notes: &tlou_debugmenu_notes
     "L3 + Start = Dev Menu\nL3 + Select = Quick Menu\nL3 + Triangle = FPS Text\nL3 + R3 = Debug Fly"
 
@@ -6666,13 +6657,6 @@ PPU-9df60dc1aa5005a0c80e9066e4951dc0471553e6:
     Patch Version: 2.0
     Patch:
       - [ load, *tlou100_db ]
-  "Speedboost":
-    Games: *tlou100_title
-    Author: "ZEROx, illusion"
-    Notes: *tlou_speed_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *tlou100_speed ]
   "Debug Menu":
     Games: *tlou100_title
     Author: "dron_3, HdHereidme, illusion"
@@ -6834,13 +6818,6 @@ PPU-120fb71f7352d62521c639b0e99f960018c10a56:
     Patch Version: 2.0
     Patch:
       - [ load, *tlou111_db ]
-  "Speedboost":
-    Games: *tlou111_title
-    Author: "ZEROx, illusion"
-    Notes: *tlou_speed_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *tlou111_speed ]
   "Debug Menu":
     Games: *tlou111_title
     Author: "illusion, ZEROx, dron_3, HdHereidme"
@@ -7076,13 +7053,6 @@ PPU-9e5c67eaf69077c591b7c503bed2b48617643134:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x0003ddb0, 0x4800 ]
-  "Speedboost":
-    Games: *tloulb100_title
-    Author: "ZEROx, illusion, FlexBy"
-    Notes: *tlou_speed_notes
-    Patch Version: 1.0
-    Patch:
-      - [ be16, 0x00aaa93c, 0x9383 ]
   "Disable SSAO":
     Games: *tloulb100_title
     Author: "JohnHolmesII, ZEROx, illusion, Juhn, FlexBy"
@@ -8757,9 +8727,6 @@ Anchors:
   uc3_100_dof: &uc3_100_dof
     - [ be32, 0x0093b430, 0x9b83007a ] # Disable Depth of Field (mem address: 0x1346de2)
 
-  uc3_100_speed: &uc3_100_speed
-    - [ be32, 0x0093b44c, 0x9b830081 ] # Speedup (WCB)          (mem address: 0x1346de9)
-
   uc3_100_dbv: &uc3_100_dbv
     - [ be32, 0x0093b6b8, 0x9b6302f9 ] # Depth buffer viewport  (mem address: 0x1347061)
 
@@ -8802,9 +8769,6 @@ Anchors:
 
   uc3_JP_100_dof: &uc3_JP_100_dof
     - [ be32, 0x0093b458, 0x9b83007a ] # Disable Depth of Field
-
-  uc3_JP_100_speed: &uc3_JP_100_speed
-    - [ be32, 0x0093b474, 0x9b830081 ] # Speedup (WCB)
 
   uc3_JP_100_dbv: &uc3_JP_100_dbv
     - [ be32, 0x0093b6e0, 0x9b6302f9 ] # Depth buffer viewport
@@ -8888,9 +8852,6 @@ Anchors:
   uc3_110_dof: &uc3_110_dof
     - [ be32, 0x0094d814, 0x9b83007a ] # Disable Depth of Field (mem address: 0x1377012)
 
-  uc3_110_speed: &uc3_110_speed
-    - [ be32, 0x0094d830, 0x9b830081 ] # Speedup (WCB)          (mem address: 0x1377019)
-
   uc3_110_dbv: &uc3_110_dbv
     - [ be32, 0x0094da9c, 0x9b6302f9 ] # Depth buffer viewport  (mem address: 0x1377291)
 
@@ -8969,9 +8930,6 @@ Anchors:
 
   uc3_119_dof: &uc3_119_dof
     - [ be32, 0x0096ea64, 0x9b83007a ] # Disable Depth of Field (mem address: 0x13865e2)
-
-  uc3_119_speed: &uc3_119_speed
-    - [ be32, 0x0096ea80, 0x9b830081 ] # Speedup (WCB)          (mem address: 0x13865e9)
 
   uc3_119_dbv: &uc3_119_dbv
     - [ be32, 0x0096ecec, 0x9b6302f9 ] # Depth buffer viewport  (mem address: 0x1386861)
@@ -9184,9 +9142,6 @@ Anchors:
   uc3_mlaa_notes: &uc3_mlaa_notes
     "Allows for the use of Resolution Scaling in the title and improves performance.\nVersion 2.0 Fixes high levels of bloom in some areas. (1.10 and 1.19 Only)\nVersion 3.0 Fixes Crash in some multiplayer levels. (1.19 Only)"
 
-  uc3_wcbperformance_notes: &uc3_wcbperformance_notes
-    "Enable this patch if you are using \"Write Color Buffers\" to restore performance."
-
   uc3_gpulighting_notes: &uc3_gpulighting_notes
     "Uses GPU (RSX) path for lighting effects instead of SPU.\nFixes rendering of lighting effects that are broken via SPU path and greatly improves performance over it.\nThis path is incomplete and results in some missing effects such as Volumetric lighting."
 
@@ -9293,13 +9248,6 @@ PPU-49c96996b6f3c0b32422375978c41e0c7ed95183:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_100_dof ]
-  "Performance (WCB)":
-    Games: *uc3_100title
-    Author: "ZEROx, illusion"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_100_speed ]
   "Depth Buffer Viewport":
     Games: *uc3_100title
     Author: "ZEROx, illusion"
@@ -9382,15 +9330,6 @@ PPU-48fa849dfeaef2f36ec042a576f29bda19ec1de0:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_JP_100_dof ]
-  "Performance (WCB)":
-    Games:
-      "Uncharted 3: Drake's Deception":
-        BCJS37004: [ 01.00 ]
-    Author: "ZEROx, illusion"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_JP_100_speed ]
   "Depth Buffer Viewport":
     Games:
       "Uncharted 3: Drake's Deception":
@@ -9471,13 +9410,6 @@ PPU-664fb0e4a94c62c15a6474841c202fb2bf80ce16:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_110_dof ]
-  "Performance (WCB)":
-    Games: *uc3_110title
-    Author: "ZEROx, illusion"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_110_speed ]
   "Depth Buffer Viewport":
     Games: *uc3_110title
     Author: "ZEROx, illusion"
@@ -9564,13 +9496,6 @@ PPU-02a88c3c6cd415b0bb81f1606bc743835881a4ba:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_119_dof ]
-  "Performance (WCB)":
-    Games: *uc3_119title
-    Author: "ZEROx, illusion"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_119_speed ]
   "Depth Buffer Viewport":
     Games: *uc3_119title
     Author: "ZEROx, illusion"
@@ -9823,13 +9748,6 @@ PPU-9584776e7fca409ed410f8a713832267020d8ac3:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x00897604, 0x9b43 ] # dof                 = 0
-  "Performance (WCB)":
-    Games: *uc3beta104_title
-    Author: "illusion, ZEROx"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ be16, 0x00897620, 0x9b83 ] # reload depth buffer = 0
   "Depth Buffer Viewport":
     Games: *uc3beta104_title
     Author: "illusion, ZEROx"
@@ -9889,13 +9807,6 @@ PPU-40958bda5885891f0a4eb69f2c87ed4942dfa5e7:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0093ac0c, 0x9b83031d ]
-  "Performance (WCB)":
-    Games: *uc3_kioskdemo
-    Author: "ZEROx, illusion, FlexBy"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x0093a960, 0x9b830081 ]
   "Disable Bloom":
     Games: *uc3_kioskdemo
     Author: "ZEROx, illusion, FlexBy"
@@ -10005,13 +9916,6 @@ PPU-0ff0b00602e5ffc67f32ab69840bbb2c7df735fe:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0093a8b8, 0x9b83031d ]
-  "Performance (WCB)":
-    Games: *uc3_USpreview
-    Author: "ZEROx, illusion, FlexBy"
-    Notes: *uc3_wcbperformance_notes
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x0093a60c, 0x9b830081 ]
   "Disable Bloom":
     Games: *uc3_USpreview
     Author: "ZEROx, illusion, FlexBy"
@@ -12207,12 +12111,6 @@ Anchors:
   uc1_debug_menu_all_psn: &uc1_debug_menu_all_psn
     - [ be16, 0x0004b5c4, 0x419e ] # has it's function branched out!
 
-  uc1_zfightingfix_101_disc: &uc1_zfightingfix_101_disc
-    - [ be16, 0x000e52a0, 0x981d ]
-
-  uc1_zfightingfix_all_psn: &uc1_zfightingfix_all_psn
-    - [ be16, 0x000e5250, 0x981d ]
-
   uc1_mb_101_disc: &uc1_mb_101_disc
     - [ be16, 0x000e527c, 0x981d ] # (mem address: 0xbb43d7)
 
@@ -12260,8 +12158,6 @@ Anchors:
     "Enable Debug Console (DECR) mode to unlock the full menu.\nL3 + Start = Dev Menu\nL3 + Select = Quick Menu (Use this to unlock others)\nL3 + Triangle = Debug Text\nL2 + R2 = Debug Fly"
   uc1_debugmenu_notes2: &uc1_debugmenu_notes2
     "Unlocks some devkit menu without DECR:\n Rendering\n Collision (needs working msgcon)\n Interactive Background\n Physics\n Particles"
-  uc1_zfightingfix_notes: &uc1_zfightingfix_notes
-    "Disables Reload Depth Cull Buffer, restores performance after enabling WCB/WDB, especially using higher resolutions, fixes flickering surfaces."
   uc1_dlight_notes: &uc1_dlight_notes
     "Slightly improves performance at the cost of worse graphics."
   uc1_gfd_notes: &uc1_gfd_notes
@@ -12356,13 +12252,6 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005d14d8, 0x39290000 ]
-  "WCB Performance & Z-fighting fix":
-    Games: *uc1_disc101title
-    Author: "ZEROx"
-    Notes: *uc1_zfightingfix_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_zfightingfix_101_disc ]
   "Unlock FPS":
     Games: *uc1_disc101title
     Author: "FlexBy"
@@ -12443,13 +12332,6 @@ PPU-4a5f4c5ae98f1b8b01294a267790adfa5e8b4501:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005d14d8, 0x39290000 ]
-  "WCB Performance & Z-fighting fix":
-    Games: *uc1_disc101asiatitle
-    Author: "ZEROx"
-    Notes: *uc1_zfightingfix_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_zfightingfix_101_disc ]
   "Unlock FPS":
     Games: *uc1_disc101asiatitle
     Author: "FlexBy"
@@ -12516,13 +12398,6 @@ PPU-3488cb6c2a7178978b5044b09c7c7ef8397440c0:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x0004b5d4, 0x409e ]
-  "WCB Performance & Z-fighting fix":
-    Games: *uc1_PSNalltitle
-    Author: "ZEROx"
-    Notes: *uc1_zfightingfix_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_zfightingfix_all_psn ]
   "Unlock FPS":
     Games: *uc1_PSNalltitle
     Author: "FlexBy"
