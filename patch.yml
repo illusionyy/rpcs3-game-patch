@@ -3813,14 +3813,14 @@ PPU-19724fde16a5b111b7b4d2a065f5dccaf8e01962: # God of War 3 1.03
     Patch Version: 1.0
     Patch:
       - [ be32, 0x001c57e4, 0x38000000 ]
-  "Disable Color Grading (Speedboost)":
+  "Disable Color Grading":
     Games: *gow3_103_title
     Author: "illusion"
     Notes: *gow3_colorgrading_notes
     Patch Version: 1.0
     Patch:
       - [ byte, 0x0052bda3, 0x00 ]
-  "Disable Layered Fog (Speedboost)":
+  "Disable Layered Fog":
     Games: *gow3_103_title
     Author: "ZEROx"
     Notes: *gow3_fog_notes
@@ -3896,14 +3896,14 @@ PPU-4d5c51503a81a327c2a99427390a395b8dcb3767: # God of War 3 1.00
     Patch Version: 1.0
     Patch:
       - [ be32, 0x001c5700, 0x38000000 ]
-  "Disable Color Grading (Speedboost)":
+  "Disable Color Grading":
     Games: *gow3_100_title
     Author: "illusion"
     Notes: *gow3_colorgrading_notes
     Patch Version: 1.0
     Patch:
       - [ byte, 0x0052bda3, 0x00 ]
-  "Disable Layered Fog (Speedboost)":
+  "Disable Layered Fog":
     Games: *gow3_100_title
     Author: "ZEROx"
     Notes: *gow3_fog_notes
