@@ -3750,7 +3750,7 @@ PPU-376469bd27d45a617b6d086894c07e4a00f86fde:
 
 Anchors:
   gow3_mlaa_notes: &gow3_mlaa_notes
-    "Allows for the use of Resolution Scaling in the title.\nSet Resolution Scale Threshold to 1x1 or some effects will break.\n2.0 Slightly improves performance when using resolution scaling in some cases."
+    "Allows for the use of Resolution Scaling in the title.\nSet Resolution Scale Threshold to 160x160 or some effects will break.\n2.0 Slightly improves performance when using resolution scaling in some cases."
 
   gow3_colorgrading_notes: &gow3_colorgrading_notes
     "Significantly improves performance, changes visuals for Army of Sparta special attack and some lighting changes, generally only on magic sources."
@@ -11953,6 +11953,19 @@ PPU-cf2651406b00ee9c2af61fc1daf37fce50303474:
       - [be32, 0x0104f0bc, 0x4bfd6524] #Roster "fix"
       - [be32, 0x00211df0, 0x4bff8760] #Tuner "fix"
 
+PPU-d4bbaf00a080a924e862c1b3f7705380a3499edb:
+  "ZamboniMultiplayerPatch":
+    Games:
+      "NHL Legacy":
+        BLES02153: [ 01.01 ]
+        BLUS31540: [ 01.01 ]
+    Author: "Kaap0"
+    Notes: "Required to play Online for now. Might skip something very important..."
+    Patch Version: 1.0
+    Patch:
+      - [be32, 0x0087b11c, 0x2c030001] #Roster "fix"
+      - [be32, 0x0087a010, 0x2c030001] #Tuner "fix"
+
 PPU-b6c244044dbd6fcee19bb9e0d82f434119524629:
   "Ultrawide 21:9 (3440x1440)":
     Games:
@@ -12111,6 +12124,12 @@ Anchors:
   uc1_debug_menu_all_psn: &uc1_debug_menu_all_psn
     - [ be16, 0x0004b5c4, 0x419e ] # has it's function branched out!
 
+  uc1_zfightingfix_101_disc: &uc1_zfightingfix_101_disc
+    - [ be16, 0x000e52a0, 0x981d ]
+
+  uc1_zfightingfix_all_psn: &uc1_zfightingfix_all_psn
+    - [ be16, 0x000e5250, 0x981d ]
+
   uc1_mb_101_disc: &uc1_mb_101_disc
     - [ be16, 0x000e527c, 0x981d ] # (mem address: 0xbb43d7)
 
@@ -12158,6 +12177,8 @@ Anchors:
     "Enable Debug Console (DECR) mode to unlock the full menu.\nL3 + Start = Dev Menu\nL3 + Select = Quick Menu (Use this to unlock others)\nL3 + Triangle = Debug Text\nL2 + R2 = Debug Fly"
   uc1_debugmenu_notes2: &uc1_debugmenu_notes2
     "Unlocks some devkit menu without DECR:\n Rendering\n Collision (needs working msgcon)\n Interactive Background\n Physics\n Particles"
+  uc1_zfightingfix_notes: &uc1_zfightingfix_notes
+    "Disables Reload Depth Cull Buffer, restores performance after enabling WCB/WDB, especially using higher resolutions, fixes flickering surfaces."
   uc1_dlight_notes: &uc1_dlight_notes
     "Slightly improves performance at the cost of worse graphics."
   uc1_gfd_notes: &uc1_gfd_notes
@@ -12252,6 +12273,13 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005d14d8, 0x39290000 ]
+  "WCB Performance & Z-fighting fix":
+    Games: *uc1_disc101title
+    Author: "ZEROx"
+    Notes: *uc1_zfightingfix_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *uc1_zfightingfix_101_disc ]
   "Unlock FPS":
     Games: *uc1_disc101title
     Author: "FlexBy"
@@ -12332,6 +12360,13 @@ PPU-4a5f4c5ae98f1b8b01294a267790adfa5e8b4501:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005d14d8, 0x39290000 ]
+  "WCB Performance & Z-fighting fix":
+    Games: *uc1_disc101asiatitle
+    Author: "ZEROx"
+    Notes: *uc1_zfightingfix_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *uc1_zfightingfix_101_disc ]
   "Unlock FPS":
     Games: *uc1_disc101asiatitle
     Author: "FlexBy"
@@ -12398,6 +12433,13 @@ PPU-3488cb6c2a7178978b5044b09c7c7ef8397440c0:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x0004b5d4, 0x409e ]
+  "WCB Performance & Z-fighting fix":
+    Games: *uc1_PSNalltitle
+    Author: "ZEROx"
+    Notes: *uc1_zfightingfix_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *uc1_zfightingfix_all_psn ]
   "Unlock FPS":
     Games: *uc1_PSNalltitle
     Author: "FlexBy"
@@ -19798,15 +19840,23 @@ PPU-b1073f20b9fd664da46c6e666539da6626cb2e94:
 Anchors:
   FixLock: &FixLock
 #func1
-      - [ be32, 0x011FFFD8, 0x801F0010 ] #lwz r0, 0x10(r31)
-      - [ be32, 0x011FFFDC, 0x2F800000 ] #cmpwi cr7, r0, 0x0
-      - [ be32, 0x011FFFE0, 0x409E0008 ] #bne 0x11fffe8
-      - [ be32, 0x011FFFE4, 0x801F0030 ] #lwz r0, 0x30(r31)
+      - [ be32, 0x011FFFD8, 0x801F0010 ] # lwz r0, 0x10(r31)
+      - [ be32, 0x011FFFDC, 0x2F800000 ] # cmpwi cr7, r0, 0x0
+      - [ be32, 0x011FFFE0, 0x409E0008 ] # bne 0x11fffe8
+      - [ be32, 0x011FFFE4, 0x801F0030 ] # lwz r0, 0x30(r31)
 #func2
-      - [ be32, 0x011FFFEC, 0x801F0010 ] #lwz r0, 0x10(r31)
-      - [ be32, 0x011FFFF0, 0x2F800000 ] #cmpwi cr7, r0, 0x0
-      - [ be32, 0x011FFFF4, 0x409E0008 ] #bne 0x11ffffc
-      - [ be32, 0x011FFFF8, 0x801FFFF0 ] #lwz r0, -0x10(r31)
+      - [ be32, 0x011FFFEC, 0x801F0010 ] # lwz r0, 0x10(r31)
+      - [ be32, 0x011FFFF0, 0x2F800000 ] # cmpwi cr7, r0, 0x0
+      - [ be32, 0x011FFFF4, 0x409E0008 ] # bne 0x11ffffc
+      - [ be32, 0x011FFFF8, 0x801FFFF0 ] # lwz r0, -0x10(r31)
+
+  MissileFix: &MissileFix
+      - [ be32, 0x011FFFBC, 0x2F830000 ] # cmpwi cr7, r3, 0x0
+      - [ be32, 0x011FFFC0, 0x409E0014 ] # bne cr7, 0x11fffd4
+      - [ be32, 0x011FFFC4, 0x809FFFFC ] # lwz r4, -0x4(r31)
+      - [ be32, 0x011FFFC8, 0x8884FFD4 ] # lbz r4, -0x2c(r4)
+      - [ be32, 0x011FFFCC, 0x2F840001 ] # cmpwi cr7, r4, 0x1
+      - [ be32, 0x011FFFD0, 0x4FDEF042 ] # crnot 30, 30
 
 PPU-c67c32700d8419d67b77a1ccfc88d05f37e41fc4:
   "Fix Lock Problem in PvP":
@@ -19824,6 +19874,19 @@ PPU-c67c32700d8419d67b77a1ccfc88d05f37e41fc4:
       - [ be32, 0x0097503C, 0x4888AFB0 ] #b 0x11fffec
       - [ be32, 0x011FFFFC, 0x4B775044 ] #b 0x975040
 
+  "Fix Hangar Missile":
+    Games:
+      "ARMORED CORE for Answer":
+        BLUS30187: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.1
+    Group: ""
+    Notes: "Fixes an issue where hangar missiles fail to lock on correctly in PvP."
+    Patch:
+      - [ load, *MissileFix ]
+      - [ be32, 0x007B3F4C, 0x48A4C070 ] # b 0x11fffbc
+      - [ be32, 0x011FFFD4, 0x4B5B3F7C ] # b 0x7b3f50
+
 PPU-0bc5d0e97eebf1b3bf933f2e442acb20d3a1d969:
   "Fix Lock Problem in PvP":
     Games:
@@ -19840,6 +19903,19 @@ PPU-0bc5d0e97eebf1b3bf933f2e442acb20d3a1d969:
       - [ be32, 0x0097514C, 0x4888AEA0 ] #b 0x11fffec
       - [ be32, 0x011FFFFC, 0x4B775154 ] #b 0x975150
 
+  "Fix Hangar Missile":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM60066: [ 01.35 ]
+    Author: "BEZEL"
+    Patch Version: 1.1
+    Group: ""
+    Notes: "Fixes an issue where hangar missiles fail to lock on correctly in PvP."
+    Patch:
+      - [ load, *MissileFix ]
+      - [ be32, 0x007B406C, 0x48A4BF50 ] # b 0x11fffbc
+      - [ be32, 0x011FFFD4, 0x4B5B409C ] # b 0x7b4070
+
 PPU-321ccf1f115007f3260650828b3c01e7e40775d4:
   "Fix Lock Problem in PvP":
     Games:
@@ -19855,6 +19931,19 @@ PPU-321ccf1f115007f3260650828b3c01e7e40775d4:
       - [ be32, 0x011FFFE8, 0x4B775270 ] #b 0x975258
       - [ be32, 0x0097531C, 0x4888ACD0 ] #b 0x11fffec
       - [ be32, 0x011FFFFC, 0x4B775324 ] #b 0x975320
+
+  "Fix Hangar Missile":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM55005: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.1
+    Group: ""
+    Notes: "Fixes an issue where hangar missiles fail to lock on correctly in PvP."
+    Patch:
+      - [ load, *MissileFix ]
+      - [ be32, 0x007B423C, 0x48A4BD80 ] # b 0x11fffbc
+      - [ be32, 0x011FFFD4, 0x4B5B426C ] # b 0x7b4240
 
 PPU-fccf7c4880b7c580c8a15ad2beabd5da59ac0832:
   "Skip intro":
