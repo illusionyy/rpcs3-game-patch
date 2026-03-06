@@ -22322,6 +22322,33 @@ PPU-414babec8910f142628daeb43cefe28e619d27ee:
     Patch:
       - [ load, *kid_fpsAS ]
 
+Anchors:
+  kingdomoA_unlockfps_notes: &kingdomoA_unlockfps_notes
+    "Maximum framerate with the patch is the Vblank frequency value."
+
+PPU-d9f0d4a5ae132d6d1f7ad41148f73a40a25a561c:
+  "Unlock FPS":
+    Games:
+      "Kingdoms of Amalur: Reckoning":
+        BLES01251: [ 01.00 ]
+    Author: "FlexBy"
+    Notes: *kingdomoA_unlockfps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00124b88, 0x60000000 ]
+
+PPU-cc4adbacf2d46ed248c31b2f92b9ed0541ad0b31:
+  "Unlock FPS":
+    Games:
+      "Kingdoms of Amalur: Reckoning":
+        BLES01251: [ 01.02 ]
+        BLUS30710: [ 01.02 ]
+    Author: "FlexBy"
+    Notes: *kingdomoA_unlockfps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001242f8, 0x60000000 ]
+
 PPU-37b6841852cf37fc1f3d2c7b005475b2d72ab24d:
   "Skip Rockstar Logo":
     Games:
