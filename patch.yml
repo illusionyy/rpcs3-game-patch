@@ -1664,6 +1664,15 @@ PPU-bfad65ed0963e68cebafdf24d00201005ad3a17e:
     Patch Version: 1.0
     Patch:
       - [ load, *folkloreESUS_110_nosixaxis ]
+  "Unlock FPS":
+    Games:
+      "Folklore":
+        BCES00050: [ 01.10 ]
+    Author: "surge4315"
+    Notes: *Folklore_FPS_Notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001821a0, 0x60000000 ]
 
 PPU-7d723460c40bd00fd359e1fc88d554e5185de037:
   "Unlock FPS":
@@ -25001,11 +25010,12 @@ PPU-cfa4d1b380b8ebfa5acd59fa9378c50e3059865c:
         BLES00142: [ 01.00 ]
         BLES00146: [ 01.00 ]
         BLUS30065: [ 01.00 ]
-    Author: "illusion"
-    Notes: "Known Issues:\nPlayer's might fall through the T-rex in the second mission.\nMarshmallow trampolines may not work as intended."
-    Patch Version: 1.0
+    Author: "illusion, tronuo"
+    Notes: 
+    Patch Version: 1.1
     Patch:
       - [ byte, 0x005b4ebf, 0x01 ]
+      - [ be32, 0x00b06470, 0x3C88AB86 ]
   "Invincibility":
     Games:
       "The Simpsons Game":
