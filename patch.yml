@@ -17692,6 +17692,15 @@ PPU-eb133a3b9430baa45d39e9e00ba8cf9cea89154c:
     Patch Version: 1.0
     Patch:
       - [ bef32, 0x010aeaec, 1.25 ]
+  "60 FPS":
+    Games:
+      "The Darkness":
+        BLES00058: [ 01.03 ]
+    Author: "tronuo"
+    Notes:
+    Patch Version: 1.0 
+    Patch:
+      - [ be32, 0x000af0d0, 0x48000014 ]
 
 PPU-9ef94f24f84f5923f9c88557e33c2ffab380fb7b:
   "Extended FOV":
@@ -17703,6 +17712,15 @@ PPU-9ef94f24f84f5923f9c88557e33c2ffab380fb7b:
     Patch Version: 1.0
     Patch:
       - [ bef32, 0x010aeaa4, 1.25 ]
+  "60 FPS":
+    Games:
+      "The Darkness":
+        BLUS30035: [ 01.03 ]
+    Author: "tronuo"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000ae6d4, 0x48000014 ]
 
 Anchors:
   batmanAA_unlockfps_notes: &batmanAA_unlockfps_notes
@@ -23418,6 +23436,39 @@ PPU-c0822220e2e35bd1450b722b28d86216cca40a8d:
       - [be32, 0x008b9740, 0x60000000] #crash "fix" (Mupset)
       - [be32, 0x0106a0bc, 0x4bfffd21] #Roster "fix"
       - [be32, 0x00408abc, 0x4bfffded] #Tuner "fix"
+
+PPU-a8e5b11d3fdd988f4a66e638302ff267d3a495a2:
+  "60 FPS":
+    Games:
+      "Pirates of the Caribbean: At World's End":
+        BLES00066: [ 01.00 ]
+    Author: "tronuo"
+    Notes:
+    Patch Version: 1.0 
+    Patch:
+      - [ be32, 0x00889148, 0x38a00001 ]
+
+PPU-ee23af61d7b140e8f101da815e472abad7f6df35:
+  "60 FPS":
+    Games:
+      "Pirates of the Caribbean: At World's End":
+        BLUS30029: [ 01.00 ]
+    Author: "tronuo"
+    Notes:
+    Patch Version: 1.0 
+    Patch:
+      - [ be32, 0x00889060, 0x38a00001 ]
+
+PPU-1f3dd0e64e16f8d2c81580c249f6d1c0dc5bcd88:
+  "60 FPS":
+    Games:
+      "Pirates of the Caribbean: At World's End":
+        BLJM60034: [ 01.01 ]
+    Author: "tronuo"
+    Notes:
+    Patch Version: 1.0 
+    Patch:
+      - [ be32, 0x008893b0, 0x38a00001 ]
 
 PPU-9ee543aff769e702526f67713c776247929abeb3:
   "Unlock FPS":
