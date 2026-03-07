@@ -10,9 +10,6 @@ on:
 
 jobs:
   build:
-    if: |
-      github.repository == 'illusionyy/rpcs3-game-patch' &&
-      github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     env:
       old_runs: 2000
