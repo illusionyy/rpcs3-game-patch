@@ -12133,12 +12133,6 @@ Anchors:
   uc1_debug_menu_all_psn: &uc1_debug_menu_all_psn
     - [ be16, 0x0004b5c4, 0x419e ] # has it's function branched out!
 
-  uc1_zfightingfix_101_disc: &uc1_zfightingfix_101_disc
-    - [ be16, 0x000e52a0, 0x981d ]
-
-  uc1_zfightingfix_all_psn: &uc1_zfightingfix_all_psn
-    - [ be16, 0x000e5250, 0x981d ]
-
   uc1_mb_101_disc: &uc1_mb_101_disc
     - [ be16, 0x000e527c, 0x981d ] # (mem address: 0xbb43d7)
 
@@ -12166,15 +12160,6 @@ Anchors:
     - [ be32, 0x000e53c8, 0x60000000 ]
     - [ bef32, 0x00bb44d4, "Distance" ] # Fadeout End Distance
 
-  uc1_dssbd_101_disc: &uc1_dssbd_101_disc
-    - [ be32, 0x00726e30, 0x48074c40 ] # b 0x0079BA70
-    - [ be32, 0x0079ba70, 0xf9280030 ] # std r9, 0x30(r8)
-    - [ be32, 0x0079ba74, 0x3c600084 ] # lis r3, 0x8400         ; r3 = 0x84000000
-    - [ be32, 0x0079ba78, 0x606300d4 ] # ori r3, r3, 0x00D4     ; r3 = 0x8400D4
-    - [ be32, 0x0079ba7c, 0x38000001 ] # li r0, 1               ; r0 = 1
-    - [ be32, 0x0079ba80, 0x98030000 ] # stb r0, 0(r3)          ; store byte to 0x8400D4
-    - [ be32, 0x0079ba84, 0x4bf8b3b0 ] # b 0x00726E34           ; return
-
   uc1_fadeout_configurable_values: &uc1_fadeout_configurable_values
     "Distance":
       Type: double_range
@@ -12186,8 +12171,6 @@ Anchors:
     "Enable Debug Console (DECR) mode to unlock the full menu.\nL3 + Start = Dev Menu\nL3 + Select = Quick Menu (Use this to unlock others)\nL3 + Triangle = Debug Text\nL2 + R2 = Debug Fly"
   uc1_debugmenu_notes2: &uc1_debugmenu_notes2
     "Unlocks some devkit menu without DECR:\n Rendering\n Collision (needs working msgcon)\n Interactive Background\n Physics\n Particles"
-  uc1_zfightingfix_notes: &uc1_zfightingfix_notes
-    "Disables Reload Depth Cull Buffer, restores performance after enabling WCB/WDB, especially using higher resolutions, fixes flickering surfaces."
   uc1_dlight_notes: &uc1_dlight_notes
     "Slightly improves performance at the cost of worse graphics."
   uc1_gfd_notes: &uc1_gfd_notes
@@ -12282,13 +12265,6 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005d14d8, 0x39290000 ]
-  "WCB Performance & Z-fighting fix":
-    Games: *uc1_disc101title
-    Author: "ZEROx"
-    Notes: *uc1_zfightingfix_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_zfightingfix_101_disc ]
   "Unlock FPS":
     Games: *uc1_disc101title
     Author: "FlexBy"
@@ -12303,13 +12279,6 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 1.0
     Patch:
       - [ load, *uc1_dlight_101_disc ]
-  "Disable Sunlight ShadowBuffer Draw":
-    Games: *uc1_disc101title
-    Author: "FlexBy"
-    Notes: *uc1_dlight_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_dssbd_101_disc ]
   "Enable Global Fadeout":
     Games: *uc1_disc101title
     Author: "FlexBy"
@@ -12369,13 +12338,6 @@ PPU-4a5f4c5ae98f1b8b01294a267790adfa5e8b4501:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005d14d8, 0x39290000 ]
-  "WCB Performance & Z-fighting fix":
-    Games: *uc1_disc101asiatitle
-    Author: "ZEROx"
-    Notes: *uc1_zfightingfix_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_zfightingfix_101_disc ]
   "Unlock FPS":
     Games: *uc1_disc101asiatitle
     Author: "FlexBy"
@@ -12390,13 +12352,6 @@ PPU-4a5f4c5ae98f1b8b01294a267790adfa5e8b4501:
     Patch Version: 1.0
     Patch:
       - [ load, *uc1_dlight_101_disc ]
-  "Disable Sunlight ShadowBuffer Draw":
-    Games: *uc1_disc101asiatitle
-    Author: "FlexBy"
-    Notes: *uc1_dlight_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_dssbd_101_disc ]
   "Enable Global Fadeout":
     Games: *uc1_disc101asiatitle
     Author: "FlexBy"
@@ -12442,13 +12397,6 @@ PPU-3488cb6c2a7178978b5044b09c7c7ef8397440c0:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x0004b5d4, 0x409e ]
-  "WCB Performance & Z-fighting fix":
-    Games: *uc1_PSNalltitle
-    Author: "ZEROx"
-    Notes: *uc1_zfightingfix_notes
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc1_zfightingfix_all_psn ]
   "Unlock FPS":
     Games: *uc1_PSNalltitle
     Author: "FlexBy"
