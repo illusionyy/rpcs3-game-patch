@@ -520,13 +520,6 @@ PPU-83681f6110d33442329073b72b8dc88a2f677172:
     Patch Version: 2.1
     Patch:
       - [ load, *BLUS30443_FpsUnlock ]
-  "Disable Dynamic Exposure":
-    Games: *des_US100title
-    Author: "Whatcookie"
-    Notes: *DeS_DDE_Notes
-    Patch Version: 1.1
-    Patch:
-      - [ be16, 0x00025edc, 0x981f ]
   "Skip Intro Videos":
     Games: *des_US100title
     Author: "GalCiv"
@@ -615,13 +608,6 @@ PPU-5446a2645880eefa75f7e374abd6b7818511e2ef:
     Patch Version: 2.1
     Patch:
       - [ load, *BLES00932_FpsUnlock ]
-  "Disable Dynamic Exposure":
-    Games: *des_EU100title
-    Author: "Whatcookie"
-    Notes: *DeS_DDE_Notes
-    Patch Version: 1.1
-    Patch:
-      - [ be16, 0x00026ac4, 0x981f ]
   "Skip Intro Videos":
     Games: *des_EU100title
     Author: "GalCiv"
@@ -662,13 +648,6 @@ PPU-9403fe1678487def5d7f3c380b4c4fb275035378:
     Patch Version: 2.1
     Patch:
       - [ load, *BCAS20071_FpsUnlock ]
-  "Disable Dynamic Exposure":
-    Games: *des_AS104title
-    Author: "Whatcookie, KokutouKiritsugu port to BCAS20071"
-    Notes: *DeS_DDE_Notes
-    Patch Version: 1.1
-    Patch:
-      - [ be16, 0x0002414c, 0x981f ]
   "Skip Intro Videos":
     Games: *des_AS104title
     Author: "GalCiv, KokutouKiritsugu port to BCAS20071"
@@ -709,13 +688,6 @@ PPU-f965a746d844cd0c572a7e8731b5b3b7a81f7bdd:
     Patch Version: 2.1
     Patch:
       - [ load, *BLUS30443_FpsUnlock ]
-  "Disable Dynamic Exposure":
-    Games: *des_USDemo101title
-    Author: "Whatcookie"
-    Notes: *DeS_DDE_Notes
-    Patch Version: 1.1
-    Patch:
-      - [ be16, 0x00025edc, 0x981f ]
   "Skip Intro Videos":
     Games: *des_USDemo101title
     Author: "GalCiv"
@@ -756,13 +728,6 @@ PPU-68544b29e92609ccb2710f485ae7708e4cb35df1:
     Patch Version: 2.1
     Patch:
       - [ load, *BCJS30022_FpsUnlock ]
-  "Disable Dynamic Exposure":
-    Games: *des_JP104title
-    Author: "Whatcookie"
-    Notes: *DeS_DDE_Notes
-    Patch Version: 1.1
-    Patch:
-      - [ be16, 0x000240d4, 0x981f ]
   "Skip Intro Videos":
     Games: *des_JP104title
     Author: "GalCiv"
@@ -8736,12 +8701,6 @@ Anchors:
   uc3_100_dof: &uc3_100_dof
     - [ be32, 0x0093b430, 0x9b83007a ] # Disable Depth of Field (mem address: 0x1346de2)
 
-  uc3_100_dbv: &uc3_100_dbv
-    - [ be32, 0x0093b6b8, 0x9b6302f9 ] # Depth buffer viewport  (mem address: 0x1347061)
-
-  uc3_100_dbf: &uc3_100_dbf
-    - [ be32, 0x0093b6f8, 0x9b83031d ] # Depth border fix       (mem address: 0x1347085)
-
   uc3_100_db: &uc3_100_db
     - [ be32, 0x00635f88, 0x60000000 ] # nop byte write on 03 ec
     - [ be32, 0x0093b704, 0x90e303ec ] # Depth buffer           (mem address: 0x1347157)
@@ -8778,12 +8737,6 @@ Anchors:
 
   uc3_JP_100_dof: &uc3_JP_100_dof
     - [ be32, 0x0093b458, 0x9b83007a ] # Disable Depth of Field
-
-  uc3_JP_100_dbv: &uc3_JP_100_dbv
-    - [ be32, 0x0093b6e0, 0x9b6302f9 ] # Depth buffer viewport
-
-  uc3_JP_100_dbf: &uc3_JP_100_dbf
-    - [ be32, 0x0093b720, 0x9b83031d ] # Depth border fix
 
   uc3_JP_100_db: &uc3_JP_100_db
     - [ be32, 0x00635fb0, 0x60000000 ] # nop byte write on 03 ec
@@ -8861,12 +8814,6 @@ Anchors:
   uc3_110_dof: &uc3_110_dof
     - [ be32, 0x0094d814, 0x9b83007a ] # Disable Depth of Field (mem address: 0x1377012)
 
-  uc3_110_dbv: &uc3_110_dbv
-    - [ be32, 0x0094da9c, 0x9b6302f9 ] # Depth buffer viewport  (mem address: 0x1377291)
-
-  uc3_110_dbf: &uc3_110_dbf
-    - [ be32, 0x0094dadc, 0x9b83031d ] # Depth border fix       (mem address: 0x13772b5)
-
   uc3_110_db: &uc3_110_db
     - [ be32, 0x0063e00c, 0x60000000 ] # nop byte write on 03 ec
     - [ be32, 0x0094dae8, 0x90e303ec ] # Depth buffer = 2       (mem address: 0x1377387)
@@ -8939,12 +8886,6 @@ Anchors:
 
   uc3_119_dof: &uc3_119_dof
     - [ be32, 0x0096ea64, 0x9b83007a ] # Disable Depth of Field (mem address: 0x13865e2)
-
-  uc3_119_dbv: &uc3_119_dbv
-    - [ be32, 0x0096ecec, 0x9b6302f9 ] # Depth buffer viewport  (mem address: 0x1386861)
-
-  uc3_119_dbf: &uc3_119_dbf
-    - [ be32, 0x0096ed2c, 0x9b83031d ] # Depth border fix       (mem address: 0x1386885)
 
   uc3_119_db: &uc3_119_db
     - [ be32, 0x0064df20, 0x60000000 ] # nop byte write on 03 ec
@@ -9257,20 +9198,6 @@ PPU-49c96996b6f3c0b32422375978c41e0c7ed95183:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_100_dof ]
-  "Depth Buffer Viewport":
-    Games: *uc3_100title
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_100_dbv ]
-  "Depth Border Fix":
-    Games: *uc3_100title
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_100_dbf ]
   "Enable GPU Lighting":
     Games: *uc3_100title
     Author: "ZEROx, illusion"
@@ -9339,24 +9266,6 @@ PPU-48fa849dfeaef2f36ec042a576f29bda19ec1de0:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_JP_100_dof ]
-  "Depth Buffer Viewport":
-    Games:
-      "Uncharted 3: Drake's Deception":
-        BCJS37004: [ 01.00 ]
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_JP_100_dbv ]
-  "Depth Border Fix":
-    Games:
-      "Uncharted 3: Drake's Deception":
-        BCJS37004: [ 01.00 ]
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_JP_100_dbf ]
   "Enable GPU Lighting":
     Games:
       "Uncharted 3: Drake's Deception":
@@ -9419,20 +9328,6 @@ PPU-664fb0e4a94c62c15a6474841c202fb2bf80ce16:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_110_dof ]
-  "Depth Buffer Viewport":
-    Games: *uc3_110title
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_110_dbv ]
-  "Depth Border Fix":
-    Games: *uc3_110title
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_110_dbf ]
   "Enable GPU Lighting":
     Games: *uc3_110title
     Author: "ZEROx, illusion"
@@ -9505,20 +9400,6 @@ PPU-02a88c3c6cd415b0bb81f1606bc743835881a4ba:
     Patch Version: 1.0
     Patch:
       - [ load, *uc3_119_dof ]
-  "Depth Buffer Viewport":
-    Games: *uc3_119title
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_119_dbv ]
-  "Depth Border Fix":
-    Games: *uc3_119title
-    Author: "ZEROx, illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ load, *uc3_119_dbf ]
   "Enable GPU Lighting":
     Games: *uc3_119title
     Author: "ZEROx, illusion"
@@ -9757,20 +9638,6 @@ PPU-9584776e7fca409ed410f8a713832267020d8ac3:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x00897604, 0x9b43 ] # dof                 = 0
-  "Depth Buffer Viewport":
-    Games: *uc3beta104_title
-    Author: "illusion, ZEROx"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be16, 0x00897880, 0x9b63 ] # depth viewport      = 1
-  "Depth Border Fix":
-    Games: *uc3beta104_title
-    Author: "illusion, ZEROx"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be16, 0x008978c0, 0x9b83 ] # depth border        = 0
   "Enable GPU Lighting":
     Games: *uc3beta104_title
     Author: "illusion, ZEROx"
@@ -9802,20 +9669,6 @@ PPU-40958bda5885891f0a4eb69f2c87ed4942dfa5e7:
     Patch:
       - [ be32, 0x0093a85c, 0x48000040 ]
       - [ be32, 0x0093a860, 0x3b6000da ]
-  "Depth Buffer Viewport":
-    Games: *uc3_kioskdemo
-    Author: "ZEROx, illusion, FlexBy"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x0093abcc, 0x9b6302f9 ]
-  "Depth Border Fix":
-    Games: *uc3_kioskdemo
-    Author: "ZEROx, illusion, FlexBy"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x0093ac0c, 0x9b83031d ]
   "Disable Bloom":
     Games: *uc3_kioskdemo
     Author: "ZEROx, illusion, FlexBy"
@@ -9911,20 +9764,6 @@ PPU-0ff0b00602e5ffc67f32ab69840bbb2c7df735fe:
     Patch:
       - [ be32, 0x0093a508, 0x48000040 ]
       - [ be32, 0x0093a50c, 0x3b6000da ]
-  "Depth Buffer Viewport":
-    Games: *uc3_USpreview
-    Author: "ZEROx, illusion, FlexBy"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x0093a878, 0x9b6302f9 ]
-  "Depth Border Fix":
-    Games: *uc3_USpreview
-    Author: "ZEROx, illusion, FlexBy"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x0093a8b8, 0x9b83031d ]
   "Disable Bloom":
     Games: *uc3_USpreview
     Author: "ZEROx, illusion, FlexBy"
@@ -12160,6 +11999,15 @@ Anchors:
     - [ be32, 0x000e53c8, 0x60000000 ]
     - [ bef32, 0x00bb44d4, "Distance" ] # Fadeout End Distance
 
+  uc1_dssbd_101_disc: &uc1_dssbd_101_disc
+    - [ be32, 0x00726e30, 0x48074c40 ] # b 0x0079BA70
+    - [ be32, 0x0079ba70, 0xf9280030 ] # std r9, 0x30(r8)
+    - [ be32, 0x0079ba74, 0x3c600084 ] # lis r3, 0x8400         ; r3 = 0x84000000
+    - [ be32, 0x0079ba78, 0x606300d4 ] # ori r3, r3, 0x00D4     ; r3 = 0x8400D4
+    - [ be32, 0x0079ba7c, 0x38000001 ] # li r0, 1               ; r0 = 1
+    - [ be32, 0x0079ba80, 0x98030000 ] # stb r0, 0(r3)          ; store byte to 0x8400D4
+    - [ be32, 0x0079ba84, 0x4bf8b3b0 ] # b 0x00726E34           ; return
+
   uc1_fadeout_configurable_values: &uc1_fadeout_configurable_values
     "Distance":
       Type: double_range
@@ -12174,7 +12022,9 @@ Anchors:
   uc1_dlight_notes: &uc1_dlight_notes
     "Slightly improves performance at the cost of worse graphics."
   uc1_gfd_notes: &uc1_gfd_notes
-    "Lowers/Increases Object Render Distance.\nHigher Values increase render distance.\nCan improve performance."
+    "Lowers/Increases Object Render Distance.\nHigher Values increase render distance.\nCan improve performance or make it worse."
+  uc1_dsunlight_notes: &uc1_dsunlight_notes
+    "Disables Sunlight ShadowBuffer Draw (dynamic shadows) which is done on SPUs.\nImproves Performance."
 
 PPU-8007056e52279bea26c15669d1ee08c2df321d00:
 #  "Disable Motion Blur":
@@ -12279,6 +12129,13 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 1.0
     Patch:
       - [ load, *uc1_dlight_101_disc ]
+  "Disable Dynamic Shadows":
+    Games: *uc1_disc101title
+    Author: "FlexBy"
+    Notes: *uc1_dsunlight_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *uc1_dssbd_101_disc ]
   "Enable Global Fadeout":
     Games: *uc1_disc101title
     Author: "FlexBy"
@@ -12352,6 +12209,13 @@ PPU-4a5f4c5ae98f1b8b01294a267790adfa5e8b4501:
     Patch Version: 1.0
     Patch:
       - [ load, *uc1_dlight_101_disc ]
+  "Disable Dynamic Shadows":
+    Games: *uc1_disc101asiatitle
+    Author: "FlexBy"
+    Notes: *uc1_dsunlight_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *uc1_dssbd_101_disc ]
   "Enable Global Fadeout":
     Games: *uc1_disc101asiatitle
     Author: "FlexBy"
