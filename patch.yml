@@ -19718,13 +19718,24 @@ PPU-c67c32700d8419d67b77a1ccfc88d05f37e41fc4:
       "ARMORED CORE for Answer":
         BLUS30187: [ All ]
     Author: "BEZEL"
-    Patch Version: 1.1
+    Patch Version: 1.2
     Group: ""
-    Notes: "Fixes an issue where hangar missiles fail to lock on correctly in PvP."
+    Notes: "This patch fixes an issue in PvP where hand missiles stored in a tank’s hanger do not properly track their target. As a result, it increases the variety of possible tank builds. This patch operates on the attacker side."
     Patch:
       - [ load, *MissileFix ]
       - [ be32, 0x007B3F4C, 0x48A4C070 ] # b 0x11fffbc
       - [ be32, 0x011FFFD4, 0x4B5B3F7C ] # b 0x7b3f50
+
+  "Missile Lock Cursor Improvement":
+    Games:
+      "ARMORED CORE for Answer":
+        BLUS30187: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch prevents the lock cursor from disappearing while missiles are being fired. As a result, it improves weapon accuracy, especially when using continuous fire missiles, and prevents accuracy loss for weapons such as machine guns that are fired at the same time. This patch operates on the attacker side."
+    Patch:
+      - [ be32, 0x007B25A0, 0x4800014C ] # b 0x14c
 
 PPU-0bc5d0e97eebf1b3bf933f2e442acb20d3a1d969:
   "Fix Lock Problem in PvP":
@@ -19747,13 +19758,24 @@ PPU-0bc5d0e97eebf1b3bf933f2e442acb20d3a1d969:
       "ARMORED CORE for Answer":
         BLJM60066: [ 01.35 ]
     Author: "BEZEL"
-    Patch Version: 1.1
+    Patch Version: 1.2
     Group: ""
-    Notes: "Fixes an issue where hangar missiles fail to lock on correctly in PvP."
+    Notes: "This patch fixes an issue in PvP where hand missiles stored in a tank’s hanger do not properly track their target. As a result, it increases the variety of possible tank builds. This patch operates on the attacker side."
     Patch:
       - [ load, *MissileFix ]
       - [ be32, 0x007B406C, 0x48A4BF50 ] # b 0x11fffbc
       - [ be32, 0x011FFFD4, 0x4B5B409C ] # b 0x7b4070
+
+  "Missile Lock Cursor Improvement":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM60066: [ 01.35 ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch prevents the lock cursor from disappearing while missiles are being fired. As a result, it improves weapon accuracy, especially when using continuous fire missiles, and prevents accuracy loss for weapons such as machine guns that are fired at the same time. This patch operates on the attacker side."
+    Patch:
+      - [ be32, 0x007B26C0, 0x4800014C ] # b 0x14c
 
 PPU-321ccf1f115007f3260650828b3c01e7e40775d4:
   "Fix Lock Problem in PvP":
@@ -19776,13 +19798,24 @@ PPU-321ccf1f115007f3260650828b3c01e7e40775d4:
       "ARMORED CORE for Answer":
         BLJM55005: [ All ]
     Author: "BEZEL"
-    Patch Version: 1.1
+    Patch Version: 1.2
     Group: ""
-    Notes: "Fixes an issue where hangar missiles fail to lock on correctly in PvP."
+    Notes: "This patch fixes an issue in PvP where hand missiles stored in a tank’s hanger do not properly track their target. As a result, it increases the variety of possible tank builds. This patch operates on the attacker side."
     Patch:
       - [ load, *MissileFix ]
       - [ be32, 0x007B423C, 0x48A4BD80 ] # b 0x11fffbc
       - [ be32, 0x011FFFD4, 0x4B5B426C ] # b 0x7b4240
+
+  "Missile Lock Cursor Improvement":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM55005: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch prevents the lock cursor from disappearing while missiles are being fired. As a result, it improves weapon accuracy, especially when using continuous fire missiles, and prevents accuracy loss for weapons such as machine guns that are fired at the same time. This patch operates on the attacker side."
+    Patch:
+      - [ be32, 0x007B2890, 0x4800014C ] # b 0x14c
 
 PPU-fccf7c4880b7c580c8a15ad2beabd5da59ac0832:
   "Skip intro":
