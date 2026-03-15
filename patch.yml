@@ -19911,6 +19911,29 @@ PPU-c67c32700d8419d67b77a1ccfc88d05f37e41fc4:
       - [ utf8, 0x011F90F8, "/dev_hdd0/game/BLUS30187/alt/ingamescript.bnd" ]
       - [ utf8, 0x011F9144, "/dev_hdd0/game/BLUS30187/alt/menustay.bnd" ]
 
+  "Long Timer":
+    Games:
+      "ARMORED CORE for Answer":
+        BLUS30187: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch changes the PvP time limit from 15 minutes to 32,767 minutes in order to improve debugging efficiency."
+    Patch:
+      - [ be32, 0x009CF8B0, 0x38007FFF ] # li r0, 0x7FFF
+
+  "Distant AC Weapon Rendering":
+    Games:
+      "ARMORED CORE for Answer":
+        BLUS30187: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch ensures that the weapon parts of ACs located more than 500 units away are rendered. This improves the visual effects during combat."
+    Patch:
+      - [ be32, 0x00A4E2E8, 0x4BFFFE50 ] # b 0xa4e138
+      - [ be32, 0x00A4E6C0, 0x4BFFFE7C ] # b 0xa4e53c
+
 PPU-0bc5d0e97eebf1b3bf933f2e442acb20d3a1d969:
   "Fix Lock Problem in PvP":
     Games:
@@ -19980,6 +20003,29 @@ PPU-0bc5d0e97eebf1b3bf933f2e442acb20d3a1d969:
       - [ utf8, 0x011F90F8, "/dev_hdd0/game/BLJM60066/alt/ingamescript.bnd" ]
       - [ utf8, 0x011F9144, "/dev_hdd0/game/BLJM60066/alt/menustay.bnd" ]
 
+  "Long Timer":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM60066: [ 01.35 ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch changes the PvP time limit from 15 minutes to 32,767 minutes in order to improve debugging efficiency."
+    Patch:
+      - [ be32, 0x009CF9F0, 0x38007FFF ] # li r0, 0x7FFF
+
+  "Distant AC Weapon Rendering":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM60066: [ 01.35 ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch ensures that the weapon parts of ACs located more than 500 units away are rendered. This improves the visual effects during combat."
+    Patch:
+      - [ be32, 0x00A4E428, 0x4BFFFE50 ] # b 0xa4e278
+      - [ be32, 0x00A4E800, 0x4BFFFE7C ] # b 0xa4e67c
+
 PPU-321ccf1f115007f3260650828b3c01e7e40775d4:
   "Fix Lock Problem in PvP":
     Games:
@@ -20048,6 +20094,29 @@ PPU-321ccf1f115007f3260650828b3c01e7e40775d4:
       - [ utf8, 0x011F90B0, "/dev_hdd0/game/BLJM55005/alt/boot.bnd" ]
       - [ utf8, 0x011F90F8, "/dev_hdd0/game/BLJM55005/alt/ingamescript.bnd" ]
       - [ utf8, 0x011F9144, "/dev_hdd0/game/BLJM55005/alt/menustay.bnd" ]
+
+  "Long Timer":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM55005: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch changes the PvP time limit from 15 minutes to 32,767 minutes in order to improve debugging efficiency."
+    Patch:
+      - [ be32, 0x009CFBC0, 0x38007FFF ] # li r0, 0x7FFF
+
+  "Distant AC Weapon Rendering":
+    Games:
+      "ARMORED CORE for Answer":
+        BLJM55005: [ All ]
+    Author: "BEZEL"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "This patch ensures that the weapon parts of ACs located more than 500 units away are rendered. This improves the visual effects during combat."
+    Patch:
+      - [ be32, 0x00A4E5F8, 0x4BFFFE50 ] # b 0xa4e448
+      - [ be32, 0x00A4E9D0, 0x4BFFFE7C ] # b 0xa4e84c
 
 PPU-fccf7c4880b7c580c8a15ad2beabd5da59ac0832:
   "Skip intro":
