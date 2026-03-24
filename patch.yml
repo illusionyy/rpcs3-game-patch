@@ -3446,16 +3446,40 @@ PPU-c42d84baf809614023bae43461f51c62cf4c1ac5:
     Patch:
       - [ be32, 0x0116c984, 0x38600000 ]
 
+Anchors:
+  ACM_unlockfps_notes: &ACM_unlockfps_notes
+    "Maximum framerate with the patch is half the Vblank frequency. Without the patch, adjusting Vblank frequency increases the maximum framerate up to 58 FPS."
+
 PPU-abfef1fc79b9be0cbf4fd4b376280ef3a4fd37c5:
   "Unlock FPS":
     Games:
       "Aliens: Colonial Marines":
         NPEB01224: [ 01.01 ]
     Author: "FlexBy"
-    Notes: "Maximum framerate with the patch is half the Vblank frequency. Without the patch, adjusting Vblank frequency increases the maximum framerate up to 58 FPS."
+    Notes: *ACM_unlockfps_notes
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0015fe9c, 0x60000000 ]
+
+PPU-0f8410aa2e07e7f5e87dd359acafed23caed898f:
+  "Unlock FPS":
+    Games:
+      "Aliens: Colonial Marines":
+        NPEB01224: [ 01.05 ]
+    Author: "FlexBy"
+    Notes: *ACM_unlockfps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0015fdac, 0x60000000 ]
+  "Bypass sceNpLookupDestroyTransactionCtx Online Crash":
+    Games:
+      "Aliens: Colonial Marines":
+        NPEB01224: [ 01.05 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x005efe44, 0x2f830001 ]
 
 Anchors:
   sk8_visual_notes: &sk8_visual_notes
