@@ -26018,7 +26018,7 @@ PPU-294b89f56f3c2f0564fc1ec38084ea28c0ebac58:
       "Formula One Championship Edition":
         BCES00005: [ 02.00 ]
     Author: Juhn
-    Notes: 60 fps gameplay, set vblank rate to 120hz
+    Notes: 60 fps gameplay, set vblank rate to 120hz. Game slows down if below 60fps.
     Patch Version: 1.0
     Patch:
       - [be32, 0x10064298, 1]
@@ -26029,7 +26029,7 @@ PPU-3329d1b543cca14156b439d3427a081b829241db:
       "Formula One Championship Edition":
         BCUS98142: [ 01.10 ]
     Author: Juhn
-    Notes: 60 fps gameplay, set vblank rate to 120hz
+    Notes: 60 fps gameplay, set vblank rate to 120hz. Game slows down if below 60fps.
     Patch Version: 1.0
     Patch:
       - [be32, 0x10064298, 1]
