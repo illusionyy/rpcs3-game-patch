@@ -13016,27 +13016,12 @@ PPU-311fcd98af6adc5e64e6a833eb959f43b0976193:
       - [ be16, 0x006ab35a, 0x0001 ]
       - [ be16, 0x006ab37e, 0x0001 ]
 
-PPU-52a747a6282ff38eebc356fb56afc09e07e020f0:
-  "Extended FOV":
-    Games:
-      "inFamous 2 Demo":
-        NPEA90095: [ All ]
-    Author: "illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ bef32, 0x0096de14, 0.65 ] # the floats are static but game settings will need "li" instead.
-
-PPU-41a7d047c573c78c0307506c9d1b52d15a66e4f5:
-  "Extended FOV":
-    Games:
-      "inFamous 2":
-        BCUS98125: [ All ]
-    Author: "illusion"
-    Notes:
-    Patch Version: 1.2
-    Patch:
-      - [ bef32, 0x0096de14, 0.65 ] # the floats are static but game settings will need "li" instead.
+Anchors:
+  inf2_104title: &inf2_104title
+    "inFamous 2":
+      NPEA00318: [ 01.03 ]
+      BCUS98125: [ 01.04 ]
+      BCES01144: [ 01.04 ]
 
 PPU-a1aa768f9221333cb1ecc48c5a857aac23c89878:
   "Skip Intro":
@@ -13073,16 +13058,19 @@ PPU-59ab8576a5a4d5fa99927f809ee7da3897c452cd:
 
 PPU-41a7d047c573c78c0307506c9d1b52d15a66e4f5:
   "Skip Intro":
-    Games:
-      "inFamous 2":
-        NPEA00318: [ 01.03 ]
-        BCUS98125: [ 01.04 ]
-        BCES01144: [ 01.04 ]
+    Games: *inf2_104title
     Author: "FlexBy"
     Notes:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x007cdba8, 0x00000000 ]
+  "Extended FOV":
+    Games: *inf2_104title
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.2
+    Patch:
+      - [ bef32, 0x0096de14, 0.65 ] # the floats are static but game settings will need "li" instead.
 
 PPU-cf11f1d21afe3ba5a6c8c2a8cf926ee2ad571f41:
   "Skip UGC Tutorial":
@@ -13103,6 +13091,17 @@ PPU-cf11f1d21afe3ba5a6c8c2a8cf926ee2ad571f41:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00758098, 0x00000000 ]
+
+PPU-52a747a6282ff38eebc356fb56afc09e07e020f0:
+  "Extended FOV":
+    Games:
+      "inFamous 2 Demo":
+        NPEA90095: [ All ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ bef32, 0x0096de14, 0.65 ] # the floats are static but game settings will need "li" instead.
 
 Anchors:
   haze_fps_notes: &haze_fps_notes
