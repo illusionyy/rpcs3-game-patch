@@ -13049,6 +13049,41 @@ PPU-a1aa768f9221333cb1ecc48c5a857aac23c89878:
     Patch:
       - [ be32, 0x0078b4f8, 0x00000000 ]
 
+PPU-afae7c0eb9cf49472ea06355f9c36be8a17f0956:
+  "Skip Intro":
+    Games:
+      "inFamous 2":
+        NPEA00318: [ 01.01 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0078b7c8, 0x00000000 ]
+
+PPU-59ab8576a5a4d5fa99927f809ee7da3897c452cd:
+  "Skip Intro":
+    Games:
+      "inFamous 2":
+        NPEA00318: [ 01.02 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x007a2438, 0x00000000 ]
+
+PPU-41a7d047c573c78c0307506c9d1b52d15a66e4f5:
+  "Skip Intro":
+    Games:
+      "inFamous 2":
+        NPEA00318: [ 01.03 ]
+        BCUS98125: [ 01.04 ]
+        BCES01144: [ 01.04 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x007cdba8, 0x00000000 ]
+
 PPU-cf11f1d21afe3ba5a6c8c2a8cf926ee2ad571f41:
   "Skip UGC Tutorial":
     Games:
