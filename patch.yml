@@ -22393,6 +22393,18 @@ PPU-412a9bf323b4743de21658a286f71dbe82cad807:
     Patch:
       - [ be32, 0x00785494, "FOV" ]
 
+PPU-b2fd916ddb6214c6eb840ad64e6eccb3e5b50694:
+  "Skip Intro":
+    Games:
+      "inFamous: Festival of Blood":
+        NPEA00322: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00812ba0, 0x00000000 ]
+      - [ be32, 0x00812bb0, 0x00000000 ]
+
 PPU-e27b1dd51632a8712d2bcab7184374fcb5b57ad8:
   "60 FPS":
     Games:
