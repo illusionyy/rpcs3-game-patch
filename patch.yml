@@ -13020,8 +13020,11 @@ Anchors:
   inf2_104title: &inf2_104title
     "inFamous 2":
       NPEA00318: [ 01.03 ]
+      NPUA80638: [ 01.03 ]
       BCUS98125: [ 01.04 ]
+      BCES01143: [ 01.04 ]
       BCES01144: [ 01.04 ]
+      BCES01229: [ 01.04 ]
 
 PPU-a1aa768f9221333cb1ecc48c5a857aac23c89878:
   "Skip Intro":
