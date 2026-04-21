@@ -13197,7 +13197,7 @@ PPU-ec7c75bef42758b1823ce0b2835935992ae72e8f:
 
 Anchors:
   kz1_60fps_notes: &kz1_60fps_notes
-    "Version 2.0 no longer requires 200% clock scale, reset to default before using this updated patch."
+    "Version 2.0 no longer requires 200% clock scale, reset to default before using this updated patch. Causes issues with certain cutscene animations playing too fast/some dialogue lines may not play when enabled."
 
   kz1_EU100title: &kz1_EU100title
     "Killzone":
