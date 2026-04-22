@@ -23634,6 +23634,39 @@ PPU-f56d9caca2b30580ae3c9719ab82429ee941810f:
       - [be32, 0x00ee7ccc, 0x4E800020] #crash "fix" (Mupset)
       - [be32, 0x0055db08, 0x4E800020] #Roster "fix"
 
+PPU-30a78cf73975963b536e02efd3f3e01ff6e3c8ab:
+  "ZamboniMultiplayerPatch":
+    Games:
+      "NHL 12":
+        BLES01357: [ 01.00 ]
+    Author: "Kaap0"
+    Notes: "Required to play Online for now"
+    Patch Version: 1.0
+    Patch:
+      - [be32, 0x009eb648, 0x4082002c] #Roster "fix"
+PPU-8ba1582c291fa41e7e2d05ff35d0f4adcff4ee4a:
+  "ZamboniMultiplayerPatch":
+    Games:
+      "NHL 12":
+        BLUS01357: [ 01.00 ]
+    Author: "Kaap0"
+    Notes: "Required to play Online for now"
+    Patch Version: 1.0
+    Patch:
+      - [be32, 0x009eb648, 0x4082002c] #Roster "fix"
+
+PPU-0c03ccaf98dc4e37066bf5a670d5c3b61e180cf8:
+  "ZamboniMultiplayerPatch":
+    Games:
+      "NHL 13":
+        BLES01691: [ 01.00 ]
+        BLUS31003: [ 01.00 ]
+    Author: "Kaap0"
+    Notes: "Required to play Online for now"
+    Patch Version: 1.0
+    Patch:
+      - [be32, 0x005ccf60, 0x40820020] #Roster "fix"
+
 PPU-77278384022bc218f3910e476676b080aed0acd6:
   "ZamboniMultiplayerPatch":
     Games:
@@ -23661,6 +23694,29 @@ PPU-c0822220e2e35bd1450b722b28d86216cca40a8d:
       - [be32, 0x008b9740, 0x60000000] #crash "fix" (Mupset)
       - [be32, 0x0106a0bc, 0x4bfffd21] #Roster "fix"
       - [be32, 0x00408abc, 0x4bfffded] #Tuner "fix"
+
+PPU-a19810df9531970ad20fee58c76a23f6b60117ff:
+  "ZamboniMultiplayerPatch":
+    Games:
+      "NHL 15":
+        BLES02037: [ 01.00 ]
+    Author: "Kaap0"
+    Notes: "Required to play Online for now"
+    Patch Version: 1.0
+    Patch:
+      - [be32, 0x008923dc, 0x40820020] #Roster "fix"
+      - [be32, 0x0020bc64, 0x48000115] #Tuner "fix"
+PPU-04d55e4c1fd97c0b19d80ed39f302ca67aee7d25:
+  "ZamboniMultiplayerPatch":
+    Games:
+      "NHL 15":
+        BLUS31436: [ 01.00 ]
+    Author: "Kaap0"
+    Notes: "Required to play Online for now"
+    Patch Version: 1.0
+    Patch:
+      - [be32, 0x008923dc, 0x40820020] #Roster "fix"
+      - [be32, 0x0020bc64, 0x48000115] #Tuner "fix"
 
 PPU-a8e5b11d3fdd988f4a66e638302ff267d3a495a2:
   "60 FPS":
