@@ -23644,6 +23644,30 @@ PPU-30a78cf73975963b536e02efd3f3e01ff6e3c8ab:
     Patch Version: 1.0
     Patch:
       - [be32, 0x009eb648, 0x4082002c] #Roster "fix"
+  "Online Logs TTY":
+    Games:
+      "NHL 12":
+        BLES01357: [ 01.00 ]
+    Author: "Kaap0"
+    Notes: "Displays live Blaze logs in TTY"
+    Patch Version: 1.0
+    Patch:
+      - [calloc, 0x010dafa0, 15] #Allocate 15 instructions
+      - [be32, 0x0, 0x7C641B78] # mr r4, r3
+      - [be32, 0x0, 0x7C862378] # mr r6, r4
+      - [be32, 0x0, 0x38A00000] # li r5, 0
+      - [be32, 0x0, 0x88E60000] # lbz r7, 0(r6)
+      - [be32, 0x0, 0x2C07000A] # cmpwi cr0,r7,0xa
+      - [be32, 0x0, 0x41820010] # 4 instructions down
+      - [be32, 0x0, 0x38C60001] # addi r6,1(r6)
+      - [be32, 0x0, 0x38A50001] # addi r5,1,(r5)
+      - [be32, 0x0, 0x4BFFFFEC] # 5 instructions up
+      - [be32, 0x0, 0x38A50001] # addi r5,1(r5)
+      - [be32, 0x0, 0x38600001] # li r3,1
+      - [be32, 0x0, 0x38C00000] # li r6,0
+      - [be32, 0x0, 0x39600193] # li r11,0x193
+      - [be32, 0x0, 0x44000002] # sc
+      - [be32, 0x0, 0x4E800020] # blr
 PPU-8ba1582c291fa41e7e2d05ff35d0f4adcff4ee4a:
   "ZamboniMultiplayerPatch":
     Games:
