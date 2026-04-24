@@ -23641,9 +23641,9 @@ PPU-30a78cf73975963b536e02efd3f3e01ff6e3c8ab:
         BLES01357: [ 01.00 ]
     Author: "Kaap0"
     Notes: "Required to play Online for now"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Patch:
-      - [be32, 0x009eb648, 0x4082002c] #Roster "fix"
+      - [be32, 0x0092d6b0, 0x4bfffd69] #Roster "fix"
   "Online Logs TTY":
     Games:
       "NHL 12":
@@ -23675,9 +23675,9 @@ PPU-8ba1582c291fa41e7e2d05ff35d0f4adcff4ee4a:
         BLUS01357: [ 01.00 ]
     Author: "Kaap0"
     Notes: "Required to play Online for now"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Patch:
-      - [be32, 0x009eb648, 0x4082002c] #Roster "fix"
+      - [be32, 0x0092d6b0, 0x4bfffd69] #Roster "fix"
 
 PPU-0c03ccaf98dc4e37066bf5a670d5c3b61e180cf8:
   "ZamboniMultiplayerPatch":
