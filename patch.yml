@@ -23726,9 +23726,9 @@ PPU-a19810df9531970ad20fee58c76a23f6b60117ff:
         BLES02037: [ 01.00 ]
     Author: "Kaap0"
     Notes: "Required to play Online for now"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Patch:
-      - [be32, 0x008923dc, 0x40820020] #Roster "fix"
+      - [be32, 0x0105b738, 0x4bfffe65] #Roster "fix"
       - [be32, 0x0020bc64, 0x48000115] #Tuner "fix"
 PPU-04d55e4c1fd97c0b19d80ed39f302ca67aee7d25:
   "ZamboniMultiplayerPatch":
@@ -23737,9 +23737,9 @@ PPU-04d55e4c1fd97c0b19d80ed39f302ca67aee7d25:
         BLUS31436: [ 01.00 ]
     Author: "Kaap0"
     Notes: "Required to play Online for now"
-    Patch Version: 1.0
+    Patch Version: 1.1
     Patch:
-      - [be32, 0x008923dc, 0x40820020] #Roster "fix"
+      - [be32, 0x0105b738, 0x4bfffe65] #Roster "fix"
       - [be32, 0x0020bc64, 0x48000115] #Tuner "fix"
 
 PPU-a8e5b11d3fdd988f4a66e638302ff267d3a495a2:
