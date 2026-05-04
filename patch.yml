@@ -20320,6 +20320,29 @@ PPU-a0e5fd11cb9d03eccd48e4edb02accc0c5be4bce:
     Patch:
       - [ be32, 0x00208a24, 0x2c060010 ]
       - [ be32, 0x00208b48, 0x38600007 ]
+  "Horizontal FOV":
+    Games:
+      "Battlefield: Bad Company 2":
+        NPEB00724: [ 01.05 ]
+    Author: "Faith"
+    Notes:
+    Patch Version: 1.0
+    Configurable Values:
+      "FOV":
+        Type: long_enum
+        Value: 0x3cc0428C
+        Allowed Values:
+          "70": 0x3cc0428C
+          "80": 0x3cc042A0
+          "90": 0x3cc042B4
+          "100": 0x3cc042C8
+          "110": 0x3cc042DC
+          "120": 0x3cc042F0
+    Patch:
+      - [ calloc, 0x00f48bb4, 3 ]
+      - [ be32, 0x0, "FOV" ] # set r6
+      - [ be32, 0x0, 0x90df0034 ] # write into GameRenderSettings
+      - [ be32, 0x0, 0x3cc0bf80 ] # restore r6
 
 PPU-1ccbe2fe6c1687f49ccd2436e0014c8c86365d83:
   "60 FPS":
