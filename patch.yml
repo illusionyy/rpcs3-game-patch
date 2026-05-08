@@ -23723,7 +23723,7 @@ PPU-8ba1582c291fa41e7e2d05ff35d0f4adcff4ee4a:
     Notes: "Required to play Online for now"
     Patch Version: 1.1
     Patch:
-      - [be32, 0x0092d6b0, 0x4bfffd69] #Roster "fix"
+      - [be32, 0x0092d630, 0x4bfffc6d] #Roster "fix"
 
 PPU-0c03ccaf98dc4e37066bf5a670d5c3b61e180cf8:
   "ZamboniMultiplayerPatch":
