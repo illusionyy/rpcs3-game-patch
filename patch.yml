@@ -19684,6 +19684,29 @@ PPU-40cab05bffe7a05eb82b607e09653e432c4e48a4:
       - [ be32, 0x0002a6ac, 0x60000000 ]
       - [ be32, 0x00029bf0, 0x60000000 ]
 
+PPU-11c753d6e0dd75f571e961e4f9f6c6500b57e74a:
+  "Ace Combat Infinity Patch":
+    Games:
+      "ACE COMBAT INFINITY":
+        NPUB31347: [02.11]
+    Author: Optimus1200
+    Patch:
+        # Main Menu bypass     
+        - [ be32, 0x003ad5ec, 0x3b600000 ]
+        # Campaign All-You-Can-Play
+        - [ be32, 0x00110d80, 0x38600001 ]
+        - [ be32, 0x00110cdc, 0x38600001 ]
+        # Unlock All Campaign Missions
+        - [ be32, 0x001274c0, 0x42800038 ]
+        - [ be32, 0x0012750c, 0x60000000 ]
+        - [ be32, 0x00127530, 0x38600008 ]
+        - [ be32, 0x0012759c, 0x38600001 ]
+        - [ be32, 0x00127640, 0x38600001 ]
+        # Unlock Free Flight
+        - [ be32, 0x00115c04, 0x38600001 ]
+        # Replace HTTPS with HTTP
+        - [ be32, 0x00b9c8b0, 0x3a2f2f00 ]
+
 Anchors:
   maxA_60fps_notes: &maxA_60fps_notes
     "Allows for proper gamespeed at 60 FPS.\nSet VBlank to 120."
