@@ -10033,6 +10033,87 @@ PPU-26c56a42dbc303893506c4b76b496780f204d329:
     Patch:
       - [ utf8, 0x013debb0, "http://54.37.232.59\0" ] # https://gt5.ps3.online.jp.gran-turismo.com
 
+
+PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 5":
+        BCES00569: [02.11]
+    Author: "Edo"
+    Patch Version: 1.2
+    Group: ""
+    Notes: "Tweaks the chase camera to be a little less static. Vanilla values are 300/30"
+    Configurable Values:
+      "Spring Damper":
+        Type: double_range
+        Value: 90.0
+        Min: 0.0
+        Max: 300.0
+      "Max Angle":
+        Type: double_range
+        Value: 35.0
+        Min: 0.0
+        Max: 100.0
+    Patch:
+      - [be32, 0x00483D74, 0x60000000]
+      - [be32, 0x00483D8C, 0x60000000]
+      - [be32, 0x004846CC, 0x60000000]
+      - [be32, 0x004846D8, 0x60000000]
+      - [be32, 0x017FDF40, 0x41F00000]
+      - [bef32, 0x017FDF44, "Spring Damper"]
+      - [be32, 0x017FDF48, 0x43480000]
+      - [be32, 0x017FDF4C, 0x00000000]
+      - [be32, 0x017FDF50, 0x41200000]
+      - [bef32, 0x017FDF54, "Max Angle"]
+      - [be32, 0x017FDF58, 0x41A00000]
+      - [be32, 0x017FDF5C, 0x00000000]
+      - [be32, 0x00488df8, 0x38000000]
+      - [be32, 0x00488e00, 0x60000000]
+      - [be32, 0x00488df8, 0x38000000]
+      - [be32, 0x00488e00, 0x60000000]
+      - [be32, 0x00482fdc, 0x38000000]
+      - [be32, 0x00482ff4, 0x60000000]
+
+PPU-d73f342bf28ee016ef3d0ccb309b1acb03d8ecce:
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 5":
+        BCUS98114: [02.11]
+    Author: "Edo"
+    Patch Version: 1.2
+    Group: ""
+    Notes: "Tweaks the chase camera to be a little less static. Vanilla values are 300/30"
+    Configurable Values:
+      "Spring Damper":
+        Type: double_range
+        Value: 90.0
+        Min: 0.0
+        Max: 300.0
+      "Max Angle":
+        Type: double_range
+        Value: 35.0
+        Min: 0.0
+        Max: 100.0
+    Patch:
+      - [be32, 0x00483D74, 0x60000000]
+      - [be32, 0x00483D8C, 0x60000000]
+      - [be32, 0x004846CC, 0x60000000]
+      - [be32, 0x004846D8, 0x60000000]
+      - [be32, 0x017FDF40, 0x41F00000]
+      - [bef32, 0x017FDF44, "Spring Damper"]
+      - [be32, 0x017FDF48, 0x43480000]
+      - [be32, 0x017FDF4C, 0x00000000]
+      - [be32, 0x017FDF50, 0x41200000]
+      - [bef32, 0x017FDF54, "Max Angle"]
+      - [be32, 0x017FDF58, 0x41A00000]
+      - [be32, 0x017FDF5C, 0x00000000]
+      - [be32, 0x00488df8, 0x38000000]
+      - [be32, 0x00488e00, 0x60000000]
+      - [be32, 0x00488df8, 0x38000000]
+      - [be32, 0x00488e00, 0x60000000] 
+      - [be32, 0x00482fdc, 0x38000000] 
+      - [be32, 0x00482ff4, 0x60000000]
+
 Anchors:
   gt6_devlop_122: &gt6_devlop_122
     - [ be32, 0x0081715c, 0x38600001 ]
@@ -19688,6 +19769,7 @@ PPU-11c753d6e0dd75f571e961e4f9f6c6500b57e74a:
   "Ace Combat Infinity Patch":
     Games:
       "ACE COMBAT INFINITY":
+        NPEB01839: [02.11]
         NPUB31347: [02.11]
     Author: Optimus1200
     Patch:
@@ -23718,10 +23800,10 @@ PPU-8ba1582c291fa41e7e2d05ff35d0f4adcff4ee4a:
   "ZamboniMultiplayerPatch":
     Games:
       "NHL 12":
-        BLUS01357: [ 01.00 ]
+        BLUS30791: [ 01.00 ]
     Author: "Kaap0"
     Notes: "Required to play Online for now"
-    Patch Version: 1.2
+    Patch Version: 1.3
     Patch:
       - [be32, 0x0092d630, 0x4bfffc6d] #Roster "fix"
 
