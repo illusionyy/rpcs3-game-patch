@@ -16567,6 +16567,62 @@ PPU-d39f3ed2bf15a49d28486c7bad52b72c8933cbe8:
     Patch:
       - [ load, *ms3_106_intro ]
 
+PPU-ebb1ff30930abbf534c176ac1cdce34a4ecd784d:
+  "Unlock FPS":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "illusion"
+    Notes: *ms3_fps_notes
+    Patch Version: 2.0
+    Patch:
+      - [ load, *ms3_106_fps ]
+  "Disable Dynamic Resolution Scaling":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "illusion"
+    Notes: *ms3_drs_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_dsr ]
+  "Disable SSAO":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "illusion"
+    Notes: *ms3_ssao_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_ssao ]
+  "Disable Motion blur":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_mb ]
+  "Disable MLAA":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "illusion"
+    Notes: *ms3_mlaa_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_mlaa ]
+  "Skip Intro":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "illusion"
+    Notes: *ms3_mlaa_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_intro ]
+
 PPU-507b9d34380cff4bc03d7c64ce6342180779c84b:
   "Unlock FPS":
     Games:
