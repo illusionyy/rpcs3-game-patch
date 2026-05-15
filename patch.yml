@@ -1500,6 +1500,8 @@ PPU-e40082b6d07744ef29051a33353eb473396f5a91:
 Anchors:
   Folklore_FPS_Notes: &Folklore_FPS_Notes
     "Unlocks FPS during gameplay. Cloth physics break above 50 FPS despite the gameplay working."
+  Folklore_50_FPS_Notes: &Folklore_50_FPS_Notes
+    "Locks FPS during gameplay to as close to 50 as clock syncing allows, parts of the game that run natively at 60fps stay at 60fps. Cloth physics break above 50fps during gameplay but locking fps to 50 breaks parts that natively run at 60 eg. cutscenes. This patch eliminates the need to constantly swap between 50 and 60fps limits in RPCS3 settings when using the fps unlock patch, while boosting the performance significantly. FPS unlock patch must remain turned off for this patch to work."
   folkloreESUS_100_nosixaxis: &folkloreESUS_100_nosixaxis
     # .bPlayerPad::CheckCaptureFinish
     - [ be32, 0x000f8698, 0x38600001 ]
@@ -1638,6 +1640,16 @@ PPU-bfad65ed0963e68cebafdf24d00201005ad3a17e:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x001821a0, 0x60000000 ]
+  "50 FPS":
+    Games:
+      "Folklore":
+        BCES00050: [ 01.10 ]
+    Author: "surge4315"
+    Notes: *Folklore_50_FPS_Notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00182198, 0x2F8307D0]
+
 
 PPU-7d723460c40bd00fd359e1fc88d554e5185de037:
   "Unlock FPS":
