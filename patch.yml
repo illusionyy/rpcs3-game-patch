@@ -1399,6 +1399,286 @@ PPU-7775c39a8eade714caca6c95cf07c9d9ca095047:
     Patch:
       - [ be32, 0x1C70A4, 0x48000004 ]
 
+PPU-13e4d424f118d4305110d0218be9e8fa3fa27a87:
+  "Dynamic frame time timing":
+    Games:
+      "God of War: II HD":
+        BCES00791: [ 01.01 ]
+        NPEA00256: [ 01.01 ]
+    Author: "Dobrido"
+    Notes: "Fixes game speedup at 60fps and above."
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x002b8cd0, 0x482549b0 ] # b 0x0050d680
+      - [ be32, 0x0050d680, 0xf821ff81 ] # stdu r1,-0x80(r1)
+      - [ be32, 0x0050d684, 0x7d400026 ] # mfcr r10
+      - [ be32, 0x0050d688, 0xf9410058 ] # std r10,0x58(r1)
+      - [ be32, 0x0050d68c, 0x7c6c42e6 ] # mftb r3
+      - [ be32, 0x0050d690, 0x7863ba42 ] # srdi r3,r3,9
+      - [ be32, 0x0050d694, 0x3d8000aa ] # lis r12,0xaa
+      - [ be32, 0x0050d698, 0x618cd000 ] # ori r12,r12,0xd000
+      - [ be32, 0x0050d69c, 0x816c0000 ] # lwz r11,0(r12)
+      - [ be32, 0x0050d6a0, 0x906c0000 ] # stw r3,0(r12)
+      - [ be32, 0x0050d6a4, 0x2f8b0000 ] # cmpwi cr7,r11,0
+      - [ be32, 0x0050d6a8, 0x419e0044 ] # beq cr7,0x0050d6ec
+      - [ be32, 0x0050d6ac, 0x7c0b1850 ] # subf r0,r11,r3
+      - [ be32, 0x0050d6b0, 0xf8010060 ] # std r0,0x60(r1)
+      - [ be32, 0x0050d6b4, 0xc8010060 ] # lfd f0,0x60(r1)
+      - [ be32, 0x0050d6b8, 0xfc00069c ] # fcfid f0,f0
+      - [ be32, 0x0050d6bc, 0xfc000018 ] # frsp f0,f0
+      - [ be32, 0x0050d6c0, 0x3d600002 ] # lis r11,0x2
+      - [ be32, 0x0050d6c4, 0x616b625a ] # ori r11,r11,0x625a
+      - [ be32, 0x0050d6c8, 0xf9610068 ] # std r11,0x68(r1)
+      - [ be32, 0x0050d6cc, 0xc9610068 ] # lfd f11,0x68(r1)
+      - [ be32, 0x0050d6d0, 0xfd605e9c ] # fcfid f11,f11
+      - [ be32, 0x0050d6d4, 0xfd605818 ] # frsp f11,f11
+      - [ be32, 0x0050d6d8, 0xec005824 ] # fdivs f0,f0,f11
+      - [ be32, 0x0050d6dc, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x0050d6e0, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x0050d6e4, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x0050d6e8, 0x4bdab5ec ] # b 0x002b8cd4
+      - [ be32, 0x0050d6ec, 0xec1f0024 ] # fdivs f0,f31,f0
+      - [ be32, 0x0050d6f0, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x0050d6f4, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x0050d6f8, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x0050d6fc, 0x4bdab5d8 ] # b 0x002b8cd4
+      - [ be32, 0x00aad000, 0x00000000 ] # previous timebase/512 sample
+
+PPU-9cd8d28963ebc29b59c79819cb56f3d92e857a37:
+  "Dynamic frame time timing":
+    Games:
+      "God of War: II HD":
+        BCUS98229: [ 01.01 ]
+        NPUA80491: [ 01.01 ]
+        NPHA80105: [ 01.01 ]
+    Author: "Dobrido"
+    Notes: "Fixes game speedup at 60fps and above."
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x002b7fb0, 0x482556d0 ] # b 0x0050d680
+      - [ be32, 0x0050d680, 0xf821ff81 ] # stdu r1,-0x80(r1)
+      - [ be32, 0x0050d684, 0x7d400026 ] # mfcr r10
+      - [ be32, 0x0050d688, 0xf9410058 ] # std r10,0x58(r1)
+      - [ be32, 0x0050d68c, 0x7c6c42e6 ] # mftb r3
+      - [ be32, 0x0050d690, 0x7863ba42 ] # srdi r3,r3,9
+      - [ be32, 0x0050d694, 0x3d8000aa ] # lis r12,0xaa
+      - [ be32, 0x0050d698, 0x618cd000 ] # ori r12,r12,0xd000
+      - [ be32, 0x0050d69c, 0x816c0000 ] # lwz r11,0(r12)
+      - [ be32, 0x0050d6a0, 0x906c0000 ] # stw r3,0(r12)
+      - [ be32, 0x0050d6a4, 0x2f8b0000 ] # cmpwi cr7,r11,0
+      - [ be32, 0x0050d6a8, 0x419e0044 ] # beq cr7,0x0050d6ec
+      - [ be32, 0x0050d6ac, 0x7c0b1850 ] # subf r0,r11,r3
+      - [ be32, 0x0050d6b0, 0xf8010060 ] # std r0,0x60(r1)
+      - [ be32, 0x0050d6b4, 0xc8010060 ] # lfd f0,0x60(r1)
+      - [ be32, 0x0050d6b8, 0xfc00069c ] # fcfid f0,f0
+      - [ be32, 0x0050d6bc, 0xfc000018 ] # frsp f0,f0
+      - [ be32, 0x0050d6c0, 0x3d600002 ] # lis r11,0x2
+      - [ be32, 0x0050d6c4, 0x616b625a ] # ori r11,r11,0x625a
+      - [ be32, 0x0050d6c8, 0xf9610068 ] # std r11,0x68(r1)
+      - [ be32, 0x0050d6cc, 0xc9610068 ] # lfd f11,0x68(r1)
+      - [ be32, 0x0050d6d0, 0xfd605e9c ] # fcfid f11,f11
+      - [ be32, 0x0050d6d4, 0xfd605818 ] # frsp f11,f11
+      - [ be32, 0x0050d6d8, 0xec005824 ] # fdivs f0,f0,f11
+      - [ be32, 0x0050d6dc, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x0050d6e0, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x0050d6e4, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x0050d6e8, 0x4bdaa8cc ] # b 0x002b7fb4
+      - [ be32, 0x0050d6ec, 0xec0b0024 ] # fdivs f0,f11,f0
+      - [ be32, 0x0050d6f0, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x0050d6f4, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x0050d6f8, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x0050d6fc, 0x4bdaa8b8 ] # b 0x002b7fb4
+      - [ be32, 0x00aad000, 0x00000000 ] # previous timebase/512 sample
+
+PPU-fe9438693b989edd1a04f973e156cf185e16d13d:
+  "Dynamic frame time timing":
+    Games:
+      "God of War: II HD":
+        BLJM60200: [ 01.01 ]
+        NPJA00062: [ 01.01 ]
+    Author: "Dobrido"
+    Notes: "Fixes game speedup at 60fps and above."
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x002b815c, 0x48255524 ] # b 0x0050d680
+      - [ be32, 0x0050d680, 0xf821ff81 ] # stdu r1,-0x80(r1)
+      - [ be32, 0x0050d684, 0x7d400026 ] # mfcr r10
+      - [ be32, 0x0050d688, 0xf9410058 ] # std r10,0x58(r1)
+      - [ be32, 0x0050d68c, 0x7c6c42e6 ] # mftb r3
+      - [ be32, 0x0050d690, 0x7863ba42 ] # srdi r3,r3,9
+      - [ be32, 0x0050d694, 0x3d8000aa ] # lis r12,0xaa
+      - [ be32, 0x0050d698, 0x618cd000 ] # ori r12,r12,0xd000
+      - [ be32, 0x0050d69c, 0x816c0000 ] # lwz r11,0(r12)
+      - [ be32, 0x0050d6a0, 0x906c0000 ] # stw r3,0(r12)
+      - [ be32, 0x0050d6a4, 0x2f8b0000 ] # cmpwi cr7,r11,0
+      - [ be32, 0x0050d6a8, 0x419e0044 ] # beq cr7,0x0050d6ec
+      - [ be32, 0x0050d6ac, 0x7c0b1850 ] # subf r0,r11,r3
+      - [ be32, 0x0050d6b0, 0xf8010060 ] # std r0,0x60(r1)
+      - [ be32, 0x0050d6b4, 0xc8010060 ] # lfd f0,0x60(r1)
+      - [ be32, 0x0050d6b8, 0xfc00069c ] # fcfid f0,f0
+      - [ be32, 0x0050d6bc, 0xfc000018 ] # frsp f0,f0
+      - [ be32, 0x0050d6c0, 0x3d600002 ] # lis r11,0x2
+      - [ be32, 0x0050d6c4, 0x616b625a ] # ori r11,r11,0x625a
+      - [ be32, 0x0050d6c8, 0xf9610068 ] # std r11,0x68(r1)
+      - [ be32, 0x0050d6cc, 0xc9610068 ] # lfd f11,0x68(r1)
+      - [ be32, 0x0050d6d0, 0xfd605e9c ] # fcfid f11,f11
+      - [ be32, 0x0050d6d4, 0xfd605818 ] # frsp f11,f11
+      - [ be32, 0x0050d6d8, 0xec005824 ] # fdivs f0,f0,f11
+      - [ be32, 0x0050d6dc, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x0050d6e0, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x0050d6e4, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x0050d6e8, 0x4bdaaa78 ] # b 0x002b8160
+      - [ be32, 0x0050d6ec, 0xec0b0024 ] # fdivs f0,f11,f0
+      - [ be32, 0x0050d6f0, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x0050d6f4, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x0050d6f8, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x0050d6fc, 0x4bdaaa64 ] # b 0x002b8160
+      - [ be32, 0x00aad000, 0x00000000 ] # previous timebase/512 sample
+
+PPU-e8e29268437430a42b01ccbdea814560150bc037:
+  "Dynamic frame time timing":
+    Games:
+      "God of War: HD":
+        BCES00791: [ 01.01 ]
+        NPEA00255: [ 01.01 ]
+    Author: "Dobrido"
+    Notes: "Fixes game speedup at 60fps and above."
+    Patch Version: 1.3
+    Patch:
+      - [ be32, 0x001b6f6c, 0x48315a20 ] # b 0x004cc98c
+      - [ be32, 0x004cc98c, 0xf821ff81 ] # stdu r1,-0x80(r1)
+      - [ be32, 0x004cc990, 0x7d400026 ] # mfcr r10
+      - [ be32, 0x004cc994, 0xf9410058 ] # std r10,0x58(r1)
+      - [ be32, 0x004cc998, 0x7c6c42e6 ] # mftb r3
+      - [ be32, 0x004cc99c, 0x7863ba42 ] # srdi r3,r3,9
+      - [ be32, 0x004cc9a0, 0x3d8000aa ] # lis r12,0xaa
+      - [ be32, 0x004cc9a4, 0x618cd000 ] # ori r12,r12,0xd000
+      - [ be32, 0x004cc9a8, 0x816c0000 ] # lwz r11,0(r12)
+      - [ be32, 0x004cc9ac, 0x906c0000 ] # stw r3,0(r12)
+      - [ be32, 0x004cc9b0, 0x2f8b0000 ] # cmpwi cr7,r11,0
+      - [ be32, 0x004cc9b4, 0x419e004c ] # beq cr7,0x004cca00
+      - [ be32, 0x004cc9b8, 0x7c0b1850 ] # subf r0,r11,r3
+      - [ be32, 0x004cc9bc, 0x2f801458 ] # cmpwi cr7,r0,0x1458
+      - [ be32, 0x004cc9c0, 0x419d0040 ] # bgt cr7,0x004cca00
+      - [ be32, 0x004cc9c4, 0xf8010060 ] # std r0,0x60(r1)
+      - [ be32, 0x004cc9c8, 0xc8010060 ] # lfd f0,0x60(r1)
+      - [ be32, 0x004cc9cc, 0xfc00069c ] # fcfid f0,f0
+      - [ be32, 0x004cc9d0, 0xfc000018 ] # frsp f0,f0
+      - [ be32, 0x004cc9d4, 0x3d600002 ] # lis r11,0x2
+      - [ be32, 0x004cc9d8, 0x616b625a ] # ori r11,r11,0x625a
+      - [ be32, 0x004cc9dc, 0xf9610068 ] # std r11,0x68(r1)
+      - [ be32, 0x004cc9e0, 0xc9610068 ] # lfd f11,0x68(r1)
+      - [ be32, 0x004cc9e4, 0xfd605e9c ] # fcfid f11,f11
+      - [ be32, 0x004cc9e8, 0xfd605818 ] # frsp f11,f11
+      - [ be32, 0x004cc9ec, 0xec005824 ] # fdivs f0,f0,f11
+      - [ be32, 0x004cc9f0, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x004cc9f4, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x004cc9f8, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x004cc9fc, 0x4bcea574 ] # b 0x001b6f70
+      - [ be32, 0x004cca00, 0xec1f0024 ] # fdivs f0,f31,f0
+      - [ be32, 0x004cca04, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x004cca08, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x004cca0c, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x004cca10, 0x4bcea560 ] # b 0x001b6f70
+      - [ be32, 0x00aad000, 0x00000000 ] # previous timebase/512 sample
+
+PPU-645f0573d7438e37ddd231377adf9c1205e8a040:
+  "Dynamic frame time timing":
+    Games:
+      "God of War: HD":
+        BCUS98229: [ 01.01 ]
+        NPUA80490: [ 01.01 ]
+        NPHA80104: [ 01.01 ]
+    Author: "Dobrido"
+    Notes: "Fixes game speedup at 60fps and above."
+    Patch Version: 1.3
+    Patch:
+      - [ be32, 0x001b5664, 0x48317328 ] # b 0x004cc98c
+      - [ be32, 0x004cc98c, 0xf821ff81 ] # stdu r1,-0x80(r1)
+      - [ be32, 0x004cc990, 0x7d400026 ] # mfcr r10
+      - [ be32, 0x004cc994, 0xf9410058 ] # std r10,0x58(r1)
+      - [ be32, 0x004cc998, 0x7c6c42e6 ] # mftb r3
+      - [ be32, 0x004cc99c, 0x7863ba42 ] # srdi r3,r3,9
+      - [ be32, 0x004cc9a0, 0x3d8000aa ] # lis r12,0xaa
+      - [ be32, 0x004cc9a4, 0x618cd000 ] # ori r12,r12,0xd000
+      - [ be32, 0x004cc9a8, 0x816c0000 ] # lwz r11,0(r12)
+      - [ be32, 0x004cc9ac, 0x906c0000 ] # stw r3,0(r12)
+      - [ be32, 0x004cc9b0, 0x2f8b0000 ] # cmpwi cr7,r11,0
+      - [ be32, 0x004cc9b4, 0x419e0050 ] # beq cr7,0x004cca04
+      - [ be32, 0x004cc9b8, 0x7c0b1850 ] # subf r0,r11,r3
+      - [ be32, 0x004cc9bc, 0x2f801458 ] # cmpwi cr7,r0,0x1458
+      - [ be32, 0x004cc9c0, 0x419d0044 ] # bgt cr7,0x004cca04
+      - [ be32, 0x004cc9c4, 0xf8010060 ] # std r0,0x60(r1)
+      - [ be32, 0x004cc9c8, 0xc8010060 ] # lfd f0,0x60(r1)
+      - [ be32, 0x004cc9cc, 0xfc00069c ] # fcfid f0,f0
+      - [ be32, 0x004cc9d0, 0xfc000018 ] # frsp f0,f0
+      - [ be32, 0x004cc9d4, 0x3d600002 ] # lis r11,0x2
+      - [ be32, 0x004cc9d8, 0x616b625a ] # ori r11,r11,0x625a
+      - [ be32, 0x004cc9dc, 0xf9610068 ] # std r11,0x68(r1)
+      - [ be32, 0x004cc9e0, 0xc9610068 ] # lfd f11,0x68(r1)
+      - [ be32, 0x004cc9e4, 0xfd605e9c ] # fcfid f11,f11
+      - [ be32, 0x004cc9e8, 0xfd605818 ] # frsp f11,f11
+      - [ be32, 0x004cc9ec, 0xed805824 ] # fdivs f12,f0,f11
+      - [ be32, 0x004cc9f0, 0xc0080018 ] # lfs f0,0x18(r8)
+      - [ be32, 0x004cc9f4, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x004cc9f8, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x004cc9fc, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x004cca00, 0x4bce8c68 ] # b 0x001b5668
+      - [ be32, 0x004cca04, 0xc0080018 ] # lfs f0,0x18(r8)
+      - [ be32, 0x004cca08, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x004cca0c, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x004cca10, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x004cca14, 0x4bce8c54 ] # b 0x001b5668
+      - [ be32, 0x00aad000, 0x00000000 ] # previous timebase/512 sample
+
+PPU-7775c39a8eade714caca6c95cf07c9d9ca095047:
+  "Dynamic frame time timing":
+    Games:
+      "God of War: HD":
+        BLJM60200: [ 01.01 ]
+        NPJA00061: [ 01.01 ]
+    Author: "Dobrido"
+    Notes: "Fixes game speedup at 60fps and above."
+    Patch Version: 1.3
+    Patch:
+      - [ be32, 0x001b5f00, 0x48316a8c ] # b 0x004cc98c
+      - [ be32, 0x004cc98c, 0xf821ff81 ] # stdu r1,-0x80(r1)
+      - [ be32, 0x004cc990, 0x7d400026 ] # mfcr r10
+      - [ be32, 0x004cc994, 0xf9410058 ] # std r10,0x58(r1)
+      - [ be32, 0x004cc998, 0x7c6c42e6 ] # mftb r3
+      - [ be32, 0x004cc99c, 0x7863ba42 ] # srdi r3,r3,9
+      - [ be32, 0x004cc9a0, 0x3d8000aa ] # lis r12,0xaa
+      - [ be32, 0x004cc9a4, 0x618cd000 ] # ori r12,r12,0xd000
+      - [ be32, 0x004cc9a8, 0x816c0000 ] # lwz r11,0(r12)
+      - [ be32, 0x004cc9ac, 0x906c0000 ] # stw r3,0(r12)
+      - [ be32, 0x004cc9b0, 0x2f8b0000 ] # cmpwi cr7,r11,0
+      - [ be32, 0x004cc9b4, 0x419e0050 ] # beq cr7,0x004cca04
+      - [ be32, 0x004cc9b8, 0x7c0b1850 ] # subf r0,r11,r3
+      - [ be32, 0x004cc9bc, 0x2f801458 ] # cmpwi cr7,r0,0x1458
+      - [ be32, 0x004cc9c0, 0x419d0044 ] # bgt cr7,0x004cca04
+      - [ be32, 0x004cc9c4, 0xf8010060 ] # std r0,0x60(r1)
+      - [ be32, 0x004cc9c8, 0xc8010060 ] # lfd f0,0x60(r1)
+      - [ be32, 0x004cc9cc, 0xfc00069c ] # fcfid f0,f0
+      - [ be32, 0x004cc9d0, 0xfc000018 ] # frsp f0,f0
+      - [ be32, 0x004cc9d4, 0x3d600002 ] # lis r11,0x2
+      - [ be32, 0x004cc9d8, 0x616b625a ] # ori r11,r11,0x625a
+      - [ be32, 0x004cc9dc, 0xf9610068 ] # std r11,0x68(r1)
+      - [ be32, 0x004cc9e0, 0xc9610068 ] # lfd f11,0x68(r1)
+      - [ be32, 0x004cc9e4, 0xfd605e9c ] # fcfid f11,f11
+      - [ be32, 0x004cc9e8, 0xfd605818 ] # frsp f11,f11
+      - [ be32, 0x004cc9ec, 0xed805824 ] # fdivs f12,f0,f11
+      - [ be32, 0x004cc9f0, 0xc0080018 ] # lfs f0,0x18(r8)
+      - [ be32, 0x004cc9f4, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x004cc9f8, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x004cc9fc, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x004cca00, 0x4bce9504 ] # b 0x001b5f04
+      - [ be32, 0x004cca04, 0xc0080018 ] # lfs f0,0x18(r8)
+      - [ be32, 0x004cca08, 0xe9410058 ] # ld r10,0x58(r1)
+      - [ be32, 0x004cca0c, 0x7d4ff120 ] # mtcrf 0xff,r10
+      - [ be32, 0x004cca10, 0x38210080 ] # addi r1,r1,0x80
+      - [ be32, 0x004cca14, 0x4bce94f0 ] # b 0x001b5f04
+      - [ be32, 0x00aad000, 0x00000000 ] # previous timebase/512 sample
+
 Anchors:
   lbp2_133title: &lbp2_133title
     "LittleBigPlanet 2":
