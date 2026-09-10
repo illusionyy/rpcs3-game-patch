@@ -21581,6 +21581,17 @@ PPU-8c33a0bc919bfc9eca6f0f46e63790e3d42c3925:
       - [ be32, 0x01208554, 0x4020007f ]
       - [ be32, 0x012273c4, 0x4020007f ]
 
+PPU-56101fbdbac186fddef72207145015fd314a0be5:
+  "Full 60FPS":
+    Games:
+      "Burnout Paradise":
+        BLUS30061: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Prevents the game from dropping to 30 FPS during garages, crashes, takedowns, and stunt jump cameras. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x006E6878, 0x48000034 ]
+
 PPU-c1701baaa053fa811968301a2749cbfb011c9930:
   "Full 60FPS":
     Games:
@@ -22426,6 +22437,52 @@ PPU-59a33bedc708ebfb7905fb35b207313711705579:
     Patch:
       - [ be32, 0x00f3a85c, 0x60000000 ]
       - [ be32, 0x00f3a870, 0x60000000 ]
+
+PPU-757a971c30a33495e22b47f9999bc25e15112856:
+  "Disable Film Grain & Vignette":
+    Games:
+      "DRIVER San Francisco":
+        BLUS30536: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables film grain and edge vignette. Assisted with AI tools."
+    Patch Version: 1.1
+    Patch:
+      - [ calloc, 0x005FDF68, 35 ] # P3PX parser, UID-based dispatch
+      - [ be32, 0x00000000, 0x7C791B78 ]
+      - [ be32, 0x00000000, 0x2C1D0000 ]
+      - [ be32, 0x00000000, 0x41820080 ]
+      - [ be32, 0x00000000, 0x79C60022 ]
+      - [ be32, 0x00000000, 0x2C060064 ]
+      - [ be32, 0x00000000, 0x40820074 ]
+      - [ be32, 0x00000000, 0x48000035 ]
+      - [ be32, 0x00000000, 0xF34091E5 ]
+      - [ be32, 0x00000000, 0x00000192 ]
+      - [ be32, 0x00000000, 0x0AB8C0C4 ]
+      - [ be32, 0x00000000, 0x00000172 ]
+      - [ be32, 0x00000000, 0xCD84EDFA ]
+      - [ be32, 0x00000000, 0x00000212 ]
+      - [ be32, 0x00000000, 0xD9AA8DFD ]
+      - [ be32, 0x00000000, 0x000001C2 ]
+      - [ be32, 0x00000000, 0x6A013D0B ]
+      - [ be32, 0x00000000, 0x000001B2 ]
+      - [ be32, 0x00000000, 0x5B9E0306 ]
+      - [ be32, 0x00000000, 0x00000242 ]
+      - [ be32, 0x00000000, 0x7CC802A6 ]
+      - [ be32, 0x00000000, 0x39200006 ]
+      - [ be32, 0x00000000, 0x7D2903A6 ]
+      - [ be32, 0x00000000, 0x81060000 ]
+      - [ be32, 0x00000000, 0x7C0E4000 ]
+      - [ be32, 0x00000000, 0x41820010 ]
+      - [ be32, 0x00000000, 0x38C60008 ]
+      - [ be32, 0x00000000, 0x4200FFF0 ]
+      - [ be32, 0x00000000, 0x4800001C ]
+      - [ be32, 0x00000000, 0x80E60004 ]
+      - [ be32, 0x00000000, 0x7CDD3A14 ]
+      - [ be32, 0x00000000, 0x39000140 ]
+      - [ be32, 0x00000000, 0xB1060000 ]
+      - [ be32, 0x00000000, 0xB1060010 ]
+      - [ be32, 0x00000000, 0x7C0030AC ]
+      - [ be32, 0x00000000, 0x60000000 ]
 
 Anchors:
   dungeondefenders_openspy_notes: &dungeondefenders_openspy_notes
