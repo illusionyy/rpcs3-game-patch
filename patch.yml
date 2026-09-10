@@ -24472,6 +24472,20 @@ PPU-8d6a779351566fa3f379a875bdd722e8dac8284e:
       - [ utf8, 0x01538640, "http://%s.auth.pubsvs.openspy.net/AuthService/AuthService.asmx\0" ]
       - [ utf8, 0x014e82b0, "afb5818995b3708d0656a5bdd20760aee76537907625f6d23f40bf17029e56808d36966c0804e1d797e310fedd8c06e6c4121d963863d765811fc9baeb2315c9a6eaeb125fad694d9ea4d4a928f223d9f4514533f18a5432dd0435c5c6ac8e276cf29489cb5ac880f16b0d7832ee927d4e27d622d6a450cd1560d7fa882c6c13" ]
 
+PPU-3789cfdbc469a9f04bc1610724d75bc4009bd795:
+  "Skip Intro Videos":
+    Games:
+      "Motionsports Adrenaline":
+        BLES01461: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro videos (currently required to get in-game.) Assisted with AI tools."
+    Patch Version: 1.1
+    Patch:
+      - [ be64, 0x00030000, 0x0001881000030010 ] # argv[0] = GAME.self, argv[1] = -skipIntroVideos
+      - [ be64, 0x00030010, 0x2D736B6970496E74 ] # -skipInt
+      - [ be64, 0x00030018, 0x726F566964656F73 ] # roVideos
+      - [ be32, 0x0001190C, 0x3F000003 ] # Use injected argv @ 0x30000
+
 PPU-db1d23f1a43f79ec37c12e8aaa1f6b034b20a237:
   "Disable MLAA":
     Games:
