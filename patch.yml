@@ -21591,6 +21591,15 @@ PPU-56101fbdbac186fddef72207145015fd314a0be5:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x006E6878, 0x48000034 ]
+  "Skip Intro":
+    Games:
+      "Burnout Paradise":
+        BLUS30061: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the EA and Criterion FMVs. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0025EC2C, 0x48000520 ]
 
 PPU-c1701baaa053fa811968301a2749cbfb011c9930:
   "Full 60FPS":
@@ -21602,6 +21611,15 @@ PPU-c1701baaa053fa811968301a2749cbfb011c9930:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00831c78, 0x4800002c ]
+  "Skip Intro":
+    Games:
+      "Burnout Paradise":
+        BLUS30061: [ 01.90 ]
+    Author: "Alexis"
+    Notes: "Skips the EA and Criterion FMVs. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x002B5670, 0x48000500 ]
 
 PPU-dc0320a71151f24d72be25d34cd860d3092b074b: # EBOOT_SP.BIN 1.00/1.40
   "Unlock FPS":
@@ -26433,6 +26451,18 @@ PPU-cae78b97db380c30e81b865584303c31a56930b8:
       - [ be32, 0x0091e3c4, 0x60000000 ]
       - [ be32, 0x0091e424, 0x60000000 ]
       - [ be32, 0x0091e428, 0x60000000 ]
+
+PPU-7b4381a787ade9ebddea8634530d9ec4a34e7957:
+  "Force Cinematics Skip prompt":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: "Removes the cinematic skip restrictions, keeps the normal cinematic skip prompt when pressing circle."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x007AD590, 0x60000000 ]
+      - [ be32, 0x007AD5B8, 0x60000000 ]
 
 Anchors:
   skyrim_titleid: &skyrim_titleid
