@@ -2826,6 +2826,8 @@ PPU-85429af047d5428036843252ab5fc6f00ca81756:
     - [ be32, 0x00c32cb8, 0x60000000 ]
 
 Anchors:
+  nfsc_skip_intro: &nfsc_skip_intro
+    "Skips the intro videos."
   nfsc_unlock_all: &nfsc_unlock_all
     "Unlocks all unlockables such as vehicles in 'My Cars', vinyls etc."
   nfsc_debug_menu: &nfsc_debug_menu
@@ -2931,6 +2933,19 @@ PPU-5295c6de0b3fd1b48517255ce710002c174b18f5:
     Patch:
       - [ calloc, 0x000FC0F0, 28 ]
       - [ load, *nfsc_dlc_code ]
+  "Skip Intro Videos":
+    Games:
+      "Need for Speed: Carbon":
+        BLUS30016: [ 01.00 ]
+    Author: "Alexis"
+    Notes: *nfsc_skip_intro
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00266564, 0x00000098 ]
+      - [ be32, 0x00266578, 0x00000098 ]
+      - [ be32, 0x0026657C, 0x00000098 ]
+      - [ be32, 0x00266584, 0x00000098 ]
+      - [ be32, 0x00266588, 0x00000098 ]
 
 PPU-84caa321bd937ccf57e8fdbb4ede33d45e44eafa:
   "Disable Color Correction":
@@ -18542,6 +18557,16 @@ PPU-17c764fa09d201180c094d96282458eeb4e87501:
       - [ be32, 0x000d1830, 0x60000000 ]
 
 PPU-dc2b7780041c0d03c905129c285af01f01ed58f0:
+  "Debug Menu":
+    Games:
+      "Batman: Arkham Asylum":
+        BLUS30279: [ 01.00 ]
+        BLES00503: [ 01.00 ]
+    Author: "dron_3, Alexis"
+    Notes: *batmanAA_debugmenu_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x01223788, 0x38600000 ]
   "Unlock FPS":
     Games:
       "Batman: Arkham Asylum":
@@ -22112,6 +22137,16 @@ PPU-6c15db5dc3868d140fb638fc586f38426513d2de:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00198c7c, 0x39600004 ]
+  "Disable Night Vision Filter":
+    Games:
+      "Cars: Mater-National Championship":
+        BLUS30088: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables the night vision filter in the Rustbucket Grand Prix race. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00215DA4, 0x38600001 ]
+      - [ be32, 0x00215DA8, 0x4E800020 ]
 
 Anchors:
     cars_ror_ar_notes: &cars_ror_ar_notes
@@ -24512,7 +24547,7 @@ PPU-3789cfdbc469a9f04bc1610724d75bc4009bd795:
       "Motionsports Adrenaline":
         BLES01461: [ 01.00 ]
     Author: "Alexis"
-    Notes: "Skips the intro videos (currently required to get in-game.) Assisted with AI tools."
+    Notes: "Skips the intro videos. Assisted with AI tools."
     Patch Version: 1.1
     Patch:
       - [ be64, 0x00030000, 0x0001881000030010 ] # argv[0] = GAME.self, argv[1] = -skipIntroVideos
@@ -26225,6 +26260,34 @@ PPU-0e747cbf4d807d363b085d983fff749c2c9cbdee:
       - [ be32, 0x010b4608, 0x3c888889 ]
       - [ be32, 0x011178d0, 0x3c888889 ]
       - [ be32, 0x011178d4, 0x3c888889 ]
+
+PPU-44b0bbfe4756b3a99bcebf68ba5c6f2dc08b84da:
+  "Skip Intro Videos":
+    Games:
+      "SpongeBob SquarePants: Plankton's Robotic Revenge":
+        BLUS31276: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro videos. Assisted with AI tools."
+    Patch Version: 0.7
+    Patch:
+      - [ calloc, 0x00064F60, 17 ] # Compact startup-logo completion filter
+      - [ be32, 0x00000000, 0x812300BC ]
+      - [ be32, 0x00000000, 0x2C090000 ]
+      - [ be32, 0x00000000, 0x41820020 ]
+      - [ be32, 0x00000000, 0x8949002D ]
+      - [ be32, 0x00000000, 0x2C0A004E ]
+      - [ be32, 0x00000000, 0x41820028 ]
+      - [ be32, 0x00000000, 0x2C0A0041 ]
+      - [ be32, 0x00000000, 0x41820020 ]
+      - [ be32, 0x00000000, 0x2C0A0042 ]
+      - [ be32, 0x00000000, 0x41820018 ]
+      - [ be32, 0x00000000, 0x3D800011 ]
+      - [ be32, 0x00000000, 0x618CA578 ]
+      - [ be32, 0x00000000, 0x7D8903A6 ]
+      - [ be32, 0x00000000, 0x4E800421 ]
+      - [ be32, 0x00000000, 0x48000008 ]
+      - [ be32, 0x00000000, 0x38600001 ]
+      - [ be32, 0x00000000, 0x60000000 ]
 
 PPU-9b25445d515178534f4ca07dc26095d25301854e:
   "Bypass Online Pass":
