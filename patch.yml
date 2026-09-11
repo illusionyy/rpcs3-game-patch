@@ -10565,8 +10565,38 @@ PPU-d73f342bf28ee016ef3d0ccb309b1acb03d8ecce:
 Anchors:
   gt6_devlop_122: &gt6_devlop_122
     - [ be32, 0x0081715c, 0x38600001 ]
+
   gt6_devlop_notes: &gt6_devlop_notes
     "Press Select+R1 to activate in main menu."
+
+  gt6_chase_cam_122: &gt6_chase_cam_122
+    - [be32, 0x002F6B80, 0x60000000]
+    - [be32, 0x002F6B84, 0x60000000] 
+    - [be32, 0x002F71B0, 0x60000000]
+    - [be32, 0x002F71B8, 0x60000000]
+    - [be32, 0x016DDFF0, 0x41F00000]
+    - [bef32, 0x016DDFF4, "Spring Damper"]
+    - [be32, 0x016DDFF8, 0x43480000]
+    - [be32, 0x016DDFFC, 0x00000000]
+    - [be32, 0x016DE000, 0x41200000]
+    - [bef32, 0x016DE004, "Max Angle"]
+    - [be32, 0x016DE008, 0x41A00000]
+    - [be32, 0x016DE00C, 0x00000000]
+
+  gt6_chase_cam_notes: &gt6_chase_cam_notes
+    "Tweaks the chase camera to be a little less static. Vanilla values are 300/30"
+
+  gt6_chase_cam_config: &gt6_chase_cam_config
+     "Spring Damper":
+       Type: double_range
+       Value: 90.0
+       Min: 0.0
+       Max: 300.0
+     "Max Angle":
+       Type: double_range
+       Value: 35.0
+       Min: 0.0
+       Max: 100.0
 
 PPU-6ac472e1f334f54ec4753cde9e8e1515bfab4d17:
   "Develop Settings":
@@ -10650,18 +10680,8 @@ PPU-455eb1752a4ec0f104df4f0703237c23b3217a2d:
       "Gran Turismo 6":
         NPEA00502: [ 01.05 ]
     Author: "Edo"
-    Notes: "Tweaks the chase camera to be a little less static"
-    Configurable Values:
-      "Spring Damper":
-        Type: double_range
-        Value: 90.0
-        Min: 0.0
-        Max: 300.0
-      "Max Angle":
-        Type: double_range
-        Value: 35.0
-        Min: 0.0
-        Max: 100.0
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
     Patch Version: 1.2
     Patch:
       - [be32, 0x002C7DCC, 0x60000000]
@@ -10684,32 +10704,11 @@ PPU-638ef307e2b35d593f599efec0dc0c37059a984b:
       "Gran Turismo 6":
         BCES01893: [ 01.22 ]
     Author: "Edo"
-    Notes: "Tweaks the chase camera to be a little less static. Vanilla values are 300/30"
-    Configurable Values:
-      "Spring Damper":
-        Type: double_range
-        Value: 90.0
-        Min: 0.0
-        Max: 300.0
-      "Max Angle":
-        Type: double_range
-        Value: 35.0
-        Min: 0.0
-        Max: 100.0
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
     Patch Version: 1.2
     Patch:
-      - [be32, 0x002F6B80, 0x60000000]
-      - [be32, 0x002F6B84, 0x60000000] 
-      - [be32, 0x002F71B0, 0x60000000]
-      - [be32, 0x002F71B8, 0x60000000]
-      - [be32, 0x016DDFF0, 0x41F00000]
-      - [bef32, 0x016DDFF4, "Spring Damper"]
-      - [be32, 0x016DDFF8, 0x43480000]
-      - [be32, 0x016DDFFC, 0x00000000]
-      - [be32, 0x016DE000, 0x41200000]
-      - [bef32, 0x016DE004, "Max Angle"]
-      - [be32, 0x016DE008, 0x41A00000]
-      - [be32, 0x016DE00C, 0x00000000]
+      - [ load, *gt6_chase_cam_122 ]
 
 PPU-6ac472e1f334f54ec4753cde9e8e1515bfab4d17:
   "Looser Chase Camera":
@@ -10717,32 +10716,11 @@ PPU-6ac472e1f334f54ec4753cde9e8e1515bfab4d17:
       "Gran Turismo 6":
         BCUS98296: [ 01.22 ]
     Author: "Edo"
-    Notes: "Tweaks the chase camera to be a little less static. Vanilla values are 300/30"
-    Configurable Values:
-      "Spring Damper":
-        Type: double_range
-        Value: 90.0
-        Min: 0.0
-        Max: 300.0
-      "Max Angle":
-        Type: double_range
-        Value: 35.0
-        Min: 0.0
-        Max: 100.0
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
     Patch Version: 1.2
     Patch:
-      - [be32, 0x002F6B80, 0x60000000]
-      - [be32, 0x002F6B84, 0x60000000] 
-      - [be32, 0x002F71B0, 0x60000000]
-      - [be32, 0x002F71B8, 0x60000000]
-      - [be32, 0x016DDFF0, 0x41F00000]
-      - [bef32, 0x016DDFF4, "Spring Damper"]
-      - [be32, 0x016DDFF8, 0x43480000]
-      - [be32, 0x016DDFFC, 0x00000000]
-      - [be32, 0x016DE000, 0x41200000]
-      - [bef32, 0x016DE004, "Max Angle"]
-      - [be32, 0x016DE008, 0x41A00000]
-      - [be32, 0x016DE00C, 0x00000000]
+      - [ load, *gt6_chase_cam_122 ]
 
 PPU-d93a41467fce046bfbfb9648faee9e4e7963518d:
   "Looser Chase Camera":
@@ -10750,18 +10728,8 @@ PPU-d93a41467fce046bfbfb9648faee9e4e7963518d:
       "Gran Turismo 6":
         BCUS98296: [ 01.05 ]
     Author: "Edo"
-    Notes: "Tweaks the chase camera to be a little less static. Vanilla values are 300/30"
-    Configurable Values:
-      "Spring Damper":
-        Type: double_range
-        Value: 90.0
-        Min: 0.0
-        Max: 300.0
-      "Max Angle":
-        Type: double_range
-        Value: 35.0
-        Min: 0.0
-        Max: 100.0
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
     Patch Version: 1.2
     Patch:
       - [be32, 0x002C7DCC, 0x60000000]
@@ -10776,6 +10744,54 @@ PPU-d93a41467fce046bfbfb9648faee9e4e7963518d:
       - [bef32, 0x01633BB4, "Max Angle"]
       - [be32, 0x01633BB8, 0x41A00000]
       - [be32, 0x01633BBC, 0x00000000]
+
+PPU-4213aba5ed17f7e3cd3f299fa44d9d9acef0ba18:
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPUA81049: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+
+PPU-80f0d67b29d3d17ac885a309a3fc4cd8dcf50658:
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPEA00502: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+
+PPU-43e618448eed82aa96856338d072f1e4978c36a8:
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPJA00113: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+
+PPU-6a7de7fdfd7e7cbd1031bf28a7104b29c308136c:
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPHA80269: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
 
 Anchors:
   gthd_ar_notes: &gthd_ar_notes
@@ -22457,49 +22473,56 @@ PPU-59a33bedc708ebfb7905fb35b207313711705579:
       - [ be32, 0x00f3a870, 0x60000000 ]
 
 PPU-757a971c30a33495e22b47f9999bc25e15112856:
+  "Disable Bloom":
+    Games:
+      "DRIVER San Francisco":
+        BLUS30536: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables in-game bloom. Assisted with AI tools."
+    Patch Version: 0.2
+    Patch:
+      - [ be32, 0x001FC7C4, 0x60000000 ]
   "Disable Film Grain & Vignette":
     Games:
       "DRIVER San Francisco":
         BLUS30536: [ 01.01 ]
     Author: "Alexis"
     Notes: "Disables film grain and edge vignette. Assisted with AI tools."
-    Patch Version: 1.1
+    Patch Version: 1.3
     Patch:
-      - [ calloc, 0x005FDF68, 35 ] # P3PX parser, UID-based dispatch
+      - [ calloc, 0x005FDF68, 33 ]
       - [ be32, 0x00000000, 0x7C791B78 ]
       - [ be32, 0x00000000, 0x2C1D0000 ]
-      - [ be32, 0x00000000, 0x41820080 ]
+      - [ be32, 0x00000000, 0x41820078 ]
       - [ be32, 0x00000000, 0x79C60022 ]
       - [ be32, 0x00000000, 0x2C060064 ]
-      - [ be32, 0x00000000, 0x40820074 ]
-      - [ be32, 0x00000000, 0x48000035 ]
-      - [ be32, 0x00000000, 0xF34091E5 ]
-      - [ be32, 0x00000000, 0x00000192 ]
-      - [ be32, 0x00000000, 0x0AB8C0C4 ]
-      - [ be32, 0x00000000, 0x00000172 ]
-      - [ be32, 0x00000000, 0xCD84EDFA ]
-      - [ be32, 0x00000000, 0x00000212 ]
-      - [ be32, 0x00000000, 0xD9AA8DFD ]
-      - [ be32, 0x00000000, 0x000001C2 ]
-      - [ be32, 0x00000000, 0x6A013D0B ]
-      - [ be32, 0x00000000, 0x000001B2 ]
-      - [ be32, 0x00000000, 0x5B9E0306 ]
-      - [ be32, 0x00000000, 0x00000242 ]
-      - [ be32, 0x00000000, 0x7CC802A6 ]
-      - [ be32, 0x00000000, 0x39200006 ]
-      - [ be32, 0x00000000, 0x7D2903A6 ]
+      - [ be32, 0x00000000, 0x4082006C ]
+      - [ be32, 0x00000000, 0x38DD0142 ]
+      - [ be32, 0x00000000, 0x38FD0252 ]
+      - [ be32, 0x00000000, 0x3D200240 ]
+      - [ be32, 0x00000000, 0x6129C900 ]
+      - [ be32, 0x00000000, 0x3D401C9D ]
+      - [ be32, 0x00000000, 0x614AC904 ]
       - [ be32, 0x00000000, 0x81060000 ]
-      - [ be32, 0x00000000, 0x7C0E4000 ]
-      - [ be32, 0x00000000, 0x41820010 ]
-      - [ be32, 0x00000000, 0x38C60008 ]
-      - [ be32, 0x00000000, 0x4200FFF0 ]
-      - [ be32, 0x00000000, 0x4800001C ]
-      - [ be32, 0x00000000, 0x80E60004 ]
-      - [ be32, 0x00000000, 0x7CDD3A14 ]
+      - [ be32, 0x00000000, 0x7C084800 ]
+      - [ be32, 0x00000000, 0x4082003C ]
+      - [ be32, 0x00000000, 0x81060004 ]
+      - [ be32, 0x00000000, 0x7C085000 ]
+      - [ be32, 0x00000000, 0x40820030 ]
+      - [ be32, 0x00000000, 0x81060010 ]
+      - [ be32, 0x00000000, 0x7C084800 ]
+      - [ be32, 0x00000000, 0x40820024 ]
+      - [ be32, 0x00000000, 0x89060016 ]
+      - [ be32, 0x00000000, 0x280800FF ]
+      - [ be32, 0x00000000, 0x40820018 ]
       - [ be32, 0x00000000, 0x39000140 ]
       - [ be32, 0x00000000, 0xB1060000 ]
       - [ be32, 0x00000000, 0xB1060010 ]
       - [ be32, 0x00000000, 0x7C0030AC ]
+      - [ be32, 0x00000000, 0x48000010 ]
+      - [ be32, 0x00000000, 0x38C60010 ]
+      - [ be32, 0x00000000, 0x7C063840 ]
+      - [ be32, 0x00000000, 0x4180FFB4 ]
       - [ be32, 0x00000000, 0x60000000 ]
 
 Anchors:
@@ -23113,6 +23136,17 @@ PPU-afa4136447c25cb9c57487bb8c964b84ce960204:
     Patch:
       - [ be32, 0x00752788, 0x4e800020 ]
       - [ bef32, 0x001401d4, 1000.0 ]
+
+PPU-ce536dac751d882db6e77434a3164bad75d16d90:
+  "Skip Intro Movie":
+    Games:
+      "Full Auto 2 Battlelines":
+        BLUS30009: [ 01.03 ]
+    Author: "Alexis"
+    Notes: "Forces the game's built-in skipIntroMovie flag on. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ byte, 0x101094EC, 0x01 ] # skipIntroMovie = true
 
 Anchors:
   fuse_titles: &fuse_titles
