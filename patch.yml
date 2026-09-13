@@ -2946,6 +2946,25 @@ PPU-5295c6de0b3fd1b48517255ce710002c174b18f5:
       - [ be32, 0x0026657C, 0x00000098 ]
       - [ be32, 0x00266584, 0x00000098 ]
       - [ be32, 0x00266588, 0x00000098 ]
+  "Disable Motion Blur":
+    Games:
+      "Need for Speed: Carbon":
+        BLUS30016: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables motion blur alongside its downscale filter. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00941194, 0x100179E8 ]
+      - [ be32, 0x009411DC, 0x100179E8 ]
+      - [ be32, 0x009411A0, 0x100179E8 ]
+  "Disable Pause Blur":
+    Games:
+      "Need for Speed: Carbon":
+        BLUS30016: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables the blur seen in the pause menu/results. Assisted with AI tools."
+    Patch:
+      - [ be32, 0x00940EA4, 0x10017700 ]
 
 PPU-84caa321bd937ccf57e8fdbb4ede33d45e44eafa:
   "Disable Color Correction":
