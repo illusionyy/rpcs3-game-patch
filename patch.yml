@@ -23458,11 +23458,9 @@ Anchors:
       BCES00220: [ 01.00 ]
       BCES00591: [ All ]
       BCES00609: [ All ]
-    "inFamous (1.0 Original)":
-      BCUS98119: [ All ]
 
-  inFam1_USdisc20title: &inFam1_USdisc20title
-    "inFamous (2.0 Collection)":
+  inFam1_USdisctitle: &inFam1_USdisctitle
+    "inFamous":
       BCUS98119: [ All ]
   
   inFam1_configurable_values: &inFam1_configurable_values
@@ -23631,7 +23629,7 @@ PPU-4cf9e6e807b5f270164147ab8f4df3533c7ff1e8:
 
 PPU-412a9bf323b4743de21658a286f71dbe82cad807:
   "All powers unlocked":
-    Games: *inFam1_USdisc20title
+    Games: *inFam1_USdisctitle
     Author: "Scirvir"
     Notes:
     Patch Version: 1.0
@@ -23639,21 +23637,21 @@ PPU-412a9bf323b4743de21658a286f71dbe82cad807:
       - [ be32, 0x002d5948, 0x60000000 ]
       - [ byte, 0x002d5957, 0x7f ]
   "Disable speed limit":
-    Games: *inFam1_USdisc20title
+    Games: *inFam1_USdisctitle
     Author: "Hasster"
     Notes: *inFam1_disable_splim_notes
     Patch Version: 1.1
     Patch:
       - [ be32, 0x00761590, 0x3E19999A ] #default - 0.06, increased to 0.15, too high number = game start ignoring emulator's pause.
   "Disable refraction/shifting effect":
-    Games: *inFam1_USdisc20title
+    Games: *inFam1_USdisctitle
     Author: "Hasster"
     Notes: *inFam1_dis_refr
     Patch Version: 1.0
     Patch:
       - [ be32, 0x007868c0, 0x00000000 ]
   "Change FOV":
-    Games: *inFam1_USdisc20title
+    Games: *inFam1_USdisctitle
     Author: "Hasster"
     Notes: *inFam1_fov
     Configurable Values: *inFam1_configurable_values
