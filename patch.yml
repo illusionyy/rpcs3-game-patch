@@ -21916,6 +21916,17 @@ PPU-7d2bde7162621321360f5fa570541c72e05013ff: # EBOOT_MP.self
       - [ be32, 0x002fafe0, 0x60000000 ]
       - [ be32, 0x12ca1290, 0x453b8000 ] # memory
 
+PPU-1ae0502ea92a4cb79c75861e93ed792bf0b25950: # EBOOT.BIN
+  "Boot Multiplayer":
+    Games:
+      "Call of Duty 4: Modern Warfare (Launcher)":
+        BLUS30072: [ 01.40 ]
+    Author: "FlexBy"
+    Patch Version: 1.0
+    Notes: "Boots into Multiplayer instead of Singleplayer first"
+    Patch:
+      - [ utf8, 0x10000a80, "EBOOT_MP.BIN" ]
+
 PPU-ae4813836fefc002f423e6ebc7ff6d008282f4f9: # default.self 1.00
   "1280x720 Resolution":
     Games:
