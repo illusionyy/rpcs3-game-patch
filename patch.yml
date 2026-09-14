@@ -23658,6 +23658,13 @@ PPU-412a9bf323b4743de21658a286f71dbe82cad807:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00785494, "FOV" ]
+  "Disable Mesh Trimming":
+    Games: *inFam1_USdisctitle
+    Author: "Yahfz"
+    Notes: *inFam1_mesh_trim_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00613d20, 0x35000000 ]
 
 PPU-b2fd916ddb6214c6eb840ad64e6eccb3e5b50694:
   "Skip Intro":
