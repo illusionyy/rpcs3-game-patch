@@ -858,6 +858,33 @@ PPU-6da0d4551c59eb596a1e04a5355e98163badf246: # BBS.self
     Patch:
       - [ be32, 0x00015aa4, 0x38600000 ] # li r3, 0x0
 
+Anchors:
+  resogun_US100title: &resogun_US100title
+    "Resogun":
+      NPUA80900: [ 01.00 ]
+
+  resogun_US101title: &resogun_US101title
+    "Resogun":
+      NPUA80900: [ 01.01 ]
+
+PPU-70ae21ee6cc5402449b19b9a0f2fe533d22c8bf8:
+  "60 FPS":
+    Games: *resogun_US100title
+    Author: "xmat123x"
+    Notes: "Changes the engine startup target from 29.97 FPS to 59.94 FPS. Use VBlank Rate 60, Clocks Scale 100%, and Frame Limit Auto."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001e0128, 0x426fc28f ]
+
+PPU-6f05bf2a6d55e6b8dcb0589356eeee67e35945f3:
+  "60 FPS":
+    Games: *resogun_US101title
+    Author: "xmat123x"
+    Notes: "Changes the engine startup target from 29.97 FPS to 59.94 FPS. Use VBlank Rate 60, Clocks Scale 100%, and Frame Limit Auto."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001e0128, 0x426fc28f ]
+
 PPU-QoiFRPF8j00N996aQMthtWqEUG0Y:
   "P1 Infinite Health":
     Games:
@@ -19905,6 +19932,106 @@ PPU-539a6d42763b06228b136fa70f42070b34d30529:
       - [ bef32, 0x011bfa38, "Aspect Ratio" ]
       - [ bef32, 0x011c3928, "Aspect Ratio" ]
       - [ bef32, 0x011b0ae0, "Aspect Ratio" ]
+  "Unlock FPS":
+    Games:
+      "Dante's Inferno":
+        BLUS30405: [ 01.04 ]
+        BLES00713: [ 01.04 ]
+    Author: "franks"
+    Patch Version: 1.0
+    Patch:
+  # dt hook
+      - [ be32, 0x00B0A99C, 0x4BF4CC8D ] # jump to dt cave - stfs f11,-0x7e28(r9) -> bl 0x00A57628
+
+  # dt cave - handles game's speed
+    # read the clock
+      - [ be32, 0x00A57628, 0x3CA00145 ] # lis r5,0x0145           
+      - [ be32, 0x00A5762C, 0x38A597A8 ] # addi r5,r5,0x97A8       // r5 = our scratch data
+      - [ be32, 0x00A57630, 0x7C6C42A6 ] # mftb r3                 // read the CPU clock
+      - [ be32, 0x00A57634, 0xE8C50000 ] # ld r6,0(r5)             // the clock reading from last frame
+      - [ be32, 0x00A57638, 0xF8650000 ] # std r3,0(r5)            // remember this frame's reading
+      - [ be32, 0x00A5763C, 0x7C661850 ] # subf r3,r6,r3           // how many counts went by since last frame
+    # turn counts into seconds
+      - [ be32, 0x00A57640, 0xF8650010 ] # std r3,16(r5)           // save the count where the FPU can reach it
+      - [ be32, 0x00A57644, 0xC8450010 ] # lfd f2,16(r5)           // bring the count in
+      - [ be32, 0x00A57648, 0xFC00169C ] # fcfid f0,f2             // make it a real number
+      - [ be32, 0x00A5764C, 0xC8250020 ] # lfd f1,32(r5)           // the CPU's speed (80,000,000 counts/sec)
+      - [ be32, 0x00A57650, 0xFC000824 ] # fdiv f0,f0,f1           // divide and get the actual seconds
+      - [ be32, 0x00A57654, 0xFC000018 ] # frsp f0,f0              // shrink it to single precision
+    # tell the game
+      - [ be32, 0x00A57658, 0x3CC00145 ] # lis r6,0x0145           
+      - [ be32, 0x00A5765C, 0x38C697D8 ] # addi r6,r6,0x97D8       // r6 = game's delta timer
+      - [ be32, 0x00A57660, 0xD0060000 ] # stfs f0,0(r6)           // game now knows how fast this frame ran
+    # storing f3 for future checks of UI transition (fixes missing menus or text content as "Text" at high framerates)
+      - [ be32, 0x00A57664, 0x3D800145 ] # lis r12,0x0145          // r12 = f3's copy
+      - [ be32, 0x00A57668, 0xD06C9B30 ] # stfs f3,0x9B30(r12)     // keep f3 out for the accumulator (it's -1.0f while transitioning menus)
+      - [ be32, 0x00A5766C, 0x48002E04 ] # b 0x00A5A470            // run the accumulator now
+
+  # accumulator cave - makes the UI advance 60 times per second using real time
+    # save up this frame's time
+      - [ be32, 0x00A5A470, 0x3D000145 ] # lis r8,0x0145           
+      - [ be32, 0x00A5A474, 0x39089B20 ] # addi r8,r8,0x9B20       // r8 = our data
+      - [ be32, 0x00A5A478, 0xC0680000 ] # lfs f3,0(r8)            // time saved up from earlier frames
+      - [ be32, 0x00A5A47C, 0xEC63002A ] # fadds f3,f3,f0          // add this frame's time
+      - [ be32, 0x00A5A480, 0xC0880004 ] # lfs f4,4(r8)            // how long one tick is (1/60 of a second)
+      - [ be32, 0x00A5A484, 0xFF832000 ] # fcmpu cr7,f3,f4         // is one full tick saved up?
+      - [ be32, 0x00A5A488, 0x419C0010 ] # blt cr7,0x00A5A498      // not yet - hold still
+      - [ be32, 0x00A5A48C, 0xEC632028 ] # fsubs f3,f3,f4          // use up one tick
+      - [ be32, 0x00A5A490, 0x39200001 ] # li r9,1                 // yes - advance the UI
+      - [ be32, 0x00A5A494, 0x4800001C ] # b 0x00A5A4B0            // go tell the gate
+      - [ be32, 0x00A5A498, 0x39200000 ] # li r9,0                 // not yet - keep it looking still
+      - [ be32, 0x00A5A49C, 0xC0A80010 ] # lfs f5,0x10(r8)         // the f3 dt left for us
+      - [ be32, 0x00A5A4A0, 0xC0880018 ] # lfs f4,0x18(r8)         // the "rebuilding a menu" marker
+      - [ be32, 0x00A5A4A4, 0xFC052000 ] # fcmpu cr0,f5,f4         // rebuilding a menu right now?
+      - [ be32, 0x00A5A4A8, 0x40820008 ] # bne cr0,0x00A5A4B0      // no - stay held
+      - [ be32, 0x00A5A4AC, 0x39200001 ] # li r9,1                 // yes - go ahead anyway
+    # publish the decision
+      - [ be32, 0x00A5A4B0, 0x3D400145 ] # lis r10,0x0145          
+      - [ be32, 0x00A5A4B4, 0x394A9B2C ] # addi r10,r10,0x9B2C     // r10 = the "advance?" flag
+      - [ be32, 0x00A5A4B8, 0x912A0000 ] # stw r9,0(r10)           // publish: move now or hold
+      - [ be32, 0x00A5A4BC, 0xD0680000 ] # stfs f3,0(r8)           // keep whatever time is left over
+      - [ be32, 0x00A5A4C0, 0x4E800020 ] # blr                     // done
+
+  # gate hook
+      - [ be32, 0x00418E9C, 0x48641594 ] # jump to gate cave - lwz r9,0x10(r31) -> b 0x00A5A430
+
+  # gate cave - handles UI animation speed by gating it to 60hz
+    # only gate the normal UI advance
+      - [ be32, 0x00A5A430, 0x7D2802A6 ] # mflr r9                 // who called into here
+      - [ be32, 0x00A5A434, 0x3D400042 ] # lis r10,0x0042          
+      - [ be32, 0x00A5A438, 0x394A900C ] # addi r10,r10,0x900C     // r10 = the usual caller's address
+      - [ be32, 0x00A5A43C, 0x7C095000 ] # cmpw cr0,r9,r10         // is this the usual caller (UI advancer)?
+      - [ be32, 0x00A5A440, 0x40820028 ] # bne cr0,0x00A5A468      // anything else - let it through
+    # ask the accumulator
+      - [ be32, 0x00A5A444, 0x3D400145 ] # lis r10,0x0145          
+      - [ be32, 0x00A5A448, 0x394A9B2C ] # addi r10,r10,0x9B2C     // r10 = the "advance?" flag
+      - [ be32, 0x00A5A44C, 0x814A0000 ] # lwz r10,0(r10)          // the accumulator's answer for this frame
+      - [ be32, 0x00A5A450, 0x2C0A0000 ] # cmpwi cr0,r10,0         // time to advance yet?
+      - [ be32, 0x00A5A454, 0x40820014 ] # bne cr0,0x00A5A468      // yes - let it through
+    # hold, but let menus build
+      - [ be32, 0x00A5A458, 0x813F0010 ] # lwz r9,0x10(r31)        // how long the menu has been up
+      - [ be32, 0x00A5A45C, 0x2C090002 ] # cmpwi cr0,r9,2          // still on the first couple frames?
+      - [ be32, 0x00A5A460, 0x40810008 ] # ble cr0,0x00A5A468      // yes - let the menu finish building
+      - [ be32, 0x00A5A464, 0x4B9BEA7C ] # b 0x00418EE0            // no - skip this move for now
+    # resume
+      - [ be32, 0x00A5A468, 0x813F0010 ] # lwz r9,0x10(r31)        // run the instruction we hooked at
+      - [ be32, 0x00A5A46C, 0x4B9BEA34 ] # b 0x00418EA0            // back to normal
+
+  # Data section
+    # dt data
+      - [ be32, 0x014497A8, 0x00000000 ] # last clock reading (high)
+      - [ be32, 0x014497AC, 0x00000000 ] # last clock reading (low)
+      - [ be32, 0x014497B8, 0x00000000 ] # scratch for the count (high)
+      - [ be32, 0x014497BC, 0x00000000 ] # scratch for the count (low)
+      - [ be32, 0x014497C8, 0x419312D0 ] # CPU speed: 80,000,000.0 (high)
+      - [ be32, 0x014497CC, 0x00000000 ] # CPU speed: 80,000,000.0 (low)
+
+    # accumulator / gate data
+      - [ be32, 0x01449B20, 0x00000000 ] # saved-up time
+      - [ be32, 0x01449B24, 0x3C888889 ] # tick length: 1/60 of a second
+      - [ be32, 0x01449B2C, 0x00000000 ] # "should the UI advance?" flag
+      - [ be32, 0x01449B30, 0x00000000 ] # f3 stored by the dt cave
+      - [ be32, 0x01449B38, 0xBF800000 ] # menu rebuild marker (-1.0f)
 
 PPU-8f3e573af22dd5fd077fbe91ac79348eb368f9f6:
   "Infinite Health":
@@ -27101,6 +27228,19 @@ PPU-cfa4d1b380b8ebfa5acd59fa9378c50e3059865c:
     Patch:
       - [ byte, 0x005b4ebf, 0x01 ]
       - [ be32, 0x00b06470, 0x3C88AB86 ]
+  "120 FPS":
+    Games:
+      "The Simpsons Game":
+        BLES00142: [ 01.00 ]
+        BLES00146: [ 01.00 ]
+        BLUS30065: [ 01.00 ]
+    Author: "tronuo"
+    Notes: 
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x003f7a54, 0x60000000 ]
+      - [ be32, 0x00b06470, 0x3C08AB86 ]
+      - [ be32, 0x101881f0, 0x42EFC28F ]
   "Invincibility":
     Games:
       "The Simpsons Game":
@@ -27112,28 +27252,6 @@ PPU-cfa4d1b380b8ebfa5acd59fa9378c50e3059865c:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00285028, 0x38600001 ]
-  "Skip Intro Videos":
-    Games:
-      "The Simpsons Game":
-        BLES00142: [ 01.00 ]
-        BLES00146: [ 01.00 ]
-        BLUS30065: [ 01.00 ]
-    Author: "Alexis"
-    Notes: "Skips the intro videos upon start up. Assisted with AI tools."
-    Patch Version: 1.0
-    Patch:
-      - [ calloc, 0x004bc774, 11 ]
-      - [ be32, 0x00000000, 0x409e0028 ]
-      - [ be32, 0x00000000, 0xa01b0000 ]
-      - [ be32, 0x00000000, 0x2f806561 ]
-      - [ be32, 0x00000000, 0x419e0018 ]
-      - [ be32, 0x00000000, 0x2f80666f ]
-      - [ be32, 0x00000000, 0x419e0010 ]
-      - [ be32, 0x00000000, 0x2f806772 ]
-      - [ be32, 0x00000000, 0x419e0008 ]
-      - [ jump, 0x00000000, 0x004bc81c ]
-      - [ jump, 0x00000000, 0x004bc7b0 ]
-      - [ jump, 0x00000000, 0x004bc778 ]
 
 PPU-e9aaed0f182d2505da70e1b9ec8741ca843fe0dd:
   "Skip Intro":
@@ -28080,6 +28198,26 @@ PPU-bee9cff8035feda3155ac2378efe74343d29fc8c:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0003bcb0, 0x38000000 ]
+
+PPU-ef3b2601edb204616eadf2234d34a51bf2d6db6d:
+  "Disable Edge Outlines":
+    Games:
+      "LEGO Dimensions":
+        BLUS31473: [ 01.22 ]
+    Author: "Alexis"
+    Notes: "Disables the edge outline effect used by cartoon levels and Adventure Worlds. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x006D3BB8, 0x38600001 ]
+  "Disable Depth of Field":
+    Games:
+      "LEGO Dimensions":
+        BLUS31473: [ 01.22 ]
+    Author: "Alexis"
+    Notes: "Disables Depth of Field. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x005D4900, 0x60000000 ]
 
 Anchors:
     wet_ar_notes: &wet_ar_notes
