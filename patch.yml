@@ -1561,31 +1561,31 @@ PPU-e8e29268437430a42b01ccbdea814560150bc037:
     Patch Version: 2.0
     Patch:
       - [ be32, 0x001b6f6c, 0x48315aec ] # b 0x004cca58            hook (cave moved: 0x004cc98c sat on a string table)
-      - [ be32, 0x004cca58, 0x3d8000ab ] # lis r12,0xab            scratch base (0x00aad000 = -0x3000(r12))
+      - [ be32, 0x004cca58, 0x3d800f00 ] # lis r12,0x0f00          scratch base = patch-ALLOCATED RW page 0x0f000000
       - [ be32, 0x004cca5c, 0x3d400064 ] # lis r10,0x64
       - [ be32, 0x004cca60, 0xa00a4bea ] # lhz r0,0x4bea(r10)      r0 = C16 of frame counter [0x644be8]
-      - [ be32, 0x004cca64, 0xa14cd004 ] # lhz r10,-0x2ffc(r12)    r10 = last_C16 [0x00aad004]
-      - [ be32, 0x004cca68, 0xa16cd006 ] # lhz r11,-0x2ffa(r12)    r11 = cached dec [0x00aad006]
+      - [ be32, 0x004cca64, 0xa14c0004 ] # lhz r10,4(r12)          r10 = last_C16 [0x0f000004]
+      - [ be32, 0x004cca68, 0xa16c0006 ] # lhz r11,6(r12)          r11 = cached dec [0x0f000006]
       - [ be32, 0x004cca6c, 0x7f805000 ] # cmpw cr7,r0,r10
       - [ be32, 0x004cca70, 0x419e004c ] # beq cr7,0x004ccabc      same frame -> APPLY (cached dec)
       - [ be32, 0x004cca74, 0x7c6c42e6 ] # mftb r3                 (new frame)
       - [ be32, 0x004cca78, 0x7863ba42 ] # srdi r3,r3,9            r3 = now/512
-      - [ be32, 0x004cca7c, 0x816cd000 ] # lwz r11,-0x3000(r12)    r11 = next_step_now [0x00aad000]
+      - [ be32, 0x004cca7c, 0x816c0000 ] # lwz r11,0(r12)          r11 = next_step_now [0x0f000000]
       - [ be32, 0x004cca80, 0x7d4b1850 ] # subf r10,r11,r3         elapsed = now - next_step_now
       - [ be32, 0x004cca84, 0x2f8a0a32 ] # cmpwi cr7,r10,0xa32     lag threshold ~59.89fps: any slower frame -> native delta (kills slow-motion; raise toward 0xa80 if speed creeps at stable fps)
       - [ be32, 0x004cca88, 0x419d001c ] # bgt cr7,0x004ccaa4      -> lag: resync + NATIVE dt (PS3-like delta compensation)
       - [ be32, 0x004cca8c, 0x2f8a0000 ] # cmpwi cr7,r10,0         step due?
       - [ be32, 0x004cca90, 0x419c0020 ] # blt cr7,0x004ccab0      no -> skip
       - [ be32, 0x004cca94, 0x394b0a30 ] # addi r10,r11,0xa30      cap = 59.94 steps/s (calibrated - do not change; bigger=slower)
-      - [ be32, 0x004cca98, 0x914cd000 ] # stw r10,-0x3000(r12)
+      - [ be32, 0x004cca98, 0x914c0000 ] # stw r10,0(r12)
       - [ be32, 0x004cca9c, 0x39600001 ] # li r11,1                dec = 1 (feed PS3 dt)
       - [ be32, 0x004ccaa0, 0x48000014 ] # b 0x004ccab4            -> pack
-      - [ be32, 0x004ccaa4, 0x906cd000 ] # stw r3,-0x3000(r12)     lag: resync
+      - [ be32, 0x004ccaa4, 0x906c0000 ] # stw r3,0(r12)           lag: resync
       - [ be32, 0x004ccaa8, 0x39600003 ] # li r11,3                dec = 3 (feed NATIVE dt this frame)
       - [ be32, 0x004ccaac, 0x48000008 ] # b 0x004ccab4            -> pack
       - [ be32, 0x004ccab0, 0x39600000 ] # li r11,0                skip: dec = 0 (feed tiny)
       - [ be32, 0x004ccab4, 0x500b801e ] # rlwimi r11,r0,16,0,15   word2 = C16<<16 | dec
-      - [ be32, 0x004ccab8, 0x916cd004 ] # stw r11,-0x2ffc(r12)
+      - [ be32, 0x004ccab8, 0x916c0004 ] # stw r11,4(r12)
       - [ be32, 0x004ccabc, 0x716b0003 ] # andi. r11,r11,3         (APPLY) dec = word2 & 3
       - [ be32, 0x004ccac0, 0x2f8b0003 ] # cmpwi cr7,r11,3         lag frame?
       - [ be32, 0x004ccac4, 0xec1f0024 ] # fdivs f0,f31,f0         f0 = NATIVE dt (original instruction)
@@ -1598,8 +1598,7 @@ PPU-e8e29268437430a42b01ccbdea814560150bc037:
       - [ be32, 0x004ccae0, 0x9001fff8 ] # stw r0,-8(r1)           stack red zone
       - [ be32, 0x004ccae4, 0xc001fff8 ] # lfs f0,-8(r1)           f0 = PS3 dt
       - [ be32, 0x004ccae8, 0x4bcea488 ] # b 0x001b6f70            native fmuls/stfs write [0x10]=f0, [0x14]=f0*scales
-      - [ be32, 0x00aad000, 0x00000000 ] # next_step_now (timebase/512)
-      - [ be32, 0x00aad004, 0x00000000 ] # word2: last_C16<<16 | cached dec
+      - [ alloc, 0x0f000003, 0x1000 ] # 4KB RW scratch page at 0x0f000000 (zeroized, VM-reserved; game can't stomp it)
 
 PPU-645f0573d7438e37ddd231377adf9c1205e8a040:
   "Native PS3 Timing":
@@ -1613,31 +1612,31 @@ PPU-645f0573d7438e37ddd231377adf9c1205e8a040:
     Patch Version: 2.0
     Patch:
       - [ be32, 0x001b5664, 0x48317328 ] # b 0x004cc98c
-      - [ be32, 0x004cc98c, 0x3d8000ab ] # lis r12,0xab            scratch base (0x00aad000 = -0x3000(r12))
+      - [ be32, 0x004cc98c, 0x3d800f00 ] # lis r12,0x0f00          scratch base = patch-ALLOCATED RW page 0x0f000000
       - [ be32, 0x004cc990, 0x3d400055 ] # lis r10,0x55
       - [ be32, 0x004cc994, 0xa00ac3ea ] # lhz r0,0xc3ea(r10)      r0 = C16 of frame counter [0x54c3e8]
-      - [ be32, 0x004cc998, 0xa14cd004 ] # lhz r10,-0x2ffc(r12)    r10 = last_C16 [0x00aad004]
-      - [ be32, 0x004cc99c, 0xa16cd006 ] # lhz r11,-0x2ffa(r12)    r11 = cached dec [0x00aad006]
+      - [ be32, 0x004cc998, 0xa14c0004 ] # lhz r10,4(r12)          r10 = last_C16 [0x0f000004]
+      - [ be32, 0x004cc99c, 0xa16c0006 ] # lhz r11,6(r12)          r11 = cached dec [0x0f000006]
       - [ be32, 0x004cc9a0, 0x7f805000 ] # cmpw cr7,r0,r10
       - [ be32, 0x004cc9a4, 0x419e004c ] # beq cr7,0x004cc9f0      same frame -> APPLY (cached dec)
       - [ be32, 0x004cc9a8, 0x7c6c42e6 ] # mftb r3                 (new frame)
       - [ be32, 0x004cc9ac, 0x7863ba42 ] # srdi r3,r3,9            r3 = now/512
-      - [ be32, 0x004cc9b0, 0x816cd000 ] # lwz r11,-0x3000(r12)    r11 = next_step_now [0x00aad000]
+      - [ be32, 0x004cc9b0, 0x816c0000 ] # lwz r11,0(r12)          r11 = next_step_now [0x0f000000]
       - [ be32, 0x004cc9b4, 0x7d4b1850 ] # subf r10,r11,r3         elapsed = now - next_step_now
       - [ be32, 0x004cc9b8, 0x2f8a0a32 ] # cmpwi cr7,r10,0xa32     lag threshold ~59.89fps: any slower frame -> native delta (kills slow-motion; raise toward 0xa80 if speed creeps at stable fps)
       - [ be32, 0x004cc9bc, 0x419d001c ] # bgt cr7,0x004cc9d8      -> lag: resync + NATIVE dt (PS3-like delta compensation)
       - [ be32, 0x004cc9c0, 0x2f8a0000 ] # cmpwi cr7,r10,0         step due?
       - [ be32, 0x004cc9c4, 0x419c0020 ] # blt cr7,0x004cc9e4      no -> skip
       - [ be32, 0x004cc9c8, 0x394b0a30 ] # addi r10,r11,0xa30      cap = 59.94 steps/s (calibrated - do not change; bigger=slower)
-      - [ be32, 0x004cc9cc, 0x914cd000 ] # stw r10,-0x3000(r12)
+      - [ be32, 0x004cc9cc, 0x914c0000 ] # stw r10,0(r12)
       - [ be32, 0x004cc9d0, 0x39600001 ] # li r11,1                dec = 1 (feed PS3 dt)
       - [ be32, 0x004cc9d4, 0x48000014 ] # b 0x004cc9e8            -> pack
-      - [ be32, 0x004cc9d8, 0x906cd000 ] # stw r3,-0x3000(r12)     lag: resync
+      - [ be32, 0x004cc9d8, 0x906c0000 ] # stw r3,0(r12)           lag: resync
       - [ be32, 0x004cc9dc, 0x39600003 ] # li r11,3                dec = 3 (keep NATIVE f12 this frame)
       - [ be32, 0x004cc9e0, 0x48000008 ] # b 0x004cc9e8            -> pack
       - [ be32, 0x004cc9e4, 0x39600000 ] # li r11,0                skip: dec = 0 (feed tiny)
       - [ be32, 0x004cc9e8, 0x500b801e ] # rlwimi r11,r0,16,0,15   word2 = C16<<16 | dec
-      - [ be32, 0x004cc9ec, 0x916cd004 ] # stw r11,-0x2ffc(r12)
+      - [ be32, 0x004cc9ec, 0x916c0004 ] # stw r11,4(r12)
       - [ be32, 0x004cc9f0, 0x716b0003 ] # andi. r11,r11,3         (APPLY) dec = word2 & 3
       - [ be32, 0x004cc9f4, 0x2f8b0003 ] # cmpwi cr7,r11,3         lag frame?
       - [ be32, 0x004cc9f8, 0x419e0024 ] # beq cr7,0x004cca1c      lag -> keep NATIVE f12 (compensates like PS3)
@@ -1651,8 +1650,7 @@ PPU-645f0573d7438e37ddd231377adf9c1205e8a040:
       - [ be32, 0x004cca18, 0xc181fff8 ] # lfs f12,-8(r1)          f12 = PS3 dt
       - [ be32, 0x004cca1c, 0xc0080018 ] # lfs f0,0x18(r8)         original instruction (all paths)
       - [ be32, 0x004cca20, 0x4bce8c48 ] # b 0x001b5668            game uses f12 as frametime
-      - [ be32, 0x00aad000, 0x00000000 ] # next_step_now (timebase/512)
-      - [ be32, 0x00aad004, 0x00000000 ] # word2: last_C16<<16 | cached dec
+      - [ alloc, 0x0f000003, 0x1000 ] # 4KB RW scratch page at 0x0f000000 (zeroized, VM-reserved; game can't stomp it)
 
 PPU-7775c39a8eade714caca6c95cf07c9d9ca095047:
   "Native PS3 Timing":
@@ -1665,31 +1663,31 @@ PPU-7775c39a8eade714caca6c95cf07c9d9ca095047:
     Patch Version: 2.0
     Patch:
       - [ be32, 0x001b5f00, 0x48316a8c ] # b 0x004cc98c
-      - [ be32, 0x004cc98c, 0x3d8000ab ] # lis r12,0xab            scratch base (0x00aad000 = -0x3000(r12))
+      - [ be32, 0x004cc98c, 0x3d800f00 ] # lis r12,0x0f00          scratch base = patch-ALLOCATED RW page 0x0f000000
       - [ be32, 0x004cc990, 0x3d400059 ] # lis r10,0x59
       - [ be32, 0x004cc994, 0xa00aca6a ] # lhz r0,0xca6a(r10)      r0 = C16 of frame counter [0x58ca68]
-      - [ be32, 0x004cc998, 0xa14cd004 ] # lhz r10,-0x2ffc(r12)    r10 = last_C16 [0x00aad004]
-      - [ be32, 0x004cc99c, 0xa16cd006 ] # lhz r11,-0x2ffa(r12)    r11 = cached dec [0x00aad006]
+      - [ be32, 0x004cc998, 0xa14c0004 ] # lhz r10,4(r12)          r10 = last_C16 [0x0f000004]
+      - [ be32, 0x004cc99c, 0xa16c0006 ] # lhz r11,6(r12)          r11 = cached dec [0x0f000006]
       - [ be32, 0x004cc9a0, 0x7f805000 ] # cmpw cr7,r0,r10
       - [ be32, 0x004cc9a4, 0x419e004c ] # beq cr7,0x004cc9f0      same frame -> APPLY (cached dec)
       - [ be32, 0x004cc9a8, 0x7c6c42e6 ] # mftb r3                 (new frame)
       - [ be32, 0x004cc9ac, 0x7863ba42 ] # srdi r3,r3,9            r3 = now/512
-      - [ be32, 0x004cc9b0, 0x816cd000 ] # lwz r11,-0x3000(r12)    r11 = next_step_now [0x00aad000]
+      - [ be32, 0x004cc9b0, 0x816c0000 ] # lwz r11,0(r12)          r11 = next_step_now [0x0f000000]
       - [ be32, 0x004cc9b4, 0x7d4b1850 ] # subf r10,r11,r3         elapsed = now - next_step_now
       - [ be32, 0x004cc9b8, 0x2f8a0a32 ] # cmpwi cr7,r10,0xa32     lag threshold ~59.89fps: any slower frame -> native delta (kills slow-motion; raise toward 0xa80 if speed creeps at stable fps)
       - [ be32, 0x004cc9bc, 0x419d001c ] # bgt cr7,0x004cc9d8      -> lag: resync + NATIVE dt (PS3-like delta compensation)
       - [ be32, 0x004cc9c0, 0x2f8a0000 ] # cmpwi cr7,r10,0         step due?
       - [ be32, 0x004cc9c4, 0x419c0020 ] # blt cr7,0x004cc9e4      no -> skip
       - [ be32, 0x004cc9c8, 0x394b0a30 ] # addi r10,r11,0xa30      cap = 59.94 steps/s (calibrated - do not change; bigger=slower)
-      - [ be32, 0x004cc9cc, 0x914cd000 ] # stw r10,-0x3000(r12)
+      - [ be32, 0x004cc9cc, 0x914c0000 ] # stw r10,0(r12)
       - [ be32, 0x004cc9d0, 0x39600001 ] # li r11,1                dec = 1 (feed PS3 dt)
       - [ be32, 0x004cc9d4, 0x48000014 ] # b 0x004cc9e8            -> pack
-      - [ be32, 0x004cc9d8, 0x906cd000 ] # stw r3,-0x3000(r12)     lag: resync
+      - [ be32, 0x004cc9d8, 0x906c0000 ] # stw r3,0(r12)           lag: resync
       - [ be32, 0x004cc9dc, 0x39600003 ] # li r11,3                dec = 3 (keep NATIVE f12 this frame)
       - [ be32, 0x004cc9e0, 0x48000008 ] # b 0x004cc9e8            -> pack
       - [ be32, 0x004cc9e4, 0x39600000 ] # li r11,0                skip: dec = 0 (feed tiny)
       - [ be32, 0x004cc9e8, 0x500b801e ] # rlwimi r11,r0,16,0,15   word2 = C16<<16 | dec
-      - [ be32, 0x004cc9ec, 0x916cd004 ] # stw r11,-0x2ffc(r12)
+      - [ be32, 0x004cc9ec, 0x916c0004 ] # stw r11,4(r12)
       - [ be32, 0x004cc9f0, 0x716b0003 ] # andi. r11,r11,3         (APPLY) dec = word2 & 3
       - [ be32, 0x004cc9f4, 0x2f8b0003 ] # cmpwi cr7,r11,3         lag frame?
       - [ be32, 0x004cc9f8, 0x419e0024 ] # beq cr7,0x004cca1c      lag -> keep NATIVE f12 (compensates like PS3)
@@ -1703,8 +1701,7 @@ PPU-7775c39a8eade714caca6c95cf07c9d9ca095047:
       - [ be32, 0x004cca18, 0xc181fff8 ] # lfs f12,-8(r1)          f12 = PS3 dt
       - [ be32, 0x004cca1c, 0xc0080018 ] # lfs f0,0x18(r8)         original instruction (all paths)
       - [ be32, 0x004cca20, 0x4bce94e4 ] # b 0x001b5f04            game uses f12 as frametime
-      - [ be32, 0x00aad000, 0x00000000 ] # next_step_now (timebase/512)
-      - [ be32, 0x00aad004, 0x00000000 ] # word2: last_C16<<16 | cached dec
+      - [ alloc, 0x0f000003, 0x1000 ] # 4KB RW scratch page at 0x0f000000 (zeroized, VM-reserved; game can't stomp it)
 
 Anchors:
   lbp2_133title: &lbp2_133title
@@ -10420,6 +10417,25 @@ PPU-d73f342bf28ee016ef3d0ccb309b1acb03d8ecce:
     Patch Version: 1.0
     Patch:
       - [ utf8, 0x013dec30, "http://54.37.232.59\0" ] # https://gt5.ps3.online.us.gran-turismo.com
+  "Enable Bloom and Lens Flares in All Cameras":    
+    Games:
+      "Gran Turismo 5":
+        BCUS98114: [ 02.11 ]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Notes: "Forces Bloom and Lens Flare effects in all cameras (previously only enabled in the Bumper camera). AI tool assisted"
+    Patch:
+      - [ be32, 0x00423c04, 0x4800002C ]
+  "Disable Dithering":
+    Games:
+      "Gran Turismo 5":
+        BCUS98114: [ 02.11 ]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Disables Dithering (a noise effect most noticeable in darker areas of the game). May introduce colour banding. AI tool assisted"
+    Patch:
+      - [ be32, 0x008EA364, 0x4E800020 ]
 
 PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
   "Unlock FPS":
@@ -10470,6 +10486,25 @@ PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
     Patch Version: 1.0
     Patch:
       - [ utf8, 0x013debb0, "http://54.37.232.59\0" ] # https://gt5.ps3.online.uk.gran-turismo.com
+  "Enable Bloom and Lens Flares in All Cameras":
+    Games:
+      "Gran Turismo 5":
+        BCES00569: [ 02.11 ]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Notes: "Forces Bloom and Lens Flare effects in all cameras (previously only enabled in the Bumper camera). AI tool assisted"
+    Patch:
+      - [ be32, 0x00423c04, 0x4800002C ]
+  "Disable Dithering":
+    Games:
+      "Gran Turismo 5":
+        BCES00569: [ 02.11 ]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Disables Dithering (a noise effect most noticeable in darker areas of the game). May introduce colour banding. AI tool assisted"
+    Patch:
+      - [ be32, 0x008EA364, 0x4E800020 ]
 
 PPU-223cc85fc80a6667fae775c7c02f7f65e6b2871f:
   "Unlock FPS":
@@ -12515,6 +12550,17 @@ PPU-07b749cb166a9d6a924bb59428880e3836ab67c9: # shadow.self 1.01
     Patch Version: 1.0
     Patch:
       - [ bef32, 0x007328dc, 1.5 ]
+
+SPU-2801f277cbe95085325a1451cc64731b8f47c18b:
+  "Disable Mesh Trimming":
+    Games:
+      "Shadow of the Colossus":
+        BCES01097: [ 01.01 ]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Notes: "Allows the game to render correctly at higher resolutions than what the PS3 supports."
+    Patch:
+      - [ be32, 0x00000490, 0x40800004 ]
 
 PPU-c93019e83e820ad7ce6ac2428d022e7c09d484d3:
   "ZamboniMultiplayerPatch":
