@@ -27252,6 +27252,28 @@ PPU-cfa4d1b380b8ebfa5acd59fa9378c50e3059865c:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00285028, 0x38600001 ]
+  "Skip Intro Videos":
+    Games:
+      "The Simpsons Game":
+        BLES00142: [ 01.00 ]
+        BLES00146: [ 01.00 ]
+        BLUS30065: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro videos upon start up. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ calloc, 0x004bc774, 11 ]
+      - [ be32, 0x00000000, 0x409e0028 ]
+      - [ be32, 0x00000000, 0xa01b0000 ]
+      - [ be32, 0x00000000, 0x2f806561 ]
+      - [ be32, 0x00000000, 0x419e0018 ]
+      - [ be32, 0x00000000, 0x2f80666f ]
+      - [ be32, 0x00000000, 0x419e0010 ]
+      - [ be32, 0x00000000, 0x2f806772 ]
+      - [ be32, 0x00000000, 0x419e0008 ]
+      - [ jump, 0x00000000, 0x004bc81c ]
+      - [ jump, 0x00000000, 0x004bc7b0 ]
+      - [ jump, 0x00000000, 0x004bc778 ]
 
 PPU-e9aaed0f182d2505da70e1b9ec8741ca843fe0dd:
   "Skip Intro":
