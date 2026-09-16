@@ -16917,6 +16917,28 @@ PPU-a14d9bfcebd7226221bc81c9885dab16d688ae5c:
     Patch:
       - [ load, *UT3_FPS ]
 
+PPU-2f3983ce07241857e2a021ceb9e9ad80405e52db: # "cod_ps3f.self 1.0"
+  "Disable Camera Resolution Downscale":
+    Games:
+      "Call of Duty 3":
+        BLUS30012: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables the downscaling applied when moving the camera. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x005B1DC8, 0x39400440 ]
+
+PPU-99baab3f41e931ebda8c68951d7307469d764cbc: # "cod_ps3f.self 1.2"
+  "Disable Camera Resolution Downscale":
+    Games:
+      "Call of Duty 3":
+        BLUS30012: [ All ]
+    Author: "Alexis"
+    Notes: "Disables the downscaling applied when moving the camera. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x005B1AE8, 0x39400440 ]
+
 PPU-9c0d4079af9107fa762bbcba4d2c69478f5484a6: # cod_ps3f.elf
   "Extended FOV":
     Games:
