@@ -29412,6 +29412,44 @@ PPU-b164fd1b55e47b0eda65b974777274ca0f0a545d:
     Notes: "Required if your FPS is higher than 30. Fixes replay playback while running at a framerate higher than a real console."
     Patch:
       - [ be32, 0x000b7040, 0x3c600018 ]
+  "DUI Ignition":
+    Games:
+      "Stuntman: Ignition":
+        BLUS30073: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Meme patch - Refracts the entire screen during gameplay. Why are you drinking on the job?"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0038B180, 0xE8A10228 ]
+
+PPU-4faf006392317e05263779a09ae580c094372458:
+  "Disable Motion/Radical Blur":
+    Games:
+      "Stuntman: Ignition":
+        BLES00135: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Disables motion blur and radical blur used when boosting. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      # Normal motion blur: skip only RunPostFx entry index 6.
+      - [ be32, 0x003A2020, 0x2F9F0006 ] # cmpwi cr7,r31,6
+      - [ be32, 0x003A2024, 0x419E0014 ] # beq 0x003A2038
+      - [ be32, 0x003A2028, 0x81228274 ] # lwz r9,-32140(r2)
+      - [ be32, 0x003A202C, 0x7C1F48AE ] # lbzx r0,r31,r9
+      - [ be32, 0x003A2030, 0x2F800000 ] # cmpwi cr7,r0,0
+      - [ be32, 0x003A2034, 0x409E02E8 ] # bne 0x003A231C
+
+      # Disable Boost-only radial blur: bypass its dedicated PostFX renderer.
+      - [ be32, 0x00384FB4, 0x4E800020 ] # blr
+  "Disable Bloom":
+    Games:
+      "Stuntman: Ignition":
+        BLES00135: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Disables in-game bloom. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0038D1EC, 0x60000000 ]
 
 PPU-3f8da13ffc1c9c8a99b71af47ebb3f830c45693d:
   "Developer menu":
