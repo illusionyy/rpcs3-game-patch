@@ -24078,6 +24078,44 @@ PPU-d6b889b6081c0d2942b38b8036809cd8aa7e83c7:
       - [ be32, 0x00bc9580, 0x7c832378 ] # or r3, r4, r4
       - [ be32, 0x00bc9584, 0x483a61b5 ] # bl j__printf
 
+PPU-1170a7379eabfafb21f30b866a8a40b8e9bdc680:
+  "60 FPS (60 Hz timer base - all timers)":
+    Games:
+      "Battlefield 1943":
+        NPEB00092: [ 02.01 ]
+    Author: "haydamak"
+    Notes: "Unlocks 60 FPS and changes the timer base from 30 Hz to 60 Hz to preserve the original gameplay speed. Enable this patch alone."
+    Patch Version: 1.5
+    Patch:
+      # 60 FPS unlock
+      - [ be32, 0x00010ca8, 0x3c004270 ]
+      - [ be32, 0x0003f1e8, 0x3ba00000 ]
+      - [ be32, 0x0003f804, 0x38800001 ]
+      # Synchronized 60 Hz timer constructors
+      - [ be32, 0x00018d78, 0x3880003c ]
+      - [ be32, 0x000348d4, 0x3880003c ]
+      - [ be32, 0x00034904, 0x3880003c ]
+      # Verified turret rotation compensation
+      # Instruction at 0x005CE1B4 is redirected to the code cave.
+      - [ be32, 0x005ce1b4, 0x4bb40a80 ]
+      - [ be32, 0x0010ec34, 0xec1ef824 ]
+      - [ be32, 0x0010ec38, 0xec00002a ]
+      - [ be32, 0x0010ec3c, 0x484bf57c ]
+
+  "60 FPS (60 Hz timer base - main timers only. IN CASE OF ISSUES!)":
+    Games:
+      "Battlefield 1943":
+        NPEB00092: [ 02.01 ]
+    Author: "haydamak"
+    Notes: "Fallback variant that changes only the two main game timers. Use it only if the default 60 FPS patch causes issues. Do not enable both variants at the same time."
+    Patch Version: 1.5
+    Patch:
+      - [ be32, 0x00010ca8, 0x3c004270 ]
+      - [ be32, 0x0003f1e8, 0x3ba00000 ]
+      - [ be32, 0x0003f804, 0x38800001 ]
+      - [ be32, 0x000348d4, 0x3880003c ]
+      - [ be32, 0x00034904, 0x3880003c ]
+
 Anchors:
   bf3_109_title: &bf3_109_title
     "Battlefield 3":
@@ -30253,6 +30291,19 @@ PPU-54853538c1d5083369c46b16304ad8e51fdc77d3:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0020099c, 0xc03f0bb8 ] # lfs f1, 0xbb8 (r31)
+
+PPU-3918c0b580c357ac035694ab5035297d21cd096f:
+  "Skip Intro":
+    Games:
+      "Twisted Metal":
+        NPEA00362: [ "01.06" ]
+    Author: "Yahfz"
+    Patch Version: 1.1
+    Patch:
+      - [ be32, 0x003d3d04, 0x80843abc ]
+      - [ be32, 0x003d4ec4, 0x80843abc ]
+      - [ be32, 0x003d4eec, 0x80843abc ]
+      - [ be32, 0x003d4f14, 0x80843abc ]
 
 PPU-6bb4db395550102f567fb7b1dbbf81583417150f:
   "60 FPS":
