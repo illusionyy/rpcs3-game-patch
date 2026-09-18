@@ -19687,6 +19687,13 @@ Anchors:
   ms3_106_intro: &ms3_106_intro
     - [ utf8, 0x00f965d4, "\x00" ]
 
+  ms3_106_boost_cam: &ms3_106_boost_cam
+    - [ be32, 0x00F90C24, 0x00F90C28 ]
+    - [ be32, 0x00F90C28, 0x00F90C24 ]
+
+  ms3_106_env_cam: &ms3_106_env_cam
+    - [ be32, 0x00F90C34, 0x00F9EF0C ]
+
   ms3_mlaa_notes: &ms3_mlaa_notes
     "Allows for the use of Resolution Scaling in the title.\nMust be used with Disable Dynamic Resolution Scale patch for proper upscaling and improved performance.\nSet Resolution Scale Threshold to 256x256 Partially fixes screen pattern on bloom when using Resolution Scaling."
 
@@ -19698,6 +19705,9 @@ Anchors:
 
   ms3_drs_notes: &ms3_drs_notes
     "Must be used with the MLAA patch for proper upscaling and improved performance."
+
+  ms3_env_cam_notes: &ms3_env_cam_notes
+    "Disables most sources of camera shake caused by environment changes. AI tool assisted."
 
 PPU-c3a2c4075b9ff3c2b142c2df606bb1663c097d5b:
   "Skip Intro":
@@ -19969,6 +19979,24 @@ PPU-41644f9f5fda72efc62e7146620db9679969bff6:
     Patch Version: 1.0
     Patch:
       - [ bef32, 0x5be68c, "Aspect Ratio" ]
+  "Disable Boost Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse":
+        BCES00484: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: "AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_boost_cam ]
+  "Disable Environment Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse":
+        BCES00484: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: *ms3_env_cam_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_env_cam ]
 
 PPU-f5136a68b1293dd7341878005674f05ffa5ff16a:
   "Unlock FPS":
@@ -20025,6 +20053,24 @@ PPU-f5136a68b1293dd7341878005674f05ffa5ff16a:
     Patch Version: 1.0
     Patch:
       - [ load, *ms3_106_intro ]
+  "Disable Boost Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse":
+        BCES01104: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: "AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_boost_cam ]
+  "Disable Environment Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse":
+        BCES01104: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: *ms3_env_cam_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_env_cam ]
 
 PPU-d39f3ed2bf15a49d28486c7bad52b72c8933cbe8:
   "Unlock FPS":
@@ -20081,6 +20127,24 @@ PPU-d39f3ed2bf15a49d28486c7bad52b72c8933cbe8:
     Patch Version: 1.0
     Patch:
       - [ load, *ms3_106_intro ]
+  "Disable Boost Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse":
+        BCUS98242: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: "AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_boost_cam ]
+  "Disable Environment Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse":
+        BCUS98242: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: *ms3_env_cam_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_env_cam ]
 
 PPU-ebb1ff30930abbf534c176ac1cdce34a4ecd784d:
   "Unlock FPS":
@@ -20137,6 +20201,24 @@ PPU-ebb1ff30930abbf534c176ac1cdce34a4ecd784d:
     Patch Version: 1.0
     Patch:
       - [ load, *ms3_106_intro ]
+  "Disable Boost Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: "AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_boost_cam ]
+  "Disable Environment Camera Shake":
+    Games:
+      "Motorstorm: Apocalypse (2.0 Disc)":
+        BCUS98242: [ 01.06 ]
+    Author: "kllrvet"
+    Notes: *ms3_env_cam_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *ms3_106_env_cam ]
 
 PPU-507b9d34380cff4bc03d7c64ce6342180779c84b:
   "Unlock FPS":
@@ -26089,6 +26171,17 @@ PPU-afa4136447c25cb9c57487bb8c964b84ce960204:
     Patch:
       - [ be32, 0x00752788, 0x4e800020 ]
       - [ bef32, 0x001401d4, 1000.0 ]
+
+PPU-5aff4ceca1cda63838e77b2bd88776e6c35ae094:
+  "GameSpy RSA Public Key":
+    Games:
+      "FUEL":
+        BLES00570: [ 01.00 ]
+    Author: "Marcin Mitura"
+    Notes: "Replaces the embedded GameSpy RSA public key modulus to allow authentication with custom server."
+    Patch Version: 1.0
+    Patch:
+      - [ utf8, 0x0073ac28, "C3B3B89DE871F6A21CAB10D758F680E763A2836D390EE6A1AA05524155625BC5723B8B58F512674BAEE0E099828F1E6B01F902C8CDA5C3AD714A069B5FBD76041B8D4D19EAEB022B2DD9D3EA901DABC0D9D32A875D760300B897B40D5F238CD9AEF332E92A2685A377F33ABDD22D80244CF6F1C8AF818BA6A1C33A1E29CB69C7" ]
 
 PPU-ce536dac751d882db6e77434a3164bad75d16d90:
   "Skip Intro Movie":
