@@ -30419,6 +30419,17 @@ PPU-513044b01c6672954bbeb1e09f74a1bc848da9e7:
     Patch Version: 1.0
     Patch:
       - [ be16, 0x0065e16c, 0x9383 ]
+  "Skip Intro":
+    Games:
+      "Twisted Metal":
+        NPUA80079: [ "01.06" ]
+    Author: "Yahfz"
+    Patch Version: 1.1
+    Patch:
+      - [ be32, 0x003d4034, 0x80843abc ]
+      - [ be32, 0x003d51f4, 0x80843abc ]
+      - [ be32, 0x003d521c, 0x80843abc ]
+      - [ be32, 0x003d5244, 0x80843abc ]
 
 PPU-3918c0b580c357ac035694ab5035297d21cd096f:
   "60 FPS":
