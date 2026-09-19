@@ -19059,6 +19059,9 @@ Anchors:
   su_aspectratio_notes: &su_aspectratio_notes
     "Requires \"Stretch To Display Area\" checked in the GPU settings. UI elements will be stretched."
 
+  su_battlemusic_notes: &su_battlemusic_notes
+    "Disables the Werehog battle music. Mini-boss music still plays. Assisted with AI tools."
+
   su_aspectratio_configurable_values: &su_aspectratio_configurable_values
     "Aspect Ratio":
       Type: double_enum
@@ -19084,6 +19087,11 @@ Anchors:
     - [ be32, 0x00e0464c, 0x38000000 ]
   su_102_re: &su_102_re
     - [ be32, 0x00e1eef0, 0x38000000 ]
+
+  su_battlemusic_v102: &su_battlemusic_v102
+    - [ be32, 0x00FAE3FC, 0x48000208 ]
+    - [ be32, 0x00FAE9BC, 0x4BFFFFD8 ]
+    - [ be32, 0x00FADD68, 0x480001E4 ]
 
   su_digital_all_mb: &su_digital_all_mb
     - [ be32, 0x013c3874, 0x38000000 ]
@@ -19165,6 +19173,15 @@ PPU-c2911b4248ca2090819299f90d1a2d37f50fd5a8:
     Patch Version: 1.0
     Patch:
       - [ load, *su_102_re ]
+  "Disable Werehog Battle Music":
+    Games:
+      "Sonic Unleashed (Sonic World Adventure)":
+        BLUS30244: [ 01.02 ]
+    Author: "Alexis"
+    Notes: *su_battlemusic_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *su_battlemusic_v102 ]
 
 PPU-dfe27b6a57f3fd01f310e402e97a297836b46ceb:
   "1280x720 Resolution":
@@ -19222,6 +19239,15 @@ PPU-dfe27b6a57f3fd01f310e402e97a297836b46ceb:
     Patch Version: 1.0
     Patch:
       - [ load, *su_102_re ]
+  "Disable Werehog Battle Music":
+    Games:
+      "Sonic Unleashed (Sonic World Adventure)":
+        BLES00425: [ 01.02 ]
+    Author: "Alexis"
+    Notes: *su_battlemusic_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *su_battlemusic_v102 ]
 
 PPU-fbb2149d0f9ad51398eed59cbd26db5367d6376e:
   "1280x720 Resolution":
