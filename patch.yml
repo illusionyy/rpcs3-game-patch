@@ -25201,6 +25201,15 @@ PPU-f80a88d6be7c30f1751d06023d984eab8169efcc:
     Patch Version: 1.0
     Patch:
       - [ bef32, 0x0070568C, "Aspect Ratio" ]
+  "Disable Motion Blur":
+    Games:
+      "Cars: Race-O-Rama":
+        BLUS30319: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables motion blur. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001F5974, 0x48000574 ]
 
 PPU-1f4ac52b4a75eae0be9c7e4e0922342cafba74da:
   "Unlock FPS":
