@@ -18996,6 +18996,27 @@ PPU-5fc2b4ea8ae9cd7a4247f28dc6af65ca1a6a9fa4:
     Patch:
       - [ utf8, 0x007f4432, "JP" ]
 
+PPU-4b46d0161ca657ab16b0a779d9062810ea5ea2dd:
+  "Disable Bloom":
+    Games:
+      "SONIC THE HEDGEHOG":
+        BLUS30008: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables bloom. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00A0F9A4, 0x38600000 ]
+      - [ be32, 0x00A0F9A8, 0x4E800020 ]
+  "Disable Radical Blur":
+    Games:
+      "SONIC THE HEDGEHOG":
+        BLUS30008: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables the radial blur effect. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x10068DD0, 0x785F7665 ]
+
 Anchors:
   su_1280x720_notes: &su_1280x720_notes
     "This game originally rendered at a resolution of 880x720. With this patch, it will render at a resolution of 1280x720."
@@ -26931,6 +26952,28 @@ PPU-434d8a22b239b506b0624d61192d4057d1ddf43e: # NPWR00492_00
       - [ utf8, 0x01ce6c75, "openspy.net" ]
       - [ utf8, 0x0192af98, "http://%s.auth.pubsvs.openspy.net/AuthService/AuthService.asmx\0" ]
       - [ utf8, 0x0192ad08, "afb5818995b3708d0656a5bdd20760aee76537907625f6d23f40bf17029e56808d36966c0804e1d797e310fedd8c06e6c4121d963863d765811fc9baeb2315c9a6eaeb125fad694d9ea4d4a928f223d9f4514533f18a5432dd0435c5c6ac8e276cf29489cb5ac880f16b0d7832ee927d4e27d622d6a450cd1560d7fa882c6c13" ]
+
+PPU-de0adefe9c58fc846475a38dd3894188a0f7f786:
+  "Unlock FPS":
+    Games:
+      "Leisure Suit Larry: Box Office Bust":
+        BLUS30331: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Unlocks the framerate. Set VBlank Frequency to 120hz for 60FPS, increase to go higher."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000108C8, 0x48000070 ]
+
+PPU-8512833a639e1eb5e9c43701f0a8e2f2d2505f5d:
+  "Unlock FPS":
+    Games:
+      "Leisure Suit Larry: Box Office Bust":
+        BLES00553: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Unlocks the framerate. Set VBlank Frequency to 120hz for 60FPS, increase to go higher."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000108C8, 0x48000070 ]
 
 Anchors:
   lostd_fps_notes: &lostd_fps_notes
