@@ -30463,40 +30463,16 @@ PPU-54853538c1d5083369c46b16304ad8e51fdc77d3:
     Patch:
       - [ be32, 0x0020099c, 0xc03f0bb8 ] # lfs f1, 0xbb8 (r31)
 
-PPU-3918c0b580c357ac035694ab5035297d21cd096f:
-  "Skip Intro":
-    Games:
-      "Twisted Metal":
-        NPEA00362: [ "01.06" ]
-    Author: "Yahfz"
-    Patch Version: 1.1
-    Patch:
-      - [ be32, 0x003d3d04, 0x80843abc ]
-      - [ be32, 0x003d4ec4, 0x80843abc ]
-      - [ be32, 0x003d4eec, 0x80843abc ]
-      - [ be32, 0x003d4f14, 0x80843abc ]
-
-PPU-6bb4db395550102f567fb7b1dbbf81583417150f:
-  "60 FPS":
-    Games:
-      "Twisted Metal":
-        BCUS98106: [ 01.06 ]
-    Author: "illusion"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be16, 0x0065dbac, 0x9383 ]
-
 PPU-513044b01c6672954bbeb1e09f74a1bc848da9e7:
-  "60 FPS":
+  "Unlock FPS":
     Games:
       "Twisted Metal":
-        NPUA80079: [ 01.06 ]
-    Author: "illusion"
+        NPUA80079: [ "01.06" ]
+    Author: "illusion, Yahfz"
     Notes:
     Patch Version: 1.0
     Patch:
-      - [ be16, 0x0065e16c, 0x9383 ]
+      - [ be32, 0x0065e16c, 0x90c30254 ]
   "Skip Intro":
     Games:
       "Twisted Metal":
@@ -30508,18 +30484,27 @@ PPU-513044b01c6672954bbeb1e09f74a1bc848da9e7:
       - [ be32, 0x003d51f4, 0x80843abc ]
       - [ be32, 0x003d521c, 0x80843abc ]
       - [ be32, 0x003d5244, 0x80843abc ]
-
 PPU-3918c0b580c357ac035694ab5035297d21cd096f:
-  "60 FPS":
+  "Unlock FPS":
     Games:
       "Twisted Metal":
-        NPEA00362: [ 01.06 ]
-    Author: "illusion"
+        NPEA00362: [ "01.06" ]
+    Author: "illusion, Yahfz"
     Notes:
     Patch Version: 1.0
     Patch:
-      - [ be16, 0x0065dbac, 0x9383 ]
-
+      - [ be32, 0x0065dbac, 0x90c30254 ]
+  "Skip Intro":
+    Games:
+      "Twisted Metal":
+        NPEA00362: [ "01.06" ]
+    Author: "Yahfz"
+    Patch Version: 1.1
+    Patch:
+      - [ be32, 0x003d3d04, 0x80843abc ]
+      - [ be32, 0x003d4ec4, 0x80843abc ]
+      - [ be32, 0x003d4eec, 0x80843abc ]
+      - [ be32, 0x003d4f14, 0x80843abc ]
 PPU-93a03e014f798af85c849023f1307eaa9aa573fd:
   "60 FPS":
     Games:
