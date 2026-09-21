@@ -15936,6 +15936,56 @@ Anchors:
     - [ be32, 0x015864c4, 0x4c989680 ] # timebase frequency as hexfloat (80mhz)
     - [ bef32, 0x015864c8, 0.05 ]      # maximum timestep size (50ms or 20 FPS)
 
+  DS1_BLES01765_FPS: &DS1_BLES01765_FPS
+  # delta time hook
+    - [ be32, 0x00145458, 0x494a70c9 ] # bl 0x015ec520           // replace fixed 1/30 timestep load with dynamic delta-time routine
+
+  # native PTDE 60 FPS / no-skip mode hook
+    - [ be32, 0x0014943c, 0x494a3129 ] # bl 0x015ec564           // jump to FlipMode setup routine
+
+  # writable scratch area
+    - [ be32, 0x019f2330, 0x00000000 ] # previous mftb [high]    // saved previous timebase reading
+    - [ be32, 0x019f2334, 0x00000000 ] # previous mftb [low]     // saved previous timebase reading
+    - [ be32, 0x019f2338, 0x00000000 ] # mftb delta [high]       // temporary integer delta for FPR conversion
+    - [ be32, 0x019f233c, 0x00000000 ] # mftb delta [low]        // temporary integer delta for FPR conversion
+    - [ be32, 0x019f2340, 0x4c989680 ] # 80,000,000.0f           // PS3 PPU timebase frequency constant
+    - [ bef32, 0x019f2344, 0.05 ]      # 0.05f                   // maximum timestep size (50 ms)
+
+  # get mftb
+    - [ be32, 0x015ec520, 0x7d4c42e6 ] # mftb r10                // move from timebase register (clock)
+
+  # get mftb delta
+    - [ be32, 0x015ec524, 0x3d20019f ] # lis r9,0x019f           // load high bits of scratch address (0x019f2330)
+    - [ be32, 0x015ec528, 0x61292330 ] # ori r9,r9,0x2330        // load low bits of scratch address
+    - [ be32, 0x015ec52c, 0xe9690000 ] # ld r11,0(r9)            // load previous frame's mftb reading
+    - [ be32, 0x015ec530, 0xf9490000 ] # std r10,0(r9)           // store this frame's mftb reading
+    - [ be32, 0x015ec534, 0x7d8b5050 ] # subf r12,r11,r10        // subtract previous mftb reading from current mftb
+
+  # mftb delta to float
+    - [ be32, 0x015ec538, 0xf9890008 ] # std r12,0x8(r9)         // store mftb delta so it can be loaded into an FPR
+    - [ be32, 0x015ec53c, 0xc8090008 ] # lfd f0,0x8(r9)          // load integer mftb delta into FPR
+    - [ be32, 0x015ec540, 0xfc00069c ] # fcfid f0,f0             // convert integer to double
+    - [ be32, 0x015ec544, 0xfc000018 ] # frsp f0,f0              // round to single precision
+
+  # mftb delta to seconds
+    - [ be32, 0x015ec548, 0xc0490010 ] # lfs f2,0x10(r9)         // load timebase frequency constant (80,000,000.0f)
+    - [ be32, 0x015ec54c, 0xc0690014 ] # lfs f3,0x14(r9)         // load maximum timestep size (0.05f)
+    - [ be32, 0x015ec550, 0xffe01024 ] # fdiv f31,f0,f2          // divide timebase delta by timebase frequency
+
+  # check timestep size
+    - [ be32, 0x015ec554, 0xff9f1800 ] # fcmpu cr7,f31,f3        // compare current delta time to maximum timestep
+    - [ be32, 0x015ec558, 0x419c0008 ] # blt cr7,+0x8            // keep current delta if it is below the maximum
+    - [ be32, 0x015ec55c, 0xffe01890 ] # fmr f31,f3              // otherwise clamp delta time to 0.05f
+    - [ be32, 0x015ec560, 0x4e800020 ] # blr                     // return to 0x0014545c
+
+  # PTDE FlipMode = 3 (60 FPS / no skip) FlipMode setup
+    - [ be32, 0x015ec564, 0x38800003 ] # li r4,0x3               // select PTDE FlipMode 3 = 60FPS(NO SKIP)
+    - [ be32, 0x015ec568, 0x989f071c ] # stb r4,0x71c(r31)       // write FlipMode
+    - [ be32, 0x015ec56c, 0x38800001 ] # li r4,0x1               // value used by both derived 60 FPS mode flags
+    - [ be32, 0x015ec570, 0x989f071d ] # stb r4,0x71d(r31)       // set first derived FlipMode flag
+    - [ be32, 0x015ec574, 0x989f071e ] # stb r4,0x71e(r31)       // set second derived FlipMode flag
+    - [ be32, 0x015ec578, 0x4e800020 ] # blr                     // return to 0x00149440
+
 PPU-3577a3e8efa233c68dedce81a3d0a63dab05dbed:
   "Unlock FPS":
     Games:
@@ -15968,6 +16018,17 @@ PPU-23d264a90e9ff8077c6d2e9418d6ae7ccd9bb0a0:
     Patch Version: 1.0
     Patch:
       - [ load, *DS1_BLES01402_FPS ]
+
+PPU-03679186107dbc5525c9527efdab0f4818d3a5b4:
+  "Unlock FPS":
+    Games:
+      "Dark Souls: Prepare to Die Edition":
+        BLES01765: [ All ]
+    Author: "Pappapatu"
+    Notes: "PTDE port based on existing Dark Souls Unlock FPS patches. Tested on v1.09, should work in v1.00. AI tool assisted."
+    Patch Version: 1.0
+    Patch:
+      - [ load, *DS1_BLES01765_FPS ]
 
 PPU-65078c652115190ecb64b7ff52bbf1c68696deb6:
   "Unlock FPS":
@@ -19740,6 +19801,7 @@ Anchors:
 
   ms3_106_env_cam: &ms3_106_env_cam
     - [ be32, 0x00F90C34, 0x00F9EF0C ]
+    - [ be32, 0x00F90C2C, 0x00F9EF0C ]
 
   ms3_mlaa_notes: &ms3_mlaa_notes
     "Allows for the use of Resolution Scaling in the title.\nMust be used with Disable Dynamic Resolution Scale patch for proper upscaling and improved performance.\nSet Resolution Scale Threshold to 256x256 Partially fixes screen pattern on bloom when using Resolution Scaling."
@@ -19754,7 +19816,7 @@ Anchors:
     "Must be used with the MLAA patch for proper upscaling and improved performance."
 
   ms3_env_cam_notes: &ms3_env_cam_notes
-    "Disables most sources of camera shake caused by environment changes. AI tool assisted."
+    "Disables camera shake caused by environment changes, such as earthquakes and falling buildings. AI tool assisted."
 
 PPU-c3a2c4075b9ff3c2b142c2df606bb1663c097d5b:
   "Skip Intro":
@@ -20041,7 +20103,7 @@ PPU-41644f9f5fda72efc62e7146620db9679969bff6:
         BCES00484: [ 01.06 ]
     Author: "kllrvet"
     Notes: *ms3_env_cam_notes
-    Patch Version: 1.0
+    Patch Version: 2.0
     Patch:
       - [ load, *ms3_106_env_cam ]
 
@@ -20115,7 +20177,7 @@ PPU-f5136a68b1293dd7341878005674f05ffa5ff16a:
         BCES01104: [ 01.06 ]
     Author: "kllrvet"
     Notes: *ms3_env_cam_notes
-    Patch Version: 1.0
+    Patch Version: 2.0
     Patch:
       - [ load, *ms3_106_env_cam ]
 
@@ -20189,7 +20251,7 @@ PPU-d39f3ed2bf15a49d28486c7bad52b72c8933cbe8:
         BCUS98242: [ 01.06 ]
     Author: "kllrvet"
     Notes: *ms3_env_cam_notes
-    Patch Version: 1.0
+    Patch Version: 2.0
     Patch:
       - [ load, *ms3_106_env_cam ]
 
@@ -20263,7 +20325,7 @@ PPU-ebb1ff30930abbf534c176ac1cdce34a4ecd784d:
         BCUS98242: [ 01.06 ]
     Author: "kllrvet"
     Notes: *ms3_env_cam_notes
-    Patch Version: 1.0
+    Patch Version: 2.0
     Patch:
       - [ load, *ms3_106_env_cam ]
 
@@ -29390,6 +29452,8 @@ PPU-9b25445d515178534f4ca07dc26095d25301854e:
         BCUS98181: [ 01.04 ]
         BCJS30076: [ 01.04 ]
         BCES00907: [ 01.04 ]
+        BCES01234: [ 01.04 ]
+        BCAS20171: [ 01.04 ]
     Author: "Score"
     Notes: "Skips Starhawk's Online Pass / voucher prompt so you can connect to online multiplayer without redeeming a code."
     Patch Version: 1.0
@@ -29406,6 +29470,8 @@ PPU-9b25445d515178534f4ca07dc26095d25301854e:
         BCUS98181: [ 01.04 ]
         BCJS30076: [ 01.04 ]
         BCES00907: [ 01.04 ]
+        BCES01234: [ 01.04 ]
+        BCAS20171: [ 01.04 ]
     Author: "Score"
     Notes: "Removes the stock 40fps cap."
     Patch Version: 1.0
@@ -29417,6 +29483,8 @@ PPU-9b25445d515178534f4ca07dc26095d25301854e:
         BCUS98181: [ 01.04 ]
         BCJS30076: [ 01.04 ]
         BCES00907: [ 01.04 ]
+        BCES01234: [ 01.04 ]
+        BCAS20171: [ 01.04 ]
     Author: "Score"
     Notes: "Disables the camera motion blur for a sharper image."
     Patch Version: 1.0
@@ -29428,6 +29496,8 @@ PPU-9b25445d515178534f4ca07dc26095d25301854e:
         BCUS98181: [ 01.04 ]
         BCJS30076: [ 01.04 ]
         BCES00907: [ 01.04 ]
+        BCES01234: [ 01.04 ]
+        BCAS20171: [ 01.04 ]
     Author: "Score"
     Notes: "Jumps straight past the startup legal and logo screens to the menu."
     Patch Version: 1.0
@@ -29440,6 +29510,8 @@ PPU-e7e313b6cd0b5e9f2c1072f59fcd25164aa478f4:
       "Starhawk":
         NPUA80809: [ 01.00 ]
         NPEA00411: [ 01.00 ]
+        NPJA00083: [ 01.00 ]
+        NPHA80223: [ 01.00 ]
     Author: "Score"
     Notes: "Skips Starhawk's Online Pass / voucher prompt so you can connect to online multiplayer without redeeming a code."
     Patch Version: 1.0
@@ -29455,6 +29527,8 @@ PPU-e7e313b6cd0b5e9f2c1072f59fcd25164aa478f4:
       "Starhawk":
         NPUA80809: [ 01.00 ]
         NPEA00411: [ 01.00 ]
+        NPJA00083: [ 01.00 ]
+        NPHA80223: [ 01.00 ]
     Author: "Score"
     Notes: "Removes the stock 40fps cap."
     Patch Version: 1.0
@@ -29465,6 +29539,8 @@ PPU-e7e313b6cd0b5e9f2c1072f59fcd25164aa478f4:
       "Starhawk":
         NPUA80809: [ 01.00 ]
         NPEA00411: [ 01.00 ]
+        NPJA00083: [ 01.00 ]
+        NPHA80223: [ 01.00 ]
     Author: "Score"
     Notes: "Disables the camera motion blur for a sharper image."
     Patch Version: 1.0
@@ -29475,6 +29551,8 @@ PPU-e7e313b6cd0b5e9f2c1072f59fcd25164aa478f4:
       "Starhawk":
         NPUA80809: [ 01.00 ]
         NPEA00411: [ 01.00 ]
+        NPJA00083: [ 01.00 ]
+        NPHA80223: [ 01.00 ]
     Author: "Score"
     Notes: "Jumps straight past the startup legal and logo screens to the menu."
     Patch Version: 1.0
@@ -29487,6 +29565,8 @@ PPU-2242d37be406db2a8200a8259afd5b9ffe6db996:
       "Starhawk":
         NPUA80811: [ 01.00 ]
         NPEA00382: [ 01.00 ]
+        NPJA00084: [ 01.00 ]
+        NPHA80225: [ 01.00 ]
     Author: "Score"
     Notes: "Skips Starhawk's Online Pass / voucher prompt so you can connect to online multiplayer without redeeming a code."
     Patch Version: 1.0
@@ -29502,6 +29582,8 @@ PPU-2242d37be406db2a8200a8259afd5b9ffe6db996:
       "Starhawk":
         NPUA80811: [ 01.00 ]
         NPEA00382: [ 01.00 ]
+        NPJA00084: [ 01.00 ]
+        NPHA80225: [ 01.00 ]
     Author: "Score"
     Notes: "Removes the stock 40fps cap."
     Patch Version: 1.0
@@ -29512,6 +29594,8 @@ PPU-2242d37be406db2a8200a8259afd5b9ffe6db996:
       "Starhawk":
         NPUA80811: [ 01.00 ]
         NPEA00382: [ 01.00 ]
+        NPJA00084: [ 01.00 ]
+        NPHA80225: [ 01.00 ]
     Author: "Score"
     Notes: "Disables the camera motion blur for a sharper image."
     Patch Version: 1.0
@@ -29522,6 +29606,8 @@ PPU-2242d37be406db2a8200a8259afd5b9ffe6db996:
       "Starhawk":
         NPUA80811: [ 01.00 ]
         NPEA00382: [ 01.00 ]
+        NPJA00084: [ 01.00 ]
+        NPHA80225: [ 01.00 ]
     Author: "Score"
     Notes: "Jumps straight past the startup legal and logo screens to the menu."
     Patch Version: 1.0
