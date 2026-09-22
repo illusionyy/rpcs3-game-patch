@@ -15534,6 +15534,15 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 2.0
     Patch:
       - [ load, *uc1_ddof_101_disc ]
+  "Disable mesh trimming":
+    Games: *uc1_disc101title
+    Author: "Yahfz"
+    Patch Version: 1.0
+    Notes: "Disables mesh trimming"
+    Patch:
+      - [ be32, 0x008ad4a8, 0x35000000 ]
+      - [ be32, 0x008ad708, 0x35000000 ]
+      - [ be32, 0x008ad860, 0x35000000 ]
   "Debug Menu":
     Games: *uc1_disc101title
     Author: "dron_3, HdHereidme, illusion"
@@ -24687,6 +24696,7 @@ PPU-8c33a0bc919bfc9eca6f0f46e63790e3d42c3925:
     Games:
       "Brutal Legend":
         BLUS30330: [ "01.02" ]
+        BLES00562: [ "01.02" ]
     Author: "Yahfz"
     Patch Version: 1.0
     Notes: "Disables mesh trimming"
