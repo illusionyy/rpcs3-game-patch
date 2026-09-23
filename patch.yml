@@ -26322,6 +26322,33 @@ PPU-ce536dac751d882db6e77434a3164bad75d16d90:
     Patch:
       - [ byte, 0x101094EC, 0x01 ] # skipIntroMovie = true
 
+PPU-81d22ae72976adac82a64ce51bd529e67128433c:
+  "Allow variable-length RPCN tickets":
+    Games:
+      "FULL AUTO 2 BATTLELINES":
+        BLES00015: [01.01]
+    Author: "IsM1ku"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Preserves the actual NP ticket length and serializes the full ticket instead of requiring or truncating it to 248 bytes, allowing RPCN authentication to proceed."
+    Patch:
+      - [be32, 0x0009f780, 0x90e10068]
+      - [be32, 0x0009f908, 0x80e10068]
+      
+      
+PPU-ce536dac751d882db6e77434a3164bad75d16d90:
+  "Allow variable-length RPCN tickets":
+    Games:
+      "Full Auto 2 Battlelines":
+        BLUS30009: [ 01.03 ]
+    Author: "IsM1ku"
+    Patch Version: 1.0
+    Group: ""
+    Notes: "Preserves the actual NP ticket length and serializes the full ticket instead of requiring or truncating it to 248 bytes, allowing RPCN authentication to proceed."
+    Patch:
+      - [ be32, 0x0009efe4, 0x90e10068 ]
+      - [ be32, 0x0009f16c, 0x80e10068 ]
+
 Anchors:
   fuse_titles: &fuse_titles
     "Fuse":
@@ -28304,6 +28331,18 @@ PPU-fab73a76754e02239a531de17f0a14da672392a8:
     Patch:
       - [ be32, 0x00b75ff4, 0x4020007f ]
       - [ be32, 0x00b81a34, 0x4020007f ]
+
+PPU-80feba0f8b188dfb7b4d2a836146ab56e4f87045:
+  Disable Mesh Trimming:
+    Games:
+      "PlayStation All-Stars Battle Royale":
+        BCES01435: [ All ]
+    Author: "Yahfz"
+    Patch Version: 1.0
+    Notes: "Allows the game to render correctly at higher resolutions than what the PS3 supports."
+    Patch:  
+    - [ be32, 0x00b75ff4, 0x4020007f ]
+    - [ be32, 0x00b81a34, 0x4020007f ]
 
 Anchors:
   portal2_US_digital_100: &portal2_US_digital_100
