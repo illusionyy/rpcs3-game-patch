@@ -24692,9 +24692,9 @@ PPU-9d84d0b2f526213d80b79228a15c521801011807:
       - [ be32, 0x00531990, 0x60000000 ]
 
 PPU-8c33a0bc919bfc9eca6f0f46e63790e3d42c3925:
-  Disable mesh trimming:
+  "Disable Mesh-Trimming":
     Games:
-      "Brutal Legend":
+      "Brütal Legend":
         BLUS30330: [ "01.02" ]
         BLES00562: [ "01.02" ]
     Author: "Yahfz"
@@ -24705,6 +24705,17 @@ PPU-8c33a0bc919bfc9eca6f0f46e63790e3d42c3925:
       - [ be32, 0x011b1334, 0x4020007f ]
       - [ be32, 0x01208554, 0x4020007f ]
       - [ be32, 0x012273c4, 0x4020007f ]
+  "Skip Intro Logos":
+    Games:
+      "Brütal Legend":
+        BLUS30330: [ "01.02" ]
+        BLES00562: [ "01.02" ]
+    Author: "Pappapatu"
+    Notes: "Skips the startup logo movies. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00021230, 0x38600000 ]
+      - [ be32, 0x00021234, 0x4E800020 ]
 
 PPU-56101fbdbac186fddef72207145015fd314a0be5:
   "Full 60FPS":
