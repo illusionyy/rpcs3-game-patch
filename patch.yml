@@ -3039,6 +3039,26 @@ PPU-84caa321bd937ccf57e8fdbb4ede33d45e44eafa:
     Patch:
       - [ calloc, 0x000FD234, 28 ]
       - [ load, *nfsc_dlc_code ]
+  "Disable Motion Blur":
+    Games:
+      "Need for Speed Carbon":
+        BLES00020: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables motion blur alongside its downscale filter. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x009411EC, 0x10017A50 ]
+      - [ be32, 0x00941234, 0x10017A50 ]
+      - [ be32, 0x009411F8, 0x10017A50 ]
+  "Disable Pause Blur":
+    Games:
+      "Need for Speed Carbon":
+        BLES00020: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables the blur seen in the pause menu/results. Assisted with AI tools"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00940EFC, 0x10017768 ]
 
 Anchors:
   NieR_FPS_Notes: &NieR_FPS_Notes
