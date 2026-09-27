@@ -5608,39 +5608,31 @@ Anchors:
   rfqfb_resolution_notes: &rfqfb_resolution_notes
     "Original resolution is 960x704. 1280x720 breaks rendering and requires more research."
 
+  racqfb_all_title: &racqfb_all_title
+    "Ratchet & Clank Future: Quest for Booty":
+      BCAS20052: [ All ]
+      BCES00301: [ All ]
+      NPEA00088: [ All ]
+      NPJA00033: [ All ]
+      NPEA00106: [ All ]
+
 PPU-f07f7086588a4ea86a28bd768f0cbe710f5b813b:
   "Unlock FPS":
-    Games:
-      "Ratchet & Clank Future: Quest for Booty":
-        BCAS20052: [ All ]
-        BCES00301: [ All ]
-        NPEA00088: [ All ]
-        NPJA00033: [ All ]
-        NPEA00106: [ All ]
+    Games: *racqfb_all_title
     Author: "illusion"
     Notes:
     Patch Version: 1.0
     Patch:
       - [ bef32, 0x00855048, 0.001 ]
   "Infinite Ammo":
-    Games:
-      "Ratchet & Clank Future: Quest for Booty":
-        BCAS20052: [ All ]
-        BCES00301: [ All ]
-        NPEA00088: [ All ]
-        NPEA00106: [ All ]
+    Games: *racqfb_all_title
     Author: "Aphelion"
     Notes:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0034e658, 0xd03d0008 ]
   "1280x704 Resolution":
-    Games:
-      "Ratchet & Clank Future: Quest for Booty":
-        BCAS20052: [ All ]
-        BCES00301: [ All ]
-        NPEA00088: [ All ]
-        NPEA00106: [ All ]
+    Games: *racqfb_all_title
     Author: "Rib"
     Notes: *rfqfb_resolution_notes
     Patch Version: 1.0
@@ -17488,6 +17480,15 @@ PPU-a1f33132af387c49d452e64fcb0704cb06b6d084:
     Patch Version: 1.0
     Patch:
       - [ utf8, 0x00d27d28, "\x00" ] # audio/crowd0%d
+  "Disable Camera Sway":
+    Games: *ms2_disc103title
+    Author: "kllrvet"
+    Notes: "AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+        - [ be32, 0x00368798, 0xED8C6028 ]
+        - [ be32, 0x0036879C, 0xED6B5828 ]
+        - [ be32, 0x003687A0, 0xED4A5028 ]
 
 PPU-f62bdccfbca93730c2fcd484f65ead6f3c7878be:
   "60 FPS":
@@ -23652,6 +23653,15 @@ PPU-b7d282d79e16c88e2307c270406f73bb36d8edab:
     Patch:
       - [ be32, 0x0002a6ac, 0x60000000 ]
       - [ be32, 0x00029bf0, 0x60000000 ]
+  "Disable Depth of Field":
+    Games:
+      "3D DOT GAME HEROES":
+        BLES00875: [ 01.00 ]
+    Author: "Pappapatu"
+    Notes: "Forces the DOF effect routine through its disabled/zero-state path. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00089e04, 0x60000000 ] # nop conditional branch; always take the effect-disabled path
 
 PPU-27a382cebfbaa5e5d271d746f84c683008662106:
   "Unlock FPS":
@@ -25501,6 +25511,17 @@ PPU-f693265f620e64208e76cc2388d10df1d7b60c95:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00732b94, 0x3ba00001 ]
+
+PPU-797b8841f7ba0752e1282e7af730b95b4949ae1c:
+  "Unlock FPS":
+    Games:
+      "Dragon Age 2 (Dragon Age II)":
+        BLES01084: [ 01.05 ]
+    Author: "Pappapatu"
+    Notes: "Unlocks the game's FPS without need of changing VBlank Frequency"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x004932dc, 0x4899b9d9 ]
 
 Anchors:
   ddogma_fps_notes: &ddogma_fps_notes
@@ -29758,6 +29779,15 @@ PPU-ca1f38fe2396cb3c99cac50faffca4ed340b3748:
       - [ be32, 0x000b6a68, 0x3c600018 ]
 
 PPU-b164fd1b55e47b0eda65b974777274ca0f0a545d:
+  "Unlock FPS":
+    Games:
+      "Stuntman: Ignition":
+        BLUS30073: [ 01.11 ]
+    Author: Yahfz
+    Patch Version: 1.0
+    Notes: "Required if your FPS is higher than 30. Fixes replay playback while running at a framerate higher than a real console."
+    Patch:
+      - [ be32, 0x000b7040, 0x3c600018 ]
   "Disable Motion/Radical Blur":
     Games:
       "Stuntman: Ignition":
@@ -29784,16 +29814,32 @@ PPU-b164fd1b55e47b0eda65b974777274ca0f0a545d:
     Notes: "Disables in-game bloom. Assisted with AI tools."
     Patch Version: 1.0
     Patch:
-      - [ be32, 0x0038D1B0, 0x60000000 ]     
-  "Unlock FPS":
+      - [ be32, 0x0038D1B0, 0x60000000 ]
+  "Disable Vehicle Damage":
     Games:
       "Stuntman: Ignition":
         BLUS30073: [ 01.11 ]
-    Author: Yahfz
+    Author: "Alexis"
+    Notes: "Disables all vehicle body deformation. Applies to player and NPC vehicles. Assisted with AI."
     Patch Version: 1.0
-    Notes: "Required if your FPS is higher than 30. Fixes replay playback while running at a framerate higher than a real console."
     Patch:
-      - [ be32, 0x000b7040, 0x3c600018 ]
+      # Ordinary player vehicle deformation
+      - [ be32, 0x001D0CC0, 0x60000000 ]
+
+      # Explicit scripted vehicle damage route
+      - [ be32, 0x001D3120, 0x60000000 ]
+
+      # Shared scripted component damage submission
+      - [ be32, 0x001A4320, 0x60000000 ]
+  "Disable Color Filter":
+    Games:
+      "Stuntman: Ignition":
+        BLUS30073: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Disables the color filter used in Overdrive. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00384788, 0x419E02BC ]
   "DUI Ignition":
     Games:
       "Stuntman: Ignition":
@@ -29804,7 +29850,27 @@ PPU-b164fd1b55e47b0eda65b974777274ca0f0a545d:
     Patch:
       - [ be32, 0x0038B180, 0xE8A10228 ]
 
+PPU-5dba3547077a512095f272f3e7acbeb761763cf2:
+  "Unlock FPS":
+   Games:
+     "Stuntman: Ignition":
+       BLES00135: [ 01.02 ]
+   Author: Yahfz
+   Patch Version: 1.0
+   Notes: "Required if your FPS is higher than 30. Fixes replay playback while running at a framerate higher than a real console."
+   Patch:
+      - [ be32, 0x000B6DFC, 0x3C600018 ]
+
 PPU-4faf006392317e05263779a09ae580c094372458:
+  "Unlock FPS":
+    Games:
+      "Stuntman: Ignition":
+        BLES00135: [ 01.11 ]
+    Author: Yahfz
+    Patch Version: 1.0
+    Notes: "Required if your FPS is higher than 30. Fixes replay playback while running at a framerate higher than a real console."
+    Patch:
+      - [ be32, 0x000b7040, 0x3c600018 ]
   "Disable Motion/Radical Blur":
     Games:
       "Stuntman: Ignition":
@@ -29832,6 +29898,40 @@ PPU-4faf006392317e05263779a09ae580c094372458:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0038D1EC, 0x60000000 ]
+  "Disable Vehicle Damage":
+    Games:
+      "Stuntman: Ignition":
+        BLES00135: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Disables all vehicle body deformation. Applies to player and NPC vehicles. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      # Ordinary player vehicle deformation
+      - [ be32, 0x001D0CC0, 0x60000000 ]
+
+      # Explicit scripted vehicle damage route
+      - [ be32, 0x001D3120, 0x60000000 ]
+
+      # Shared scripted component damage submission
+      - [ be32, 0x001A4320, 0x60000000 ]
+  "Disable Color Filter":
+    Games:
+      "Stuntman: Ignition":
+        BLES00135: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Disables the color filter used in Overdrive. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00384788, 0x419E02BC ]
+  "DUI Ignition":
+    Games:
+      "Stuntman: Ignition":
+        BLES00135: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Meme patch - Refracts the entire screen during gameplay. Why are you drinking on the job?"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0038B180, 0xE8A10228 ]
 
 PPU-3f8da13ffc1c9c8a99b71af47ebb3f830c45693d:
   "Developer menu":
@@ -29879,6 +29979,74 @@ PPU-7b4381a787ade9ebddea8634530d9ec4a34e7957:
     Patch:
       - [ be32, 0x007AD590, 0x60000000 ]
       - [ be32, 0x007AD5B8, 0x60000000 ]
+  "Disable All Blur":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: "Disables Motion, Radial and Ordinary blur. Leaves DOF/focal blur, bloom, color grading, and other PostFX untouched. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000D96AC, 0x90830014 ]
+      - [ be32, 0x000D9720, 0x9083004C ]
+      - [ be32, 0x000DA2CC, 0xEC3FF828 ]
+      - [ be32, 0x000DA2E8, 0xEC3FF828 ]
+      - [ be32, 0x000DA408, 0xEC3FF828 ]
+      - [ be32, 0x000DA420, 0xEC3FF828 ]
+  "Disable Motion Blur":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: "Does not disable ordinary blur, radial blur, DOF, bloom, or color grading. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000D96AC, 0x90830014 ]
+      - [ be32, 0x000DA2F0, 0x494020E0 ]
+      - [ be32, 0x014DC3D0, 0x38000000 ]
+      - [ be32, 0x014DC3D4, 0x901E0014 ]
+      - [ be32, 0x014DC3D8, 0x4ABFDF1C ]
+  "Skip Intro":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: ""
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000E5BF0, 0x38600004 ]
+  "Disable ADS Depth of Field":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: "Disables ADS DOF. Leaves aim FOV and unrelated cinematic/post-process DOF untouched. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00790164, 0x3B600000 ]      
+  "Disable All Depth of Field":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: "Disables All Depth of Field."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000DA3D4, 0x60000000 ] # focalBlur
+      - [ be32, 0x000DA3E8, 0x60000000 ] # horizonDOF
+      - [ be32, 0x000DA84C, 0x60000000 ] # focalNearPlane
+      - [ be32, 0x000DA854, 0x60000000 ] # focalNearDepth
+      - [ be32, 0x000DA860, 0x60000000 ] # focalFarPlane
+      - [ be32, 0x000DA868, 0x60000000 ] # focalFarDepth  
+  "Disable Dynamic Post Processing":
+    Games:
+      "The Darkness II":
+        BLES01388: [ 01.01 ]
+    Author: "Pappapatu"
+    Notes: "Disables broad PostFX bypass. May not remove fixed renderer passes such as base tone mapping. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000DA28C, 0x4E800020 ]
 
 Anchors:
   skyrim_titleid: &skyrim_titleid
@@ -30636,13 +30804,39 @@ PPU-54853538c1d5083369c46b16304ad8e51fdc77d3:
     Patch:
       - [ be32, 0x0020099c, 0xc03f0bb8 ] # lfs f1, 0xbb8 (r31)
 
+Anchors:
+  tm_fps_notes: &tm_fps_notes
+    "Set Framelimit to \"Off\" to go above 60 FPS."
+
+PPU-6bb4db395550102f567fb7b1dbbf81583417150f:
+  "Unlock FPS":
+    Games:
+      "Twisted Metal":
+        BCUS98106: [ 01.06 ]
+    Author: "illusion, Yahfz"
+    Notes: *tm_fps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0065dbac, 0x90c30254 ]
+  "Skip Intro":
+    Games:
+      "Twisted Metal":
+        BCUS98106: [ 01.06 ]
+    Author: "Yahfz"
+    Patch Version: 1.1
+    Patch:
+      - [ be32, 0x003d3d04, 0x80843abc ]
+      - [ be32, 0x003d4ec4, 0x80843abc ]
+      - [ be32, 0x003d4eec, 0x80843abc ]
+      - [ be32, 0x003d4f14, 0x80843abc ]
+
 PPU-513044b01c6672954bbeb1e09f74a1bc848da9e7:
   "Unlock FPS":
     Games:
       "Twisted Metal":
         NPUA80079: [ "01.06" ]
     Author: "illusion, Yahfz"
-    Notes:
+    Notes: *tm_fps_notes
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0065e16c, 0x90c30254 ]
@@ -30657,13 +30851,14 @@ PPU-513044b01c6672954bbeb1e09f74a1bc848da9e7:
       - [ be32, 0x003d51f4, 0x80843abc ]
       - [ be32, 0x003d521c, 0x80843abc ]
       - [ be32, 0x003d5244, 0x80843abc ]
+
 PPU-3918c0b580c357ac035694ab5035297d21cd096f:
   "Unlock FPS":
     Games:
       "Twisted Metal":
         NPEA00362: [ "01.06" ]
     Author: "illusion, Yahfz"
-    Notes:
+    Notes: *tm_fps_notes
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0065dbac, 0x90c30254 ]
@@ -30678,6 +30873,7 @@ PPU-3918c0b580c357ac035694ab5035297d21cd096f:
       - [ be32, 0x003d4ec4, 0x80843abc ]
       - [ be32, 0x003d4eec, 0x80843abc ]
       - [ be32, 0x003d4f14, 0x80843abc ]
+
 PPU-93a03e014f798af85c849023f1307eaa9aa573fd:
   "60 FPS":
     Games:
