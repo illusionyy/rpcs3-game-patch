@@ -11786,7 +11786,7 @@ PPU-d73f342bf28ee016ef3d0ccb309b1acb03d8ecce:
     Author: "TheAdmiester"
     Patch Version: 1.0
     Group: ""
-    Notes: "Drops 720p mode from 4x MSAA to 2x. Reduces the cost of motion blur when RPCS3's AA is on."
+    Notes: "Drops 720p mode from 4x MSAA to 2x. Reduces the cost of motion blur when RPCS3's AA is on. Significantly lowers GPU load."
 
     Patch:
       - [be32, 0x008B101C, 0x38000003] # li r0, 3 (was li r0, 5)
@@ -13170,7 +13170,7 @@ PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
     Author: "TheAdmiester"
     Patch Version: 1.0
     Group: ""
-    Notes: "Drops 720p mode from 4x MSAA to 2x. Reduces the cost of motion blur when RPCS3's AA is on."
+    Notes: "Drops 720p mode from 4x MSAA to 2x. Reduces the cost of motion blur when RPCS3's AA is on. Significantly lowers GPU load."
 
     Patch:
       - [be32, 0x008B101C, 0x38000003] # li r0, 3 (was li r0, 5)
