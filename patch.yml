@@ -31542,6 +31542,15 @@ PPU-ef3b2601edb204616eadf2234d34a51bf2d6db6d:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x005D4900, 0x60000000 ]
+  "Disable FXAA":
+    Games:
+      "LEGO Dimensions":
+        BLUS31473: [ 01.22 ]
+    Author: "Alexis"
+    Notes: "Disables FXAA. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x005D8E58, 0x480000D8 ]
 
 Anchors:
     wet_ar_notes: &wet_ar_notes
