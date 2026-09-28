@@ -25237,6 +25237,17 @@ PPU-44c0c405c0ead775344c16b30a6a5ef5154d8b19:
     Patch:
       - [bef32, 0x00d12f98, "Aspect Ratio"]
 
+PPU-336b26c7142e728c642eb746d34f7ae3056ef168:
+  "Disable Motion Blur":
+    Games:
+      "Cars 2: The Video Game":
+        BLUS30725: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables SPU motion blur and improves performance. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00153710, 0x60000000 ]
+
 Anchors:
     cars_mnc_ar_notes: &cars_mnc_ar_notes
       "Requires \"Stretch To Display Area\" checked in the GPU settings."
@@ -25458,6 +25469,19 @@ PPU-29daccad6db847d9790068762add8ea1de083cde:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x01027fc4, 0x9be3ca81 ]
+
+PPU-8113b8e633141948c6dd00f2e94d0422a68ae233:
+  "Unlock FPS":
+    Games:
+      "Deadfall Adventures: Heart of Atlantis":
+        NPEB02100: [ 01.00 ]
+    Author: "FlexBy"
+    Notes: "Maximum framerate with the patch is half the Vblank frequency. Without the patch, adjusting Vblank frequency increases the maximum framerate up to about 62 FPS."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0090285c, 0x60000000 ]
+      - [ be32, 0x009028bc, 0x60000000 ]
+      - [ be32, 0x009028c0, 0x60000000 ]
 
 PPU-aa19cb14cdbc500656b0ef0cfe572efe40977011:
   "Unlock FPS":
@@ -29208,6 +29232,17 @@ PPU-90b8a54ae1e6c47727ce80b310d531a5a1386e1d:
       - [ be32, 0x00892714, 0x60000000 ]
       - [ be32, 0x00892718, 0x60000000 ]
 
+PPU-265488cd490663be9177f84aec67fa099d93268e:
+  "Unlock FPS":
+    Games:
+      "Robert Ludlum's The Bourne Conspiracy Demo":
+        NPEB90066: [ 01.00 ]
+    Author: "FlexBy"
+    Notes: "Maximum framerate with the patch is half the Vblank frequency. Without the patch, adjusting Vblank frequency increases the maximum framerate up to about 62 FPS."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x007792e8, 0x60000000 ]
+
 PPU-4c226eb3070b34abf224f7563762111596209884:
   "Unlock FPS":
     Games:
@@ -30780,6 +30815,17 @@ PPU-c15ca5b52f71ad0fa0a727eb289a2f95aa1ba217:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x002cc070, 0x60000000 ]
+
+PPU-d8648130984e8b1c9f9e6af26270f6e0f181e483:
+  "Unlock FPS":
+    Games:
+      "Tower of Guns":
+        NPEB02199: [ 01.00 ]
+    Author: "FlexBy"
+    Notes: "Maximum framerate with the patch is half the Vblank frequency. Without the patch, adjusting Vblank frequency increases the maximum framerate up to about 58 FPS."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0033B280, 0x60000000 ]
 
 PPU-6ce87977985acc3f114b29968939e035f806dc7c:
   "Unlock FPS":
