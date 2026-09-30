@@ -3928,6 +3928,46 @@ PPU-c42d84baf809614023bae43461f51c62cf4c1ac5:
     Patch:
       - [ be32, 0x0116c984, 0x38600000 ]
 
+PPU-ade4c30b0c6701258bdce104b11ee74f199ebee8:
+  "Infinite Ammo":
+    Games:
+      "Dead Space":
+        BLUS30177: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Prevents ammunition from decreasing when firing. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00149410, 0x60000000 ]
+      - [ be32, 0x001494C8, 0x60000000 ]
+      - [ be32, 0x00149624, 0x60000000 ]
+  "Infinite Health":
+    Games:
+      "Dead Space":
+        BLUS30177: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Prevents Isaac from taking damage. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00197E48, 0xC3E2E738 ]
+  "Infinite Stasis":
+    Games:
+      "Dead Space":
+        BLUS30177: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Prevents Stasis energy from decreasing when used. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0005F7EC, 0x60000000 ]
+  "Infinite Oxygen":
+    Games:
+      "Dead Space":
+        BLUS30177: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Prevents oxygen timer from decreasing in vacuums. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001A54F8, 0x60000000 ]
+
 Anchors:
   ACM_unlockfps_notes: &ACM_unlockfps_notes
     "Maximum framerate with the patch is half the Vblank frequency. Without the patch, adjusting Vblank frequency increases the maximum framerate up to 58 FPS."
