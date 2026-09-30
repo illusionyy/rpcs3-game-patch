@@ -24787,6 +24787,116 @@ PPU-c1701baaa053fa811968301a2749cbfb011c9930:
     Patch:
       - [ be32, 0x002B5670, 0x48000500 ]
 
+Anchors:
+  BCES00305_DS3_Buttons: &BCES00305_DS3_Buttons
+    "L1 + L2 + R1 + R2": 0x38800f00
+    "L1 + R1": 0x38800c00
+    "L2 + R2": 0x38800300
+    "L1": 0x38800400
+    "R1": 0x38800800
+    "L2": 0x38800100
+    "R2": 0x38800200
+    "Cross": 0x38804000
+    "Circle": 0x38802000
+    "Square": 0x38808000
+    "Triangle": 0x38801000
+    "Start": 0x38800008
+    "Select": 0x38800001
+    "L3": 0x38800002
+    "R3": 0x38800004
+    "D-Pad Up": 0x38800010
+    "D-Pad Right": 0x38800020
+    "D-Pad Down": 0x38800040
+    "D-Pad Left": 0x38800080
+
+PPU-80390da82bf674bf69530b01c65fcdded9a67c55:
+  "Allow DS3 Controls":
+    Games:
+      "Buzz!: Quiz TV - Special Edition":
+        BCES00305: [ 01.20 ]
+    Author: "FlexBy"
+    Notes: "Allows to use DS3 for input instead of buzzer.\nMay have issues!"
+    Patch Version: 1.2
+    Configurable Values:
+      "Red (BUZZ)":
+        Type: long_enum
+        Value: 0x38800f00
+        Allowed Values: *BCES00305_DS3_Buttons
+      "Blue":
+        Type: long_enum
+        Value: 0x38804000
+        Allowed Values: *BCES00305_DS3_Buttons
+      "Orange":
+        Type: long_enum
+        Value: 0x38802000
+        Allowed Values: *BCES00305_DS3_Buttons
+      "Green":
+        Type: long_enum
+        Value: 0x38801000
+        Allowed Values: *BCES00305_DS3_Buttons
+      "Yellow":
+        Type: long_enum
+        Value: 0x38808000
+        Allowed Values: *BCES00305_DS3_Buttons
+    Patch:
+      - [ be32, 0x000a2124, 0x38000001 ] # li   r0,1
+      - [ be32, 0x000a2128, 0x981d0029 ] # stb  r0,0x29(r29)
+      - [ be32, 0x000a212c, 0x7fa3eb78 ] # mr   r3,r29
+      - [ be32, 0x000a2130, 0x38800000 ] # li   r4,0
+      - [ be32, 0x000a2134, 0x4bffe9ad ] # bl   0xa0ae0 (EnableDeviceType)
+      - [ be32, 0x000a2138, 0x60000000 ] # nop
+      - [ be32, 0x000a213c, 0x60000000 ] # nop
+      - [ be32, 0x000a2140, 0x60000000 ] # nop
+      - [ be32, 0x001462f4, 0x7c600034 ] # cntlzw r0,r3
+      - [ be32, 0x001462f8, 0x5400d97e ] # srwi r0,r0,5 (1 if n == 0)
+      - [ be32, 0x001462fc, 0x7c001b78 ] # or   r0,r0,r3
+      - [ be32, 0x00146300, 0xf81f0080 ] # std  r0,0x80(r31)
+      - [ be32, 0x00146304, 0x807f0070 ] # lwz  r3,0x70(r31)
+      - [ be32, 0x00146308, 0xc81f0080 ] # lfd  f0,0x80(r31)
+      - [ be32, 0x0014630c, 0xfc20069c ] # fcfid f1,f0
+      - [ be32, 0x002e9b38, 0x38000000 ] # li   r0,0
+      - [ be32, 0x002e9b3c, 0x9803001d ] # stb  r0,0x1d(r3)
+      - [ be32, 0x002e9b40, 0x38600001 ] # li   r3,1
+      - [ be32, 0x002e9b44, 0x4e800020 ] # blr
+      - [ be32, 0x002e22a4, 0x38a00005 ] # li r5,5 (FIRSTDYNAMIC)
+      - [ be32, 0x000a2094, "Red (BUZZ)" ]
+      - [ be32, 0x000a20a0, "Blue" ]
+      - [ be32, 0x000a20ac, "Orange" ]
+      - [ be32, 0x000a20b8, "Green" ]
+      - [ be32, 0x000a20c0, "Yellow" ]
+  "Enable Cheat Menu":
+    Games:
+      "Buzz!: Quiz TV - Special Edition":
+        BCES00305: [ 01.20 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000fbeb4, 0x38800001 ] # CarouselCreation.AreShortcutsEnabled: lbz r4,0xb4(r9) -> li r4,1
+      #- [ be32, 0x000db1a8, 0x38800000 ] # IsFinalBuild: li r4,1 -> li r4,0 # yellow shows/hides cheat menu
+  "Skip Intro":
+    Games:
+      "Buzz!: Quiz TV - Special Edition":
+        BCES00305: [ 01.20 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000d873c, 0x807e0000 ] # lwz  r3,0(r30)
+      - [ be32, 0x000d8740, 0x38800001 ] # li   r4,1
+      - [ be32, 0x000d8744, 0x48217f7d ] # bl   lua_pushboolean (0x2f06c0)
+      - [ be32, 0x000d8748, 0x807e0000 ] # lwz  r3,0(r30)
+      - [ be32, 0x000d874c, 0x3880d8ee ] # li   r4,-10002
+      - [ be32, 0x000d8750, 0x80a29a90 ] # lwz  r5,-0x6570(r2)
+      - [ be32, 0x000d8754, 0x48226915 ] # bl   lua_setfield (0x2ff068)
+      - [ be32, 0x000d8758, 0x60000000 ] # nop
+      - [ be32, 0x000d875c, 0x60000000 ] # nop
+      - [ be32, 0x000d8760, 0x60000000 ] # nop
+      - [ be32, 0x0060d568, 0x536b6970 ]
+      - [ be32, 0x0060d56c, 0x46726f6e ]
+      - [ be32, 0x0060d570, 0x74456e64 ]
+      - [ be32, 0x0060d574, 0x464d5600 ]
+
 PPU-dc0320a71151f24d72be25d34cd860d3092b074b: # EBOOT_SP.BIN 1.00/1.40
   "Unlock FPS":
     Games:
