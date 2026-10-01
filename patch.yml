@@ -24856,7 +24856,7 @@ PPU-80390da82bf674bf69530b01c65fcdded9a67c55:
         BCES00305: [ 01.20 ]
     Author: "FlexBy"
     Notes: "Allows to use DS3 for input instead of buzzer.\nMay have issues!"
-    Patch Version: 1.2
+    Patch Version: 1.3
     Configurable Values:
       "Red (BUZZ)":
         Type: long_enum
@@ -24879,24 +24879,24 @@ PPU-80390da82bf674bf69530b01c65fcdded9a67c55:
         Value: 0x38808000
         Allowed Values: *BCES00305_DS3_Buttons
     Patch:
-      - [ be32, 0x000a2124, 0x38000001 ] # li   r0,1
-      - [ be32, 0x000a2128, 0x981d0029 ] # stb  r0,0x29(r29)
-      - [ be32, 0x000a212c, 0x7fa3eb78 ] # mr   r3,r29
-      - [ be32, 0x000a2130, 0x38800000 ] # li   r4,0
-      - [ be32, 0x000a2134, 0x4bffe9ad ] # bl   0xa0ae0 (EnableDeviceType)
+      - [ be32, 0x000a2124, 0x38000001 ] # li r0,1
+      - [ be32, 0x000a2128, 0x981d0029 ] # stb r0,0x29(r29)
+      - [ be32, 0x000a212c, 0x7fa3eb78 ] # mr r3,r29
+      - [ be32, 0x000a2130, 0x38800000 ] # li r4,0
+      - [ be32, 0x000a2134, 0x4bffe9ad ] # bl EnableDeviceType
       - [ be32, 0x000a2138, 0x60000000 ] # nop
       - [ be32, 0x000a213c, 0x60000000 ] # nop
       - [ be32, 0x000a2140, 0x60000000 ] # nop
       - [ be32, 0x001462f4, 0x7c600034 ] # cntlzw r0,r3
-      - [ be32, 0x001462f8, 0x5400d97e ] # srwi r0,r0,5 (1 if n == 0)
-      - [ be32, 0x001462fc, 0x7c001b78 ] # or   r0,r0,r3
-      - [ be32, 0x00146300, 0xf81f0080 ] # std  r0,0x80(r31)
-      - [ be32, 0x00146304, 0x807f0070 ] # lwz  r3,0x70(r31)
-      - [ be32, 0x00146308, 0xc81f0080 ] # lfd  f0,0x80(r31)
+      - [ be32, 0x001462f8, 0x5400d97e ] # srwi r0,r0,5
+      - [ be32, 0x001462fc, 0x7c001b78 ] # or r0,r0,r3
+      - [ be32, 0x00146300, 0xf81f0080 ] # std r0,0x80(r31)
+      - [ be32, 0x00146304, 0x807f0070 ] # lwz r3,0x70(r31)
+      - [ be32, 0x00146308, 0xc81f0080 ] # lfd f0,0x80(r31)
       - [ be32, 0x0014630c, 0xfc20069c ] # fcfid f1,f0
-      - [ be32, 0x002e9b38, 0x38000000 ] # li   r0,0
-      - [ be32, 0x002e9b3c, 0x9803001d ] # stb  r0,0x1d(r3)
-      - [ be32, 0x002e9b40, 0x38600001 ] # li   r3,1
+      - [ be32, 0x002e9b38, 0x38000000 ] # li r0,0
+      - [ be32, 0x002e9b3c, 0x9803001d ] # stb r0,0x1d(r3)
+      - [ be32, 0x002e9b40, 0x38600001 ] # li r3,1
       - [ be32, 0x002e9b44, 0x4e800020 ] # blr
       - [ be32, 0x002e22a4, 0x38a00005 ] # li r5,5 (FIRSTDYNAMIC)
       - [ be32, 0x000a2094, "Red (BUZZ)" ]
@@ -24904,6 +24904,23 @@ PPU-80390da82bf674bf69530b01c65fcdded9a67c55:
       - [ be32, 0x000a20ac, "Orange" ]
       - [ be32, 0x000a20b8, "Green" ]
       - [ be32, 0x000a20c0, "Yellow" ]
+      - [ be32, 0x00368ae4, 0x38600001 ] # li r3,1 (response MAC check stub, was always 1)
+      - [ be32, 0x00368ae8, 0x4e800020 ] # blr
+      - [ be32, 0x00368aec, 0xf821ff81 ]
+      - [ be32, 0x00368af0, 0x7c0802a6 ]
+      - [ be32, 0x00368af4, 0xf8010090 ]
+      - [ be32, 0x00368af8, 0xf8610070 ]
+      - [ be32, 0x00368afc, 0x4bd33295 ]
+      - [ be32, 0x00368b00, 0x38800018 ]
+      - [ be32, 0x00368b04, 0x2f830000 ]
+      - [ be32, 0x00368b08, 0x409e0008 ]
+      - [ be32, 0x00368b0c, 0x38800000 ]
+      - [ be32, 0x00368b10, 0xe8610070 ]
+      - [ be32, 0x00368b14, 0xe8010090 ]
+      - [ be32, 0x00368b18, 0x7c0803a6 ]
+      - [ be32, 0x00368b1c, 0x38210080 ]
+      - [ be32, 0x00368b20, 0x4e800020 ]
+      - [ be32, 0x0009fe60, 0x482c8c8d ] # bl netpad: BYNETWORKCLIENT local device
   "Enable Cheat Menu":
     Games:
       "Buzz!: Quiz TV - Special Edition":
