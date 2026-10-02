@@ -3694,6 +3694,17 @@ PPU-f62dd8afff286da6c9ee4715ba292604f2addf4a:
     Patch:
       - [ be32, 0x00f98cf4, 0x60000000 ]
 
+PPU-80d694deae241a0b42909426b2757ea71b29c4da:
+  "Skip Intro":
+    Games:
+      "BioShock":
+        BLUS30166: [ 01.10 ]
+    Author: "Alexis"
+    Notes: "Skips the startup intro video. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00016C3C, 0x60000000 ]
+
 PPU-976896152cd756aed8ae7cfe8a6e91260bb21361:
   "Unlock FPS":
     Games:
