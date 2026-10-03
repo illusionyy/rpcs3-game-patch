@@ -25723,7 +25723,16 @@ PPU-797b8841f7ba0752e1282e7af730b95b4949ae1c:
     Notes: "Unlocks the game's FPS without need of changing VBlank Frequency"
     Patch Version: 1.0
     Patch:
-      - [ be32, 0x004932dc, 0x4899b9d9 ]
+      - [ be32, 0x004932dc, 0x4899b9d9 ] 
+  "Disable Mesh Trimming":
+    Games:
+      "Dragon Age 2 (Dragon Age II)":
+        BLES01084: [ 01.05 ]
+    Author: "Pappapatu"
+    Notes: "Allows the game to render correctly at higher resolutions than what the PS3 supports. AI tool assisted"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00f02c70, 0x32800004 ] # fsmbi r4,0 ; was andi r4,r20,255
 
 Anchors:
   ddogma_fps_notes: &ddogma_fps_notes
