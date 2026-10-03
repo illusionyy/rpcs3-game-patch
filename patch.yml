@@ -30225,6 +30225,17 @@ PPU-cae78b97db380c30e81b865584303c31a56930b8:
       - [ be32, 0x0091e424, 0x60000000 ]
       - [ be32, 0x0091e428, 0x60000000 ]
 
+PPU-5a5b581eaa8dbfe7dbb9ad7220e815cc98a9700a:
+  "Disable MLAA":
+    Games:
+      "Test Drive Unlimited 2":
+        BLUS30527: [ 01.06 ]
+    Author: "Alexis"
+    Notes: "Disables MLAA. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x011D6C28, 0x000000FF ]
+
 PPU-7b4381a787ade9ebddea8634530d9ec4a34e7957:
   "Force Cinematics Skip prompt":
     Games:
