@@ -26689,6 +26689,19 @@ PPU-6025d7dd93c1c395cbcf06806f4b04eb0f875047:
     Patch:
       - [ be32, 0x00494640, 0x60000000 ]
 
+PPU-145f18bf918c0d14e4f6f459a0596a6b9159fa44:
+  "Disable Bloom":
+    Games:
+      "Hamster Ball":
+        NPUB30101: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables bloom. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00C58080, 0x00000000 ]
+      - [ be32, 0x00C58084, 0x00000000 ]
+      - [ be32, 0x00C58088, 0x00000000 ]
+
 PPU-27c0293b51385f3fbea2bf1a4e2f8c79f55a058e:
   "60 FPS":
     Games:
