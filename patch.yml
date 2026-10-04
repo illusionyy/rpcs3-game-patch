@@ -4489,6 +4489,254 @@ PPU-ef855650c42efa8815599febd9fc8980a737287c:
       - [ be32, 0x004a0ee0, 0xec21082a ] # cutscene subtitles
       - [ be32, 0x004a0f04, 0xec21082a ]
 
+PPU-4fae9ddfa13836977893e65b98e6b974d26976e8:
+  "60 FPS":
+    Games:
+      "Yakuza: Dead Souls":
+        BLUS30826: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00d1c164, 0x38a00001 ] # li r5,1
+      - [ calloc, 0x003892cc, 4 ]
+      - [ be32, 0x0, 0xec211824 ] # fdivs f1,f1,f3 
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0xc08cd1c8 ] # lfs   f4,-0x2e38(r12)
+      - [ be32, 0x0, 0xec212024 ] # fdivs f1,f1,f4
+      - [ calloc, 0x003848a0, 6 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x1c84001e ] # mulli r4,r4,30
+      - [ be32, 0x0, 0x7c8463d6 ] # divw  r4,r4,r12
+      - [ be32, 0x0, 0x7ca52014 ] # addc  r5,r5,r4
+      - [ calloc, 0x01051684, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7f9c61d6 ] # mullw r28,r28,r12
+      - [ be32, 0x0, 0x7fbd61d6 ] # mullw r29,r29,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7f9c6396 ] # divwu r28,r28,r12
+      - [ be32, 0x0, 0x7fbd6396 ] # divwu r29,r29,r12
+      - [ be32, 0x0, 0x7c05e040 ] # cmplw r5,r28
+      - [ calloc, 0x003842c4, 7 ]
+      - [ be32, 0x0, 0x1042192e ] # vmaddfp v2,v2,v4,v3
+      - [ be32, 0x0, 0x3cc0014f ] # lis    r6,0x14f
+      - [ be32, 0x0, 0x38c6d1c8 ] # addi   r6,r6,-0x2e38
+      - [ be32, 0x0, 0x7ca0308e ] # lvewx  v5,0,r6
+      - [ be32, 0x0, 0x10a22a8c ] # vspltw v5,v5,2
+      - [ be32, 0x0, 0x10a0290a ] # vrefp  v5,v5
+      - [ be32, 0x0, 0x1042196e ] # vmaddfp v2,v2,v5,v3
+      - [ calloc, 0x002f3690, 3 ]
+      - [ be32, 0x0, 0x3c60014f ] # lis  r3,0x14f
+      - [ be32, 0x0, 0x8063c864 ] # lwz  r3,-0x379c(r3)
+      - [ be32, 0x0, 0x80630128 ] # lwz  r3,0x128(r3
+      - [ calloc, 0x00bed06c, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed088, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed0a4, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed0c0, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed168, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed184, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed1a0, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed348, 8 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x3960001e ] # li    r11,30
+      - [ be32, 0x0, 0x41820008 ] # beq   +8
+      - [ be32, 0x0, 0x816c0128 ] # lwz   r11,0x128(r12)
+      - [ be32, 0x0, 0x7c035840 ] # cmplw r3,r11
+
+PPU-eaddc7ab65f58cbb404a19b943e54c08f9c28eca:
+  "60 FPS":
+    Games:
+      "Yakuza: Dead Souls":
+        NPEB02034: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00d1c444, 0x38a00001 ] # li r5,1
+      - [ calloc, 0x003893dc, 4 ]
+      - [ be32, 0x0, 0xec211824 ] # fdivs f1,f1,f3
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0xc08cd1e8 ] # lfs   f4,-0x2e18(r12)
+      - [ be32, 0x0, 0xec212024 ] # fdivs f1,f1,f4
+      - [ calloc, 0x003849b0, 6 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x1c84001e ] # mulli r4,r4,30
+      - [ be32, 0x0, 0x7c8463d6 ] # divw  r4,r4,r12
+      - [ be32, 0x0, 0x7ca52014 ] # addc  r5,r5,r4
+      - [ calloc, 0x010517d4, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7f9c61d6 ] # mullw r28,r28,r12
+      - [ be32, 0x0, 0x7fbd61d6 ] # mullw r29,r29,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7f9c6396 ] # divwu r28,r28,r12
+      - [ be32, 0x0, 0x7fbd6396 ] # divwu r29,r29,r12
+      - [ be32, 0x0, 0x7c05e040 ] # cmplw r5,r28
+      - [ calloc, 0x003843d4, 7 ]
+      - [ be32, 0x0, 0x1042192e ] # vmaddfp v2,v2,v4,v3
+      - [ be32, 0x0, 0x3cc0014f ] # lis    r6,0x14f
+      - [ be32, 0x0, 0x38c6d1e8 ] # addi   r6,r6,-0x2e18 
+      - [ be32, 0x0, 0x7ca0308e ] # lvewx  v5,0,r6
+      - [ be32, 0x0, 0x10a22a8c ] # vspltw v5,v5,2
+      - [ be32, 0x0, 0x10a0290a ] # vrefp  v5,v5
+      - [ be32, 0x0, 0x1042196e ] # vmaddfp v2,v2,v5,v3
+      - [ calloc, 0x002f37a0, 3 ]
+      - [ be32, 0x0, 0x3c60014f ] # lis  r3,0x14f
+      - [ be32, 0x0, 0x8063c884 ] # lwz  r3,-0x377c(r3)
+      - [ be32, 0x0, 0x80630128 ] # lwz  r3,0x128(r3)
+      - [ calloc, 0x00bed34c, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed368, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed384, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed3a0, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed448, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed464, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed480, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed628, 8 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x3960001e ] # li    r11,30
+      - [ be32, 0x0, 0x41820008 ] # beq   +8
+      - [ be32, 0x0, 0x816c0128 ] # lwz   r11,0x128(r12)
+      - [ be32, 0x0, 0x7c035840 ] # cmplw r3,r11
+
 Anchors:
   Y1HD_ModSupport: &Y1HD_ModSupport
     - [ byte, 0x0031bf33, 0x58 ]
@@ -24424,6 +24672,17 @@ PPU-fbb251a511c29cb38f33da72675bdf041ceadf4e:
       - [ be16, 0x017d3f88, 0x3f91 ]
       - [ be16, 0x017d3f90, 0x404e ]
       - [ be16, 0x017d3f98, 0x3f91 ]
+
+PPU-0a46651d0ea56d9bd1232b93242fd77cf9589ca4:
+  "Skip Intro":
+    Games:
+      "Battlefield 3 Open Beta":
+        BLET70016: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00627dec, 0x480000c8 ] # b 0x627eb4
 
 Anchors:
   bfbc2_disc_v105_fps: &bfbc2_disc_v105_fps
