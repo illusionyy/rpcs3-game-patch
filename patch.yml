@@ -3693,6 +3693,398 @@ PPU-f62dd8afff286da6c9ee4715ba292604f2addf4a:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00f98cf4, 0x60000000 ]
+  "Ultrawide":
+    Games:
+      "Army of TWO":
+        BLES00168: [ 01.03 ]
+        BLUS30057: [ 01.03 ]
+    Author: "DUFUS"
+    Notes: "REQUIRED: GPU > \"Stretch To Display Area\" ON, Aspect Ratio 16:9.\nRecommended: Resolution Scale 200-300%.\n\nAspect Ratio:\n- 32:9\n- 21:9 (tuned for 2560x1080, also fine for 3440x1440 / 3840x1600)\n\nPillarbox menu/cutscenes:\n- Default: main menu and in-engine cutscenes in 16:9 with black bars\n- Stretched: they use the full ultrawide view too\n\nWhat it does:\n- Wider 3D view (Hor+, vertical FOV unchanged)\n- HUD, menus, text, videos and loading icons stay 16:9 in the centre\n- Fullscreen fades cover the whole screen\n- Reduced near clip, the camera does not cut into walls"
+    Patch Version: 2.0
+    Configurable Values:
+      "Aspect Ratio":
+        Type: long_enum
+        Value: 0x3d803f00
+        Allowed Values:
+          "32:9": 0x3d803f00
+          "21:9": 0x3d803f40
+      "Pillarbox menu/cutscenes":
+        Type: long_enum
+        Value: 0x60000000
+        Allowed Values:
+          "Default": 0x60000000
+          "Stretched": 0x48000014
+    Patch:
+      - [ calloc, 0x00be047c, 10 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc3c1fef0 ]
+      - [ be32, 0x00000000, 0xefc1f024 ]
+      - [ be32, 0x00000000, "Pillarbox menu/cutscenes" ]
+      - [ be32, 0x00000000, 0xffc00890 ]
+      - [ be32, 0x00000000, 0x60000000 ]
+      - [ be32, 0x00000000, 0x60000000 ]
+      - [ be32, 0x00000000, 0x60000000 ]
+      - [ jump, 0x00000000, 0x00be0480 ]
+      - [ be32, 0x00be0480, 0x60000000 ]
+      - [ be32, 0x00be0488, 0x60000000 ]
+      - [ calloc, 0x00be0ad0, 5 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc3a1fef0 ]
+      - [ be32, 0x00000000, 0xefa1e824 ]
+      - [ jump, 0x00000000, 0x00be0ad4 ]
+      - [ be32, 0x00be0ad4, 0x60000000 ]
+      - [ be32, 0x00be0adc, 0x60000000 ]
+      - [ calloc, 0x00be0b4c, 17 ]
+      - [ be32, 0x00000000, 0xd0010448 ]
+      - [ be32, 0x00000000, 0xc1370068 ]
+      - [ be32, 0x00000000, 0xed29482a ]
+      - [ be32, 0x00000000, 0xc1570070 ]
+      - [ be32, 0x00000000, 0xed29502a ]
+      - [ be32, 0x00000000, 0x3d803f80 ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc141fef0 ]
+      - [ be32, 0x00000000, 0xed295028 ]
+      - [ be32, 0x00000000, 0xc1570070 ]
+      - [ be32, 0x00000000, 0xed295024 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc141fef0 ]
+      - [ be32, 0x00000000, 0xed294ab8 ]
+      - [ be32, 0x00000000, 0xd1210440 ]
+      - [ jump, 0x00000000, 0x00be0b50 ]
+      - [ calloc, 0x002a6278, 5 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc3a1fef0 ]
+      - [ be32, 0x00000000, 0xefa1e824 ]
+      - [ jump, 0x00000000, 0x002a627c ]
+      - [ be32, 0x002a627c, 0x60000000 ]
+      - [ be32, 0x002a6280, 0x60000000 ]
+      - [ calloc, 0x002a7348, 5 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc3c1fef0 ]
+      - [ be32, 0x00000000, 0xefc1f024 ]
+      - [ jump, 0x00000000, 0x002a734c ]
+      - [ be32, 0x002a734c, 0x60000000 ]
+      - [ be32, 0x002a7350, 0x60000000 ]
+      - [ calloc, 0x00bdf54c, 6 ]
+      - [ be32, 0x00000000, 0xef21033a ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xef390372 ]
+      - [ jump, 0x00000000, 0x00bdf550 ]
+      - [ calloc, 0x002a52c8, 6 ]
+      - [ be32, 0x00000000, 0xef61033a ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xef7b0372 ]
+      - [ jump, 0x00000000, 0x002a52cc ]
+      - [ calloc, 0x008f3048, 3 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x6d898000 ]
+      - [ jump, 0x00000000, 0x008f304c ]
+      - [ calloc, 0x008f3134, 6 ]
+      - [ be32, 0x00000000, 0xed8c602a ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc121fef0 ]
+      - [ be32, 0x00000000, 0xed8c0272 ]
+      - [ jump, 0x00000000, 0x008f3138 ]
+      - [ be32, 0x008eb30c, 0x60000000 ]
+      - [ be32, 0x008eb310, 0x60000000 ]
+      - [ calloc, 0x008eb308, 10 ]
+      - [ be32, 0x00000000, 0xffa00890 ]
+      - [ be32, 0x00000000, 0x2f9b0500 ]
+      - [ be32, 0x00000000, 0x409e001c ]
+      - [ be32, 0x00000000, 0x2f9d02d0 ]
+      - [ be32, 0x00000000, 0x409e0014 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0xefa10024 ]
+      - [ jump, 0x00000000, 0x008eb30c ]
+      - [ calloc, 0x00912184, 14 ]
+      - [ be32, 0x00000000, 0x2f8a0000 ]
+      - [ be32, 0x00000000, 0x419d0030 ]
+      - [ be32, 0x00000000, 0x7d8a4a14 ]
+      - [ be32, 0x00000000, 0x2f8c04ff ]
+      - [ be32, 0x00000000, 0x419c0024 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc121fef0 ]
+      - [ be32, 0x00000000, 0xed234824 ]
+      - [ be32, 0x00000000, 0xec691828 ]
+      - [ be32, 0x00000000, 0xc0028140 ]
+      - [ be32, 0x00000000, 0xec23083c ]
+      - [ be32, 0x00000000, 0xfc604890 ]
+      - [ jump, 0x00000000, 0x00911e44 ]
+      - [ calloc, 0x00910fcc, 135 ]
+      - [ be32, 0x00000000, 0xf821fe81 ]
+      - [ be32, 0x00000000, 0x7c0802a6 ]
+      - [ be32, 0x00000000, 0xf8010190 ]
+      - [ be32, 0x00000000, 0xf8610090 ]
+      - [ be32, 0x00000000, 0xf8810098 ]
+      - [ be32, 0x00000000, 0xf8a100a0 ]
+      - [ be32, 0x00000000, 0xf8c100a8 ]
+      - [ be32, 0x00000000, 0xf8e100b0 ]
+      - [ be32, 0x00000000, 0xf90100b8 ]
+      - [ be32, 0x00000000, 0xf92100c0 ]
+      - [ be32, 0x00000000, 0xf94100c8 ]
+      - [ be32, 0x00000000, 0xd82100d0 ]
+      - [ be32, 0x00000000, 0xd84100d8 ]
+      - [ be32, 0x00000000, 0xd86100e0 ]
+      - [ be32, 0x00000000, 0xd88100e8 ]
+      - [ be32, 0x00000000, 0xd8a100f0 ]
+      - [ be32, 0x00000000, 0xd8c100f8 ]
+      - [ be32, 0x00000000, 0xd8e10100 ]
+      - [ be32, 0x00000000, 0xd9010108 ]
+      - [ be32, 0x00000000, 0x3d8043b4 ]
+      - [ be32, 0x00000000, 0x9181011c ]
+      - [ be32, 0x00000000, 0xc121011c ]
+      - [ be32, 0x00000000, 0xff844800 ]
+      - [ be32, 0x00000000, 0x419c016c ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x91810118 ]
+      - [ be32, 0x00000000, 0x81630014 ]
+      - [ be32, 0x00000000, 0x81830010 ]
+      - [ be32, 0x00000000, 0x556b3032 ]
+      - [ be32, 0x00000000, 0x7d8c5a14 ]
+      - [ be32, 0x00000000, 0xc16cffc0 ]
+      - [ be32, 0x00000000, 0xc12cffec ]
+      - [ be32, 0x00000000, 0xc14cfffc ]
+      - [ be32, 0x00000000, 0xc18cfff0 ]
+      - [ be32, 0x00000000, 0x3d803f80 ]
+      - [ be32, 0x00000000, 0x9181011c ]
+      - [ be32, 0x00000000, 0xc1a1011c ]
+      - [ be32, 0x00000000, 0xff8a6800 ]
+      - [ be32, 0x00000000, 0x409e0130 ]
+      - [ be32, 0x00000000, 0xedad6828 ]
+      - [ be32, 0x00000000, 0xff896800 ]
+      - [ be32, 0x00000000, 0x409e0124 ]
+      - [ be32, 0x00000000, 0xd1610110 ]
+      - [ be32, 0x00000000, 0xd1810114 ]
+      - [ be32, 0x00000000, 0xc0010118 ]
+      - [ be32, 0x00000000, 0xed2162fa ]
+      - [ be32, 0x00000000, 0xed29002a ]
+      - [ be32, 0x00000000, 0xed295828 ]
+      - [ be32, 0x00000000, 0xed4b5828 ]
+      - [ be32, 0x00000000, 0xff895000 ]
+      - [ be32, 0x00000000, 0x419d006c ]
+      - [ be32, 0x00000000, 0xc0010118 ]
+      - [ be32, 0x00000000, 0xc1610110 ]
+      - [ be32, 0x00000000, 0xc1810114 ]
+      - [ be32, 0x00000000, 0xedab5824 ]
+      - [ be32, 0x00000000, 0xec6d0028 ]
+      - [ be32, 0x00000000, 0xec635824 ]
+      - [ be32, 0x00000000, 0xfd206850 ]
+      - [ be32, 0x00000000, 0xed296028 ]
+      - [ be32, 0x00000000, 0xec295824 ]
+      - [ be32, 0x00000000, 0xc84100d8 ]
+      - [ be32, 0x00000000, 0xc88100e8 ]
+      - [ be32, 0x00000000, 0xecad6828 ]
+      - [ be32, 0x00000000, 0xfcc02890 ]
+      - [ be32, 0x00000000, 0xfce06890 ]
+      - [ be32, 0x00000000, 0xfd006890 ]
+      - [ be32, 0x00000000, 0x3d80102a ]
+      - [ be32, 0x00000000, 0x618c6230 ]
+      - [ be32, 0x00000000, 0xf9810078 ]
+      - [ be32, 0x00000000, 0x39800000 ]
+      - [ be32, 0x00000000, 0xf9810080 ]
+      - [ be32, 0x00000000, 0xf9810088 ]
+      - [ be32, 0x00000000, 0xe8610090 ]
+      - [ be32, 0x00000000, 0x3d800091 ]
+      - [ be32, 0x00000000, 0x618c1e44 ]
+      - [ be32, 0x00000000, 0x7d8903a6 ]
+      - [ be32, 0x00000000, 0x4e800421 ]
+      - [ be32, 0x00000000, 0xc0010118 ]
+      - [ be32, 0x00000000, 0xc1610110 ]
+      - [ be32, 0x00000000, 0xc1810114 ]
+      - [ be32, 0x00000000, 0xc82100d0 ]
+      - [ be32, 0x00000000, 0xc86100e0 ]
+      - [ be32, 0x00000000, 0xed21182a ]
+      - [ be32, 0x00000000, 0xed2962fa ]
+      - [ be32, 0x00000000, 0xed290028 ]
+      - [ be32, 0x00000000, 0xed29582a ]
+      - [ be32, 0x00000000, 0xed4b5828 ]
+      - [ be32, 0x00000000, 0xff895000 ]
+      - [ be32, 0x00000000, 0x419c0068 ]
+      - [ be32, 0x00000000, 0xc0010118 ]
+      - [ be32, 0x00000000, 0xc1610110 ]
+      - [ be32, 0x00000000, 0xc1810114 ]
+      - [ be32, 0x00000000, 0xedab5824 ]
+      - [ be32, 0x00000000, 0xec6d0028 ]
+      - [ be32, 0x00000000, 0xec635824 ]
+      - [ be32, 0x00000000, 0xed206028 ]
+      - [ be32, 0x00000000, 0xec295824 ]
+      - [ be32, 0x00000000, 0xc84100d8 ]
+      - [ be32, 0x00000000, 0xc88100e8 ]
+      - [ be32, 0x00000000, 0xecad6828 ]
+      - [ be32, 0x00000000, 0xfcc02890 ]
+      - [ be32, 0x00000000, 0xfce06890 ]
+      - [ be32, 0x00000000, 0xfd006890 ]
+      - [ be32, 0x00000000, 0x3d80102a ]
+      - [ be32, 0x00000000, 0x618c6230 ]
+      - [ be32, 0x00000000, 0xf9810078 ]
+      - [ be32, 0x00000000, 0x39800000 ]
+      - [ be32, 0x00000000, 0xf9810080 ]
+      - [ be32, 0x00000000, 0xf9810088 ]
+      - [ be32, 0x00000000, 0xe8610090 ]
+      - [ be32, 0x00000000, 0x3d800091 ]
+      - [ be32, 0x00000000, 0x618c1e44 ]
+      - [ be32, 0x00000000, 0x7d8903a6 ]
+      - [ be32, 0x00000000, 0x4e800421 ]
+      - [ be32, 0x00000000, 0xe8610090 ]
+      - [ be32, 0x00000000, 0xe8810098 ]
+      - [ be32, 0x00000000, 0xe8a100a0 ]
+      - [ be32, 0x00000000, 0xe8c100a8 ]
+      - [ be32, 0x00000000, 0xe8e100b0 ]
+      - [ be32, 0x00000000, 0xe90100b8 ]
+      - [ be32, 0x00000000, 0xe92100c0 ]
+      - [ be32, 0x00000000, 0xe94100c8 ]
+      - [ be32, 0x00000000, 0xc82100d0 ]
+      - [ be32, 0x00000000, 0xc84100d8 ]
+      - [ be32, 0x00000000, 0xc86100e0 ]
+      - [ be32, 0x00000000, 0xc88100e8 ]
+      - [ be32, 0x00000000, 0xc8a100f0 ]
+      - [ be32, 0x00000000, 0xc8c100f8 ]
+      - [ be32, 0x00000000, 0xc8e10100 ]
+      - [ be32, 0x00000000, 0xc9010108 ]
+      - [ be32, 0x00000000, 0xe8010190 ]
+      - [ be32, 0x00000000, 0x7c0803a6 ]
+      - [ be32, 0x00000000, 0x38210180 ]
+      - [ be32, 0x00000000, 0xf821fec1 ]
+      - [ jump, 0x00000000, 0x00910fd0 ]
+      - [ calloc, 0x008fa764, 13 ]
+      - [ be32, 0x00000000, 0xd1a1007c ]
+      - [ be32, 0x00000000, 0x2f9c0500 ]
+      - [ be32, 0x00000000, 0x409e0028 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0xc1610070 ]
+      - [ be32, 0x00000000, 0xed6b0032 ]
+      - [ be32, 0x00000000, 0xd1610070 ]
+      - [ be32, 0x00000000, 0xc1610078 ]
+      - [ be32, 0x00000000, 0xed6b0032 ]
+      - [ be32, 0x00000000, 0xd1610078 ]
+      - [ jump, 0x00000000, 0x008fa768 ]
+      - [ calloc, 0x008ecb14, 7 ]
+      - [ be32, 0x00000000, 0xffe00890 ]
+      - [ be32, 0x00000000, "Pillarbox menu/cutscenes" ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0xefff0024 ]
+      - [ jump, 0x00000000, 0x008ecb18 ]
+      - [ calloc, 0x00c82b80, 12 ]
+      - [ be32, 0x00000000, 0xfc604818 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0x3d804420 ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xec216828 ]
+      - [ be32, 0x00000000, 0xec210024 ]
+      - [ be32, 0x00000000, 0xec21682a ]
+      - [ be32, 0x00000000, 0xec630024 ]
+      - [ jump, 0x00000000, 0x00c82b84 ]
+      - [ calloc, 0x00c83fa0, 12 ]
+      - [ be32, 0x00000000, 0xfc604818 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0x3d804420 ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xec216828 ]
+      - [ be32, 0x00000000, 0xec210024 ]
+      - [ be32, 0x00000000, 0xec21682a ]
+      - [ be32, 0x00000000, 0xec630024 ]
+      - [ jump, 0x00000000, 0x00c83fa4 ]
+      - [ calloc, 0x00c84054, 12 ]
+      - [ be32, 0x00000000, 0xfc204818 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0x3d804420 ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xec216828 ]
+      - [ be32, 0x00000000, 0xec210024 ]
+      - [ be32, 0x00000000, 0xec21682a ]
+      - [ be32, 0x00000000, 0xec630024 ]
+      - [ jump, 0x00000000, 0x00c84058 ]
+      - [ calloc, 0x00c840bc, 12 ]
+      - [ be32, 0x00000000, 0xfc604818 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0x3d804420 ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xec216828 ]
+      - [ be32, 0x00000000, 0xec210024 ]
+      - [ be32, 0x00000000, 0xec21682a ]
+      - [ be32, 0x00000000, 0xec630024 ]
+      - [ jump, 0x00000000, 0x00c840c0 ]
+      - [ calloc, 0x002387c0, 12 ]
+      - [ be32, 0x00000000, 0xec3d082a ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0x3d804420 ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc1a1fef0 ]
+      - [ be32, 0x00000000, 0xec216828 ]
+      - [ be32, 0x00000000, 0xec210032 ]
+      - [ be32, 0x00000000, 0xec21682a ]
+      - [ be32, 0x00000000, 0xec630032 ]
+      - [ jump, 0x00000000, 0x002387c4 ]
+      - [ calloc, 0x009707d8, 6 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc121fef0 ]
+      - [ be32, 0x00000000, 0xec004824 ]
+      - [ be32, 0x00000000, 0xed8c02fa ]
+      - [ jump, 0x00000000, 0x009707dc ]
+      - [ calloc, 0x01084210, 5 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc3a1fef0 ]
+      - [ be32, 0x00000000, 0xefa1e824 ]
+      - [ jump, 0x00000000, 0x01084214 ]
+      - [ be32, 0x01084214, 0x60000000 ]
+      - [ be32, 0x01084218, 0x60000000 ]
+      - [ calloc, 0x00ca48ac, 9 ]
+      - [ be32, 0x00000000, 0xffa00890 ]
+      - [ be32, 0x00000000, 0x899f0060 ]
+      - [ be32, 0x00000000, 0x2f8c0004 ]
+      - [ be32, 0x00000000, 0x409e0014 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0xefa10024 ]
+      - [ jump, 0x00000000, 0x00ca48b0 ]
+      - [ be32, 0x00ca48b0, 0x60000000 ]
+      - [ be32, 0x00ca48b4, 0x60000000 ]
+      - [ calloc, 0x00ca49a8, 9 ]
+      - [ be32, 0x00000000, 0xff800890 ]
+      - [ be32, 0x00000000, 0x899f0060 ]
+      - [ be32, 0x00000000, 0x2f8c0004 ]
+      - [ be32, 0x00000000, 0x409e0014 ]
+      - [ be32, 0x00000000, "Aspect Ratio" ]
+      - [ be32, 0x00000000, 0x9181fef0 ]
+      - [ be32, 0x00000000, 0xc001fef0 ]
+      - [ be32, 0x00000000, 0xef810024 ]
+      - [ jump, 0x00000000, 0x00ca49ac ]
+      - [ be32, 0x00ca49ac, 0x60000000 ]
+      - [ be32, 0x00ca49b0, 0x60000000 ]
 
 PPU-80d694deae241a0b42909426b2757ea71b29c4da:
   "Skip Intro":
@@ -4489,13 +4881,17 @@ PPU-ef855650c42efa8815599febd9fc8980a737287c:
       - [ be32, 0x004a0ee0, 0xec21082a ] # cutscene subtitles
       - [ be32, 0x004a0f04, 0xec21082a ]
 
+Anchors:
+  yds_60fps_notes: &yds_60fps_notes
+    "Some game elements will be 2x speed."
+
 PPU-4fae9ddfa13836977893e65b98e6b974d26976e8:
   "60 FPS":
     Games:
       "Yakuza: Dead Souls":
         BLUS30826: [ 01.00 ]
     Author: "FlexBy"
-    Notes:
+    Notes: *yds_60fps_notes
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00d1c164, 0x38a00001 ] # li r5,1
@@ -4619,7 +5015,7 @@ PPU-eaddc7ab65f58cbb404a19b943e54c08f9c28eca:
       "Yakuza: Dead Souls":
         NPEB02034: [ 01.00 ]
     Author: "FlexBy"
-    Notes:
+    Notes: *yds_60fps_notes
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00d1c444, 0x38a00001 ] # li r5,1
@@ -4730,6 +5126,130 @@ PPU-eaddc7ab65f58cbb404a19b943e54c08f9c28eca:
       - [ calloc, 0x00bed628, 8 ]
       - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
       - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x3960001e ] # li    r11,30
+      - [ be32, 0x0, 0x41820008 ] # beq   +8
+      - [ be32, 0x0, 0x816c0128 ] # lwz   r11,0x128(r12)
+      - [ be32, 0x0, 0x7c035840 ] # cmplw r3,r11
+
+PPU-334edb00412b7233d1f07bc5fda664762c1b4fac:
+  "60 FPS":
+    Games:
+      "Yakuza: Dead Souls":
+        BLES01399: [ 01.00 ]
+    Author: "FlexBy"
+    Notes: *yds_60fps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00d1c384, 0x38a00001 ] # li r5,1
+      - [ calloc, 0x003892cc, 4 ]
+      - [ be32, 0x0, 0xec211824 ] # fdivs f1,f1,f3 
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0xc08cd1c8 ] # lfs   f4,-0x2e38(r12)
+      - [ be32, 0x0, 0xec212024 ] # fdivs f1,f1,f4
+      - [ calloc, 0x003848a0, 6 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x1c84001e ] # mulli r4,r4,30
+      - [ be32, 0x0, 0x7c8463d6 ] # divw  r4,r4,r12
+      - [ be32, 0x0, 0x7ca52014 ] # addc  r5,r5,r4
+      - [ calloc, 0x01051954, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7f9c61d6 ] # mullw r28,r28,r12
+      - [ be32, 0x0, 0x7fbd61d6 ] # mullw r29,r29,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7f9c6396 ] # divwu r28,r28,r12
+      - [ be32, 0x0, 0x7fbd6396 ] # divwu r29,r29,r12
+      - [ be32, 0x0, 0x7c05e040 ] # cmplw r5,r28
+      - [ calloc, 0x003842c4, 7 ]
+      - [ be32, 0x0, 0x1042192e ] # vmaddfp v2,v2,v4,v3
+      - [ be32, 0x0, 0x3cc0014f ] # lis    r6,0x14f
+      - [ be32, 0x0, 0x38c6d1c8 ] # addi   r6,r6,-0x2e38
+      - [ be32, 0x0, 0x7ca0308e ] # lvewx  v5,0,r6
+      - [ be32, 0x0, 0x10a22a8c ] # vspltw v5,v5,2
+      - [ be32, 0x0, 0x10a0290a ] # vrefp  v5,v5
+      - [ be32, 0x0, 0x1042196e ] # vmaddfp v2,v2,v5,v3
+      - [ calloc, 0x002f3690, 3 ]
+      - [ be32, 0x0, 0x3c60014f ] # lis  r3,0x14f
+      - [ be32, 0x0, 0x8063c864 ] # lwz  r3,-0x379c(r3)
+      - [ be32, 0x0, 0x80630128 ] # lwz  r3,0x128(r3
+      - [ calloc, 0x00bed28c, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed2a8, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed2c4, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed2e0, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed388, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed3a4, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed3c0, 9 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
+      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
+      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
+      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
+      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
+      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
+      - [ be32, 0x0, 0x3980001e ] # li    r12,30
+      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ calloc, 0x00bed568, 8 ]
+      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
+      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
       - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
       - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
       - [ be32, 0x0, 0x3960001e ] # li    r11,30
@@ -9928,7 +10448,7 @@ Anchors:
         "Vertical Screen": 0.0000000000000000000000000000000000004
 
   uc3_fps_notes: &uc3_fps_notes
-    "Haven't tested how this affects cutscenes."
+    "Set Framelimit to \"Off\" to go above 60 FPS.\nCutscenes will speed up over 60 FPS. Water wave physics/animations and rain animations will speed up over 30 FPS. Spiders will be more difficult or impossible to escape from, you may need to cap your framerate.\n"
 
   uc3_debugmenu_notes: &uc3_debugmenu_notes
     "L3 + Start = Dev Menu\nL3 + Select = Quick Menu\nL3 + Triangle = Debug Text\nL2 + R2 = Debug Fly"
