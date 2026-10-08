@@ -3041,7 +3041,7 @@ PPU-84caa321bd937ccf57e8fdbb4ede33d45e44eafa:
       - [ load, *nfsc_dlc_code ]
   "Disable Motion Blur":
     Games:
-      "Need for Speed Carbon":
+      "Need for Speed: Carbon":
         BLES00020: [ 01.00 ]
     Author: "Alexis"
     Notes: "Disables motion blur alongside its downscale filter. Assisted with AI tools."
@@ -3052,7 +3052,7 @@ PPU-84caa321bd937ccf57e8fdbb4ede33d45e44eafa:
       - [ be32, 0x009411F8, 0x10017A50 ]
   "Disable Pause Blur":
     Games:
-      "Need for Speed Carbon":
+      "Need for Speed: Carbon":
         BLES00020: [ 01.00 ]
     Author: "Alexis"
     Notes: "Disables the blur seen in the pause menu/results. Assisted with AI tools"
@@ -4880,6 +4880,26 @@ PPU-ef855650c42efa8815599febd9fc8980a737287c:
       - [ be32, 0x005e9b78, 0x38c00001 ] # overall gameplay
       - [ be32, 0x004a0ee0, 0xec21082a ] # cutscene subtitles
       - [ be32, 0x004a0f04, 0xec21082a ]
+  "Custom Camera Sensitivity":
+    Games:
+      "Yakuza 3":
+        BLJM60132: [ 01.08 ]
+    Author: "FlexBy"
+    Notes: "Multiplies right-stick camera rotation speed."
+    Patch Version: 1.0
+    Configurable Values:
+      "Camera Sensitivity":
+        Type: double_range
+        Value: 1.0
+        Min: 0.25
+        Max: 3.0
+    Patch:
+      - [ calloc, 0x00a3e064, 4 ] # camera stick yaw *= sensitivity
+      - [ be32, 0x0, 0x3d8000a4 ] # lis 12, 0xa4
+      - [ be32, 0x0, 0xc00cccc4 ] # lfs 0, -0x333c(12)
+      - [ be32, 0x0, 0xec210032 ] # fmuls 1, 1, 0
+      - [ be32, 0x0, 0xa07f0384 ]
+      - [ bef32, 0x00a3ccc4, "Camera Sensitivity" ]
 
 Anchors:
   yds_60fps_notes: &yds_60fps_notes
@@ -26193,6 +26213,24 @@ PPU-44c0c405c0ead775344c16b30a6a5ef5154d8b19:
     Patch Version: 1.0
     Patch:
       - [bef32, 0x00d12f98, "Aspect Ratio"]
+  "Disable Motion Blur":
+    Games:
+      "Cars 2: The Video Game":
+        NPUB30557: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables SPU motion blur and improves performance. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001536E0, 0x60000000 ]
+  "Skip Intro":
+    Games:
+      "Cars 2: The Video Game":
+        NPUB30557: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the startup intro videos. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0005481C, 0x48000140 ]
 
 PPU-336b26c7142e728c642eb746d34f7ae3056ef168:
   "Disable Motion Blur":
@@ -26204,6 +26242,15 @@ PPU-336b26c7142e728c642eb746d34f7ae3056ef168:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00153710, 0x60000000 ]
+  "Skip Intro":
+    Games:
+      "Cars 2: The Video Game":
+        BLUS30725: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the startup intro videos. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0005464C, 0x480000E0 ]
 
 Anchors:
     cars_mnc_ar_notes: &cars_mnc_ar_notes
