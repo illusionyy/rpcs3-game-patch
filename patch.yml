@@ -12647,6 +12647,45 @@ PPU-d73f342bf28ee016ef3d0ccb309b1acb03d8ecce:
 
     Patch:
       - [be32, 0x008B101C, 0x38000003] # li r0, 3 (was li r0, 5)
+  "Bloom Resolution Scaling Fix":
+    Games:
+      "Gran Turismo 5":
+        BCUS98114: [02.11]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Group: "Bloom"
+    Notes: "Fixes Bloom rendering when increasing Resolution Scale. Set \"Bloom Scale\" to the same value as Resolution Scale. AI tool assisted"
+
+    Configurable Values:
+      "Bloom Scale":
+        Type: double_enum
+        Value: 0.333333
+        Allowed Values:
+          "100%": 1.0
+          "150%": 0.666667
+          "200%": 0.5
+          "250%": 0.4
+          "300%": 0.333333
+          "350%": 0.285714
+          "400%": 0.25
+          "450%": 0.222222
+          "500%": 0.2
+          "550%": 0.181818
+          "600%": 0.166667
+          "650%": 0.153846
+          "700%": 0.142857
+          "750%": 0.133333
+          "800%": 0.125
+
+    Patch:
+      - [be32, 0x008EBCB8, 0xC142A928]
+      - [be32, 0x008EBCBC, 0x38F9FFFC]
+      - [be32, 0x008EBCC4, 0x7F6903A6]
+      - [be32, 0x008EBD14, 0xD5870004]
+      - [be32, 0x008EBD18, 0xED6B682A]
+      - [be32, 0x008EBD20, 0xED6B02B2]
+
+      - [bef32, 0x0176D0F0, "Bloom Scale"]
 
 PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
   "Unlock FPS":
@@ -14031,7 +14070,45 @@ PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
 
     Patch:
       - [be32, 0x008B101C, 0x38000003] # li r0, 3 (was li r0, 5)
+  "Bloom Resolution Scaling Fix":
+    Games:
+      "Gran Turismo 5":
+        BCES00569: [02.11]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Group: "Bloom"
+    Notes: "Fixes Bloom rendering when increasing Resolution Scale. Set \"Bloom Scale\" to the same value as Resolution Scale. AI tool assisted"
 
+    Configurable Values:
+      "Bloom Scale":
+        Type: double_enum
+        Value: 0.333333
+        Allowed Values:
+          "100%": 1.0
+          "150%": 0.666667
+          "200%": 0.5
+          "250%": 0.4
+          "300%": 0.333333
+          "350%": 0.285714
+          "400%": 0.25
+          "450%": 0.222222
+          "500%": 0.2
+          "550%": 0.181818
+          "600%": 0.166667
+          "650%": 0.153846
+          "700%": 0.142857
+          "750%": 0.133333
+          "800%": 0.125
+
+    Patch:
+      - [be32, 0x008EBCB8, 0xC142A928]
+      - [be32, 0x008EBCBC, 0x38F9FFFC]
+      - [be32, 0x008EBCC4, 0x7F6903A6]
+      - [be32, 0x008EBD14, 0xD5870004]
+      - [be32, 0x008EBD18, 0xED6B682A]
+      - [be32, 0x008EBD20, 0xED6B02B2]
+
+      - [bef32, 0x0176D0F0, "Bloom Scale"]
 
 PPU-223cc85fc80a6667fae775c7c02f7f65e6b2871f:
   "Unlock FPS":
@@ -14204,6 +14281,25 @@ PPU-6ac472e1f334f54ec4753cde9e8e1515bfab4d17:
     Patch Version: 1.0
     Patch:
       - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        BCUS98296: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        BCUS98296: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
 
 PPU-638ef307e2b35d593f599efec0dc0c37059a984b:
   "Develop Settings":
@@ -14224,6 +14320,25 @@ PPU-638ef307e2b35d593f599efec0dc0c37059a984b:
     Patch Version: 1.0
     Patch:
       - [ utf8, 0x0163ef98, "http://5.61.32.177\0" ] # https://gt6.ps3.online.sce%c.gran-turismo.com
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        BCES01893: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        BCES01893: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
 
 PPU-80f0d67b29d3d17ac885a309a3fc4cd8dcf50658:
   "Develop Settings":
@@ -14235,6 +14350,25 @@ PPU-80f0d67b29d3d17ac885a309a3fc4cd8dcf50658:
     Patch Version: 1.0
     Patch:
       - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPEA00502: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        NPEA00502: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
 
 PPU-4213aba5ed17f7e3cd3f299fa44d9d9acef0ba18:
   "Develop Settings":
@@ -14246,6 +14380,25 @@ PPU-4213aba5ed17f7e3cd3f299fa44d9d9acef0ba18:
     Patch Version: 1.0
     Patch:
       - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPUA81049: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        NPUA81049: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
 
 PPU-6a7de7fdfd7e7cbd1031bf28a7104b29c308136c:
   "Develop Settings":
@@ -14257,6 +14410,25 @@ PPU-6a7de7fdfd7e7cbd1031bf28a7104b29c308136c:
     Patch Version: 1.0
     Patch:
       - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPHA80269: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        NPHA80269: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
 
 PPU-43e618448eed82aa96856338d072f1e4978c36a8:
   "Develop Settings":
@@ -14268,7 +14440,25 @@ PPU-43e618448eed82aa96856338d072f1e4978c36a8:
     Patch Version: 1.0
     Patch:
       - [ load, *gt6_devlop_122 ]
-
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        NPJA00113: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        NPJA00113: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
 
 PPU-455eb1752a4ec0f104df4f0703237c23b3217a2d:
   "Looser Chase Camera":
@@ -14293,31 +14483,6 @@ PPU-455eb1752a4ec0f104df4f0703237c23b3217a2d:
       - [be32, 0x01633BB8, 0x41A00000]
       - [be32, 0x01633BBC, 0x00000000]
 
-
-PPU-638ef307e2b35d593f599efec0dc0c37059a984b:
-  "Looser Chase Camera":
-    Games:
-      "Gran Turismo 6":
-        BCES01893: [ 01.22 ]
-    Author: "Edo"
-    Notes: *gt6_chase_cam_notes
-    Configurable Values: *gt6_chase_cam_config
-    Patch Version: 1.2
-    Patch:
-      - [ load, *gt6_chase_cam_122 ]
-
-PPU-6ac472e1f334f54ec4753cde9e8e1515bfab4d17:
-  "Looser Chase Camera":
-    Games:
-      "Gran Turismo 6":
-        BCUS98296: [ 01.22 ]
-    Author: "Edo"
-    Notes: *gt6_chase_cam_notes
-    Configurable Values: *gt6_chase_cam_config
-    Patch Version: 1.2
-    Patch:
-      - [ load, *gt6_chase_cam_122 ]
-
 PPU-d93a41467fce046bfbfb9648faee9e4e7963518d:
   "Looser Chase Camera":
     Games:
@@ -14340,54 +14505,6 @@ PPU-d93a41467fce046bfbfb9648faee9e4e7963518d:
       - [bef32, 0x01633BB4, "Max Angle"]
       - [be32, 0x01633BB8, 0x41A00000]
       - [be32, 0x01633BBC, 0x00000000]
-
-PPU-4213aba5ed17f7e3cd3f299fa44d9d9acef0ba18:
-  "Looser Chase Camera":
-    Games:
-      "Gran Turismo 6":
-        NPUA81049: [ 01.22 ]
-    Author: "Edo"
-    Notes: *gt6_chase_cam_notes
-    Configurable Values: *gt6_chase_cam_config
-    Patch Version: 1.2
-    Patch:
-      - [ load, *gt6_chase_cam_122 ]
-
-PPU-80f0d67b29d3d17ac885a309a3fc4cd8dcf50658:
-  "Looser Chase Camera":
-    Games:
-      "Gran Turismo 6":
-        NPEA00502: [ 01.22 ]
-    Author: "Edo"
-    Notes: *gt6_chase_cam_notes
-    Configurable Values: *gt6_chase_cam_config
-    Patch Version: 1.2
-    Patch:
-      - [ load, *gt6_chase_cam_122 ]
-
-PPU-43e618448eed82aa96856338d072f1e4978c36a8:
-  "Looser Chase Camera":
-    Games:
-      "Gran Turismo 6":
-        NPJA00113: [ 01.22 ]
-    Author: "Edo"
-    Notes: *gt6_chase_cam_notes
-    Configurable Values: *gt6_chase_cam_config
-    Patch Version: 1.2
-    Patch:
-      - [ load, *gt6_chase_cam_122 ]
-
-PPU-6a7de7fdfd7e7cbd1031bf28a7104b29c308136c:
-  "Looser Chase Camera":
-    Games:
-      "Gran Turismo 6":
-        NPHA80269: [ 01.22 ]
-    Author: "Edo"
-    Notes: *gt6_chase_cam_notes
-    Configurable Values: *gt6_chase_cam_config
-    Patch Version: 1.2
-    Patch:
-      - [ load, *gt6_chase_cam_122 ]
 
 Anchors:
   gthd_ar_notes: &gthd_ar_notes
@@ -24428,6 +24545,17 @@ PPU-3c5e08635d6768c273395b9c19e099b25050927b:
     Patch:
       - [ byte, 0x00520c17, 0x00 ]
 
+PPU-3c5e08635d6768c273395b9c19e099b25050927b:
+  "Disable mesh trimming":
+    Games:
+      "Skylanders: SWAP Force":
+        BLUS31076: [ 01.01 ]
+    Author: "Tablock_"
+    Notes: "When the resolution scale exceeds 100%, mesh trimming causes complex models like NPCs to be partially rendered at greater distances."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0128d588, 0x4020007f ]
+
 PPU-e4996b3dde924372f97b4f928771a2896aadf3b4:
   Disable mesh trimming:
     Games:
@@ -25623,6 +25751,19 @@ PPU-9d84d0b2f526213d80b79228a15c521801011807:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00531990, 0x60000000 ]
+
+PPU-e5cb2ca8bfa40f0e2174a025dd2d58d27c066a4c:
+  "Skip Startup Logos and Intro Videos":
+    Games:
+      "Disney Bolt":
+        BLUS30229: [ 01.00 ]
+        BLES00414: [ 01.00 ]
+    Author: "Pappapatu"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x006BEA9C, 0x60000000 ]
+      - [ be32, 0x006BEAC0, 0x60000000 ]
+      - [ be32, 0x006BEAE4, 0x60000000 ]
 
 PPU-8c33a0bc919bfc9eca6f0f46e63790e3d42c3925:
   "Disable Mesh-Trimming":
@@ -29926,6 +30067,111 @@ PPU-412a9bf323b4743de21658a286f71dbe82cad807:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00257a48, 0x386003e8 ]
+  "Circular Stick Mapping (2% Deadzone)":
+    Games:
+      "inFamous":
+        BCUS98119: [ "01.00" ]
+    Author: "artofaria"
+    Group: "Stick Mapping"
+    Notes: "Replaces the original stick calibration with circular mapping and a 2% radial center deadzone for both sticks. Preserves input direction and smoothly scales movement from the deadzone edge to full input."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00152538, 0x3d800015 ]
+      - [ be32, 0x0015253c, 0x618c2800 ]
+      - [ be32, 0x00152540, 0xc00c0000 ]
+      - [ be32, 0x00152544, 0xc02c0004 ]
+      - [ be32, 0x00152548, 0xc04c0008 ]
+      - [ be32, 0x0015254c, 0xc06c000c ]
+      - [ be32, 0x00152550, 0xc08c0010 ]
+      - [ be32, 0x00152554, 0xc0ac0014 ]
+      - [ be32, 0x00152558, 0x548b063e ]
+      - [ be32, 0x0015255c, 0xf961ffa0 ]
+      - [ be32, 0x00152560, 0xc8c1ffa0 ]
+      - [ be32, 0x00152564, 0xfcc0369c ]
+      - [ be32, 0x00152568, 0xfcc03018 ]
+      - [ be32, 0x0015256c, 0xecc60828 ]
+      - [ be32, 0x00152570, 0xecc60024 ]
+      - [ be32, 0x00152574, 0x54ab063e ]
+      - [ be32, 0x00152578, 0xf961ffa0 ]
+      - [ be32, 0x0015257c, 0xc8e1ffa0 ]
+      - [ be32, 0x00152580, 0xfce03e9c ]
+      - [ be32, 0x00152584, 0xfce03818 ]
+      - [ be32, 0x00152588, 0xece13828 ]
+      - [ be32, 0x0015258c, 0xece70024 ]
+      - [ be32, 0x00152590, 0xed0601b2 ]
+      - [ be32, 0x00152594, 0xed0741fa ]
+      - [ be32, 0x00152598, 0xed00402c ]
+      - [ be32, 0x0015259c, 0xff881000 ]
+      - [ be32, 0x001525a0, 0x409d002c ]
+      - [ be32, 0x001525a4, 0xed281028 ]
+      - [ be32, 0x001525a8, 0xed291824 ]
+      - [ be32, 0x001525ac, 0xff892000 ]
+      - [ be32, 0x001525b0, 0x409d0008 ]
+      - [ be32, 0x001525b4, 0xfd202090 ]
+      - [ be32, 0x001525b8, 0xed494024 ]
+      - [ be32, 0x001525bc, 0xecc602b2 ]
+      - [ be32, 0x001525c0, 0xece702b2 ]
+      - [ be32, 0x001525c4, 0x38000001 ]
+      - [ be32, 0x001525c8, 0x48000014 ]
+      - [ be32, 0x001525cc, 0xfcc02890 ]
+      - [ be32, 0x001525d0, 0xfce02890 ]
+      - [ be32, 0x001525d4, 0xfd202890 ]
+      - [ be32, 0x001525d8, 0x38000000 ]
+      - [ be32, 0x001525dc, 0xd0c60000 ]
+      - [ be32, 0x001525e0, 0xd0e70000 ]
+      - [ be32, 0x001525e4, 0xd1280000 ]
+      - [ be32, 0x001525e8, 0xd1290000 ]
+      - [ be32, 0x001525ec, 0x988a0000 ]
+      - [ be32, 0x001525f0, 0x80610074 ]
+      - [ be32, 0x001525f4, 0x98a30000 ]
+      - [ be32, 0x001525f8, 0x8061007c ]
+      - [ be32, 0x001525fc, 0x98030000 ]
+      - [ be32, 0x00152600, 0x4e800020 ]
+      - [ be32, 0x00152800, 0x42fe0000 ]
+      - [ be32, 0x00152804, 0x43000000 ]
+      - [ be32, 0x00152808, 0x3ca3d70a ]
+      - [ be32, 0x0015280c, 0x3f7ae148 ]
+      - [ be32, 0x00152810, 0x3f800000 ]
+      - [ be32, 0x00152814, 0x00000000 ]
+
+  "High-Resolution Blur and Bloom Fix":
+    Games:
+      "inFamous":
+        BCUS98119: [ "01.00" ]
+    Author: "artofaria"
+    Group: "Blur and Bloom Radius"
+    Notes: "Fixes blocky blur and spotty/discrete bloom samples at higher resolution scales by reducing sampling offsets to one-third. Produces smaller blur and bloom halos than the original effects."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x007626c4, 0xbf8dd2f1 ]
+      - [ be32, 0x007626cc, 0xbef30783 ]
+      - [ be32, 0x007626d4, 0x3e222222 ]
+      - [ be32, 0x007626dc, 0x3faaaaab ]
+      - [ be32, 0x007626e4, 0x3f4aaaab ]
+      - [ be32, 0x007867b8, 0xbdaaaaab ]
+      - [ be32, 0x007867bc, 0xbdaaaaab ]
+      - [ be32, 0x007867c4, 0x3daaaaab ]
+      - [ be32, 0x007867c8, 0xbdaaaaab ]
+      - [ be32, 0x007867d0, 0xbdaaaaab ]
+      - [ be32, 0x007867d4, 0x3daaaaab ]
+      - [ be32, 0x007867dc, 0x3daaaaab ]
+      - [ be32, 0x007867e0, 0x3daaaaab ]
+      - [ be32, 0x007867ec, 0x3daaaaab ]
+      - [ be32, 0x007867f0, 0x3daaaaab ]
+      - [ be32, 0x007867f8, 0xbdaaaaab ]
+      - [ be32, 0x007867fc, 0x3daaaaab ]
+      - [ be32, 0x00786804, 0x3daaaaab ]
+      - [ be32, 0x00786808, 0xbdaaaaab ]
+      - [ be32, 0x00786810, 0xbdaaaaab ]
+      - [ be32, 0x00786814, 0xbdaaaaab ]
+      - [ be32, 0x00786820, 0x3e2aaaab ]
+      - [ be32, 0x00786824, 0x3e2aaaab ]
+      - [ be32, 0x0078682c, 0xbe2aaaab ]
+      - [ be32, 0x00786830, 0x3e2aaaab ]
+      - [ be32, 0x00786838, 0x3e2aaaab ]
+      - [ be32, 0x0078683c, 0xbe2aaaab ]
+      - [ be32, 0x00786844, 0xbe2aaaab ]
+      - [ be32, 0x00786848, 0xbe2aaaab ]
 
 PPU-b2fd916ddb6214c6eb840ad64e6eccb3e5b50694:
   "Skip Intro":
@@ -32222,6 +32468,50 @@ PPU-37f854495138eeb5afdc2db9d4cf6a2d4918beb6: # BIOHAZARD CODE: Veronica 完全�
     Patch:
       - [ be32, 0x001ae304, 0x38600000 ]
 
+  "Skip Logos and Intro":
+    Games:
+      "BIOHAZARD CODE: Veronica 完全版":
+        NPJB00135: [ 01.00 ]
+    Author: "Kastiel"
+    Notes: "EN: Skips the CAPCOM and MT FRAMEWORK logos and the intro movie, so the game opens straight on the title screen. PT-BR: Pula os logos da CAPCOM e da MT FRAMEWORK e o vídeo de introdução: o jogo abre direto na tela de título."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001ff7f8, 0x60000000 ] # logos: end as soon as they start
+      - [ be32, 0x0002afb8, 0x60000000 ] # intro movie: not started
+      - [ be32, 0x0002afbc, 0x3860ffff ] # title: straight to PRESS START
+
+  "Start with Sniper Rifle":
+    Games:
+      "BIOHAZARD CODE: Veronica 完全版":
+        NPJB00135: [ 01.00 ]
+    Author: "Kastiel"
+    Notes: "EN: A New Game starts with the Sniper Rifle in your inventory, plus 100 rounds of its ammo. Enable it before starting a New Game; saved games are not changed. PT-BR: Um Novo Jogo começa com o Sniper Rifle no inventário e 100 balas para ele. Ative antes de começar um Novo Jogo; jogos salvos não mudam."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001aaa40, 0x60000000 ] # always write the starting slots
+      - [ be32, 0x001aaa58, 0x38e00008 ] # eight slots
+      - [ be32, 0x001aaa5c, 0x4801c108 ] # to the added routine
+      - [ be32, 0x001c6b64, 0x3cc00098 ] # address of the item list
+      - [ be32, 0x001c6b68, 0x60c6ea60 ]
+      - [ be32, 0x001c6b6c, 0x7ce903a6 ] # eight repetitions
+      - [ be32, 0x001c6b70, 0x80e60000 ] # read this slot's item
+      - [ be32, 0x001c6b74, 0x90e80000 ] # write it to the inventory
+      - [ be32, 0x001c6b78, 0x4bfff7dc ] # continue
+      - [ be32, 0x001c6354, 0x38c60004 ] # next item in the list
+      - [ be32, 0x001c6358, 0x39080004 ] # next inventory slot
+      - [ be32, 0x001c635c, 0x42000814 ] # repeat while slots remain
+      - [ be32, 0x001c6360, 0x38e00002 ] # restore the register
+      - [ be32, 0x001c6364, 0x4bfe46fc ] # back to the game
+      # Starting slots: 00 ITEM 00 COUNT (0x00000000 = empty). SLOT 1 Sniper Rifle, SLOT 2 its ammo.
+      - [ be32, 0x0098ea60, 0x00030007 ] # SLOT 1
+      - [ be32, 0x0098ea64, 0x00280064 ] # SLOT 2
+      - [ be32, 0x0098ea68, 0x00000000 ] # SLOT 3
+      - [ be32, 0x0098ea6c, 0x00000000 ] # SLOT 4
+      - [ be32, 0x0098ea70, 0x00000000 ] # SLOT 5
+      - [ be32, 0x0098ea74, 0x00000000 ] # SLOT 6
+      - [ be32, 0x0098ea78, 0x00000000 ] # SLOT 7
+      - [ be32, 0x0098ea7c, 0x00000000 ] # SLOT 8
+
 PPU-b4b1ebe7a069782537a13d5bdbc15d6e900ceb25: # RESIDENT EVIL CODE: Veronica X (US)
   "Remove Door Animations":
     Games:
@@ -32233,6 +32523,50 @@ PPU-b4b1ebe7a069782537a13d5bdbc15d6e900ceb25: # RESIDENT EVIL CODE: Veronica X (
     Patch:
       - [ be32, 0x001ae25c, 0x38600000 ]
 
+  "Skip Logos and Intro":
+    Games:
+      "RESIDENT EVIL CODE: Veronica X":
+        NPUB30467: [ 01.00 ]
+    Author: "Kastiel"
+    Notes: "EN: Skips the CAPCOM and MT FRAMEWORK logos and the intro movie, so the game opens straight on the title screen. PT-BR: Pula os logos da CAPCOM e da MT FRAMEWORK e o vídeo de introdução: o jogo abre direto na tela de título."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001ff4a4, 0x60000000 ] # logos: end as soon as they start
+      - [ be32, 0x0002afe0, 0x60000000 ] # intro movie: not started
+      - [ be32, 0x0002afe4, 0x3860ffff ] # title: straight to PRESS START
+
+  "Start with Sniper Rifle":
+    Games:
+      "RESIDENT EVIL CODE: Veronica X":
+        NPUB30467: [ 01.00 ]
+    Author: "Kastiel"
+    Notes: "EN: A New Game starts with the Sniper Rifle in your inventory, plus 100 rounds of its ammo. Enable it before starting a New Game; saved games are not changed. PT-BR: Um Novo Jogo começa com o Sniper Rifle no inventário e 100 balas para ele. Ative antes de começar um Novo Jogo; jogos salvos não mudam."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001aa998, 0x60000000 ] # always write the starting slots
+      - [ be32, 0x001aa9b0, 0x38e00008 ] # eight slots
+      - [ be32, 0x001aa9b4, 0x4801c030 ] # to the added routine
+      - [ be32, 0x001c69e4, 0x3cc00098 ] # address of the item list
+      - [ be32, 0x001c69e8, 0x60c6e160 ]
+      - [ be32, 0x001c69ec, 0x7ce903a6 ] # eight repetitions
+      - [ be32, 0x001c69f0, 0x80e60000 ] # read this slot's item
+      - [ be32, 0x001c69f4, 0x90e80000 ] # write it to the inventory
+      - [ be32, 0x001c69f8, 0x4bfff7dc ] # continue
+      - [ be32, 0x001c61d4, 0x38c60004 ] # next item in the list
+      - [ be32, 0x001c61d8, 0x39080004 ] # next inventory slot
+      - [ be32, 0x001c61dc, 0x42000814 ] # repeat while slots remain
+      - [ be32, 0x001c61e0, 0x38e00002 ] # restore the register
+      - [ be32, 0x001c61e4, 0x4bfe47d4 ] # back to the game
+      # Starting slots: 00 ITEM 00 COUNT (0x00000000 = empty). SLOT 1 Sniper Rifle, SLOT 2 its ammo.
+      - [ be32, 0x0098e160, 0x00030007 ] # SLOT 1
+      - [ be32, 0x0098e164, 0x00280064 ] # SLOT 2
+      - [ be32, 0x0098e168, 0x00000000 ] # SLOT 3
+      - [ be32, 0x0098e16c, 0x00000000 ] # SLOT 4
+      - [ be32, 0x0098e170, 0x00000000 ] # SLOT 5
+      - [ be32, 0x0098e174, 0x00000000 ] # SLOT 6
+      - [ be32, 0x0098e178, 0x00000000 ] # SLOT 7
+      - [ be32, 0x0098e17c, 0x00000000 ] # SLOT 8
+
 PPU-df822d7d47de09c5672201db8cc633009037f54f: # RESIDENT EVIL CODE: Veronica X (EU)
   "Remove Door Animations":
     Games:
@@ -32243,6 +32577,50 @@ PPU-df822d7d47de09c5672201db8cc633009037f54f: # RESIDENT EVIL CODE: Veronica X (
     Patch Version: 1.0
     Patch:
       - [ be32, 0x001afccc, 0x38600000 ]
+
+  "Skip Logos and Intro":
+    Games:
+      "RESIDENT EVIL CODE: Veronica X":
+        NPEB00553: [ 01.00 ]
+    Author: "Kastiel"
+    Notes: "EN: Skips the CAPCOM and MT FRAMEWORK logos and the intro movie, so the game opens straight on the title screen. PT-BR: Pula os logos da CAPCOM e da MT FRAMEWORK e o vídeo de introdução: o jogo abre direto na tela de título."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00201444, 0x60000000 ] # logos: end as soon as they start
+      - [ be32, 0x0002b450, 0x60000000 ] # intro movie: not started
+      - [ be32, 0x0002b454, 0x3860ffff ] # title: straight to PRESS START
+
+  "Start with Sniper Rifle":
+    Games:
+      "RESIDENT EVIL CODE: Veronica X":
+        NPEB00553: [ 01.00 ]
+    Author: "Kastiel"
+    Notes: "EN: A New Game starts with the Sniper Rifle in your inventory, plus 100 rounds of its ammo. Enable it before starting a New Game; saved games are not changed. PT-BR: Um Novo Jogo começa com o Sniper Rifle no inventário e 100 balas para ele. Ative antes de começar um Novo Jogo; jogos salvos não mudam."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001ac3f0, 0x60000000 ] # always write the starting slots
+      - [ be32, 0x001ac408, 0x38e00008 ] # eight slots
+      - [ be32, 0x001ac40c, 0x4801c3f8 ] # to the added routine
+      - [ be32, 0x001c8804, 0x3cc00099 ] # address of the item list
+      - [ be32, 0x001c8808, 0x60c60b60 ]
+      - [ be32, 0x001c880c, 0x7ce903a6 ] # eight repetitions
+      - [ be32, 0x001c8810, 0x80e60000 ] # read this slot's item
+      - [ be32, 0x001c8814, 0x90e80000 ] # write it to the inventory
+      - [ be32, 0x001c8818, 0x4bfff7dc ] # continue
+      - [ be32, 0x001c7ff4, 0x38c60004 ] # next item in the list
+      - [ be32, 0x001c7ff8, 0x39080004 ] # next inventory slot
+      - [ be32, 0x001c7ffc, 0x42000814 ] # repeat while slots remain
+      - [ be32, 0x001c8000, 0x38e00002 ] # restore the register
+      - [ be32, 0x001c8004, 0x4bfe440c ] # back to the game
+      # Starting slots: 00 ITEM 00 COUNT (0x00000000 = empty). SLOT 1 Sniper Rifle, SLOT 2 its ammo.
+      - [ be32, 0x00990b60, 0x00030007 ] # SLOT 1
+      - [ be32, 0x00990b64, 0x00280064 ] # SLOT 2
+      - [ be32, 0x00990b68, 0x00000000 ] # SLOT 3
+      - [ be32, 0x00990b6c, 0x00000000 ] # SLOT 4
+      - [ be32, 0x00990b70, 0x00000000 ] # SLOT 5
+      - [ be32, 0x00990b74, 0x00000000 ] # SLOT 6
+      - [ be32, 0x00990b78, 0x00000000 ] # SLOT 7
+      - [ be32, 0x00990b7c, 0x00000000 ] # SLOT 8
 
 PPU-03113012259d6e81365dc426ae5787f172921e1c:
   "Unlock FPS":
