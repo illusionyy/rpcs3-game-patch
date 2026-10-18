@@ -2072,6 +2072,39 @@ PPU-ad4fce77870e941b183938911cd3ba6bd091eddc:
       - [ be32, 0x008af310, 0x60000000 ]
       - [ be32, 0x008af314, 0x60000000 ]
 
+PPU-87bda999eb08ef36bfb8f3abf2cd95a7e8a615d8:
+  "60 FPS":
+    Games:
+      "Pure":
+        BLUS30182: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Allows the game to run at 60FPS. Anything below or under will affect game speed. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      # Display flip scheduler interval setter (called every frame): force interval = 1
+      - [ be32, 0x007654d4, 0x38800001 ] # li  r4,1
+      - [ be32, 0x007654d8, 0x90830014 ] # stw r4,20(r3)
+      - [ be32, 0x007654dc, 0x4e800020 ] # blr
+  "Disable Depth of Field":
+    Games:
+      "Pure":
+        BLUS30182: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables depth of field. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00448850, 0x38000000 ] # li r0,0 (was lbz r0,176(r31): config DoF Enabled)
+  "Skip Intro Videos":
+    Games:
+      "Pure":
+        BLUS30182: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro movies. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00016748, 0x38000001 ] # li r0,1 -> skip_intro_movies = true
+      - [ be32, 0x00017970, 0x38000001 ] # same, second constructor copy
+
 Anchors:
   kamenrider_bw_fps_notes: &kamenrider_bw_fps_notes
     "Cutscenes will not play with FPS higher than 60. Camera sensitivity lowers at higher FPS."
