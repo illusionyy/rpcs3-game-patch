@@ -32953,6 +32953,40 @@ PPU-ed6f26aa6f0b494a9af4f67261fc27b2343da9e1:
     Patch:
       - [ byte, 0x00023c37, 2 ]
 
+PPU-d701975e1eb70a28d8e5e47ced809f04994f96ad:
+  "Unlock FPS":
+    Games:
+      "SONIC GENERATIONS":
+        BLUS30612: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Unlocks the 32FPS limit to 60FPS. Use Unlocked framelimiter to fully unlock the frame rate."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x015c2fe0, 0x38000001 ] 
+      - [ be32, 0x015c49cc, 0x38000001 ]
+
+PPU-e59cfb07f4057a45d6e2fbba3d041ad3820c004a:
+  "Unlock FPS":
+    Games:
+      "SONIC GENERATIONS 20-Day Demo":
+        NPUB90567: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Unlocks the 32FPS limit to 60FPS. Use Unlocked framelimiter to fully unlock the frame rate."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x012c8b6c, 0x4800006c ] # ble -> b (skip limiter)
+      - [ be32, 0x012ca384, 0x4800006c ] # ble -> b (skip limiter)
+  "Demo Never Expires":
+    Games:
+      "SONIC GENERATIONS 20-Day Demo":
+        NPUB90567: [ 01.00 ]
+    Author: "Alexis"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00bdf418, 0x38000014 ] # li r0,20
+      - [ be32, 0x00bdf41c, 0x816259dc ] # lwz r11,23004(r2) (trial state)
+      - [ be32, 0x00bdf420, 0x4800002c ] # b store days-remaining
+
 PPU-49aa433a899d78438decde97c4e1b79a473148a1:
   "True 16:9":
     Games:
