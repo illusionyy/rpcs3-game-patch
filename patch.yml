@@ -32974,8 +32974,8 @@ PPU-e59cfb07f4057a45d6e2fbba3d041ad3820c004a:
     Notes: "Unlocks the 32FPS limit to 60FPS. Use Unlocked framelimiter to fully unlock the frame rate."
     Patch Version: 1.0
     Patch:
-      - [ be32, 0x012c8b6c, 0x4800006c ] # ble -> b (skip limiter)
-      - [ be32, 0x012ca384, 0x4800006c ] # ble -> b (skip limiter)
+      - [ be32, 0x012c8b6c, 0x4800006c ]
+      - [ be32, 0x012ca384, 0x4800006c ]
   "Demo Never Expires":
     Games:
       "SONIC GENERATIONS 20-Day Demo":
