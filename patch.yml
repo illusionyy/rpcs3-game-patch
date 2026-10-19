@@ -20114,6 +20114,98 @@ PPU-4b46d0161ca657ab16b0a779d9062810ea5ea2dd:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x10068DD0, 0x785F7665 ]
+  "60 FPS Cutscenes":
+    Games:
+      "SONIC THE HEDGEHOG":
+        BLUS30008: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Allows cutscenes to run at 60FPS, similar to the 360 version. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00067d30, 0x38800000 ]
+      - [ be32, 0x00067d64, 0x38a00000 ]
+      - [ be32, 0x009a3a98, 0x38800000 ]
+      - [ be32, 0x009a3acc, 0x38a00000 ]
+      - [ be32, 0x009a4530, 0x38800000 ]
+      - [ be32, 0x009a4564, 0x38a00000 ]
+  "Skip Intro":
+    Games:
+      "SONIC THE HEDGEHOG":
+        BLUS30008: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Skips the intro splash videos. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x009ada60, 0x38000004 ]
+  "Fix Sonic's Action Gauge":
+    Games:
+      "SONIC THE HEDGEHOG":
+        BLUS30008: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Fixes the Action Gauge depletion for Sonic. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ cutf8, 0x1009ef70, "c_gauge_green" ]
+      - [ cutf8, 0x1009ef80, "c_gauge_red" ]
+      - [ cutf8, 0x1009ef90, "c_gauge_blue" ]
+      - [ cutf8, 0x1009efa0, "c_gauge_white" ]
+      - [ cutf8, 0x1009efb0, "c_gauge_sky" ]
+      - [ cutf8, 0x1009efc0, "c_gauge_yellow" ]
+      - [ cutf8, 0x1009efd0, "c_gauge_purple" ]
+      - [ cutf8, 0x1009efe0, "c_gauge_super" ]
+      - [ be32, 0x01694adc, 0x1009ef70 ]
+      - [ be32, 0x01694ae0, 0x1009ef80 ]
+      - [ be32, 0x01694ae4, 0x1009ef90 ]
+      - [ be32, 0x01694ae8, 0x1009efa0 ]
+      - [ be32, 0x01694aec, 0x1009efb0 ]
+      - [ be32, 0x01694af0, 0x1009efc0 ]
+      - [ be32, 0x01694af4, 0x1009efd0 ]
+      - [ be32, 0x01694af8, 0x1009efe0 ]
+  "Demo Camera Toggle (R3)":
+    Games:
+      "SONIC THE HEDGEHOG":
+        BLUS30008: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Press R3 to switch between the normal camera and the unused demo camera. Disabled during cutscenes and ignored at scripted camera shots. Right Stick: rotate, L2/R2: zoom, L1: reset. Assisted with AI."
+    Patch Version: 1.0
+    Patch:
+      - [ calloc, 0x01287a74, 4 ]
+      - [ be32, 0x00000000, 0xa0190048 ]
+      - [ be32, 0x00000000, 0x54007b9e ]
+      - [ be32, 0x00000000, 0x7fde0378 ]
+      - [ be32, 0x00000000, 0x2f88ff81 ]
+      - [ calloc, 0x00098750, 31 ]
+      - [ be32, 0x00000000, 0xfbe102e8 ]
+      - [ be32, 0x00000000, 0x3d601013 ]
+      - [ be32, 0x00000000, 0x816b4d98 ]
+      - [ be32, 0x00000000, 0x800b0008 ]
+      - [ be32, 0x00000000, 0x74000002 ]
+      - [ be32, 0x00000000, 0x41820068 ]
+      - [ be32, 0x00000000, 0x3d201014 ]
+      - [ be32, 0x00000000, 0x892990e0 ]
+      - [ be32, 0x00000000, 0x2c090000 ]
+      - [ be32, 0x00000000, 0x40820058 ]
+      - [ be32, 0x00000000, 0x813e007c ]
+      - [ be32, 0x00000000, 0x81290004 ]
+      - [ be32, 0x00000000, 0x2c090000 ]
+      - [ be32, 0x00000000, 0x41820048 ]
+      - [ be32, 0x00000000, 0x81290000 ]
+      - [ be32, 0x00000000, 0x6d29100a ]
+      - [ be32, 0x00000000, 0x692919f8 ]
+      - [ be32, 0x00000000, 0x3009ffff ]
+      - [ be32, 0x00000000, 0x7d004910 ]
+      - [ be32, 0x00000000, 0x3c000001 ]
+      - [ be32, 0x00000000, 0x60004007 ]
+      - [ be32, 0x00000000, 0x90010070 ]
+      - [ be32, 0x00000000, 0x38000000 ]
+      - [ be32, 0x00000000, 0x90010074 ]
+      - [ be32, 0x00000000, 0x801e0088 ]
+      - [ be32, 0x00000000, 0x90010078 ]
+      - [ be32, 0x00000000, 0x9901007c ]
+      - [ be32, 0x00000000, 0x7fc3f378 ]
+      - [ be32, 0x00000000, 0x38810070 ]
+      - [ jumpl, 0x00000000, 0x0009b5b8 ]
+      - [ be32, 0x00000000, 0x7fc3f378 ]
 
 Anchors:
   su_1280x720_notes: &su_1280x720_notes
