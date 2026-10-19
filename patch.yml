@@ -25937,6 +25937,38 @@ PPU-56101fbdbac186fddef72207145015fd314a0be5:
       - [ be32, 0x0025EC2C, 0x48000520 ]
 
 PPU-c1701baaa053fa811968301a2749cbfb011c9930:
+  "Motion Blur Control":
+    Games:
+      "Burnout Paradise":
+        BLUS30061: [ 01.90 ]
+    Author: "Alexis"
+    Notes: "Enables motion blur on all cameras, including the chase cam. Amount sets the minimum blur strength; Off disables motion blur entirely. Assisted with AI tools."
+    Patch Version: 1.0
+    Configurable Values:
+      "Amount":
+        Type: double_enum
+        Value: 0.5
+        Allowed Values:
+          "Off": -1.0
+          "Low": 0.25
+          "Medium": 0.5
+          "High": 0.75
+          "Very High": 0.9
+    Patch:
+      - [ bef32, 0x00ae9104, "Amount" ]
+      - [ calloc, 0x0022fb98, 12 ]
+      - [ be32, 0x00000000, 0xc3ab000c ]
+      - [ be32, 0x00000000, 0x3d8000af ]
+      - [ be32, 0x00000000, 0x398c9104 ]
+      - [ be32, 0x00000000, 0xc00c0000 ]
+      - [ be32, 0x00000000, 0x800c0000 ]
+      - [ be32, 0x00000000, 0xedbd0028 ]
+      - [ be32, 0x00000000, 0xffad076e ]
+      - [ be32, 0x00000000, 0xeda00028 ]
+      - [ be32, 0x00000000, 0xffa06f6e ]
+      - [ be32, 0x00000000, 0x54000ffe ]
+      - [ be32, 0x00000000, 0x68000001 ]
+      - [ be32, 0x00000000, 0x98010d34 ]
   "Full 60FPS":
     Games:
       "Burnout Paradise":
@@ -25965,6 +25997,15 @@ PPU-c1701baaa053fa811968301a2749cbfb011c9930:
     Patch:
       - [ be32, 0x009D0550, 0x586F6650 ]
       - [ be32, 0x009D0560, 0x586F6650 ]
+  "Boost Never Depletes":
+    Games:
+      "Burnout Paradise":
+        BLUS30061: [ 01.90 ]
+    Author: "Alexis"
+    Notes: "Boost never depletes but still fills normally. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000bd788, 0x4e800020 ]
 
 Anchors:
   DS3_Buttons: &DS3_Buttons
@@ -29013,7 +29054,7 @@ PPU-757a971c30a33495e22b47f9999bc25e15112856:
         BLUS30536: [ 01.01 ]
     Author: "Alexis"
     Notes: "Disables in-game bloom. Assisted with AI tools."
-    Patch Version: 0.2
+    Patch Version: 1.0
     Patch:
       - [ be32, 0x001FC7C4, 0x60000000 ]
   "Disable Film Grain & Vignette":
@@ -29022,42 +29063,47 @@ PPU-757a971c30a33495e22b47f9999bc25e15112856:
         BLUS30536: [ 01.01 ]
     Author: "Alexis"
     Notes: "Disables film grain and edge vignette. Assisted with AI tools."
-    Patch Version: 1.3
+    Patch Version: 1.0
     Patch:
-      - [ calloc, 0x005FDF68, 33 ]
-      - [ be32, 0x00000000, 0x7C791B78 ]
-      - [ be32, 0x00000000, 0x2C1D0000 ]
-      - [ be32, 0x00000000, 0x41820078 ]
-      - [ be32, 0x00000000, 0x79C60022 ]
-      - [ be32, 0x00000000, 0x2C060064 ]
-      - [ be32, 0x00000000, 0x4082006C ]
-      - [ be32, 0x00000000, 0x38DD0142 ]
-      - [ be32, 0x00000000, 0x38FD0252 ]
-      - [ be32, 0x00000000, 0x3D200240 ]
-      - [ be32, 0x00000000, 0x6129C900 ]
-      - [ be32, 0x00000000, 0x3D401C9D ]
-      - [ be32, 0x00000000, 0x614AC904 ]
-      - [ be32, 0x00000000, 0x81060000 ]
-      - [ be32, 0x00000000, 0x7C084800 ]
-      - [ be32, 0x00000000, 0x4082003C ]
-      - [ be32, 0x00000000, 0x81060004 ]
-      - [ be32, 0x00000000, 0x7C085000 ]
-      - [ be32, 0x00000000, 0x40820030 ]
-      - [ be32, 0x00000000, 0x81060010 ]
-      - [ be32, 0x00000000, 0x7C084800 ]
-      - [ be32, 0x00000000, 0x40820024 ]
-      - [ be32, 0x00000000, 0x89060016 ]
-      - [ be32, 0x00000000, 0x280800FF ]
-      - [ be32, 0x00000000, 0x40820018 ]
-      - [ be32, 0x00000000, 0x39000140 ]
-      - [ be32, 0x00000000, 0xB1060000 ]
-      - [ be32, 0x00000000, 0xB1060010 ]
-      - [ be32, 0x00000000, 0x7C0030AC ]
-      - [ be32, 0x00000000, 0x48000010 ]
-      - [ be32, 0x00000000, 0x38C60010 ]
-      - [ be32, 0x00000000, 0x7C063840 ]
-      - [ be32, 0x00000000, 0x4180FFB4 ]
-      - [ be32, 0x00000000, 0x60000000 ]
+      - [ calloc, 0x00b39f94, 3 ]
+      - [ be32, 0x00000000, 0x93dd01c0 ]
+      - [ be32, 0x00000000, 0x93dd01c8 ]
+      - [ be32, 0x00000000, 0x63830000 ]
+      - [ be32, 0x00b36cd0, 0x93dd01c0 ]
+      - [ be32, 0x00b36e40, 0x93dd01c8 ]
+  "Disable Color Grading":
+    Games:
+      "DRIVER San Francisco":
+        BLUS30536: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables the color grading filter and saturation/contrast adjustments. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ calloc, 0x00b39f98, 5 ]
+      - [ be32, 0x00000000, 0x93dd01b0 ]
+      - [ be32, 0x00000000, 0x93dd01b4 ]
+      - [ be32, 0x00000000, 0x93dd01b8 ]
+      - [ be32, 0x00000000, 0x93dd01bc ]
+      - [ be32, 0x00000000, 0x38800010 ]
+      - [ be32, 0x00b369f0, 0x93dd01b0 ]
+      - [ be32, 0x00b36aa8, 0x93dd01b4 ]
+      - [ be32, 0x00b36b60, 0x93dd01b8 ]
+      - [ be32, 0x00b36c18, 0x93dd01bc ]
+      - [ calloc, 0x00b3a144, 2 ]
+      - [ be32, 0x00000000, 0x93db01f8 ]
+      - [ be32, 0x00000000, 0x3bc00001 ]
+      - [ be32, 0x00b38d30, 0xb3c30000 ]
+      - [ be32, 0x00b38d34, 0xb3c30002 ]
+  "Skip Intro":
+    Games:
+      "DRIVER San Francisco":
+        BLUS30536: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Skips the Ubisoft logo and the legal screen. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0049e728, 0x4bfffd05 ]
+      - [ be32, 0x0049e890, 0xc0430004 ]
 
 Anchors:
   dungeondefenders_openspy_notes: &dungeondefenders_openspy_notes
@@ -30589,6 +30635,69 @@ PPU-de0adefe9c58fc846475a38dd3894188a0f7f786:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x000108C8, 0x48000070 ]
+  "Skip Intro Videos":
+    Games:
+      "Leisure Suit Larry: Box Office Bust":
+        BLUS30331: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro videos. Assisted with AI."
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x00ebeeb8, 0x008536c0 ] # UFloatProperty::SerializeItem vtable entry -> cave A
+      - [ be32, 0x00a2dd84, 0x4be259d0 ] # UTextureMovie::execPlay -> cave B
+      # Cave A: call original, then UIAction* float of 7/15/5/6 (logo delays) -> 0.05
+      # Cave B: skip Play() when the movie's package name has "Logo" at chars 8-11 (FrontendLogos)
+      - [ be32, 0x008536c0, 0x7c0802a6 ]
+      - [ be32, 0x008536c4, 0xf821ff81 ]
+      - [ be32, 0x008536c8, 0xf8010090 ]
+      - [ be32, 0x008536cc, 0xfbc10070 ]
+      - [ be32, 0x008536d0, 0xfbe10078 ]
+      - [ be32, 0x008536d4, 0x7c7f1b78 ]
+      - [ be32, 0x008536d8, 0x7cbe2b78 ]
+      - [ be32, 0x008536dc, 0x4b8df0b1 ]
+      - [ be32, 0x008536e0, 0xa13e0000 ]
+      - [ be32, 0x008536e4, 0x2b8940e0 ]
+      - [ be32, 0x008536e8, 0x419e001c ]
+      - [ be32, 0x008536ec, 0x2b894170 ]
+      - [ be32, 0x008536f0, 0x419e0014 ]
+      - [ be32, 0x008536f4, 0x2b8940a0 ]
+      - [ be32, 0x008536f8, 0x419e000c ]
+      - [ be32, 0x008536fc, 0x2b8940c0 ]
+      - [ be32, 0x00853700, 0x409e003c ]
+      - [ be32, 0x00853704, 0x3d600100 ]
+      - [ be32, 0x00853708, 0x816b32cc ]
+      - [ be32, 0x0085370c, 0x813f0028 ]
+      - [ be32, 0x00853710, 0x8129002c ]
+      - [ be32, 0x00853714, 0x5529103a ]
+      - [ be32, 0x00853718, 0x7d29582e ]
+      - [ be32, 0x0085371c, 0x81490008 ]
+      - [ be32, 0x00853720, 0x3d805549 ]
+      - [ be32, 0x00853724, 0x618c4163 ]
+      - [ be32, 0x00853728, 0x7f8a6040 ]
+      - [ be32, 0x0085372c, 0x409e0010 ]
+      - [ be32, 0x00853730, 0x3d403d4c ]
+      - [ be32, 0x00853734, 0x614acccd ]
+      - [ be32, 0x00853738, 0x915e0000 ]
+      - [ be32, 0x0085373c, 0xebc10070 ]
+      - [ be32, 0x00853740, 0xebe10078 ]
+      - [ be32, 0x00853744, 0xe8010090 ]
+      - [ be32, 0x00853748, 0x7c0803a6 ]
+      - [ be32, 0x0085374c, 0x38210080 ]
+      - [ be32, 0x00853750, 0x4e800020 ]
+      - [ be32, 0x00853754, 0x3d600100 ]
+      - [ be32, 0x00853758, 0x816b32cc ]
+      - [ be32, 0x0085375c, 0x813f0028 ]
+      - [ be32, 0x00853760, 0x8129002c ]
+      - [ be32, 0x00853764, 0x5529103a ]
+      - [ be32, 0x00853768, 0x7d29582e ]
+      - [ be32, 0x0085376c, 0x81490010 ]
+      - [ be32, 0x00853770, 0x3d804c6f ]
+      - [ be32, 0x00853774, 0x618c676f ]
+      - [ be32, 0x00853778, 0x7f8a6040 ]
+      - [ be32, 0x0085377c, 0x409e0008 ]
+      - [ be32, 0x00853780, 0x481da628 ]
+      - [ be32, 0x00853784, 0x813f0000 ]
+      - [ be32, 0x00853788, 0x481da600 ]
 
 PPU-8512833a639e1eb5e9c43701f0a8e2f2d2505f5d:
   "Unlock FPS":
@@ -30600,6 +30709,69 @@ PPU-8512833a639e1eb5e9c43701f0a8e2f2d2505f5d:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x000108C8, 0x48000070 ]
+  "Skip Intro Videos":
+    Games:
+      "Leisure Suit Larry: Box Office Bust":
+        BLUS30331: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro videos. Assisted with AI."
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x00ebeeb8, 0x008536c0 ] # UFloatProperty::SerializeItem vtable entry -> cave A
+      - [ be32, 0x00a2dd84, 0x4be259d0 ] # UTextureMovie::execPlay -> cave B
+      # Cave A: call original, then UIAction* float of 7/15/5/6 (logo delays) -> 0.05
+      # Cave B: skip Play() when the movie's package name has "Logo" at chars 8-11 (FrontendLogos)
+      - [ be32, 0x008536c0, 0x7c0802a6 ]
+      - [ be32, 0x008536c4, 0xf821ff81 ]
+      - [ be32, 0x008536c8, 0xf8010090 ]
+      - [ be32, 0x008536cc, 0xfbc10070 ]
+      - [ be32, 0x008536d0, 0xfbe10078 ]
+      - [ be32, 0x008536d4, 0x7c7f1b78 ]
+      - [ be32, 0x008536d8, 0x7cbe2b78 ]
+      - [ be32, 0x008536dc, 0x4b8df0b1 ]
+      - [ be32, 0x008536e0, 0xa13e0000 ]
+      - [ be32, 0x008536e4, 0x2b8940e0 ]
+      - [ be32, 0x008536e8, 0x419e001c ]
+      - [ be32, 0x008536ec, 0x2b894170 ]
+      - [ be32, 0x008536f0, 0x419e0014 ]
+      - [ be32, 0x008536f4, 0x2b8940a0 ]
+      - [ be32, 0x008536f8, 0x419e000c ]
+      - [ be32, 0x008536fc, 0x2b8940c0 ]
+      - [ be32, 0x00853700, 0x409e003c ]
+      - [ be32, 0x00853704, 0x3d600100 ]
+      - [ be32, 0x00853708, 0x816b32cc ]
+      - [ be32, 0x0085370c, 0x813f0028 ]
+      - [ be32, 0x00853710, 0x8129002c ]
+      - [ be32, 0x00853714, 0x5529103a ]
+      - [ be32, 0x00853718, 0x7d29582e ]
+      - [ be32, 0x0085371c, 0x81490008 ]
+      - [ be32, 0x00853720, 0x3d805549 ]
+      - [ be32, 0x00853724, 0x618c4163 ]
+      - [ be32, 0x00853728, 0x7f8a6040 ]
+      - [ be32, 0x0085372c, 0x409e0010 ]
+      - [ be32, 0x00853730, 0x3d403d4c ]
+      - [ be32, 0x00853734, 0x614acccd ]
+      - [ be32, 0x00853738, 0x915e0000 ]
+      - [ be32, 0x0085373c, 0xebc10070 ]
+      - [ be32, 0x00853740, 0xebe10078 ]
+      - [ be32, 0x00853744, 0xe8010090 ]
+      - [ be32, 0x00853748, 0x7c0803a6 ]
+      - [ be32, 0x0085374c, 0x38210080 ]
+      - [ be32, 0x00853750, 0x4e800020 ]
+      - [ be32, 0x00853754, 0x3d600100 ]
+      - [ be32, 0x00853758, 0x816b32cc ]
+      - [ be32, 0x0085375c, 0x813f0028 ]
+      - [ be32, 0x00853760, 0x8129002c ]
+      - [ be32, 0x00853764, 0x5529103a ]
+      - [ be32, 0x00853768, 0x7d29582e ]
+      - [ be32, 0x0085376c, 0x81490010 ]
+      - [ be32, 0x00853770, 0x3d804c6f ]
+      - [ be32, 0x00853774, 0x618c676f ]
+      - [ be32, 0x00853778, 0x7f8a6040 ]
+      - [ be32, 0x0085377c, 0x409e0008 ]
+      - [ be32, 0x00853780, 0x481da628 ]
+      - [ be32, 0x00853784, 0x813f0000 ]
+      - [ be32, 0x00853788, 0x481da600 ]
 
 Anchors:
   lostd_fps_notes: &lostd_fps_notes
