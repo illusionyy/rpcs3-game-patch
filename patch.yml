@@ -4931,129 +4931,159 @@ Anchors:
   yds_60fps_notes: &yds_60fps_notes
     "Some game elements will be 2x speed."
 
-PPU-4fae9ddfa13836977893e65b98e6b974d26976e8:
-  "60 FPS":
-    Games:
-      "Yakuza: Dead Souls":
-        BLUS30826: [ 01.00 ]
-    Author: "FlexBy"
-    Notes: *yds_60fps_notes
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x00d1c164, 0x38a00001 ] # li r5,1
-      - [ calloc, 0x003892cc, 4 ]
-      - [ be32, 0x0, 0xec211824 ] # fdivs f1,f1,f3 
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0xc08cd1c8 ] # lfs   f4,-0x2e38(r12)
-      - [ be32, 0x0, 0xec212024 ] # fdivs f1,f1,f4
-      - [ calloc, 0x003848a0, 6 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x1c84001e ] # mulli r4,r4,30
-      - [ be32, 0x0, 0x7c8463d6 ] # divw  r4,r4,r12
-      - [ be32, 0x0, 0x7ca52014 ] # addc  r5,r5,r4
-      - [ calloc, 0x01051684, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7f9c61d6 ] # mullw r28,r28,r12
-      - [ be32, 0x0, 0x7fbd61d6 ] # mullw r29,r29,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7f9c6396 ] # divwu r28,r28,r12
-      - [ be32, 0x0, 0x7fbd6396 ] # divwu r29,r29,r12
-      - [ be32, 0x0, 0x7c05e040 ] # cmplw r5,r28
-      - [ calloc, 0x003842c4, 7 ]
-      - [ be32, 0x0, 0x1042192e ] # vmaddfp v2,v2,v4,v3
-      - [ be32, 0x0, 0x3cc0014f ] # lis    r6,0x14f
-      - [ be32, 0x0, 0x38c6d1c8 ] # addi   r6,r6,-0x2e38
-      - [ be32, 0x0, 0x7ca0308e ] # lvewx  v5,0,r6
-      - [ be32, 0x0, 0x10a22a8c ] # vspltw v5,v5,2
-      - [ be32, 0x0, 0x10a0290a ] # vrefp  v5,v5
-      - [ be32, 0x0, 0x1042196e ] # vmaddfp v2,v2,v5,v3
-      - [ calloc, 0x002f3690, 3 ]
-      - [ be32, 0x0, 0x3c60014f ] # lis  r3,0x14f
-      - [ be32, 0x0, 0x8063c864 ] # lwz  r3,-0x379c(r3)
-      - [ be32, 0x0, 0x80630128 ] # lwz  r3,0x128(r3
-      - [ calloc, 0x00bed06c, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed088, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed0a4, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed0c0, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed168, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed184, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed1a0, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
-      - [ calloc, 0x00bed348, 8 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x3960001e ] # li    r11,30
-      - [ be32, 0x0, 0x41820008 ] # beq   +8
-      - [ be32, 0x0, 0x816c0128 ] # lwz   r11,0x128(r12)
-      - [ be32, 0x0, 0x7c035840 ] # cmplw r3,r11
+  yds_npeb_fps: &yds_npeb_fps
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0x818cc884 ]
+    - [ be32, 0x0, 0x818c0128 ]
+  yds_npeb_f30: &yds_npeb_f30
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0xc00cd1e8 ]
+  yds_npeb_sens: &yds_npeb_sens
+    - [ be32, 0x0, 0x3d8000c2 ]
+    - [ be32, 0x0, 0xc00c1bc4 ]
+  yds_blus_bles_fps: &yds_blus_bles_fps
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0x818cc864 ]
+    - [ be32, 0x0, 0x818c0128 ]
+  yds_blus_bles_f30: &yds_blus_bles_f30
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0xc00cd1c8 ]
+  yds_blus_sens: &yds_blus_sens
+    - [ be32, 0x0, 0x3d8000c2 ]
+    - [ be32, 0x0, 0xc00c18e4 ]
+  yds_bles_sens: &yds_bles_sens
+    - [ be32, 0x0, 0x3d8000c2 ]
+    - [ be32, 0x0, 0xc00c1b04 ]
+  yds_bljm_fps: &yds_bljm_fps
+    - [ be32, 0x0, 0x3d80014d ]
+    - [ be32, 0x0, 0x818c3e84 ]
+    - [ be32, 0x0, 0x818c0128 ]
+  yds_bljm_f30: &yds_bljm_f30
+    - [ be32, 0x0, 0x3d80014d ]
+    - [ be32, 0x0, 0xc00c47e8 ]
+  yds_bljm_sens: &yds_bljm_sens
+    - [ be32, 0x0, 0x3d8000c2 ]
+    - [ be32, 0x0, 0xc00c3324 ]
+  yds_npeb_zact_qte: &yds_npeb_zact_qte
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0x818cc884 ]
+    - [ be32, 0x0, 0x816c0018 ]
+    - [ be32, 0x0, 0x2c0b0000 ]
+    - [ be32, 0x0, 0x41820014 ]
+    - [ be32, 0x0, 0x818c0128 ]
+    - [ be32, 0x0, 0x7c6361d6 ]
+    - [ be32, 0x0, 0x3980001e ]
+    - [ be32, 0x0, 0x7c6363d6 ]
+  yds_all_talk_text: &yds_all_talk_text
+    - [ be32, 0x0, 0x81830018 ]
+    - [ be32, 0x0, 0x2c8c0000 ]
+    - [ be32, 0x0, 0x80630128 ]
+    - [ be32, 0x0, 0x41860008 ]
+    - [ be32, 0x0, 0x3860001e ]
+  yds_npeb_sens_1p: &yds_npeb_sens_1p
+    - [ be32, 0x0, 0xec3f0072 ]
+    - [ load, *yds_npeb_sens ]
+    - [ be32, 0x0, 0xec210032 ]
+  yds_blus_bles_strafe_blend: &yds_blus_bles_strafe_blend
+    - [ be32, 0x0, 0xec211824 ]
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0xc08cd1c8 ]
+    - [ be32, 0x0, 0xec212024 ]
+  yds_blus_bles_addyaw: &yds_blus_bles_addyaw
+    - [ load, *yds_blus_bles_fps ]
+    - [ be32, 0x0, 0x1c84001e ]
+    - [ be32, 0x0, 0x7c8463d6 ]
+    - [ be32, 0x0, 0x7ca52014 ]
+  yds_blus_bles_shot_rate: &yds_blus_bles_shot_rate
+    - [ load, *yds_blus_bles_fps ]
+    - [ be32, 0x0, 0x7f9c61d6 ]
+    - [ be32, 0x0, 0x7fbd61d6 ]
+    - [ be32, 0x0, 0x3980001e ]
+    - [ be32, 0x0, 0x7f9c6396 ]
+    - [ be32, 0x0, 0x7fbd6396 ]
+    - [ be32, 0x0, 0x7c05e040 ]
+  yds_blus_bles_addvel: &yds_blus_bles_addvel
+    - [ be32, 0x0, 0x1042192e ]
+    - [ be32, 0x0, 0x3cc0014f ]
+    - [ be32, 0x0, 0x38c6d1c8 ]
+    - [ be32, 0x0, 0x7ca0308e ]
+    - [ be32, 0x0, 0x10a22a8c ]
+    - [ be32, 0x0, 0x10a0290a ]
+    - [ be32, 0x0, 0x1042196e ]
+  yds_blus_bles_snipe_qte: &yds_blus_bles_snipe_qte
+    - [ be32, 0x0, 0x3c60014f ]
+    - [ be32, 0x0, 0x8063c864 ]
+    - [ be32, 0x0, 0x80630128 ]
+  yds_blus_bles_zact_qte: &yds_blus_bles_zact_qte
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0x818cc864 ]
+    - [ be32, 0x0, 0x816c0018 ]
+    - [ be32, 0x0, 0x2c0b0000 ]
+    - [ be32, 0x0, 0x41820014 ]
+    - [ be32, 0x0, 0x818c0128 ]
+    - [ be32, 0x0, 0x7c6361d6 ]
+    - [ be32, 0x0, 0x3980001e ]
+    - [ be32, 0x0, 0x7c6363d6 ]
+  yds_blus_bles_zact_hold: &yds_blus_bles_zact_hold
+    - [ be32, 0x0, 0x3d80014f ]
+    - [ be32, 0x0, 0x818cc864 ]
+    - [ be32, 0x0, 0x816c0018 ]
+    - [ be32, 0x0, 0x2c0b0000 ]
+    - [ be32, 0x0, 0x3960001e ]
+    - [ be32, 0x0, 0x41820008 ]
+    - [ be32, 0x0, 0x816c0128 ]
+    - [ be32, 0x0, 0x7c035840 ]
+  yds_blus_bles_cam3p_rot: &yds_blus_bles_cam3p_rot
+    - [ be32, 0x0, 0xc3a40014 ]
+    - [ load, *yds_blus_bles_f30 ]
+    - [ be32, 0x0, 0xefbd0024 ]
+  yds_blus_bles_cam3p_ramp_up: &yds_blus_bles_cam3p_ramp_up
+    - [ be32, 0x0, 0xc0630004 ]
+    - [ load, *yds_blus_bles_f30 ]
+    - [ be32, 0x0, 0xec630024 ]
+  yds_blus_bles_cam3p_ramp_down: &yds_blus_bles_cam3p_ramp_down
+    - [ be32, 0x0, 0xc0630008 ]
+    - [ load, *yds_blus_bles_f30 ]
+    - [ be32, 0x0, 0xec630024 ]
+  yds_blus_bles_cam3p_boost: &yds_blus_bles_cam3p_boost
+    - [ be32, 0x0, 0xc0430008 ]
+    - [ load, *yds_blus_bles_f30 ]
+    - [ be32, 0x0, 0xec420024 ]
+  yds_blus_bles_camfree_yaw: &yds_blus_bles_camfree_yaw
+    - [ load, *yds_blus_bles_fps ]
+    - [ be32, 0x0, 0x1c84001e ]
+    - [ be32, 0x0, 0x7c8463d6 ]
+    - [ be32, 0x0, 0x7c632014 ]
+  yds_blus_bles_camfree_lerp: &yds_blus_bles_camfree_lerp
+    - [ be32, 0x0, 0xc34300d0 ]
+    - [ load, *yds_blus_bles_f30 ]
+    - [ be32, 0x0, 0xef5a0024 ]
+  yds_blus_bles_scope_zoom: &yds_blus_bles_scope_zoom
+    - [ be32, 0x0, 0xec2100b2 ]
+    - [ load, *yds_blus_bles_f30 ]
+    - [ be32, 0x0, 0xec210024 ]
+  yds_blus_sens_1p: &yds_blus_sens_1p
+    - [ be32, 0x0, 0xec3f0072 ]
+    - [ load, *yds_blus_sens ]
+    - [ be32, 0x0, 0xec210032 ]
+  yds_bles_sens_1p: &yds_bles_sens_1p
+    - [ be32, 0x0, 0xec3f0072 ]
+    - [ load, *yds_bles_sens ]
+    - [ be32, 0x0, 0xec210032 ]
+  yds_bljm_zact_qte: &yds_bljm_zact_qte
+    - [ be32, 0x0, 0x3d80014d ]
+    - [ be32, 0x0, 0x818c3e84 ]
+    - [ be32, 0x0, 0x816c0018 ]
+    - [ be32, 0x0, 0x2c0b0000 ]
+    - [ be32, 0x0, 0x41820014 ]
+    - [ be32, 0x0, 0x818c0128 ]
+    - [ be32, 0x0, 0x7c6361d6 ]
+    - [ be32, 0x0, 0x3980001e ]
+    - [ be32, 0x0, 0x7c6363d6 ]
+  yds_bljm_sens_1p: &yds_bljm_sens_1p
+    - [ be32, 0x0, 0xec3f0072 ]
+    - [ load, *yds_bljm_sens ]
+    - [ be32, 0x0, 0xec210032 ]
 
 PPU-eaddc7ab65f58cbb404a19b943e54c08f9c28eca:
   "60 FPS":
@@ -5062,122 +5092,200 @@ PPU-eaddc7ab65f58cbb404a19b943e54c08f9c28eca:
         NPEB02034: [ 01.00 ]
     Author: "FlexBy"
     Notes: *yds_60fps_notes
-    Patch Version: 1.0
+    Patch Version: 1.2
     Patch:
-      - [ be32, 0x00d1c444, 0x38a00001 ] # li r5,1
+      - [ be32, 0x00d1c444, 0x38a00001 ]
       - [ calloc, 0x003893dc, 4 ]
-      - [ be32, 0x0, 0xec211824 ] # fdivs f1,f1,f3
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0xc08cd1e8 ] # lfs   f4,-0x2e18(r12)
-      - [ be32, 0x0, 0xec212024 ] # fdivs f1,f1,f4
+      - [ be32, 0x0, 0xec211824 ]
+      - [ be32, 0x0, 0x3d80014f ]
+      - [ be32, 0x0, 0xc08cd1e8 ]
+      - [ be32, 0x0, 0xec212024 ]
       - [ calloc, 0x003849b0, 6 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x1c84001e ] # mulli r4,r4,30
-      - [ be32, 0x0, 0x7c8463d6 ] # divw  r4,r4,r12
-      - [ be32, 0x0, 0x7ca52014 ] # addc  r5,r5,r4
+      - [ load, *yds_npeb_fps ]
+      - [ be32, 0x0, 0x1c84001e ]
+      - [ be32, 0x0, 0x7c8463d6 ]
+      - [ be32, 0x0, 0x7ca52014 ]
       - [ calloc, 0x010517d4, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7f9c61d6 ] # mullw r28,r28,r12
-      - [ be32, 0x0, 0x7fbd61d6 ] # mullw r29,r29,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7f9c6396 ] # divwu r28,r28,r12
-      - [ be32, 0x0, 0x7fbd6396 ] # divwu r29,r29,r12
-      - [ be32, 0x0, 0x7c05e040 ] # cmplw r5,r28
+      - [ load, *yds_npeb_fps ]
+      - [ be32, 0x0, 0x7f9c61d6 ]
+      - [ be32, 0x0, 0x7fbd61d6 ]
+      - [ be32, 0x0, 0x3980001e ]
+      - [ be32, 0x0, 0x7f9c6396 ]
+      - [ be32, 0x0, 0x7fbd6396 ]
+      - [ be32, 0x0, 0x7c05e040 ]
       - [ calloc, 0x003843d4, 7 ]
-      - [ be32, 0x0, 0x1042192e ] # vmaddfp v2,v2,v4,v3
-      - [ be32, 0x0, 0x3cc0014f ] # lis    r6,0x14f
-      - [ be32, 0x0, 0x38c6d1e8 ] # addi   r6,r6,-0x2e18 
-      - [ be32, 0x0, 0x7ca0308e ] # lvewx  v5,0,r6
-      - [ be32, 0x0, 0x10a22a8c ] # vspltw v5,v5,2
-      - [ be32, 0x0, 0x10a0290a ] # vrefp  v5,v5
-      - [ be32, 0x0, 0x1042196e ] # vmaddfp v2,v2,v5,v3
+      - [ be32, 0x0, 0x1042192e ]
+      - [ be32, 0x0, 0x3cc0014f ]
+      - [ be32, 0x0, 0x38c6d1e8 ]
+      - [ be32, 0x0, 0x7ca0308e ]
+      - [ be32, 0x0, 0x10a22a8c ]
+      - [ be32, 0x0, 0x10a0290a ]
+      - [ be32, 0x0, 0x1042196e ]
       - [ calloc, 0x002f37a0, 3 ]
-      - [ be32, 0x0, 0x3c60014f ] # lis  r3,0x14f
-      - [ be32, 0x0, 0x8063c884 ] # lwz  r3,-0x377c(r3)
-      - [ be32, 0x0, 0x80630128 ] # lwz  r3,0x128(r3)
+      - [ be32, 0x0, 0x3c60014f ]
+      - [ be32, 0x0, 0x8063c884 ]
+      - [ be32, 0x0, 0x80630128 ]
       - [ calloc, 0x00bed34c, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed368, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed384, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed3a0, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed448, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed464, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed480, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_npeb_zact_qte ]
       - [ calloc, 0x00bed628, 8 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc884 ] # lwz   r12,-0x377c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x3960001e ] # li    r11,30
-      - [ be32, 0x0, 0x41820008 ] # beq   +8
-      - [ be32, 0x0, 0x816c0128 ] # lwz   r11,0x128(r12)
-      - [ be32, 0x0, 0x7c035840 ] # cmplw r3,r11
+      - [ be32, 0x0, 0x3d80014f ]
+      - [ be32, 0x0, 0x818cc884 ]
+      - [ be32, 0x0, 0x816c0018 ]
+      - [ be32, 0x0, 0x2c0b0000 ]
+      - [ be32, 0x0, 0x3960001e ]
+      - [ be32, 0x0, 0x41820008 ]
+      - [ be32, 0x0, 0x816c0128 ]
+      - [ be32, 0x0, 0x7c035840 ]
+      - [ calloc, 0x003f477c, 5 ]
+      - [ load, *yds_all_talk_text ]
+      - [ calloc, 0x00c278c8, 4 ]
+      - [ be32, 0x0, 0xc3a40014 ]
+      - [ load, *yds_npeb_f30 ]
+      - [ be32, 0x0, 0xefbd0024 ]
+      - [ calloc, 0x00c27808, 4 ]
+      - [ be32, 0x0, 0xc0630004 ]
+      - [ load, *yds_npeb_f30 ]
+      - [ be32, 0x0, 0xec630024 ]
+      - [ calloc, 0x00c27838, 4 ]
+      - [ be32, 0x0, 0xc0630008 ]
+      - [ load, *yds_npeb_f30 ]
+      - [ be32, 0x0, 0xec630024 ]
+      - [ calloc, 0x00c27898, 4 ]
+      - [ be32, 0x0, 0xc0430008 ]
+      - [ load, *yds_npeb_f30 ]
+      - [ be32, 0x0, 0xec420024 ]
+      - [ calloc, 0x00c0df80, 6 ]
+      - [ load, *yds_npeb_fps ]
+      - [ be32, 0x0, 0x1c84001e ]
+      - [ be32, 0x0, 0x7c8463d6 ]
+      - [ be32, 0x0, 0x7c632014 ]
+      - [ calloc, 0x00c12558, 4 ]
+      - [ be32, 0x0, 0xc34300d0 ]
+      - [ load, *yds_npeb_f30 ]
+      - [ be32, 0x0, 0xef5a0024 ]
+      - [ calloc, 0x00c2896c, 4 ]
+      - [ be32, 0x0, 0xec2100b2 ]
+      - [ load, *yds_npeb_f30 ]
+      - [ be32, 0x0, 0xec210024 ]
+  "Camera Sensitivity":
+    Games:
+      "Yakuza: Dead Souls":
+        NPEB02034: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Configurable Values:
+      "Camera Sensitivity":
+        Type: double_range
+        Value: 1.0
+        Min: 0.25
+        Max: 3.0
+    Patch:
+      - [ calloc, 0x00c27910, 4 ]
+      - [ load, *yds_npeb_sens ]
+      - [ be32, 0x0, 0xefbd0032 ]
+      - [ be32, 0x0, 0xfc1bf000 ]
+      - [ calloc, 0x00c0837c, 4 ]
+      - [ load, *yds_npeb_sens_1p ]
+      - [ calloc, 0x00c08420, 4 ]
+      - [ load, *yds_npeb_sens_1p ]
+      - [ calloc, 0x00c1233c, 4 ]
+      - [ be32, 0x0, 0xec2100b2 ]
+      - [ load, *yds_npeb_sens ]
+      - [ be32, 0x0, 0xec210032 ]
+      - [ bef32, 0x00c21bc4, "Camera Sensitivity" ]
+
+PPU-4fae9ddfa13836977893e65b98e6b974d26976e8:
+  "60 FPS":
+    Games:
+      "Yakuza: Dead Souls":
+        BLUS30862: [ 01.00 ]
+    Author: "FlexBy"
+    Notes: *yds_60fps_notes
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x00d1c164, 0x38a00001 ]
+      - [ calloc, 0x003892cc, 4 ]
+      - [ load, *yds_blus_bles_strafe_blend ]
+      - [ calloc, 0x003848a0, 6 ]
+      - [ load, *yds_blus_bles_addyaw ]
+      - [ calloc, 0x01051684, 9 ]
+      - [ load, *yds_blus_bles_shot_rate ]
+      - [ calloc, 0x003842c4, 7 ]
+      - [ load, *yds_blus_bles_addvel ]
+      - [ calloc, 0x002f3690, 3 ]
+      - [ load, *yds_blus_bles_snipe_qte ]
+      - [ calloc, 0x00bed06c, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed088, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed0a4, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed0c0, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed168, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed184, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed1a0, 9 ]
+      - [ load, *yds_blus_bles_zact_qte ]
+      - [ calloc, 0x00bed348, 8 ]
+      - [ load, *yds_blus_bles_zact_hold ]
+      - [ calloc, 0x003f466c, 5 ]
+      - [ load, *yds_all_talk_text ]
+      - [ calloc, 0x00c275e8, 4 ]
+      - [ load, *yds_blus_bles_cam3p_rot ]
+      - [ calloc, 0x00c27528, 4 ]
+      - [ load, *yds_blus_bles_cam3p_ramp_up ]
+      - [ calloc, 0x00c27558, 4 ]
+      - [ load, *yds_blus_bles_cam3p_ramp_down ]
+      - [ calloc, 0x00c275b8, 4 ]
+      - [ load, *yds_blus_bles_cam3p_boost ]
+      - [ calloc, 0x00c0dca0, 6 ]
+      - [ load, *yds_blus_bles_camfree_yaw ]
+      - [ calloc, 0x00c12278, 4 ]
+      - [ load, *yds_blus_bles_camfree_lerp ]
+      - [ calloc, 0x00c2868c, 4 ]
+      - [ load, *yds_blus_bles_scope_zoom ]
+  "Camera Sensitivity":
+    Games:
+      "Yakuza: Dead Souls":
+        BLUS30862: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Configurable Values:
+      "Camera Sensitivity":
+        Type: double_range
+        Value: 1.0
+        Min: 0.25
+        Max: 3.0
+    Patch:
+      - [ calloc, 0x00c27630, 4 ]
+      - [ load, *yds_blus_sens ]
+      - [ be32, 0x0, 0xefbd0032 ]
+      - [ be32, 0x0, 0xfc1bf000 ]
+      - [ calloc, 0x00c0809c, 4 ]
+      - [ load, *yds_blus_sens_1p ]
+      - [ calloc, 0x00c08140, 4 ]
+      - [ load, *yds_blus_sens_1p ]
+      - [ calloc, 0x00c1205c, 4 ]
+      - [ be32, 0x0, 0xec2100b2 ]
+      - [ load, *yds_blus_sens ]
+      - [ be32, 0x0, 0xec210032 ]
+      - [ bef32, 0x00c218e4, "Camera Sensitivity" ]
 
 PPU-334edb00412b7233d1f07bc5fda664762c1b4fac:
   "60 FPS":
@@ -5186,122 +5294,200 @@ PPU-334edb00412b7233d1f07bc5fda664762c1b4fac:
         BLES01399: [ 01.00 ]
     Author: "FlexBy"
     Notes: *yds_60fps_notes
-    Patch Version: 1.0
+    Patch Version: 1.2
     Patch:
-      - [ be32, 0x00d1c384, 0x38a00001 ] # li r5,1
+      - [ be32, 0x00d1c384, 0x38a00001 ]
       - [ calloc, 0x003892cc, 4 ]
-      - [ be32, 0x0, 0xec211824 ] # fdivs f1,f1,f3 
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0xc08cd1c8 ] # lfs   f4,-0x2e38(r12)
-      - [ be32, 0x0, 0xec212024 ] # fdivs f1,f1,f4
+      - [ load, *yds_blus_bles_strafe_blend ]
       - [ calloc, 0x003848a0, 6 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x1c84001e ] # mulli r4,r4,30
-      - [ be32, 0x0, 0x7c8463d6 ] # divw  r4,r4,r12
-      - [ be32, 0x0, 0x7ca52014 ] # addc  r5,r5,r4
+      - [ load, *yds_blus_bles_addyaw ]
       - [ calloc, 0x01051954, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7f9c61d6 ] # mullw r28,r28,r12
-      - [ be32, 0x0, 0x7fbd61d6 ] # mullw r29,r29,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7f9c6396 ] # divwu r28,r28,r12
-      - [ be32, 0x0, 0x7fbd6396 ] # divwu r29,r29,r12
-      - [ be32, 0x0, 0x7c05e040 ] # cmplw r5,r28
+      - [ load, *yds_blus_bles_shot_rate ]
       - [ calloc, 0x003842c4, 7 ]
-      - [ be32, 0x0, 0x1042192e ] # vmaddfp v2,v2,v4,v3
-      - [ be32, 0x0, 0x3cc0014f ] # lis    r6,0x14f
-      - [ be32, 0x0, 0x38c6d1c8 ] # addi   r6,r6,-0x2e38
-      - [ be32, 0x0, 0x7ca0308e ] # lvewx  v5,0,r6
-      - [ be32, 0x0, 0x10a22a8c ] # vspltw v5,v5,2
-      - [ be32, 0x0, 0x10a0290a ] # vrefp  v5,v5
-      - [ be32, 0x0, 0x1042196e ] # vmaddfp v2,v2,v5,v3
+      - [ load, *yds_blus_bles_addvel ]
       - [ calloc, 0x002f3690, 3 ]
-      - [ be32, 0x0, 0x3c60014f ] # lis  r3,0x14f
-      - [ be32, 0x0, 0x8063c864 ] # lwz  r3,-0x379c(r3)
-      - [ be32, 0x0, 0x80630128 ] # lwz  r3,0x128(r3
+      - [ load, *yds_blus_bles_snipe_qte ]
       - [ calloc, 0x00bed28c, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed2a8, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed2c4, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed2e0, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed388, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed3a4, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed3c0, 9 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x41820014 ] # beq   +0x14
-      - [ be32, 0x0, 0x818c0128 ] # lwz   r12,0x128(r12)
-      - [ be32, 0x0, 0x7c6361d6 ] # mullw r3,r3,r12
-      - [ be32, 0x0, 0x3980001e ] # li    r12,30
-      - [ be32, 0x0, 0x7c6363d6 ] # divw  r3,r3,r12
+      - [ load, *yds_blus_bles_zact_qte ]
       - [ calloc, 0x00bed568, 8 ]
-      - [ be32, 0x0, 0x3d80014f ] # lis   r12,0x14f
-      - [ be32, 0x0, 0x818cc864 ] # lwz   r12,-0x379c(r12)
-      - [ be32, 0x0, 0x816c0018 ] # lwz   r11,0x18(r12)
-      - [ be32, 0x0, 0x2c0b0000 ] # cmpwi r11,0
-      - [ be32, 0x0, 0x3960001e ] # li    r11,30
-      - [ be32, 0x0, 0x41820008 ] # beq   +8
-      - [ be32, 0x0, 0x816c0128 ] # lwz   r11,0x128(r12)
-      - [ be32, 0x0, 0x7c035840 ] # cmplw r3,r11
+      - [ load, *yds_blus_bles_zact_hold ]
+      - [ calloc, 0x003f466c, 5 ]
+      - [ load, *yds_all_talk_text ]
+      - [ calloc, 0x00c27808, 4 ]
+      - [ load, *yds_blus_bles_cam3p_rot ]
+      - [ calloc, 0x00c27748, 4 ]
+      - [ load, *yds_blus_bles_cam3p_ramp_up ]
+      - [ calloc, 0x00c27778, 4 ]
+      - [ load, *yds_blus_bles_cam3p_ramp_down ]
+      - [ calloc, 0x00c277d8, 4 ]
+      - [ load, *yds_blus_bles_cam3p_boost ]
+      - [ calloc, 0x00c0dec0, 6 ]
+      - [ load, *yds_blus_bles_camfree_yaw ]
+      - [ calloc, 0x00c12498, 4 ]
+      - [ load, *yds_blus_bles_camfree_lerp ]
+      - [ calloc, 0x00c288ac, 4 ]
+      - [ load, *yds_blus_bles_scope_zoom ]
+  "Camera Sensitivity":
+    Games:
+      "Yakuza: Dead Souls":
+        BLES01399: [ 01.00 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Configurable Values:
+      "Camera Sensitivity":
+        Type: double_range
+        Value: 1.0
+        Min: 0.25
+        Max: 3.0
+    Patch:
+      - [ calloc, 0x00c27850, 4 ]
+      - [ load, *yds_bles_sens ]
+      - [ be32, 0x0, 0xefbd0032 ]
+      - [ be32, 0x0, 0xfc1bf000 ]
+      - [ calloc, 0x00c082bc, 4 ]
+      - [ load, *yds_bles_sens_1p ]
+      - [ calloc, 0x00c08360, 4 ]
+      - [ load, *yds_bles_sens_1p ]
+      - [ calloc, 0x00c1227c, 4 ]
+      - [ be32, 0x0, 0xec2100b2 ]
+      - [ load, *yds_bles_sens ]
+      - [ be32, 0x0, 0xec210032 ]
+      - [ bef32, 0x00c21b04, "Camera Sensitivity" ]
+
+PPU-108040d489168cd36b6bc3ca4b8acb2683b9ab3c:
+  "60 FPS":
+    Games:
+      "Yakuza: Dead Souls":
+        BLJM60316: [ 01.08 ]
+    Author: "FlexBy"
+    Notes: *yds_60fps_notes
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x00d1d8a4, 0x38a00001 ]
+      - [ calloc, 0x0038d25c, 4 ]
+      - [ be32, 0x0, 0xec211824 ]
+      - [ be32, 0x0, 0x3d80014d ]
+      - [ be32, 0x0, 0xc08c47e8 ]
+      - [ be32, 0x0, 0xec212024 ]
+      - [ calloc, 0x00388830, 6 ]
+      - [ load, *yds_bljm_fps ]
+      - [ be32, 0x0, 0x1c84001e ]
+      - [ be32, 0x0, 0x7c8463d6 ]
+      - [ be32, 0x0, 0x7ca52014 ]
+      - [ calloc, 0x01052584, 9 ]
+      - [ load, *yds_bljm_fps ]
+      - [ be32, 0x0, 0x7f9c61d6 ]
+      - [ be32, 0x0, 0x7fbd61d6 ]
+      - [ be32, 0x0, 0x3980001e ]
+      - [ be32, 0x0, 0x7f9c6396 ]
+      - [ be32, 0x0, 0x7fbd6396 ]
+      - [ be32, 0x0, 0x7c05e040 ]
+      - [ calloc, 0x00388254, 7 ]
+      - [ be32, 0x0, 0x1042192e ]
+      - [ be32, 0x0, 0x3cc0014d ]
+      - [ be32, 0x0, 0x38c647e8 ]
+      - [ be32, 0x0, 0x7ca0308e ]
+      - [ be32, 0x0, 0x10a22a8c ]
+      - [ be32, 0x0, 0x10a0290a ]
+      - [ be32, 0x0, 0x1042196e ]
+      - [ calloc, 0x002f7630, 3 ]
+      - [ be32, 0x0, 0x3c60014d ]
+      - [ be32, 0x0, 0x80633e84 ]
+      - [ be32, 0x0, 0x80630128 ]
+      - [ calloc, 0x00beeaac, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beeac8, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beeae4, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beeb00, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beeba8, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beebc4, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beebe0, 9 ]
+      - [ load, *yds_bljm_zact_qte ]
+      - [ calloc, 0x00beed88, 8 ]
+      - [ be32, 0x0, 0x3d80014d ]
+      - [ be32, 0x0, 0x818c3e84 ]
+      - [ be32, 0x0, 0x816c0018 ]
+      - [ be32, 0x0, 0x2c0b0000 ]
+      - [ be32, 0x0, 0x3960001e ]
+      - [ be32, 0x0, 0x41820008 ]
+      - [ be32, 0x0, 0x816c0128 ]
+      - [ be32, 0x0, 0x7c035840 ]
+      - [ calloc, 0x003f914c, 5 ]
+      - [ load, *yds_all_talk_text ]
+      - [ calloc, 0x00c29028, 4 ]
+      - [ be32, 0x0, 0xc3a40014 ]
+      - [ load, *yds_bljm_f30 ]
+      - [ be32, 0x0, 0xefbd0024 ]
+      - [ calloc, 0x00c28f68, 4 ]
+      - [ be32, 0x0, 0xc0630004 ]
+      - [ load, *yds_bljm_f30 ]
+      - [ be32, 0x0, 0xec630024 ]
+      - [ calloc, 0x00c28f98, 4 ]
+      - [ be32, 0x0, 0xc0630008 ]
+      - [ load, *yds_bljm_f30 ]
+      - [ be32, 0x0, 0xec630024 ]
+      - [ calloc, 0x00c28ff8, 4 ]
+      - [ be32, 0x0, 0xc0430008 ]
+      - [ load, *yds_bljm_f30 ]
+      - [ be32, 0x0, 0xec420024 ]
+      - [ calloc, 0x00c0f6e0, 6 ]
+      - [ load, *yds_bljm_fps ]
+      - [ be32, 0x0, 0x1c84001e ]
+      - [ be32, 0x0, 0x7c8463d6 ]
+      - [ be32, 0x0, 0x7c632014 ]
+      - [ calloc, 0x00c13cb8, 4 ]
+      - [ be32, 0x0, 0xc34300d0 ]
+      - [ load, *yds_bljm_f30 ]
+      - [ be32, 0x0, 0xef5a0024 ]
+      - [ calloc, 0x00c2a0cc, 4 ]
+      - [ be32, 0x0, 0xec2100b2 ]
+      - [ load, *yds_bljm_f30 ]
+      - [ be32, 0x0, 0xec210024 ]
+  "Camera Sensitivity":
+    Games:
+      "Yakuza: Dead Souls":
+        BLJM60316: [ 01.08 ]
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.0
+    Configurable Values:
+      "Camera Sensitivity":
+        Type: double_range
+        Value: 1.0
+        Min: 0.25
+        Max: 3.0
+    Patch:
+      - [ calloc, 0x00c29070, 4 ]
+      - [ load, *yds_bljm_sens ]
+      - [ be32, 0x0, 0xefbd0032 ]
+      - [ be32, 0x0, 0xfc1bf000 ]
+      - [ calloc, 0x00c09adc, 4 ]
+      - [ load, *yds_bljm_sens_1p ]
+      - [ calloc, 0x00c09b80, 4 ]
+      - [ load, *yds_bljm_sens_1p ]
+      - [ calloc, 0x00c13a9c, 4 ]
+      - [ be32, 0x0, 0xec2100b2 ]
+      - [ load, *yds_bljm_sens ]
+      - [ be32, 0x0, 0xec210032 ]
+      - [ bef32, 0x00c23324, "Camera Sensitivity" ]
 
 Anchors:
   Y1HD_ModSupport: &Y1HD_ModSupport
