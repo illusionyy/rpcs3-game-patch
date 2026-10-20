@@ -4435,13 +4435,6 @@ PPU-0f8410aa2e07e7f5e87dd359acafed23caed898f:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0015fdac, 0x60000000 ]
-  "Bypass sceNpLookupDestroyTransactionCtx Online Crash":
-    Games: *ACM_digital105title
-    Author: "FlexBy"
-    Notes:
-    Patch Version: 1.0
-    Patch:
-      - [ be32, 0x005efe44, 0x2f830001 ]
 
 Anchors:
   sk8_visual_notes: &sk8_visual_notes
@@ -18496,6 +18489,14 @@ PPU-a1f33132af387c49d452e64fcb0704cb06b6d084:
         - [ be32, 0x00368798, 0xED8C6028 ]
         - [ be32, 0x0036879C, 0xED6B5828 ]
         - [ be32, 0x003687A0, 0xED4A5028 ]
+  "Ultrawide 3440x1440":
+    Games: *ms2_disc103title
+    Author: "Zebapy"
+    Notes: "Expands the field of view for 3440x1440 displays: more of the track is visible on the left and right, with the same vertical view as 16:9. This is a true wider view, not a stretched or cropped image.\n\nSetup: set Stretch To Display Area to On and keep Aspect Ratio at 16:9. The game still renders into a 16:9 frame, and RPCS3 widens that frame to fill the screen; the patch compensates, so proportions stay correct.\n\nKnown issues:\n HUD and menus are stretched horizontally.\n Split screen untested.\n\nAI tool assisted"
+    Patch Version: 1.1
+    Patch:
+        - [ be32, 0x00e9ee4c, 0x4018e38e ] # display aspect 1.7777778 (16:9) -> 2.3888888 (3440/1440)
+        - [ be32, 0x00e9bcd0, 0x4019999a ] # wide-viewport FOV x0.762 threshold 1.7877778 -> 2.4
 
 PPU-f62bdccfbca93730c2fcd484f65ead6f3c7878be:
   "60 FPS":
