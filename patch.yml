@@ -28869,6 +28869,9 @@ Anchors:
           "4:3": 1.333333333333333
           "5:4": 1.25
 
+    cars2_mlaa_notes: &cars2_mlaa_notes
+      "Disables SPU MLAA. Assisted with AI."
+
 PPU-44c0c405c0ead775344c16b30a6a5ef5154d8b19:
   "Aspect Ratio":
     Games:
@@ -28898,6 +28901,15 @@ PPU-44c0c405c0ead775344c16b30a6a5ef5154d8b19:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0005481C, 0x48000140 ]
+  "Disable MLAA":
+    Games:
+      "Cars 2: The Video Game":
+        NPUB30557: [ 01.00 ]
+    Author: "Alexis"
+    Notes: *cars2_mlaa_notes
+    Patch Version: 1.0
+    Patch:
+      - [ byte, 0x00d26bf0, 0x00 ]
 
 PPU-336b26c7142e728c642eb746d34f7ae3056ef168:
   "Disable Motion Blur":
@@ -28918,6 +28930,15 @@ PPU-336b26c7142e728c642eb746d34f7ae3056ef168:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x0005464C, 0x480000E0 ]
+  "Disable MLAA":
+    Games:
+      "Cars 2: The Video Game":
+        BLUS30725: [ 01.00 ]
+    Author: "Alexis"
+    Notes: *cars2_mlaa_notes
+    Patch Version: 1.0
+    Patch:
+      - [ byte, 0x00d57870, 0x00 ]
 
 Anchors:
     cars_mnc_ar_notes: &cars_mnc_ar_notes
