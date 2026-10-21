@@ -5211,7 +5211,7 @@ PPU-4fae9ddfa13836977893e65b98e6b974d26976e8:
   "60 FPS":
     Games:
       "Yakuza: Dead Souls":
-        BLUS30862: [ 01.00 ]
+        BLUS30826: [ 01.00 ]
     Author: "FlexBy"
     Notes: *yds_60fps_notes
     Patch Version: 1.2
@@ -5262,7 +5262,7 @@ PPU-4fae9ddfa13836977893e65b98e6b974d26976e8:
   "Camera Sensitivity":
     Games:
       "Yakuza: Dead Souls":
-        BLUS30862: [ 01.00 ]
+        BLUS30826: [ 01.00 ]
     Author: "FlexBy"
     Notes:
     Patch Version: 1.0
