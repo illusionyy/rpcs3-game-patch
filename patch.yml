@@ -30363,6 +30363,16 @@ PPU-63458db84fe0f5f9bc3a892acbea1d5fe9d57e4c:
     Patch:
       - [ be32, 0x000fa918, 0x3be00000 ] # (mem: 0x01b3f1c0)
 
+PPU-cdf4e1c581ae975cd6943427043cd527da6937a4:
+  "Server patching":
+    Games:
+      "Everybody's Golf 6 / Hot Shots Golf: World Invitational":
+        NPUA80864: [01.03]
+    Author: "Ninetime"
+    Patch Version: 1.0
+    Patch:
+      - [utf8, 0x00bfd8c0, "http://cmnap.scej-online.jp:18000/hsg6ps3/ss.info\0"]
+
 PPU-7ef6294fa8672f1a7d78b776cbe3f4168b1452dd:
   "Disable Blur-filter":
     Games:
