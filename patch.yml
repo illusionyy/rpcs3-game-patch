@@ -3291,6 +3291,50 @@ PPU-6aa282725f419f1dcc12aceb5e63a6948d7e55f3:
     Patch:
       - [ be32, 0x00636a58, 0x3ba00000 ]
 
+PPU-90d1e63f0036fbdd18da98e37906ef823187fb6c:
+  "Unlock FPS":
+    Games:
+      "G-Force":
+        BLUS30354: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Raises the game's update tick rate above 60. Set Frame Limit to Off. Assisted with AI tools."
+    Patch Version: 1.0
+    Configurable Values:
+      "Target FPS":
+        Type: long_enum
+        Value: 120
+        Allowed Values:
+          "60": 60
+          "90": 90
+          "120": 120
+          "144": 144
+          "165": 165
+          "240": 240
+    Patch:
+      - [ be32, 0x004e2de8, "Target FPS" ] # default update rate
+      - [ be16, 0x0007d6ae, "Target FPS" ] # li r0, 60 (60 Hz mode)
+      - [ be16, 0x000cc0d6, "Target FPS" ] # li r0, 60
+      - [ be16, 0x000cc0fe, "Target FPS" ] # li r9, 60
+      - [ be16, 0x000ce812, "Target FPS" ] # li r0, 60
+      - [ be16, 0x000ce97e, "Target FPS" ] # li r0, 60
+      # Camera: scale its per-tick step factor by 60/FPS so camera speed stays the same
+      - [ calloc, 0x0016fa14, 4 ]
+      - [ be32, 0x00000000, 0x3d80004e ] # lis r12, 0x4e
+      - [ be32, 0x00000000, 0xc18c2db0 ] # lfs f12, 0x2db0(r12)  (60 / tick rate)
+      - [ be32, 0x00000000, 0xed6b0332 ] # fmuls f11, f11, f12
+      - [ be32, 0x00000000, 0xd17f1bc8 ] # stfs f11, 7112(r31)
+  "Skip Intro":
+    Games:
+      "G-Force":
+        BLUS30354: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the Disney, Eurocom and Bink logo videos. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00201718, 0x38800018 ]
+      - [ be32, 0x002017a8, 0x38800013 ]
+      - [ be32, 0x00201838, 0x38800013 ]
+
 Anchors:
   DS2_Net_Notes: &DS2_Net_Notes
     "Restores the functionality of the network test client."
@@ -7079,6 +7123,115 @@ PPU-35b43474e889783b7646e5cc1f457ebc28b7b796:
     Patch Version: 1.0
     Patch:
       - [ load, *Batman_AO_DebugMenu ]
+
+PPU-602e58994456e14dfd80a6e0f376729b53c3109a:
+  "Arkham: Revived server":
+    Games:
+      "Batman: Arkham Origins":
+        BLUS31147: [ All ]
+        BLUS31207: [ All ]
+        NPUB31261: [ All ]
+    Author: "jpolo1224"
+    Notes: "Connects online multiplayer to the Arkham: Revived server by KiwifruitDev. Needs update 1.06. Use the game's own files, Revived's edited COALESCED_INT.BIN isn't needed with this patch."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00564f14, 0x60000000 ] # title file lookup: always "not found"
+      - [ calloc, 0x01214f50, 72 ] # UGDHttp constructor
+      - [ be32, 0x00000000, 0x909f00e4 ] # stw r4,0xe4(r31)
+      - [ be32, 0x00000000, 0x807f00e8 ] # lwz r3,0xe8(r31)
+      - [ be32, 0x00000000, 0x2c030000 ] # cmpwi r3,0
+      - [ be32, 0x00000000, 0x41820008 ] # beq +8
+      - [ jumpl, 0x00000000, 0x0001d530 ] # appFree
+      - [ be32, 0x00000000, 0x38600050 ] # li r3,0x50
+      - [ be32, 0x00000000, 0x38800008 ] # li r4,8
+      - [ jumpl, 0x00000000, 0x0001d5b8 ] # appMalloc
+      - [ be32, 0x00000000, 0x907f00e8 ] # stw r3,0xe8(r31)
+      - [ be32, 0x00000000, 0x38800027 ] # li r4,39
+      - [ be32, 0x00000000, 0x909f00ec ] # stw r4,0xec(r31)
+      - [ be32, 0x00000000, 0x38800028 ] # li r4,40
+      - [ be32, 0x00000000, 0x909f00f0 ] # stw r4,0xf0(r31)
+      - [ be32, 0x00000000, 0x3c800068 ] # lis r4,0x0068
+      - [ be32, 0x00000000, 0x60840074 ] # ori r4,r4,0x0074 "ht"
+      - [ be32, 0x00000000, 0x90830000 ] # stw r4,0x0(r3)
+      - [ be32, 0x00000000, 0x3c800074 ] # lis r4,0x0074
+      - [ be32, 0x00000000, 0x60840070 ] # ori r4,r4,0x0070 "tp"
+      - [ be32, 0x00000000, 0x90830004 ] # stw r4,0x4(r3)
+      - [ be32, 0x00000000, 0x3c80003a ] # lis r4,0x003a
+      - [ be32, 0x00000000, 0x6084002f ] # ori r4,r4,0x002f ":/"
+      - [ be32, 0x00000000, 0x90830008 ] # stw r4,0x8(r3)
+      - [ be32, 0x00000000, 0x3c80002f ] # lis r4,0x002f
+      - [ be32, 0x00000000, 0x60840061 ] # ori r4,r4,0x0061 "/a"
+      - [ be32, 0x00000000, 0x9083000c ] # stw r4,0xc(r3)
+      - [ be32, 0x00000000, 0x3c800072 ] # lis r4,0x0072
+      - [ be32, 0x00000000, 0x6084006b ] # ori r4,r4,0x006b "rk"
+      - [ be32, 0x00000000, 0x90830010 ] # stw r4,0x10(r3)
+      - [ be32, 0x00000000, 0x3c800068 ] # lis r4,0x0068
+      - [ be32, 0x00000000, 0x60840061 ] # ori r4,r4,0x0061 "ha"
+      - [ be32, 0x00000000, 0x90830014 ] # stw r4,0x14(r3)
+      - [ be32, 0x00000000, 0x3c80006d ] # lis r4,0x006d
+      - [ be32, 0x00000000, 0x60840072 ] # ori r4,r4,0x0072 "mr"
+      - [ be32, 0x00000000, 0x90830018 ] # stw r4,0x18(r3)
+      - [ be32, 0x00000000, 0x3c800065 ] # lis r4,0x0065
+      - [ be32, 0x00000000, 0x60840076 ] # ori r4,r4,0x0076 "ev"
+      - [ be32, 0x00000000, 0x9083001c ] # stw r4,0x1c(r3)
+      - [ be32, 0x00000000, 0x3c800069 ] # lis r4,0x0069
+      - [ be32, 0x00000000, 0x60840076 ] # ori r4,r4,0x0076 "iv"
+      - [ be32, 0x00000000, 0x90830020 ] # stw r4,0x20(r3)
+      - [ be32, 0x00000000, 0x3c800065 ] # lis r4,0x0065
+      - [ be32, 0x00000000, 0x60840064 ] # ori r4,r4,0x0064 "ed"
+      - [ be32, 0x00000000, 0x90830024 ] # stw r4,0x24(r3)
+      - [ be32, 0x00000000, 0x3c80002e ] # lis r4,0x002e
+      - [ be32, 0x00000000, 0x6084006b ] # ori r4,r4,0x006b ".k"
+      - [ be32, 0x00000000, 0x90830028 ] # stw r4,0x28(r3)
+      - [ be32, 0x00000000, 0x3c800069 ] # lis r4,0x0069
+      - [ be32, 0x00000000, 0x60840077 ] # ori r4,r4,0x0077 "iw"
+      - [ be32, 0x00000000, 0x9083002c ] # stw r4,0x2c(r3)
+      - [ be32, 0x00000000, 0x3c800069 ] # lis r4,0x0069
+      - [ be32, 0x00000000, 0x60840066 ] # ori r4,r4,0x0066 "if"
+      - [ be32, 0x00000000, 0x90830030 ] # stw r4,0x30(r3)
+      - [ be32, 0x00000000, 0x3c800072 ] # lis r4,0x0072
+      - [ be32, 0x00000000, 0x60840075 ] # ori r4,r4,0x0075 "ru"
+      - [ be32, 0x00000000, 0x90830034 ] # stw r4,0x34(r3)
+      - [ be32, 0x00000000, 0x3c800069 ] # lis r4,0x0069
+      - [ be32, 0x00000000, 0x60840074 ] # ori r4,r4,0x0074 "it"
+      - [ be32, 0x00000000, 0x90830038 ] # stw r4,0x38(r3)
+      - [ be32, 0x00000000, 0x3c800064 ] # lis r4,0x0064
+      - [ be32, 0x00000000, 0x60840065 ] # ori r4,r4,0x0065 "de"
+      - [ be32, 0x00000000, 0x9083003c ] # stw r4,0x3c(r3)
+      - [ be32, 0x00000000, 0x3c800076 ] # lis r4,0x0076
+      - [ be32, 0x00000000, 0x6084002e ] # ori r4,r4,0x002e "v."
+      - [ be32, 0x00000000, 0x90830040 ] # stw r4,0x40(r3)
+      - [ be32, 0x00000000, 0x3c800063 ] # lis r4,0x0063
+      - [ be32, 0x00000000, 0x6084006f ] # ori r4,r4,0x006f "co"
+      - [ be32, 0x00000000, 0x90830044 ] # stw r4,0x44(r3)
+      - [ be32, 0x00000000, 0x3c80006d ] # lis r4,0x006d
+      - [ be32, 0x00000000, 0x6084002f ] # ori r4,r4,0x002f "m/"
+      - [ be32, 0x00000000, 0x90830048 ] # stw r4,0x48(r3)
+      - [ be32, 0x00000000, 0x38800000 ] # li r4,0
+      - [ be32, 0x00000000, 0x9083004c ] # stw r4,0x4c(r3)
+  "Private matches start with fewer players":
+    Games:
+      "Batman: Arkham Origins":
+        BLUS31147: [ All ]
+        BLUS31207: [ All ]
+        NPUB31261: [ All ]
+    Author: "jpolo1224"
+    Notes: "Lets the host start a private match with fewer than 3 players. Only the host needs it."
+    Patch Version: 1.0
+    Patch:
+      - [ calloc, 0x00f76ec4, 0x0c ]
+      - [ be32, 0x00000000, 0x80c50000 ] # lwz r6,0(r5)
+      - [ be32, 0x00000000, 0x3ce00002 ] # lis r7,0x0002
+      - [ be32, 0x00000000, 0x60e77c03 ] # ori r7,r7,0x7c03
+      - [ be32, 0x00000000, 0x38600001 ] # li r3,1
+      - [ be32, 0x00000000, 0x7c063800 ] # cmpw r6,r7
+      - [ be32, 0x00000000, 0x4082001c ] # bne +0x1c
+      - [ be32, 0x00000000, 0x80c50004 ] # lwz r6,4(r5)
+      - [ be32, 0x00000000, 0x3ce00001 ] # lis r7,0x0001
+      - [ be32, 0x00000000, 0x60e70f5e ] # ori r7,r7,0x0f5e
+      - [ be32, 0x00000000, 0x7c063800 ] # cmpw r6,r7
+      - [ be32, 0x00000000, 0x40820008 ] # bne +8
+      - [ be32, 0x00000000, 0x38600000 ] # li r3,0
 
 Anchors:
   rftod_instagib_notes: &rftod_instagib_notes
@@ -23830,15 +23983,108 @@ PPU-835dc9b413a3f538ddb52f24382b93e3fad5164d:
     Patch:
       - [ bef32, 0x0096c6a4, "Aspect Ratio" ]
 
-PPU-8f729e902ad2c7ae0f7f4cbacbfaa17dcb080be9:
-  "Instantly Complete Infiltration Minigame":
+PPU-3de6ba9344eb2079d5afda4552e831826af4bd09:
+  "R&C1: Fix Music Looping":
     Games:
-      "Ratchet & Clank 2: Going Commando":
+      "The Ratchet & Clank Collection":
+        BCUS98282: [ 01.00 ]
+    Author: "Alexis"
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x00147cf0, 0x38c60001 ] # restart from loop section (v1.1 fallback)
+      - [ be32, 0x00147d8c, 0x41820008 ] # state 8 -> queue loop section as before
+      - [ be32, 0x00147d90, 0x4853ad10 ] # otherwise check whether another loop copy is needed
+      - [ be32, 0x00147da4, 0x60000000 ] # nop (old state 9 check, cr0 is now from the state 8 test)
+      # Code cave in unused snd_PrintStreamTree (0x682aa0)
+      - [ be32, 0x00682aa0, 0x2c030004 ] # cmpwi cr0,r3,4  ; state 4 = loop section queued/playing
+      - [ be32, 0x00682aa4, 0x40820044 ] # bne cr0,0x682ae8
+      - [ be32, 0x00682aa8, 0xa0bb0048 ] # lhz r5,72(r27)  ; loop flag
+      - [ be32, 0x00682aac, 0x70a50001 ] # andi. r5,r5,0x1
+      - [ be32, 0x00682ab0, 0x41820038 ] # beq cr0,0x682ae8
+      - [ be32, 0x00682ab4, 0x7fc3f378 ] # mr r3,r30  ; handle
+      - [ be32, 0x00682ab8, 0x38810070 ] # addi r4,r1,112  ; &count (stack scratch)
+      - [ be32, 0x00682abc, 0x48000471 ] # bl 0x682f2c  ; snd stream queue length (pending entries)
+      - [ be32, 0x00682ac0, 0x2c030000 ] # cmpwi cr0,r3,0
+      - [ be32, 0x00682ac4, 0x41820024 ] # beq cr0,0x682ae8  ; bad handle
+      - [ be32, 0x00682ac8, 0x80610070 ] # lwz r3,112(r1)
+      - [ be32, 0x00682acc, 0x2c030000 ] # cmpwi cr0,r3,0
+      - [ be32, 0x00682ad0, 0x40820018 ] # bne cr0,0x682ae8  ; still something queued
+      - [ be32, 0x00682ad4, 0x83db0040 ] # lwz r30,64(r27)
+      - [ be32, 0x00682ad8, 0xa87b0044 ] # lha r3,68(r27)  ; index
+      - [ be32, 0x00682adc, 0xa09b0046 ] # lhz r4,70(r27)  ; volume
+      - [ be32, 0x00682ae0, 0xa0bb0048 ] # lhz r5,72(r27)  ; flags
+      - [ be32, 0x00682ae4, 0x4bac52d0 ] # b 0x147db4  ; queue music[n+1] again (state 8 path)
+      - [ be32, 0x00682ae8, 0x4bac537c ] # b 0x147e64  ; back
+
+PPU-8f729e902ad2c7ae0f7f4cbacbfaa17dcb080be9:
+  "R&C2: Instantly Complete Infiltration Minigame":
+    Games:
+      "The Ratchet & Clank Collection":
         BCUS98282: [ 01.00 ]
     Author: "illusiony"
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00e10f38, 0x38800005 ]
+  "R&C2: Fix Music Looping":
+    Games:
+      "The Ratchet & Clank Collection":
+        BCUS98282: [ 01.00 ]
+    Author: "Alexis"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00ba8054, 0x38dd0002 ] # music restart: open speech[n+2] (loop) instead of speech[n] (intro), fallback
+      - [ be32, 0x00ba8118, 0x419e0008 ] # state 8 -> queue loop section as before
+      - [ be32, 0x00ba811c, 0x4866265c ] # otherwise check whether another loop copy is needed
+      - [ be32, 0x00ba812c, 0x60000000 ] # nop (old state 9 check)
+      # Code cave in unused snd_PrintStreamTree (0x120a778)
+      - [ be32, 0x0120a778, 0x2c030004 ] # cmpwi cr0,r3,4  ; state 4 = loop section queued/playing
+      - [ be32, 0x0120a77c, 0x40820044 ] # bne cr0,0x120a7c0
+      - [ be32, 0x0120a780, 0xa3fb0068 ] # lhz r31,104(r27)  ; flags
+      - [ be32, 0x0120a784, 0x73e00001 ] # andi. r0,r31,0x1  ; loop flag
+      - [ be32, 0x0120a788, 0x41820038 ] # beq cr0,0x120a7c0
+      - [ be32, 0x0120a78c, 0x807b0060 ] # lwz r3,96(r27)  ; stream handle
+      - [ be32, 0x0120a790, 0x38810070 ] # addi r4,r1,112  ; &count (stack scratch)
+      - [ be32, 0x0120a794, 0x48000471 ] # bl 0x120ac04  ; snd stream queue length (pending entries)
+      - [ be32, 0x0120a798, 0x2c030000 ] # cmpwi cr0,r3,0
+      - [ be32, 0x0120a79c, 0x41820024 ] # beq cr0,0x120a7c0  ; bad handle
+      - [ be32, 0x0120a7a0, 0x80610070 ] # lwz r3,112(r1)
+      - [ be32, 0x0120a7a4, 0x2c030000 ] # cmpwi cr0,r3,0
+      - [ be32, 0x0120a7a8, 0x40820018 ] # bne cr0,0x120a7c0  ; still something queued
+      - [ be32, 0x0120a7ac, 0x83db0060 ] # lwz r30,96(r27)  ; handle
+      - [ be32, 0x0120a7b0, 0xa07b0064 ] # lhz r3,100(r27)  ; index
+      - [ be32, 0x0120a7b4, 0x7c640734 ] # extsh r4,r3
+      - [ be32, 0x0120a7b8, 0xa3fb0068 ] # lhz r31,104(r27)  ; flags
+      - [ be32, 0x0120a7bc, 0x4b99d978 ] # b 0xba8134  ; queue speech[n+2] again (state 8 path)
+      - [ be32, 0x0120a7c0, 0x4b99da54 ] # b 0xba8214  ; back
+
+PPU-56a8d02d516d82e5c1d39a4f7b3c9f83e350ab61:
+  "R&C3: Fix Music Looping":
+    Games:
+      "The Ratchet & Clank Collection":
+        BCUS98282: [ 01.00 ]
+    Author: "Alexis"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00246224, 0x38c30002 ] # music restart: speech[n+2] (loop) instead of speech[n] (intro), fallback
+      - [ be32, 0x002462e4, 0x4888e414 ] # state check -> code cave
+      # Code cave in unused snd_PrintStreamTree (0xad46f8)
+      - [ be32, 0x00ad46f8, 0xa07c006a ] # lhz r3,106(r28)  ; state
+      - [ be32, 0x00ad46fc, 0x2c030008 ] # cmpwi cr0,r3,8
+      - [ be32, 0x00ad4700, 0x41820034 ] # beq cr0,0xad4734  ; state 8 -> queue loop section as before
+      - [ be32, 0x00ad4704, 0x2c030004 ] # cmpwi cr0,r3,4  ; state 4 = loop section queued/playing
+      - [ be32, 0x00ad4708, 0x40820030 ] # bne cr0,0xad4738
+      - [ be32, 0x00ad470c, 0x73c00001 ] # andi. r0,r30,0x1  ; loop flag (r30 = flags)
+      - [ be32, 0x00ad4710, 0x41820028 ] # beq cr0,0xad4738
+      - [ be32, 0x00ad4714, 0x807c0060 ] # lwz r3,96(r28)  ; stream handle
+      - [ be32, 0x00ad4718, 0x38810070 ] # addi r4,r1,112  ; &count (stack scratch)
+      - [ be32, 0x00ad471c, 0x48000469 ] # bl 0xad4b84  ; snd stream queue length (pending entries)
+      - [ be32, 0x00ad4720, 0x2c030000 ] # cmpwi cr0,r3,0
+      - [ be32, 0x00ad4724, 0x41820014 ] # beq cr0,0xad4738  ; bad handle
+      - [ be32, 0x00ad4728, 0x80610070 ] # lwz r3,112(r1)
+      - [ be32, 0x00ad472c, 0x2c030000 ] # cmpwi cr0,r3,0
+      - [ be32, 0x00ad4730, 0x40820008 ] # bne cr0,0xad4738  ; still something queued
+      - [ be32, 0x00ad4734, 0x4b771bb4 ] # b 0x2462e8  ; queue speech[n+2] (original queue call)
+      - [ be32, 0x00ad4738, 0x4b771c5c ] # b 0x246394  ; back
 
 Anchors:
   fallout3_60fps_notes: &fallout3_60fps_notes
@@ -25519,11 +25765,24 @@ PPU-3c5e08635d6768c273395b9c19e099b25050927b:
       - [ byte, 0x00520c17, 0x00 ]
 
 PPU-3c5e08635d6768c273395b9c19e099b25050927b:
+  "Disable camera shake":
+    Games:
+      "Skylanders: SWAP Force":
+        BLUS31076: [ 01.01 ]
+    Author: "Alex Shaffer"
+    Notes: "N/A"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00303dc8, 0x38600002 ]
+      - [ be32, 0x00303dd4, 0x907f0000 ]
+      - [ be32, 0x00303dd8, 0x48303eba ]
+
+PPU-3c5e08635d6768c273395b9c19e099b25050927b:
   "Disable mesh trimming":
     Games:
       "Skylanders: SWAP Force":
         BLUS31076: [ 01.01 ]
-    Author: "Tablock_"
+    Author: "Alex Shaffer"
     Notes: "When the resolution scale exceeds 100%, mesh trimming causes complex models like NPCs to be partially rendered at greater distances."
     Patch Version: 1.0
     Patch:
@@ -29483,22 +29742,18 @@ PPU-6c15db5dc3868d140fb638fc586f38426513d2de:
     Notes: "Allows Ghosting Mater to play properly at 60FPS. Assisted with AI tools."
     Patch Version: 1.0
     Patch:
-      # Initial boost: InitialSlowing x 0.5
-      - [ be32, 0x00051E70, 0x7FA5EB78 ]
-      - [ be32, 0x00051E7C, 0xC00211C8 ]
-      - [ be32, 0x00051E80, 0xEC210032 ]
-      - [ be32, 0x00051E84, 0xC05F0564 ]
-      - [ be32, 0x00051E88, 0xC07F0568 ]
-      - [ be32, 0x00051E8C, 0xC09F056C ]
-      - [ be32, 0x00051E90, 0x4819511D ]
-
-      # Scare Points: Slowing x 0.5
-      - [ be32, 0x000519A0, 0xC00211C8 ]
-      - [ be32, 0x000519A4, 0xEC210032 ]
-      - [ be32, 0x000519A8, 0xC05F0040 ]
-      - [ be32, 0x000519AC, 0xC07F0044 ]
-      - [ be32, 0x000519B0, 0xC09F0048 ]
-      - [ be32, 0x000519B4, 0x481955F9 ]
+      # Braking force (Slowing) x (frame time * 30), path 1
+      - [ calloc, 0x001e71f8, 4 ]
+      - [ be32, 0x00000000, 0xc1bf0484 ] # lfs f13, 1156(r31)
+      - [ be32, 0x00000000, 0xedad0732 ] # fmuls f13, f13, f28 (frame time)
+      - [ be32, 0x00000000, 0xc0029234 ] # lfs f0, 30.0
+      - [ be32, 0x00000000, 0xedad0032 ] # fmuls f13, f13, f0
+      # Braking force (Slowing) x (frame time * 30), path 2
+      - [ calloc, 0x001e726c, 4 ]
+      - [ be32, 0x00000000, 0xc01f0484 ] # lfs f0, 1156(r31)
+      - [ be32, 0x00000000, 0xec000732 ] # fmuls f0, f0, f28 (frame time)
+      - [ be32, 0x00000000, 0xc1a29234 ] # lfs f13, 30.0
+      - [ be32, 0x00000000, 0xec000372 ] # fmuls f0, f0, f13
   "Skip Intro Videos":
     Games:
       "Cars: Mater-National Championship":
@@ -29518,6 +29773,15 @@ PPU-6c15db5dc3868d140fb638fc586f38426513d2de:
     Patch:
       - [ be32, 0x00215DA4, 0x38600001 ]
       - [ be32, 0x00215DA8, 0x4E800020 ]
+  "Disable Motion Blur":
+    Games:
+      "Cars: Mater-National Championship":
+        BLUS30088: [ 01.01 ]
+    Author: "Alexis"
+    Notes: "Disables motion blur. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x001cd550, 0xc0220d00 ]
 
 Anchors:
     cars_ror_ar_notes: &cars_ror_ar_notes
