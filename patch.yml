@@ -34408,6 +34408,31 @@ PPU-d701975e1eb70a28d8e5e47ced809f04994f96ad:
     Patch:
       - [ be32, 0x015c2fe0, 0x38000001 ] 
       - [ be32, 0x015c49cc, 0x38000001 ]
+  "Disable Depth of Field":
+    Games:
+      "SONIC GENERATIONS":
+        BLUS30612: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables Depth of Field. Assisted with AI tools."
+    Patch Version: 1.2
+    Patch:
+      - [ be32, 0x0319ebb0, 0x8888888c ] # Final ScreenDOFFilter inputs 88 8d 8e 8c -> 88 88 88 8c (blur inputs = sharp scene, 4th input kept)
+      - [ be32, 0x000bbf18, 0x60000000 ] # CFxDepthOfField: ignore DOF enable flag -> pass-through
+      - [ be32, 0x000e149c, 0x60000000 ] # CFxAlternativeDepthOfField: same
+  "Skip Intro Logos":
+    Games:
+      "SONIC GENERATIONS":
+        BLUS30612: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Skips the intro splash logos. Attract video will no longer play. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      # SEGA logo movie (CGameplayFlowLogo)
+      - [ be32, 0x00e7295c, 0x38600001 ]
+      - [ be32, 0x00e72960, 0x4e800020 ]
+      - [ be32, 0x00e735cc, 0x48000018 ]
+      # Notice board (Sonic Team / Havok logos): CGameplayFlowNoticeBoard
+      - [ be32, 0x00e761b4, 0x60000000 ]
 
 PPU-e59cfb07f4057a45d6e2fbba3d041ad3820c004a:
   "Unlock FPS":
@@ -34430,6 +34455,38 @@ PPU-e59cfb07f4057a45d6e2fbba3d041ad3820c004a:
       - [ be32, 0x00bdf418, 0x38000014 ] # li r0,20
       - [ be32, 0x00bdf41c, 0x816259dc ] # lwz r11,23004(r2) (trial state)
       - [ be32, 0x00bdf420, 0x4800002c ] # b store days-remaining
+  "Play Act 2 (Modern Sonic)":
+    Games:
+      "SONIC GENERATIONS 20-Day Demo":
+        NPUB90567: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Starts Green Hill Act 2 (ghz200, Modern Sonic) instead of Act 1 (ghz100, Classic Sonic). Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x00c5f190, 0x3920000c ] # trial menu: li r9,12 (always pick 2nd stage entry = ghz200, was mulli r9,r9,12)
+      - [ be32, 0x02f3738c, 0x029d3088 ] # direct start stage name: "ghz100" -> "ghz200"
+      - [ be32, 0x00b1f060, 0x38000000 ] # direct start: li r0,0 (Classic flag off)
+      - [ be32, 0x00b1f26c, 0x38000000 ] # direct start (2nd path): li r0,0 (Classic flag off)
+  "Disable Depth of Field":
+    Games:
+      "SONIC GENERATIONS 20-Day Demo":
+        NPUB90567: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables Depth of Field. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x000b8bd0, 0x60000000 ] # CFxDepthOfField: ignore DOF enable flag -> pass-through
+      - [ be32, 0x000de254, 0x60000000 ] # CFxAlternativeDepthOfField: same
+  "Native 720p Rendering":
+    Games:
+      "SONIC GENERATIONS 20-Day Demo":
+        NPUB90567: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+     - [ be32, 0x000d83c4, 0x38800500 ] # li r4,1280 (was li r4,880): scene render width
+     - [ be32, 0x000d83d0, 0x78840020 ] # clrldi r4,r4,32 (was clrldi r4,r4,54: 10-bit mask turned 1280 into 256)
 
 PPU-49aa433a899d78438decde97c4e1b79a473148a1:
   "True 16:9":
