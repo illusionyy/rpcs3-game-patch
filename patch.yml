@@ -1433,7 +1433,7 @@ PPU-13e4d424f118d4305110d0218be9e8fa3fa27a87:
         BCES00791: [ 01.01 ]
         NPEA00256: [ 01.01 ]
     Author: "Dobrido"
-    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact. Requires 'Vblank NTSC Fixup' enabled."
+    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact."
     Patch Version: 2.0
     Patch:
       - [ be32, 0x002b8cd0, 0x48254f78 ] # b 0x0050dc48            hook the fdivs -> big cave (alloc-scratch build)
@@ -1484,7 +1484,7 @@ PPU-9cd8d28963ebc29b59c79819cb56f3d92e857a37:
         NPUA80491: [ 01.01 ]
         NPHA80105: [ 01.01 ]
     Author: "Dobrido"
-    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact. Requires 'Vblank NTSC Fixup' enabled."
+    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact."
     Patch Version: 2.0
     Patch:
       - [ be32, 0x002b7fb0, 0x48255c98 ] # b 0x0050dc48            hook the fdivs -> big cave (split-store build)
@@ -1534,7 +1534,7 @@ PPU-fe9438693b989edd1a04f973e156cf185e16d13d:
         BLJM60200: [ 01.01 ]
         NPJA00062: [ 01.01 ]
     Author: "Dobrido"
-    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact. Requires 'Vblank NTSC Fixup' enabled."
+    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact."
     Patch Version: 2.0
     Patch:
       - [ be32, 0x002b815c, 0x48255aec ] # b 0x0050dc48            hook the fdivs -> big cave (split-store build)
@@ -1584,7 +1584,7 @@ PPU-e8e29268437430a42b01ccbdea814560150bc037:
         BCES00791: [ 01.01 ]
         NPEA00255: [ 01.01 ]
     Author: "Dobrido"
-    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact. Requires 'Vblank NTSC Fixup' enabled."
+    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact."
     Patch Version: 2.0
     Patch:
       - [ be32, 0x001b6f6c, 0x48315aec ] # b 0x004cca58            hook (cave moved: 0x004cc98c sat on a string table)
@@ -1635,7 +1635,7 @@ PPU-645f0573d7438e37ddd231377adf9c1205e8a040:
         NPUA80490: [ 01.01 ]
         NPHA80104: [ 01.01 ]
     Author: "Dobrido"
-    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact. Requires 'Vblank NTSC Fixup' enabled."
+    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact."
     Patch Version: 2.0
     Patch:
       - [ be32, 0x001b5664, 0x48317328 ] # b 0x004cc98c
@@ -1686,7 +1686,7 @@ PPU-7775c39a8eade714caca6c95cf07c9d9ca095047:
         BLJM60200: [ 01.01 ]
         NPJA00061: [ 01.01 ]
     Author: "Dobrido"
-    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact. Requires 'Vblank NTSC Fixup' enabled."
+    Notes: "Restores exact PS3 behavior: forces the PS3 NTSC frametime (1/59.94) and caps logic at 59.94 steps/s, fixing RPCS3 overspeed while keeping frame-precise physics intact."
     Patch Version: 2.0
     Patch:
       - [ be32, 0x001b5f00, 0x48316a8c ] # b 0x004cc98c
@@ -5861,6 +5861,34 @@ Anchors:
     - [ be32, 0x00000000, 0x39800001 ]
     - [ be32, 0x00000000, 0x7d8561d6 ]
     - [ be32, 0x00000000, 0x918302c8 ]
+    - [ calloc, 0x00a842a4, 13 ]
+    - [ be32, 0x00000000, 0x81490014 ]
+    - [ be32, 0x00000000, 0x81830004 ]
+    - [ be32, 0x00000000, 0x2c8c03e8 ]
+    - [ be32, 0x00000000, 0x40860028 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x800c8f00 ]
+    - [ be32, 0x00000000, 0x2c800000 ]
+    - [ be32, 0x00000000, 0x41860018 ]
+    - [ be32, 0x00000000, 0xc00c8f0c ]
+    - [ be32, 0x00000000, 0xfc810000 ]
+    - [ be32, 0x00000000, 0x4086000c ]
+    - [ be32, 0x00000000, 0x3d4000ba ]
+    - [ be32, 0x00000000, 0x614a7730 ]
+    - [ calloc, 0x00a841b0, 13 ]
+    - [ be32, 0x00000000, 0x812b0014 ]
+    - [ be32, 0x00000000, 0x81830004 ]
+    - [ be32, 0x00000000, 0x2c8c03e8 ]
+    - [ be32, 0x00000000, 0x40860028 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x800c8f00 ]
+    - [ be32, 0x00000000, 0x2c800000 ]
+    - [ be32, 0x00000000, 0x41860018 ]
+    - [ be32, 0x00000000, 0xc00c8f0c ]
+    - [ be32, 0x00000000, 0xfc810000 ]
+    - [ be32, 0x00000000, 0x4086000c ]
+    - [ be32, 0x00000000, 0x3d2000ba ]
+    - [ be32, 0x00000000, 0x61297730 ]
 
   kenzan60_camera: &kenzan60_camera
     - [ calloc, 0x004da2a4, 16 ]
@@ -7334,7 +7362,7 @@ Anchors:
     - [ be32, 0x00000000, 0xed6a5824 ]
     - [ be32, 0x00000000, 0xec0002f2 ]
     - [ be32, 0x00000000, 0xec0d002a ]
-    - [ calloc, 0x000904c0, 53 ]
+    - [ calloc, 0x000904c0, 56 ]
     - [ be32, 0x00000000, 0x813e8014 ]
     - [ be32, 0x00000000, 0x3d80103c ]
     - [ be32, 0x00000000, 0x818c6e1c ]
@@ -7357,7 +7385,7 @@ Anchors:
     - [ be32, 0x00000000, 0x288c0001 ]
     - [ be32, 0x00000000, 0x4185000c ]
     - [ be32, 0x00000000, 0x3980ffff ]
-    - [ be32, 0x00000000, 0x4280007c ]
+    - [ be32, 0x00000000, 0x42800088 ]
     - [ be32, 0x00000000, 0x3d60103c ]
     - [ be32, 0x00000000, 0x816b6e1c ]
     - [ be32, 0x00000000, 0x800b0020 ]
@@ -7388,6 +7416,9 @@ Anchors:
     - [ be32, 0x00000000, 0x7d4c39d6 ]
     - [ be32, 0x00000000, 0x41860008 ]
     - [ be32, 0x00000000, 0x7d4a3a14 ]
+    - [ be32, 0x00000000, 0x7c804040 ]
+    - [ be32, 0x00000000, 0x41850008 ]
+    - [ be32, 0x00000000, 0x7cea3b78 ]
     - [ calloc, 0x00090500, 5 ]
     - [ be32, 0x00000000, 0x2c8cffff ]
     - [ be32, 0x00000000, 0x4086000c ]
@@ -7476,6 +7507,183 @@ Anchors:
     - [ be32, 0x00000000, 0xfdac6dee ]
     - [ be32, 0x00000000, 0xedb76824 ]
     - [ be32, 0x00000000, 0xec00682a ]
+    - [ calloc, 0x00333050, 13 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x38600002 ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x806c0018 ]
+    - [ be32, 0x00000000, 0x2c830001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x38600001 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7c6b1b96 ]
+    - [ be32, 0x00000000, 0x7c6307b4 ]
+    - [ calloc, 0x0024f988, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x002500dc, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x0024069c, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x002407c0, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x000902f0, 30 ]
+    - [ be32, 0x00000000, 0xec00682a ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x800c0020 ]
+    - [ be32, 0x00000000, 0x2c800001 ]
+    - [ be32, 0x00000000, 0x38000002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x800c0018 ]
+    - [ be32, 0x00000000, 0x2c800001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x38000001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c01d6 ]
+    - [ be32, 0x00000000, 0x3800003c ]
+    - [ be32, 0x00000000, 0x7d8c0396 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850038 ]
+    - [ be32, 0x00000000, 0x819e8024 ]
+    - [ be32, 0x00000000, 0xc18c0000 ]
+    - [ be32, 0x00000000, 0xed4c6028 ]
+    - [ be32, 0x00000000, 0xfc8d5000 ]
+    - [ be32, 0x00000000, 0x41860024 ]
+    - [ be32, 0x00000000, 0x41840014 ]
+    - [ be32, 0x00000000, 0xfc806000 ]
+    - [ be32, 0x00000000, 0x40850018 ]
+    - [ be32, 0x00000000, 0xfc006090 ]
+    - [ be32, 0x00000000, 0x42800010 ]
+    - [ be32, 0x00000000, 0xfc806000 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0xfc006090 ]
 
   kenzan60_script: &kenzan60_script
     - [ calloc, 0x00260d2c, 25 ]
@@ -8164,6 +8372,60 @@ Anchors:
     - [ be32, 0x00000000, 0x38000002 ]
     - [ be32, 0x00000000, 0x409d0008 ]
     - [ be32, 0x00000000, 0x800b0018 ]
+    - [ be32, 0x0017e568, 0x48000140 ]
+    - [ calloc, 0x0017e6a8, 18 ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0x896cebb0 ]
+    - [ be32, 0x00000000, 0xc00ceb9c ]
+    - [ be32, 0x00000000, 0xc1aceba4 ]
+    - [ be32, 0x00000000, 0x2c8b0002 ]
+    - [ be32, 0x00000000, 0xfc006800 ]
+    - [ be32, 0x00000000, 0x801f0068 ]
+    - [ be32, 0x00000000, 0x38600001 ]
+    - [ be32, 0x00000000, 0x2f0003e8 ]
+    - [ be32, 0x00000000, 0x419a0018 ]
+    - [ be32, 0x00000000, 0x2f0003ea ]
+    - [ be32, 0x00000000, 0x409a001c ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x40820010 ]
+    - [ be32, 0x00000000, 0x42800010 ]
+    - [ be32, 0x00000000, 0x4086000c ]
+    - [ be32, 0x00000000, 0x41820008 ]
+    - [ be32, 0x00000000, 0x38600000 ]
+    - [ calloc, 0x004355b4, 7 ]
+    - [ be32, 0x00000000, 0x801f0100 ]
+    - [ be32, 0x00000000, 0x2f000000 ]
+    - [ be32, 0x00000000, 0x38000001 ]
+    - [ be32, 0x00000000, 0x901f0100 ]
+    - [ be32, 0x00000000, 0x83ab0264 ]
+    - [ be32, 0x00000000, 0x419a0008 ]
+    - [ be32, 0x00000000, 0x3ba00000 ]
+    - [ calloc, 0x0028fb14, 14 ]
+    - [ be32, 0x00000000, 0x2f800000 ]
+    - [ be32, 0x00000000, 0x419e0034 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c8f40 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850024 ]
+    - [ be32, 0x00000000, 0xfc00681e ]
+    - [ be32, 0x00000000, 0xfc00069c ]
+    - [ be32, 0x00000000, 0xfc0d0028 ]
+    - [ be32, 0x00000000, 0x3d6000b3 ]
+    - [ be32, 0x00000000, 0xc18b4274 ]
+    - [ be32, 0x00000000, 0xfc806000 ]
+    - [ be32, 0x00000000, 0x41860008 ]
+    - [ be32, 0x00000000, 0x7f800000 ]
+    - [ calloc, 0x001241e0, 10 ]
+    - [ be32, 0x00000000, 0x801f0030 ]
+    - [ be32, 0x00000000, 0x70000004 ]
+    - [ be32, 0x00000000, 0x4182001c ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c8f40 ]
+    - [ be32, 0x00000000, 0x280c0001 ]
+    - [ be32, 0x00000000, 0x4081000c ]
+    - [ be32, 0x00000000, 0xc1bf003c ]
+    - [ be32, 0x00000000, 0xec0d0032 ]
+    - [ be32, 0x00000000, 0xec200824 ]
 
   kenzan60_world: &kenzan60_world
     - [ calloc, 0x00297f74, 4 ]
@@ -8813,6 +9075,98 @@ Anchors:
     - [ be32, 0x00000000, 0x7d296051 ]
     - [ be32, 0x00000000, 0x41820008 ]
     - [ be32, 0x00000000, 0x7f800000 ]
+    - [ calloc, 0x0043fb48, 16 ]
+    - [ be32, 0x00000000, 0x801f0004 ]
+    - [ be32, 0x00000000, 0x2f800005 ]
+    - [ be32, 0x00000000, 0x409e0038 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c8f40 ]
+    - [ be32, 0x00000000, 0x2b8c0001 ]
+    - [ be32, 0x00000000, 0x409d0028 ]
+    - [ be32, 0x00000000, 0x3d60103c ]
+    - [ be32, 0x00000000, 0x816b6e1c ]
+    - [ be32, 0x00000000, 0x816b0014 ]
+    - [ be32, 0x00000000, 0x7d4b6396 ]
+    - [ be32, 0x00000000, 0x7d4a61d6 ]
+    - [ be32, 0x00000000, 0x7d4a5850 ]
+    - [ be32, 0x00000000, 0x2f8a0001 ]
+    - [ be32, 0x00000000, 0x419e0008 ]
+    - [ be32, 0x00000000, 0x38000006 ]
+    - [ calloc, 0x0043aa84, 13 ]
+    - [ be32, 0x00000000, 0x801413f8 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c8f40 ]
+    - [ be32, 0x00000000, 0x2b8c0001 ]
+    - [ be32, 0x00000000, 0x409d0024 ]
+    - [ be32, 0x00000000, 0x3d60103c ]
+    - [ be32, 0x00000000, 0x816b6e1c ]
+    - [ be32, 0x00000000, 0x816b0014 ]
+    - [ be32, 0x00000000, 0x7d4b6396 ]
+    - [ be32, 0x00000000, 0x7d4a61d6 ]
+    - [ be32, 0x00000000, 0x7f8a5800 ]
+    - [ be32, 0x00000000, 0x419e0008 ]
+    - [ be32, 0x00000000, 0x38000000 ]
+    - [ calloc, 0x004385d0, 14 ]
+    - [ be32, 0x00000000, 0x81381400 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c8f40 ]
+    - [ be32, 0x00000000, 0x2b8c0001 ]
+    - [ be32, 0x00000000, 0x409d0028 ]
+    - [ be32, 0x00000000, 0x3d60103c ]
+    - [ be32, 0x00000000, 0x816b6e1c ]
+    - [ be32, 0x00000000, 0x816b0014 ]
+    - [ be32, 0x00000000, 0x7d4b6396 ]
+    - [ be32, 0x00000000, 0x7d4a61d6 ]
+    - [ be32, 0x00000000, 0x7f8a5800 ]
+    - [ be32, 0x00000000, 0x419e000c ]
+    - [ be32, 0x00000000, 0x38000000 ]
+    - [ be32, 0x00000000, 0x39200000 ]
+    - [ calloc, 0x00211ae8, 45 ]
+    - [ be32, 0x00000000, 0x2f83ffff ]
+    - [ be32, 0x00000000, 0x419e00b0 ]
+    - [ be32, 0x00000000, 0x399a00fc ]
+    - [ be32, 0x00000000, 0x39600280 ]
+    - [ be32, 0x00000000, 0x7d6903a6 ]
+    - [ be32, 0x00000000, 0x816c0000 ]
+    - [ be32, 0x00000000, 0x398c0004 ]
+    - [ be32, 0x00000000, 0x2f8b0000 ]
+    - [ be32, 0x00000000, 0x419e001c ]
+    - [ be32, 0x00000000, 0x814b0028 ]
+    - [ be32, 0x00000000, 0x714a0002 ]
+    - [ be32, 0x00000000, 0x41820010 ]
+    - [ be32, 0x00000000, 0x814b0004 ]
+    - [ be32, 0x00000000, 0x7f8a1800 ]
+    - [ be32, 0x00000000, 0x419e000c ]
+    - [ be32, 0x00000000, 0x4200ffd8 ]
+    - [ be32, 0x00000000, 0x42800070 ]
+    - [ be32, 0x00000000, 0x898b006c ]
+    - [ be32, 0x00000000, 0x1d8c0554 ]
+    - [ be32, 0x00000000, 0x3d601032 ]
+    - [ be32, 0x00000000, 0x396bf324 ]
+    - [ be32, 0x00000000, 0x814b000c ]
+    - [ be32, 0x00000000, 0x394a0028 ]
+    - [ be32, 0x00000000, 0x1d4a0006 ]
+    - [ be32, 0x00000000, 0x7d8c5214 ]
+    - [ be32, 0x00000000, 0x398c07b0 ]
+    - [ be32, 0x00000000, 0x814b0000 ]
+    - [ be32, 0x00000000, 0x812b0004 ]
+    - [ be32, 0x00000000, 0x7d2a4850 ]
+    - [ be32, 0x00000000, 0x3929ffdc ]
+    - [ be32, 0x00000000, 0x816b0018 ]
+    - [ be32, 0x00000000, 0x3d000001 ]
+    - [ be32, 0x00000000, 0x7d0903a6 ]
+    - [ be32, 0x00000000, 0x7d0a5850 ]
+    - [ be32, 0x00000000, 0x7f884840 ]
+    - [ be32, 0x00000000, 0x409c0020 ]
+    - [ be32, 0x00000000, 0x810b0010 ]
+    - [ be32, 0x00000000, 0x2f880000 ]
+    - [ be32, 0x00000000, 0x419c0014 ]
+    - [ be32, 0x00000000, 0x7f886000 ]
+    - [ be32, 0x00000000, 0x419d0010 ]
+    - [ be32, 0x00000000, 0x816b0000 ]
+    - [ be32, 0x00000000, 0x4200ffdc ]
+    - [ be32, 0x00000000, 0x3860ffff ]
+    - [ be32, 0x00000000, 0x2f83ffff ]
 
   kenzan60_sound: &kenzan60_sound
     - [ calloc, 0x00a67328, 21 ]
@@ -10929,6 +11283,19 @@ Anchors:
     - [ be32, 0x00000000, 0x13e2000a ]
     - [ be32, 0x00000000, 0x42800008 ]
     - [ be32, 0x00000000, 0x13e21484 ]
+    - [ calloc, 0x000073e0, 12 ]
+    - [ be32, 0x00000000, 0x3d80002c ]
+    - [ be32, 0x00000000, 0x818c6400 ]
+    - [ be32, 0x00000000, 0x6d8c3800 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x4186000c ]
+    - [ be32, 0x00000000, 0x4fddf382 ]
+    - [ be32, 0x00000000, 0x42800018 ]
+    - [ be32, 0x00000000, 0x4fddf382 ]
+    - [ be32, 0x00000000, 0x819f0510 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x40860008 ]
+    - [ be32, 0x00000000, 0x4fdef182 ]
 
   kenzan_umod_kamerace: &kenzan_umod_kamerace
     - [ calloc, 0x00004630, 11 ]
@@ -16093,6 +16460,51 @@ Anchors:
     - [ be32, 0x00000000, 0xfd8b6028 ]
     - [ be32, 0x00000000, 0xfd806018 ]
     - [ be32, 0x00000000, 0xc961fee8 ]
+    - [ calloc, 0x00007f78, 44 ]
+    - [ be32, 0x00000000, 0x3d80002c ]
+    - [ be32, 0x00000000, 0x818c6400 ]
+    - [ be32, 0x00000000, 0x6d8c3800 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x4186000c ]
+    - [ be32, 0x00000000, 0x1007500a ]
+    - [ be32, 0x00000000, 0x42800098 ]
+    - [ be32, 0x00000000, 0x1007500a ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0128 ]
+    - [ be32, 0x00000000, 0x396b000a ]
+    - [ be32, 0x00000000, 0x1d6b0889 ]
+    - [ be32, 0x00000000, 0x556b843e ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x40850074 ]
+    - [ be32, 0x00000000, 0x818c0014 ]
+    - [ be32, 0x00000000, 0x380bffff ]
+    - [ be32, 0x00000000, 0x7d8c0038 ]
+    - [ be32, 0x00000000, 0x7d600034 ]
+    - [ be32, 0x00000000, 0x2000001f ]
+    - [ be32, 0x00000000, 0x5400b810 ]
+    - [ be32, 0x00000000, 0x3d603eab ]
+    - [ be32, 0x00000000, 0x396baaab ]
+    - [ be32, 0x00000000, 0x7d605850 ]
+    - [ be32, 0x00000000, 0x9161fef0 ]
+    - [ be32, 0x00000000, 0xc1a1fef0 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x4086001c ]
+    - [ be32, 0x00000000, 0x3d603eab ]
+    - [ be32, 0x00000000, 0x396baaab ]
+    - [ be32, 0x00000000, 0x9161fef4 ]
+    - [ be32, 0x00000000, 0xc181fef4 ]
+    - [ be32, 0x00000000, 0xedad6028 ]
+    - [ be32, 0x00000000, 0x42800010 ]
+    - [ be32, 0x00000000, 0x398e0180 ]
+    - [ be32, 0x00000000, 0x798c0020 ]
+    - [ be32, 0x00000000, 0x7c0060ce ]
+    - [ be32, 0x00000000, 0x3981fee0 ]
+    - [ be32, 0x00000000, 0x7c0061ce ]
+    - [ be32, 0x00000000, 0xc18c0004 ]
+    - [ be32, 0x00000000, 0xed8c682a ]
+    - [ be32, 0x00000000, 0xd18c0004 ]
+    - [ be32, 0x00000000, 0x7c0060ce ]
 
   kenzan_umod_waterfall: &kenzan_umod_waterfall
     - [ calloc, 0x00001bcc, 26 ]
@@ -17580,6 +17992,34 @@ Anchors:
     - [ be32, 0x00000000, 0x39800001 ]
     - [ be32, 0x00000000, 0x7d8561d6 ]
     - [ be32, 0x00000000, 0x918302c8 ]
+    - [ calloc, 0x00a842a4, 13 ]
+    - [ be32, 0x00000000, 0x81490014 ]
+    - [ be32, 0x00000000, 0x81830004 ]
+    - [ be32, 0x00000000, 0x2c8c03e8 ]
+    - [ be32, 0x00000000, 0x40860028 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x800c8f00 ]
+    - [ be32, 0x00000000, 0x2c800000 ]
+    - [ be32, 0x00000000, 0x41860018 ]
+    - [ be32, 0x00000000, 0xc00c8f0c ]
+    - [ be32, 0x00000000, 0xfc810000 ]
+    - [ be32, 0x00000000, 0x4086000c ]
+    - [ be32, 0x00000000, 0x3d4000ba ]
+    - [ be32, 0x00000000, 0x614a7730 ]
+    - [ calloc, 0x00a841b0, 13 ]
+    - [ be32, 0x00000000, 0x812b0014 ]
+    - [ be32, 0x00000000, 0x81830004 ]
+    - [ be32, 0x00000000, 0x2c8c03e8 ]
+    - [ be32, 0x00000000, 0x40860028 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x800c8f00 ]
+    - [ be32, 0x00000000, 0x2c800000 ]
+    - [ be32, 0x00000000, 0x41860018 ]
+    - [ be32, 0x00000000, 0xc00c8f0c ]
+    - [ be32, 0x00000000, 0xfc810000 ]
+    - [ be32, 0x00000000, 0x4086000c ]
+    - [ be32, 0x00000000, 0x3d2000ba ]
+    - [ be32, 0x00000000, 0x61297730 ]
 
   kenzan120f_ui: &kenzan120f_ui
     - [ calloc, 0x0029d26c, 19 ]
@@ -18190,6 +18630,183 @@ Anchors:
     - [ be32, 0x00000000, 0xfdac6dee ]
     - [ be32, 0x00000000, 0xedb76824 ]
     - [ be32, 0x00000000, 0xec00682a ]
+    - [ calloc, 0x00333050, 13 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x38600002 ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x806c0018 ]
+    - [ be32, 0x00000000, 0x2c830001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x38600001 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7c6b1b96 ]
+    - [ be32, 0x00000000, 0x7c6307b4 ]
+    - [ calloc, 0x0024f988, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x002500dc, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x0024069c, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x002407c0, 32 ]
+    - [ be32, 0x00000000, 0x7fa3eb78 ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x816c0020 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x39600002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x816c0018 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x39600001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x3960003c ]
+    - [ be32, 0x00000000, 0x7d8c5b96 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850040 ]
+    - [ be32, 0x00000000, 0xc01f000c ]
+    - [ be32, 0x00000000, 0xfc00001e ]
+    - [ be32, 0x00000000, 0xd801fee8 ]
+    - [ be32, 0x00000000, 0x8161feec ]
+    - [ be32, 0x00000000, 0x396bffff ]
+    - [ be32, 0x00000000, 0x7c0b6396 ]
+    - [ be32, 0x00000000, 0x7c0061d6 ]
+    - [ be32, 0x00000000, 0x7c805800 ]
+    - [ be32, 0x00000000, 0x40860014 ]
+    - [ be32, 0x00000000, 0x7c0b6214 ]
+    - [ be32, 0x00000000, 0x7c006396 ]
+    - [ be32, 0x00000000, 0x2060001e ]
+    - [ be32, 0x00000000, 0x4280000c ]
+    - [ be32, 0x00000000, 0x3d801031 ]
+    - [ be32, 0x00000000, 0xc02ceba4 ]
+    - [ calloc, 0x000902f0, 30 ]
+    - [ be32, 0x00000000, 0xec00682a ]
+    - [ be32, 0x00000000, 0x3d80103c ]
+    - [ be32, 0x00000000, 0x818c6e1c ]
+    - [ be32, 0x00000000, 0x800c0020 ]
+    - [ be32, 0x00000000, 0x2c800001 ]
+    - [ be32, 0x00000000, 0x38000002 ]
+    - [ be32, 0x00000000, 0x40850014 ]
+    - [ be32, 0x00000000, 0x800c0018 ]
+    - [ be32, 0x00000000, 0x2c800001 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0x38000001 ]
+    - [ be32, 0x00000000, 0x818c0128 ]
+    - [ be32, 0x00000000, 0x7d8c01d6 ]
+    - [ be32, 0x00000000, 0x3800003c ]
+    - [ be32, 0x00000000, 0x7d8c0396 ]
+    - [ be32, 0x00000000, 0x288c0001 ]
+    - [ be32, 0x00000000, 0x40850038 ]
+    - [ be32, 0x00000000, 0x819e8024 ]
+    - [ be32, 0x00000000, 0xc18c0000 ]
+    - [ be32, 0x00000000, 0xed4c6028 ]
+    - [ be32, 0x00000000, 0xfc8d5000 ]
+    - [ be32, 0x00000000, 0x41860024 ]
+    - [ be32, 0x00000000, 0x41840014 ]
+    - [ be32, 0x00000000, 0xfc806000 ]
+    - [ be32, 0x00000000, 0x40850018 ]
+    - [ be32, 0x00000000, 0xfc006090 ]
+    - [ be32, 0x00000000, 0x42800010 ]
+    - [ be32, 0x00000000, 0xfc806000 ]
+    - [ be32, 0x00000000, 0x40840008 ]
+    - [ be32, 0x00000000, 0xfc006090 ]
 
   kenzan120_core: &kenzan120_core
     - [ calloc, 0x002bfc80, 26 ]
@@ -18850,7 +19467,7 @@ Anchors:
     - [ be32, 0x00000000, 0xed6a5824 ]
     - [ be32, 0x00000000, 0xec0002f2 ]
     - [ be32, 0x00000000, 0xec0d002a ]
-    - [ calloc, 0x000904c0, 53 ]
+    - [ calloc, 0x000904c0, 56 ]
     - [ be32, 0x00000000, 0x813e8014 ]
     - [ be32, 0x00000000, 0x3d80103c ]
     - [ be32, 0x00000000, 0x818c6e1c ]
@@ -18873,7 +19490,7 @@ Anchors:
     - [ be32, 0x00000000, 0x288c0001 ]
     - [ be32, 0x00000000, 0x4185000c ]
     - [ be32, 0x00000000, 0x3980ffff ]
-    - [ be32, 0x00000000, 0x4280007c ]
+    - [ be32, 0x00000000, 0x42800088 ]
     - [ be32, 0x00000000, 0x3d60103c ]
     - [ be32, 0x00000000, 0x816b6e1c ]
     - [ be32, 0x00000000, 0x800b0020 ]
@@ -18904,6 +19521,9 @@ Anchors:
     - [ be32, 0x00000000, 0x7d4c39d6 ]
     - [ be32, 0x00000000, 0x41860008 ]
     - [ be32, 0x00000000, 0x7d4a3a14 ]
+    - [ be32, 0x00000000, 0x7c804040 ]
+    - [ be32, 0x00000000, 0x41850008 ]
+    - [ be32, 0x00000000, 0x7cea3b78 ]
     - [ calloc, 0x00090500, 5 ]
     - [ be32, 0x00000000, 0x2c8cffff ]
     - [ be32, 0x00000000, 0x4086000c ]
@@ -18939,7 +19559,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -18967,7 +19587,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -18999,7 +19619,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19027,7 +19647,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19058,7 +19678,7 @@ PRX-XNsmitgPz606vtCkLvNb8vRvX9AF-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Bowling minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_bowling ]
 
@@ -19069,7 +19689,7 @@ PRX-57ReVTFerxWmSMgFHwTLYK4rjE1N-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -19080,7 +19700,7 @@ PRX-pP9Zham087p826Hk70sKYJNoWxNT-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -19091,7 +19711,7 @@ PRX-Fb3bdNkcwgfGuYmvGYiF3TWA6fEY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the K Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_k_yabusame ]
 
@@ -19102,7 +19722,7 @@ PRX-f0weu6khULxCVGx8fEbbe53HUzkX-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -19113,7 +19733,7 @@ PRX-q1mrtRRcGyttZZiTxXhuwoodrPe5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -19124,7 +19744,7 @@ PRX-4v6vfey8tm0ryYnm9b7gzn4Q87Sw-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Konpira minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_konpira ]
 
@@ -19135,7 +19755,7 @@ PRX-En8J3J0VsXy9TvwcM1jGqctFMkCt-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -19146,7 +19766,7 @@ PRX-LvLdxikYP1gQX8TTqVvKaE2tVcQi-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -19157,7 +19777,7 @@ PRX-NoNkQEKqhGXQmXQ7wKsPv3Udbex4-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -19168,7 +19788,7 @@ PRX-3yKqt7eQKhq2WZVdcXj8YE88MVqC-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -19179,7 +19799,7 @@ PRX-hcwkop8vL1Hgbu1xbrkGggHY6gUh-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Shogi minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_shogi ]
 
@@ -19190,7 +19810,7 @@ PRX-6GfRq3LKHpxje21A6KHe3CR7SgCV-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -19201,7 +19821,7 @@ PRX-QtVvdP5YjaG64gjKoS7dFRAVKv0o-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -19212,7 +19832,7 @@ PRX-EHCcuPoQZxcMdSpUNZt9GKq371uf-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -19223,7 +19843,7 @@ PRX-Jf80yvVjKj88TgYSZkQCUHfoikfY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -19234,7 +19854,7 @@ PRX-Lv45WFxmsAjTCrVkMM2P41jSYRkM-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -19245,7 +19865,7 @@ PRX-foe287TiG5SLPPJqJCntzuVYUo94-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.0
+    Patch Version: 1.5
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
