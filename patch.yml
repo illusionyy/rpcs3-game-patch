@@ -50230,6 +50230,16 @@ PPU-b164fd1b55e47b0eda65b974777274ca0f0a545d:
     Notes: "Required if your FPS is higher than 30. Fixes replay playback while running at a framerate higher than a real console."
     Patch:
       - [ be32, 0x000b7040, 0x3c600018 ]
+  "Skip Intro":
+    Games:
+      "Stuntman: Ignition":
+        BLUS30073: [ 01.11 ]
+    Author: "Alexis"
+    Notes: "Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x002b9bb8, 0x48000018 ]
+      - [ be32, 0x0024dd80, 0x901401cc ]
   "Disable Motion/Radical Blur":
     Games:
       "Stuntman: Ignition":
