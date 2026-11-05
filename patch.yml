@@ -3243,6 +3243,41 @@ PPU-534e146dfb4206ec2ae9272e00ff73c7739451f8:
       - [ be32, 0x00139a5c, 0x38600001 ] # li r3,0x1
       - [ be32, 0x00139a60, 0x4e800020 ] # blr
 
+Anchors:
+  hp_60fps_notes: &hp_60fps_notes
+   "Set Vblank Frequency to 120 Hz."
+
+  hp_60fps_na_disc_102: &hp_60fps_na_disc_102
+    - [ be32, 0x0075d3c0, 0x38000001 ] # display init: lwz r0,0x34(r25) -> li r0,1
+    - [ be32, 0x00755128, 0x38600001 ] # mode change: bl GetVsyncs -> li r3,1
+    - [ be32, 0x000ed3d8, 0x38000001 ] # frame limiter min steps: lwz r0,-0x4814(r24) -> li r0,1
+
+  hp_60fps_eu_digital: &hp_60fps_eu_digital
+    - [ be32, 0x0075cd64, 0x38000001 ] # display init: lwz r0,0x34(r25) -> li r0,1
+    - [ be32, 0x00754acc, 0x38600001 ] # mode change: bl GetVsyncs -> li r3,1
+    - [ be32, 0x000ed3d8, 0x38000001 ] # frame limiter min steps: lwz r0,-0x4914(r24) -> li r0,1
+
+PPU-ebf30dddb8c06560d16f82d5ff334aff25038c70:
+  "60 FPS":
+    Games:
+      "Need for Speed Hot Pursuit":
+        BLUS30566: [ 01.02 ]
+    Author: "slimetime"
+    Notes: *hp_60fps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *hp_60fps_na_disc_102 ]
+PPU-42873e59ecdd140f2a65cbd8f6671692b89bed3a:
+  "60 FPS":
+    Games:
+      "Need for Speed Hot Pursuit":
+        NPEB00587: [ 01.00 ]
+    Author: "slimetime, ported by Alexis"
+    Notes: *hp_60fps_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *hp_60fps_eu_digital ]
+
 PPU-06698cd3cff1173e74938f60c5d00a06b69648ec:
   "Skip Intro":
     Games:
