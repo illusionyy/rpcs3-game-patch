@@ -4498,6 +4498,19 @@ Anchors:
     - [ be32, 0x00000000, 0xfd806018 ]
     - [ be32, 0x00000000, 0xd18c8f44 ]
     - [ be32, 0x00000000, 0xc01f012c ]
+    - [ calloc, 0x0037de38, 12 ]
+    - [ be32, 0x00000000, 0x801f0af4 ]
+    - [ be32, 0x00000000, 0x817f0b60 ]
+    - [ be32, 0x00000000, 0x396bfff3 ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x41850020 ]
+    - [ be32, 0x00000000, 0x817f0b5c ]
+    - [ be32, 0x00000000, 0x288b0000 ]
+    - [ be32, 0x00000000, 0x41860014 ]
+    - [ be32, 0x00000000, 0x896b0007 ]
+    - [ be32, 0x00000000, 0x288b0003 ]
+    - [ be32, 0x00000000, 0x40860008 ]
+    - [ be32, 0x00000000, 0x38000000 ]
 
   kenzan60_fighter: &kenzan60_fighter
     - [ calloc, 0x001b9560, 29 ]
@@ -8812,6 +8825,41 @@ Anchors:
     - [ be32, 0x00000000, 0x386c8f80 ]
     - [ be32, 0x00000000, 0x42800008 ]
     - [ be32, 0x00000000, 0x80790cc0 ]
+    - [ calloc, 0x004e3d54, 18 ]
+    - [ be32, 0x00000000, 0xefe00372 ]
+    - [ be32, 0x00000000, 0x419e0044 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x816c8f40 ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x40850034 ]
+    - [ be32, 0x00000000, 0x3d20103c ]
+    - [ be32, 0x00000000, 0x81296e1c ]
+    - [ be32, 0x00000000, 0x81290014 ]
+    - [ be32, 0x00000000, 0x7c095b96 ]
+    - [ be32, 0x00000000, 0x7c0059d6 ]
+    - [ be32, 0x00000000, 0x7c004850 ]
+    - [ be32, 0x00000000, 0x2c800000 ]
+    - [ be32, 0x00000000, 0x40860010 ]
+    - [ be32, 0x00000000, 0xc00c8f44 ]
+    - [ be32, 0x00000000, 0xefff0032 ]
+    - [ be32, 0x00000000, 0x42800008 ]
+    - [ be32, 0x00000000, 0x7f800000 ]
+    - [ calloc, 0x004e3e04, 15 ]
+    - [ be32, 0x00000000, 0x2f80ffff ]
+    - [ be32, 0x00000000, 0x419e0038 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x816c8f40 ]
+    - [ be32, 0x00000000, 0x288b0001 ]
+    - [ be32, 0x00000000, 0x40850028 ]
+    - [ be32, 0x00000000, 0x3d20103c ]
+    - [ be32, 0x00000000, 0x81296e1c ]
+    - [ be32, 0x00000000, 0x81290014 ]
+    - [ be32, 0x00000000, 0x7d895b96 ]
+    - [ be32, 0x00000000, 0x7d8c59d6 ]
+    - [ be32, 0x00000000, 0x7d8c4850 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x41860008 ]
+    - [ be32, 0x00000000, 0x7f800000 ]
 
   kenzan60_minigame: &kenzan60_minigame
     - [ calloc, 0x00135fe8, 14 ]
@@ -10207,17 +10255,6 @@ Anchors:
     - [ be32, 0x00000000, 0x7c0b5050 ]
     - [ be32, 0x00000000, 0x42800008 ]
     - [ be32, 0x00000000, 0x7c085050 ]
-    - [ calloc, 0x002909d8, 10 ]
-    - [ be32, 0x00000000, 0x80030018 ]
-    - [ be32, 0x00000000, 0x2c800001 ]
-    - [ be32, 0x00000000, 0x40860020 ]
-    - [ be32, 0x00000000, 0x81830020 ]
-    - [ be32, 0x00000000, 0x2c8c0001 ]
-    - [ be32, 0x00000000, 0x41850014 ]
-    - [ be32, 0x00000000, 0x81830128 ]
-    - [ be32, 0x00000000, 0x2c8c003c ]
-    - [ be32, 0x00000000, 0x40860008 ]
-    - [ be32, 0x00000000, 0x38000002 ]
 
   kenzan_umod_bowling: &kenzan_umod_bowling
     - [ calloc, 0x000096b8, 19 ]
@@ -10684,6 +10721,7 @@ Anchors:
     - [ be32, 0x00000000, 0xfc000028 ]
     - [ be32, 0x00000000, 0x42800008 ]
     - [ be32, 0x00000000, 0xec1f0032 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_chohan: &kenzan_umod_chohan
     - [ calloc, 0x00002bec, 11 ]
@@ -10822,7 +10860,9 @@ Anchors:
     - [ be32, 0x00000000, 0x1d8c000a ]
     - [ be32, 0x00000000, 0x380cffff ]
     - [ be32, 0x00000000, 0x7f890040 ]
-    - [ be32, 0x00005c50, 0x7d806378 ]
+    - [ calloc, 0x00005c50, 1 ]
+    - [ be32, 0x00000000, 0x7d806378 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_k_yabusame: &kenzan_umod_k_yabusame
     - [ calloc, 0x000107dc, 14 ]
@@ -11244,7 +11284,8 @@ Anchors:
     - [ be32, 0x00000000, 0x80e70128 ]
     - [ be32, 0x00000000, 0x38000258 ]
     - [ be32, 0x00000000, 0x7ce03bd6 ]
-    - [ be32, 0x0000288c, 0x7c0b3850 ]
+    - [ calloc, 0x0000288c, 1 ]
+    - [ be32, 0x00000000, 0x7c0b3850 ]
     - [ calloc, 0x0000a0c4, 17 ]
     - [ be32, 0x00000000, 0x3d80002c ]
     - [ be32, 0x00000000, 0x818c6400 ]
@@ -11296,6 +11337,7 @@ Anchors:
     - [ be32, 0x00000000, 0x2c8c0000 ]
     - [ be32, 0x00000000, 0x40860008 ]
     - [ be32, 0x00000000, 0x4fdef182 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_kamerace: &kenzan_umod_kamerace
     - [ calloc, 0x00004630, 11 ]
@@ -13019,6 +13061,7 @@ Anchors:
     - [ be32, 0x00000000, 0x40840008 ]
     - [ be32, 0x00000000, 0x7d695b78 ]
     - [ be32, 0x00000000, 0x3809ffe2 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_konpira: &kenzan_umod_konpira
     - [ calloc, 0x0000ccd0, 11 ]
@@ -13569,6 +13612,7 @@ Anchors:
     - [ be32, 0x00000000, 0x4280000c ]
     - [ be32, 0x00000000, 0x3c800001 ]
     - [ be32, 0x00000000, 0x60840002 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_mahjong: &kenzan_umod_mahjong
     - [ calloc, 0x00004cf0, 17 ]
@@ -14322,6 +14366,7 @@ Anchors:
     - [ be32, 0x00000000, 0x7d8b63d6 ]
     - [ be32, 0x00000000, 0x1c0c003c ]
     - [ be32, 0x00000000, 0x7d605850 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_r_yabusame: &kenzan_umod_r_yabusame
     - [ calloc, 0x00002e44, 15 ]
@@ -14937,6 +14982,7 @@ Anchors:
     - [ be32, 0x00000000, 0x4182000c ]
     - [ be32, 0x00000000, 0x3d8000b3 ]
     - [ be32, 0x00000000, 0xc02c37d8 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_shogi: &kenzan_umod_shogi
     - [ calloc, 0x00016478, 19 ]
@@ -15254,8 +15300,11 @@ Anchors:
     - [ be32, 0x00000000, 0x3d8000b3 ]
     - [ be32, 0x00000000, 0xc1ac4274 ]
     - [ be32, 0x00000000, 0xec000372 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_suika: &kenzan_umod_suika
+    - [ calloc, 0x00000250, 1 ]
+    - [ be32, 0x00000000, 0x60000000 ]
     - [ calloc, 0x0001eda0, 21 ]
     - [ be32, 0x00000000, 0x38800001 ]
     - [ be32, 0x00000000, 0x3d80002c ]
@@ -15348,6 +15397,7 @@ Anchors:
     - [ be32, 0x00000000, 0x7c006378 ]
     - [ be32, 0x00000000, 0x809e1610 ]
     - [ be32, 0x00000000, 0x7c8401d6 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_tousenkyo: &kenzan_umod_tousenkyo
     - [ calloc, 0x0000196c, 14 ]
@@ -16505,6 +16555,7 @@ Anchors:
     - [ be32, 0x00000000, 0xed8c682a ]
     - [ be32, 0x00000000, 0xd18c0004 ]
     - [ be32, 0x00000000, 0x7c0060ce ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan_umod_waterfall: &kenzan_umod_waterfall
     - [ calloc, 0x00001bcc, 26 ]
@@ -17430,6 +17481,7 @@ Anchors:
     - [ be32, 0x00000000, 0x39800001 ]
     - [ be32, 0x00000000, 0x1d8c001e ]
     - [ be32, 0x00000000, 0x7f806000 ]
+    - [ be32, 0x00000000, 0xf821ff91 ]
 
   kenzan120f_yact: &kenzan120f_yact
     - [ calloc, 0x0037841c, 53 ]
@@ -18809,7 +18861,20 @@ Anchors:
     - [ be32, 0x00000000, 0xfc006090 ]
 
   kenzan120_core: &kenzan120_core
-    - [ calloc, 0x002bfc80, 26 ]
+    - [ calloc, 0x002bfc80, 39 ]
+    - [ be32, 0x00000000, 0x801f0020 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x806c8f64 ]
+    - [ be32, 0x00000000, 0x7c801800 ]
+    - [ be32, 0x00000000, 0x4084000c ]
+    - [ be32, 0x00000000, 0x38600000 ]
+    - [ be32, 0x00000000, 0x906c8f64 ]
+    - [ be32, 0x00000000, 0x40860018 ]
+    - [ be32, 0x00000000, 0x807f0018 ]
+    - [ be32, 0x00000000, 0x2c830002 ]
+    - [ be32, 0x00000000, 0x4086000c ]
+    - [ be32, 0x00000000, 0x38600002 ]
+    - [ be32, 0x00000000, 0x4280006c ]
     - [ be32, 0x00000000, 0x801f0020 ]
     - [ be32, 0x00000000, 0x3d801057 ]
     - [ be32, 0x00000000, 0x806c8f60 ]
@@ -18881,6 +18946,23 @@ Anchors:
     - [ be32, 0x00000000, 0x2c8c0078 ]
     - [ be32, 0x00000000, 0x40860008 ]
     - [ be32, 0x00000000, 0x38000002 ]
+    - [ calloc, 0x002916f8, 9 ]
+    - [ be32, 0x00000000, 0x38800003 ]
+    - [ be32, 0x00000000, 0x81630128 ]
+    - [ be32, 0x00000000, 0x2c8b0078 ]
+    - [ be32, 0x00000000, 0x40860018 ]
+    - [ be32, 0x00000000, 0x38800002 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x81630020 ]
+    - [ be32, 0x00000000, 0x396b0001 ]
+    - [ be32, 0x00000000, 0x916c8f64 ]
+    - [ calloc, 0x00291708, 6 ]
+    - [ be32, 0x00000000, 0xc01e80dc ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c8f64 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x41860008 ]
+    - [ be32, 0x00000000, 0xc01e8010 ]
 
   kenzan120_vblank: &kenzan120_vblank
     - [ calloc, 0x00172ab0, 23 ]
@@ -19559,7 +19641,7 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19587,7 +19669,67 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
-    Patch Version: 1.5
+    Patch Version: 1.7
+    Patch:
+      - [ load, *kenzan60core ]
+      - [ load, *kenzan60_core ]
+      - [ load, *kenzan60_fighter ]
+      - [ load, *kenzan120f_yact ]
+      - [ load, *kenzan60_camera ]
+      - [ load, *kenzan120f_ui ]
+      - [ load, *kenzan60_script ]
+      - [ load, *kenzan60_world ]
+      - [ load, *kenzan60_minigame ]
+      - [ load, *kenzan60_particles ]
+      - [ load, *kenzan60_sound ]
+      - [ load, *kenzan60_cloth ]
+      - [ load, *kenzan60_clock30 ]
+      - [ load, *kenzan60_fclock ]
+      - [ load, *kenzan60_npctask ]
+      - [ load, *kenzan60_effects ]
+      - [ load, *kenzan60_effects2 ]
+      - [ load, *kenzan60_misc2 ]
+      - [ load, *kenzan120_core ]
+      - [ load, *kenzan120_vblank ]
+      - [ load, *kenzan120_seff4 ]
+
+PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
+  "60 FPS (English translation)":
+    Games:
+      "Ryu ga Gotoku Kenzan!":
+        BLJM60064: [ 01.00 ]
+    Author: "Pakundo"
+    Group: "FPS"
+    Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
+    Patch Version: 1.7
+    Patch:
+      - [ load, *kenzan60core ]
+      - [ load, *kenzan60_core ]
+      - [ load, *kenzan60_fighter ]
+      - [ load, *kenzan60_yact ]
+      - [ load, *kenzan60_camera ]
+      - [ load, *kenzan60_ui ]
+      - [ load, *kenzan60_script ]
+      - [ load, *kenzan60_world ]
+      - [ load, *kenzan60_minigame ]
+      - [ load, *kenzan60_particles ]
+      - [ load, *kenzan60_sound ]
+      - [ load, *kenzan60_cloth ]
+      - [ load, *kenzan60_clock30 ]
+      - [ load, *kenzan60_fclock ]
+      - [ load, *kenzan60_npctask ]
+      - [ load, *kenzan60_effects ]
+      - [ load, *kenzan60_effects2 ]
+      - [ load, *kenzan60_misc2 ]
+      - [ load, *kenzan60_logical60 ]
+  "120 FPS (English translation)":
+    Games:
+      "Ryu ga Gotoku Kenzan!":
+        BLJM60064: [ 01.00 ]
+    Author: "Pakundo"
+    Group: "FPS"
+    Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19619,7 +19761,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 60 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. Also enable the Minigame fixes entries for this game. Use either 60 FPS or 120 FPS, not both. Keep the default Vblank Rate 60."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19647,7 +19789,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Runs the game at 120 FPS with the game logic, animations, effects and timers corrected to run at the speed of the original 30 FPS game. REQUIRES a custom configuration for this game: Advanced > Vblank Rate 120, GPU > Framerate Limiter Auto or Off; with VSync on you need a 120 Hz or faster display. The PC must hold 120 FPS, otherwise the whole game slows down. Menus, dialogue and heat-action starts run at 60 FPS as in the original. Also enable the Minigame fixes entries. Use either 60 FPS or 120 FPS, not both."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -19678,7 +19820,7 @@ PRX-XNsmitgPz606vtCkLvNb8vRvX9AF-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Bowling minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_bowling ]
 
@@ -19689,7 +19831,7 @@ PRX-57ReVTFerxWmSMgFHwTLYK4rjE1N-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -19700,7 +19842,7 @@ PRX-pP9Zham087p826Hk70sKYJNoWxNT-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Chohan minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -19711,7 +19853,7 @@ PRX-Fb3bdNkcwgfGuYmvGYiF3TWA6fEY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the K Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_k_yabusame ]
 
@@ -19722,7 +19864,7 @@ PRX-f0weu6khULxCVGx8fEbbe53HUzkX-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -19733,7 +19875,7 @@ PRX-q1mrtRRcGyttZZiTxXhuwoodrPe5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Kamerace minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -19744,7 +19886,7 @@ PRX-4v6vfey8tm0ryYnm9b7gzn4Q87Sw-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Konpira minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_konpira ]
 
@@ -19755,7 +19897,7 @@ PRX-En8J3J0VsXy9TvwcM1jGqctFMkCt-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -19766,7 +19908,7 @@ PRX-LvLdxikYP1gQX8TTqVvKaE2tVcQi-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Mahjong minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -19777,7 +19919,7 @@ PRX-NoNkQEKqhGXQmXQ7wKsPv3Udbex4-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -19788,7 +19930,7 @@ PRX-3yKqt7eQKhq2WZVdcXj8YE88MVqC-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the R Yabusame minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -19799,7 +19941,7 @@ PRX-hcwkop8vL1Hgbu1xbrkGggHY6gUh-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Shogi minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_shogi ]
 
@@ -19810,7 +19952,7 @@ PRX-6GfRq3LKHpxje21A6KHe3CR7SgCV-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -19821,7 +19963,7 @@ PRX-QtVvdP5YjaG64gjKoS7dFRAVKv0o-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Suika minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -19832,7 +19974,7 @@ PRX-EHCcuPoQZxcMdSpUNZt9GKq371uf-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -19843,7 +19985,7 @@ PRX-Jf80yvVjKj88TgYSZkQCUHfoikfY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Tousenkyo minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -19854,7 +19996,7 @@ PRX-Lv45WFxmsAjTCrVkMM2P41jSYRkM-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -19865,7 +20007,7 @@ PRX-foe287TiG5SLPPJqJCntzuVYUo94-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Frame-rate fixes for the Waterfall minigame. Works with both the 60 FPS and the 120 FPS entry and is safe to leave enabled: without either of them it does nothing."
-    Patch Version: 1.5
+    Patch Version: 1.7
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -32888,6 +33030,32 @@ Anchors:
     - [ be32, 0x0079ba80, 0x98030000 ] # stb r0, 0(r3)          ; store byte to 0x8400D4
     - [ be32, 0x0079ba84, 0x4bf8b3b0 ] # b 0x00726E34           ; return
 
+  uc1_savelimit_101_disc: &uc1_savelimit_101_disc
+    - [ be32, 0x00172150, 0x38000032 ]
+    - [ be32, 0x00172164, 0x38000960 ]
+    - [ be32, 0x00172940, 0x2b9f0031 ]
+    - [ be32, 0x00172aa8, 0x2b800031 ]
+    - [ be32, 0x00171a1c, 0x2b890031 ]
+    - [ be32, 0x00171e9c, 0xf9690000 ]
+    - [ be32, 0x00171f34, 0x2b800031 ]
+    - [ be32, 0x00171f38, 0x419dffa8 ]
+    - [ be32, 0x00171f3c, 0x39600001 ]
+    - [ be32, 0x00171f40, 0x7d6b0036 ]
+    - [ be32, 0x00171f44, 0xe9210078 ]
+    - [ be32, 0x00171f48, 0x7d295b78 ]
+    - [ be32, 0x00171f4c, 0xf9210078 ]
+    - [ be32, 0x00171f68, 0xe9210078 ]
+    - [ be32, 0x00171f6c, 0x7d2948f8 ]
+    - [ be32, 0x00171f70, 0x7d4900d0 ]
+    - [ be32, 0x00171f74, 0x7d2a5038 ]
+    - [ be32, 0x00171f78, 0x7d4a0074 ]
+    - [ be32, 0x00171f7c, 0x20ca003f ]
+    - [ be32, 0x00171f80, 0x2b860031 ]
+    - [ be32, 0x00171f84, 0x419dfe78 ]
+    - [ be32, 0x00171f88, 0x48000080 ]
+    - [ be32, 0x00170be8, 0x20000032 ]
+    - [ be32, 0x00170bf4, 0x409d001c ]
+
   uc1_fadeout_configurable_values: &uc1_fadeout_configurable_values
     "Distance":
       Type: double_range
@@ -32905,6 +33073,8 @@ Anchors:
     "Lowers/Increases Object Render Distance.\nHigher Values increase render distance.\nCan improve performance or make it worse."
   uc1_dsunlight_notes: &uc1_dsunlight_notes
     "Disables Sunlight ShadowBuffer Draw (dynamic shadows) which is done on SPUs.\nImproves Performance."
+  uc1_savelimit_notes: &uc1_savelimit_notes
+    "Increases save data limit from 10 to 50."
 
 PPU-8007056e52279bea26c15669d1ee08c2df321d00:
 #  "Disable Motion Blur":
@@ -33040,6 +33210,13 @@ PPU-8363904e0b8fc276380a8f0e158dd81d7a9cefc5:
     Patch Version: 1.0
     Patch:
       - [ load, *uc1_intro_101_disc ]
+  "Increase Save Data Limit to 50":
+    Games: *uc1_disc101title
+    Author: "FlexBy"
+    Notes: *uc1_savelimit_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *uc1_savelimit_101_disc ]
 
 PPU-4a5f4c5ae98f1b8b01294a267790adfa5e8b4501:
   "Disable Motion Blur":
@@ -48690,6 +48867,38 @@ PPU-edea73dbe476dabd4ba7170169184ae3968e6321:
     Patch Version: 1.2
     Patch:
       - [ be32, 0x0009381c, 0x60000000 ]
+PPU-e2eab39ce601af4dacf26a445b8d71f656cdd9ea:    
+  "60 FPS":
+    Games:
+      "Prince of Persia: The Sands of Time":
+        BLES01092: [ 01.00 ]
+    Author: "Pappapatu"
+    Notes: "FPS can go above 60, but that will effect game physics and speed. Dosen't effect game cutscene frame rate."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0065B16C, 0x60000000 ]
+PPU-3095524f29bfee78d4890252703d54b02ac57a54:
+  "Unlock FPS":
+    Games:
+      "Prince of Persia: The Two Thrones":
+        BLES01092: [ 01.00 ]
+    Author: "Pappapatu"
+    Notes: "Unlocks fps by bypassing the games a 33.3 ms timer/usleep wait. Dosen't effect game cutscene frame rate."
+    Patch Version: 1.0
+    Patch:
+      # Original 409C00CC: bge cr7, 0x001BE1B0 (only if elapsed >= 33.3ms)
+      - [ be32, 0x001BE0E4, 0x480000CC ]
+PPU-f2b9766a3588f68495b11d8f0d8649242f508c0c:
+  "60 fps":
+    Games:
+      "Prince of Persia: Warrior Within":
+        BLES01092: [ 01.00 ]
+    Author: "Pappapatu"
+    Notes: "Does same as The Two Thrones patch. Can go above 60fps, but will make animations and physics faster than they should. Dosen't effect game cutscene frame rate."
+    Patch Version: 1.0
+    Patch:
+      # Original 409C00C8: bge cr7, 0x0094F664 (only if elapsed >= 33.3ms)
+      - [ be32, 0x0094F59C, 0x480000C8 ]
 
 Anchors:
   prototype1_debug_notes: &prototype1_debug_notes
@@ -49854,6 +50063,25 @@ PPU-d701975e1eb70a28d8e5e47ced809f04994f96ad:
       - [ be32, 0x00e735cc, 0x48000018 ]
       # Notice board (Sonic Team / Havok logos): CGameplayFlowNoticeBoard
       - [ be32, 0x00e761b4, 0x60000000 ]
+  "Native 720p Rendering":
+    Games:
+      "SONIC GENERATIONS":
+        BLUS30612: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Motion blur may no longer appear. Assisted with AI tools"
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x018a61a0, 0x2b9f0500 ] # cmplwi cr7,r31,1280 (was 880): render width = min(output width, 1280)
+  "Disable MSAA Blending Filter":
+    Games:
+      "SONIC GENERATIONS":
+        BLUS30612: [ 01.00 ]
+    Author: "Alexis"
+    Notes: "Disables the two blending paths done with MSAA. Breaks Depth of Field in levels that use it. Assisted with AI tools."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x0319f0e4, 0x0319e8a8 ] # OverlayResolveEx node shader: OverlayEx -> simple copy default (vertical blend)
+      - [ be32, 0x0319f0a4, 0x0319e8a8 ] # ColorCorrection_to_bb node 2 shader: ccopy -> simple copy default
 
 PPU-e59cfb07f4057a45d6e2fbba3d041ad3820c004a:
   "Unlock FPS":
