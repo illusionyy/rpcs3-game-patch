@@ -55583,7 +55583,7 @@ PPU-e244770441e9583c134b86ce4477e89704745980:
       - [ be32, 0x00652394, 0x386003e7 ]
 
 PPU-1504b75ba97abccdf2d0a93dd93aaff10591a01e:
-  "Skip Intro Logos":
+  "Skip Intro":
     Games: *tr_title_us105
     Author: "FlexBy"
     Notes:
