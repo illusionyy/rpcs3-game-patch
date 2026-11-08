@@ -55619,15 +55619,50 @@ PPU-1504b75ba97abccdf2d0a93dd93aaff10591a01e:
       - [ be32, 0x007c6320, 0x4e800020 ]
       - [ be32, 0x007c64c8, 0x38600005 ]
       - [ be32, 0x007c6444, 0x4e800020 ]
-  "Infinite Premium Coins & Tickets":
+  "Infinite Premium Coins & Tickets & Reset Drinks":
+    Games: *tr_title_us105
+    Author: "FlexBy"
+    Notes:
+    Patch Version: 1.1
+    Patch:
+      - [ be32, 0x007c65ec, 0x386003e7 ]
+      - [ be32, 0x007c6568, 0x4e800020 ]
+      - [ be32, 0x007c997c, 0x386003e7 ]
+      - [ be32, 0x004e771c, 0x386003e7 ]
+      - [ be32, 0x004e7720, 0x4e800020 ]
+      - [ be32, 0x006b4454, 0x38600000 ]
+      - [ be32, 0x006b4458, 0x4e800020 ]
+  "Unlock All Characters":
     Games: *tr_title_us105
     Author: "FlexBy"
     Notes:
     Patch Version: 1.0
     Patch:
-      - [ be32, 0x007c65ec, 0x386003e7 ]
-      - [ be32, 0x007c6568, 0x4e800020 ]
-      - [ be32, 0x007c997c, 0x386003e7 ]
+      - [ be32, 0x002192d4, 0x480001e0 ]
+      - [ be32, 0x002194b0, 0x4bfffe84 ]
+      - [ be32, 0x002194b4, 0x7c7f1b78 ]
+      - [ be32, 0x002194b8, 0x81228e0c ]
+      - [ be32, 0x002194bc, 0x57601838 ]
+      - [ be32, 0x002194c0, 0x7c09002e ]
+      - [ be32, 0x002194c4, 0x2f800000 ]
+      - [ be32, 0x002194c8, 0x419e0008 ]
+      - [ be32, 0x002194cc, 0x3be00001 ]
+      - [ be32, 0x002194d0, 0x4bfffe08 ]
+  "Unlock All Costumes":
+    Games: *tr_title_us105
+    Author: "FlexBy"
+    Notes: 
+    Patch Version: 1.1
+    Patch:
+      - [ be32, 0x006d4ff4, 0x48000098 ]
+      - [ be32, 0x006d5084, 0x39200000 ]
+      - [ be32, 0x006d5088, 0x4bffff20 ]
+      - [ be32, 0x006d508c, 0x381ffffe ]
+      - [ be32, 0x006d5090, 0x2b800065 ]
+      - [ be32, 0x006d5094, 0x39200001 ]
+      - [ be32, 0x006d5098, 0x409dff10 ]
+      - [ be32, 0x006d509c, 0x38010070 ]
+      - [ be32, 0x006d50a0, 0x4bffff58 ]
 
 PPU-105256dfd32451ecd931591cc4977ad552131047:
   "Skip Intro":
