@@ -65008,6 +65008,30 @@ PPU-b164fd1b55e47b0eda65b974777274ca0f0a545d:
     Patch Version: 1.0
     Patch:
       - [ be32, 0x00384788, 0x419E02BC ]
+  "Unlock Vehicle Pack":
+    Games:
+      "Stuntman: Ignition":
+        BLUS30073: [ All ]
+    Author: "Alexis"
+    Notes: "Unlocks the four unobtainable Vehicle Pack cars that ship on the PS3 disc but stay locked: Vintage Avenger, Future Patrol, Velocity and Armored Patrol. Assisted with AI tools."
+    Patch Version: 1.1
+    Patch:
+      # Code cave (0x7E4A0)
+      - [ be32, 0x0007E4A0, 0x3804FF80 ] # addi r0,r4,-0x80      ; vehicle ID - VintageAvenger
+      - [ be32, 0x0007E4A4, 0x2B800003 ] # cmplwi cr7,r0,3       ; 0x80-0x83 = four Vehicle Pack cars
+      - [ be32, 0x0007E4A8, 0x419D000C ] # bgt cr7, +12          ; no -> normal check
+      - [ be32, 0x0007E4AC, 0x38600001 ] # li r3,1               ; yes -> unlocked
+      - [ be32, 0x0007E4B0, 0x4E800020 ] # blr
+      - [ be32, 0x0007E4B4, 0x4BF99AE4 ] # b 0x17F98             ; original profile unlock check (missing record = locked)
+      - [ be32, 0x0007E4B8, 0x3805FF80 ] # addi r0,r5,-0x80
+      - [ be32, 0x0007E4BC, 0x2B800003 ] # cmplwi cr7,r0,3
+      - [ be32, 0x0007E4C0, 0x419D000C ] # bgt cr7, +12
+      - [ be32, 0x0007E4C4, 0x38600001 ] # li r3,1
+      - [ be32, 0x0007E4C8, 0x4E800020 ] # blr
+      - [ be32, 0x0007E4CC, 0x4BF996EC ] # b 0x17BB8             ; original per-player unlock check
+      # Hooks
+      - [ be32, 0x00085514, 0x4BFF8F8D ] # Vehicle list: bl to Vehicle Pack check (was bl 0x17F98)
+      - [ be32, 0x000894C0, 0x4BFF4FF9 ] # Per-player vehicle lists: bl to Vehicle Pack check (was bl 0x17BB8)
   "DUI Ignition":
     Games:
       "Stuntman: Ignition":
