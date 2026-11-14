@@ -52048,6 +52048,32 @@ PPU-ad3a1ecff65a78f9a8380ff4f12960f499604bf4:
       - [ be32, 0x009ba57c, 0x00000000 ]
       #- [ be32, 0x009c34c8, 0x00000001 ] # Menu HUD scale, never use this
 
+PPU-9987e451d41a3d7523637e35598405ac8185022e:
+  "1920x1080 Resolution in 1080p Mode":
+    Games:
+      "GRAN TURISMO 5 Prologue":
+        BCES00104: [ "01.00" ]
+    Author: "Satan"
+    Patch Version: 1.0
+    Notes: "Raises native internal resolution from 1280x1080 to 1920x1080 in gameplay."
+    Patch:
+      - [ be32, 0x008177E4, 0x39200780 ]
+  "Unlock FPS":
+    Games:
+      "GRAN TURISMO 5 Prologue":
+        BCES00104: [ "01.00" ]
+    Author: "Satan"
+    Patch Version: 1.0
+    Notes: "Unlocks FPS in races, menus are still locked to 30/60 FPS as they speed up otherwise."
+    Patch:
+      - [ calloc, 0x007AF3B8, 6 ]
+      - [ be32, 0x00000000, 0x809C001C ]
+      - [ be32, 0x00000000, 0x801C002C ]
+      - [ be32, 0x00000000, 0x2F800000 ]
+      - [ be32, 0x00000000, 0x419E0008 ]
+      - [ be32, 0x00000000, 0x38800000 ]
+      - [ jump, 0x00000000, 0x007AF3BC ]
+
 PPU-faf46906b362bc8d484de5b91f593bef2e5e0110:
   "Unlock FPS":
     Games:
