@@ -20857,6 +20857,191 @@ Anchors:
     - [ be32, 0x00000000, 0x2c890001 ]
     - [ be32, 0x00000000, 0x40850008 ]
     - [ be32, 0x00000000, 0xec210372 ]
+    - [ calloc, 0x0050cd64, 175 ]
+    - [ be32, 0x00000000, 0xec2d0028 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x816c8f40 ]
+    - [ be32, 0x00000000, 0x2c8b0001 ]
+    - [ be32, 0x00000000, 0x408502a8 ]
+    - [ be32, 0x00000000, 0x3d6000b3 ]
+    - [ be32, 0x00000000, 0xc00b37d8 ]
+    - [ be32, 0x00000000, 0xfc810000 ]
+    - [ be32, 0x00000000, 0x40850298 ]
+    - [ be32, 0x00000000, 0xc1ab3838 ]
+    - [ be32, 0x00000000, 0xfc400e5e ]
+    - [ be32, 0x00000000, 0xd841fee8 ]
+    - [ be32, 0x00000000, 0xfc40169c ]
+    - [ be32, 0x00000000, 0xfc820800 ]
+    - [ be32, 0x00000000, 0x41860280 ]
+    - [ be32, 0x00000000, 0x8141feec ]
+    - [ be32, 0x00000000, 0x81230000 ]
+    - [ be32, 0x00000000, 0x81290004 ]
+    - [ be32, 0x00000000, 0x390a0002 ]
+    - [ be32, 0x00000000, 0x7c884800 ]
+    - [ be32, 0x00000000, 0x41850268 ]
+    - [ be32, 0x00000000, 0x81830004 ]
+    - [ be32, 0x00000000, 0x55482834 ]
+    - [ be32, 0x00000000, 0x7d0c4214 ]
+    - [ be32, 0x00000000, 0xc0680000 ]
+    - [ be32, 0x00000000, 0xc0080020 ]
+    - [ be32, 0x00000000, 0xec601828 ]
+    - [ be32, 0x00000000, 0xec6300f2 ]
+    - [ be32, 0x00000000, 0xc0c80004 ]
+    - [ be32, 0x00000000, 0xc0080024 ]
+    - [ be32, 0x00000000, 0xecc03028 ]
+    - [ be32, 0x00000000, 0xec6619ba ]
+    - [ be32, 0x00000000, 0xc0c80008 ]
+    - [ be32, 0x00000000, 0xc0080028 ]
+    - [ be32, 0x00000000, 0xecc03028 ]
+    - [ be32, 0x00000000, 0xec6619ba ]
+    - [ be32, 0x00000000, 0xc0a8000c ]
+    - [ be32, 0x00000000, 0xc008002c ]
+    - [ be32, 0x00000000, 0xeca02828 ]
+    - [ be32, 0x00000000, 0xeca50172 ]
+    - [ be32, 0x00000000, 0xc0880010 ]
+    - [ be32, 0x00000000, 0xc0080030 ]
+    - [ be32, 0x00000000, 0xec840032 ]
+    - [ be32, 0x00000000, 0xc0c80014 ]
+    - [ be32, 0x00000000, 0xc0080034 ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xc0c80018 ]
+    - [ be32, 0x00000000, 0xc0080038 ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xc0c8001c ]
+    - [ be32, 0x00000000, 0xc008003c ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xfc802210 ]
+    - [ be32, 0x00000000, 0xec8d2028 ]
+    - [ be32, 0x00000000, 0xfce01890 ]
+    - [ be32, 0x00000000, 0xfd002090 ]
+    - [ be32, 0x00000000, 0xfd202890 ]
+    - [ be32, 0x00000000, 0xc14b37d8 ]
+    - [ be32, 0x00000000, 0xfd605090 ]
+    - [ be32, 0x00000000, 0xfd805090 ]
+    - [ be32, 0x00000000, 0x2c8a0000 ]
+    - [ be32, 0x00000000, 0x418600a8 ]
+    - [ be32, 0x00000000, 0x3908ffe0 ]
+    - [ be32, 0x00000000, 0xc0680000 ]
+    - [ be32, 0x00000000, 0xc0080020 ]
+    - [ be32, 0x00000000, 0xec601828 ]
+    - [ be32, 0x00000000, 0xec6300f2 ]
+    - [ be32, 0x00000000, 0xc0c80004 ]
+    - [ be32, 0x00000000, 0xc0080024 ]
+    - [ be32, 0x00000000, 0xecc03028 ]
+    - [ be32, 0x00000000, 0xec6619ba ]
+    - [ be32, 0x00000000, 0xc0c80008 ]
+    - [ be32, 0x00000000, 0xc0080028 ]
+    - [ be32, 0x00000000, 0xecc03028 ]
+    - [ be32, 0x00000000, 0xec6619ba ]
+    - [ be32, 0x00000000, 0xc0a8000c ]
+    - [ be32, 0x00000000, 0xc008002c ]
+    - [ be32, 0x00000000, 0xeca02828 ]
+    - [ be32, 0x00000000, 0xeca50172 ]
+    - [ be32, 0x00000000, 0xc0880010 ]
+    - [ be32, 0x00000000, 0xc0080030 ]
+    - [ be32, 0x00000000, 0xec840032 ]
+    - [ be32, 0x00000000, 0xc0c80014 ]
+    - [ be32, 0x00000000, 0xc0080034 ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xc0c80018 ]
+    - [ be32, 0x00000000, 0xc0080038 ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xc0c8001c ]
+    - [ be32, 0x00000000, 0xc008003c ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xfc802210 ]
+    - [ be32, 0x00000000, 0xec8d2028 ]
+    - [ be32, 0x00000000, 0xfc835000 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfd401890 ]
+    - [ be32, 0x00000000, 0xfc845800 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfd602090 ]
+    - [ be32, 0x00000000, 0xfc856000 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfd802890 ]
+    - [ be32, 0x00000000, 0x39080020 ]
+    - [ be32, 0x00000000, 0x38ea0003 ]
+    - [ be32, 0x00000000, 0x7c874800 ]
+    - [ be32, 0x00000000, 0x418500a4 ]
+    - [ be32, 0x00000000, 0x39080020 ]
+    - [ be32, 0x00000000, 0xc0680000 ]
+    - [ be32, 0x00000000, 0xc0080020 ]
+    - [ be32, 0x00000000, 0xec601828 ]
+    - [ be32, 0x00000000, 0xec6300f2 ]
+    - [ be32, 0x00000000, 0xc0c80004 ]
+    - [ be32, 0x00000000, 0xc0080024 ]
+    - [ be32, 0x00000000, 0xecc03028 ]
+    - [ be32, 0x00000000, 0xec6619ba ]
+    - [ be32, 0x00000000, 0xc0c80008 ]
+    - [ be32, 0x00000000, 0xc0080028 ]
+    - [ be32, 0x00000000, 0xecc03028 ]
+    - [ be32, 0x00000000, 0xec6619ba ]
+    - [ be32, 0x00000000, 0xc0a8000c ]
+    - [ be32, 0x00000000, 0xc008002c ]
+    - [ be32, 0x00000000, 0xeca02828 ]
+    - [ be32, 0x00000000, 0xeca50172 ]
+    - [ be32, 0x00000000, 0xc0880010 ]
+    - [ be32, 0x00000000, 0xc0080030 ]
+    - [ be32, 0x00000000, 0xec840032 ]
+    - [ be32, 0x00000000, 0xc0c80014 ]
+    - [ be32, 0x00000000, 0xc0080034 ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xc0c80018 ]
+    - [ be32, 0x00000000, 0xc0080038 ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xc0c8001c ]
+    - [ be32, 0x00000000, 0xc008003c ]
+    - [ be32, 0x00000000, 0xec86203a ]
+    - [ be32, 0x00000000, 0xfc802210 ]
+    - [ be32, 0x00000000, 0xec8d2028 ]
+    - [ be32, 0x00000000, 0xfc835000 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfd401890 ]
+    - [ be32, 0x00000000, 0xfc845800 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfd602090 ]
+    - [ be32, 0x00000000, 0xfc856000 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfd802890 ]
+    - [ be32, 0x00000000, 0x3d204110 ]
+    - [ be32, 0x00000000, 0x9121fef0 ]
+    - [ be32, 0x00000000, 0xc1a1fef0 ]
+    - [ be32, 0x00000000, 0xed4a0372 ]
+    - [ be32, 0x00000000, 0xed6b0372 ]
+    - [ be32, 0x00000000, 0xed8c0372 ]
+    - [ be32, 0x00000000, 0x3d203b00 ]
+    - [ be32, 0x00000000, 0x9121fef0 ]
+    - [ be32, 0x00000000, 0xc061fef0 ]
+    - [ be32, 0x00000000, 0x3d203800 ]
+    - [ be32, 0x00000000, 0x9121fef4 ]
+    - [ be32, 0x00000000, 0xc081fef4 ]
+    - [ be32, 0x00000000, 0x3d203a00 ]
+    - [ be32, 0x00000000, 0x9121fef8 ]
+    - [ be32, 0x00000000, 0xc0a1fef8 ]
+    - [ be32, 0x00000000, 0xfc871800 ]
+    - [ be32, 0x00000000, 0x4085000c ]
+    - [ be32, 0x00000000, 0xfc875000 ]
+    - [ be32, 0x00000000, 0x41850024 ]
+    - [ be32, 0x00000000, 0xfc882000 ]
+    - [ be32, 0x00000000, 0x4085000c ]
+    - [ be32, 0x00000000, 0xfc885800 ]
+    - [ be32, 0x00000000, 0x41850014 ]
+    - [ be32, 0x00000000, 0xfc892800 ]
+    - [ be32, 0x00000000, 0x40850010 ]
+    - [ be32, 0x00000000, 0xfc896000 ]
+    - [ be32, 0x00000000, 0x40850008 ]
+    - [ be32, 0x00000000, 0xfc201018 ]
+    - [ be32, 0x00000000, 0xc19e800c ]
+    - [ calloc, 0x0026f358, 8 ]
+    - [ be32, 0x00000000, 0x83370000 ]
+    - [ be32, 0x00000000, 0x2c990000 ]
+    - [ be32, 0x00000000, 0x40860018 ]
+    - [ be32, 0x00000000, 0x3d801057 ]
+    - [ be32, 0x00000000, 0x818c9208 ]
+    - [ be32, 0x00000000, 0x2c8c0000 ]
+    - [ be32, 0x00000000, 0x41860008 ]
+    - [ be32, 0x00000000, 0x3b200001 ]
 
   kenzan60_fades: &kenzan60_fades
     - [ calloc, 0x00090540, 4 ]
@@ -34017,14 +34202,14 @@ Anchors:
     - [ be32, 0x00000000, 0x7c6307b4 ]
 
 PPU-5d3cde094c0be606290c4716da497bced59c1256:
-  "60 FPS (English translation)":
+  "60 FPS (English translation, old version)":
     Games:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -34047,14 +34232,14 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
       - [ load, *kenzan60_logical60 ]
       - [ load, *kenzan60_t1 ]
       - [ load, *kenzan60_fades ]
-  "120 FPS (English translation)":
+  "120 FPS (English translation, old version)":
     Games:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -34079,13 +34264,13 @@ PPU-5d3cde094c0be606290c4716da497bced59c1256:
       - [ load, *kenzan120_core ]
       - [ load, *kenzan120_vblank ]
       - [ load, *kenzan120_seff4 ]
-  "Clean picture (English translation)":
+  "Clean picture (English translation, old version)":
     Games:
       "Ryu ga Gotoku Kenzan!":
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60_image ]
 
@@ -34097,7 +34282,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -34127,7 +34312,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -34158,7 +34343,7 @@ PPU-0f7ee1f50561dd854f48d4a74fbcb7b30f0307d6:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60_image ]
 
@@ -34170,7 +34355,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at 60 FPS at its original speed. Keep RPCS3's default Vblank Rate 60. Pick this or 120 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -34200,7 +34385,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
     Author: "Pakundo"
     Group: "FPS"
     Notes: "Plays the whole game at up to 120 FPS at its original speed. Needs a custom configuration for this game: Advanced > Vblank Rate 120 and GPU > Framerate Limiter Auto. On a weaker PC, use 60 FPS instead. Pick this or 60 FPS, not both, and also tick Clean picture and the Minigame fixes."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60core ]
       - [ load, *kenzan60_core ]
@@ -34231,7 +34416,7 @@ PPU-fc24101547eff0f4307d4f70a0cb76329f11a525:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Removes the blur on every frame and the grid on blurred backgrounds, and keeps edges clean at any Resolution Scale. Replaces the old optional sh_iori_ps3.par file: nothing to copy. Works with or without the frame-rate entries."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan60_image ]
 
@@ -34242,7 +34427,7 @@ PRX-XNsmitgPz606vtCkLvNb8vRvX9AF-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Bowling at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_bowling ]
 
@@ -34253,7 +34438,7 @@ PRX-57ReVTFerxWmSMgFHwTLYK4rjE1N-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Chohan at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -34264,7 +34449,7 @@ PRX-pP9Zham087p826Hk70sKYJNoWxNT-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Chohan at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_chohan ]
 
@@ -34275,7 +34460,7 @@ PRX-Zq84zhToR1cemAoszdAdkosWHzT3-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Hanafuda at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_hanafuda ]
 
@@ -34286,7 +34471,7 @@ PRX-7MHf08G4xrd3gmrCasguaj2kNcv5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Hanafuda at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_hanafuda ]
 
@@ -34297,7 +34482,7 @@ PRX-Fb3bdNkcwgfGuYmvGYiF3TWA6fEY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps K Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_k_yabusame ]
 
@@ -34308,7 +34493,7 @@ PRX-f0weu6khULxCVGx8fEbbe53HUzkX-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Kamerace at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -34319,7 +34504,7 @@ PRX-q1mrtRRcGyttZZiTxXhuwoodrPe5-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Kamerace at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_kamerace ]
 
@@ -34330,7 +34515,7 @@ PRX-1r1tJahTswJr9SPAkSsSUFhNnkht-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Karuta at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_karuta ]
 
@@ -34341,7 +34526,7 @@ PRX-P6pH1m5azsvnJupM17sCJmtkkcpc-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Karuta at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_karuta ]
 
@@ -34352,7 +34537,7 @@ PRX-4v6vfey8tm0ryYnm9b7gzn4Q87Sw-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Konpira at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_konpira ]
 
@@ -34363,7 +34548,7 @@ PRX-En8J3J0VsXy9TvwcM1jGqctFMkCt-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Mahjong at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -34374,7 +34559,7 @@ PRX-LvLdxikYP1gQX8TTqVvKaE2tVcQi-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Mahjong at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_mahjong ]
 
@@ -34385,7 +34570,7 @@ PRX-NoNkQEKqhGXQmXQ7wKsPv3Udbex4-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps R Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -34396,7 +34581,7 @@ PRX-3yKqt7eQKhq2WZVdcXj8YE88MVqC-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps R Yabusame at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_r_yabusame ]
 
@@ -34407,7 +34592,7 @@ PRX-hcwkop8vL1Hgbu1xbrkGggHY6gUh-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Shogi at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_shogi ]
 
@@ -34418,7 +34603,7 @@ PRX-6GfRq3LKHpxje21A6KHe3CR7SgCV-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Suika at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -34429,7 +34614,7 @@ PRX-QtVvdP5YjaG64gjKoS7dFRAVKv0o-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Suika at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_suika ]
 
@@ -34440,7 +34625,7 @@ PRX-cEj0e7sMFHxSVQ2f5xUPAS7ggdNs-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tintiro at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_tintiro ]
 
@@ -34451,7 +34636,7 @@ PRX-0yAWALGFWLRjJ9buNpAjfagrFP67-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tintiro at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_tintiro ]
 
@@ -34462,7 +34647,7 @@ PRX-EHCcuPoQZxcMdSpUNZt9GKq371uf-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tousenkyo at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -34473,7 +34658,7 @@ PRX-Jf80yvVjKj88TgYSZkQCUHfoikfY-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Tousenkyo at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_tousenkyo ]
 
@@ -34484,7 +34669,7 @@ PRX-Lv45WFxmsAjTCrVkMM2P41jSYRkM-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Waterfall at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -34495,7 +34680,7 @@ PRX-foe287TiG5SLPPJqJCntzuVYUo94-0:
         BLJM60064: [ 01.00 ]
     Author: "Pakundo"
     Notes: "Keeps Waterfall at its original speed at 60 and 120 FPS. Safe to leave on: it only acts with a 60 or 120 FPS entry."
-    Patch Version: 2.1
+    Patch Version: 2.2
     Patch:
       - [ load, *kenzan_umod_waterfall ]
 
@@ -51312,7 +51497,64 @@ PPU-638ef307e2b35d593f599efec0dc0c37059a984b:
     Patch:
      - [ load, *gt6_122_speedboost ]
 
-PPU-80f0d67b29d3d17ac885a309a3fc4cd8dcf50658:
+PPU-ef114c9e6231bf7c2946192c9d49b44560d5c5c0:
+  "Develop Settings":
+    Games:
+      "Gran Turismo 6":
+        BCES01977: [ 01.22 ]
+    Author: "Nenkai (OpenAdhoc), illusion"
+    Notes: *gt6_devlop_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        BCES01977: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        BCES01977: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
+  "Disable MLAA":
+    Games:
+      "Gran Turismo 6":
+        BCES01977: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_mlaa_notes
+    Patch Version: 3.11
+    Patch:
+     - [ load, *gt6_122_mlaa ]
+  "FXAA":
+    Games:
+      "Gran Turismo 6":
+        BCES01977: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_fxaa_notes
+    Patch Version: 1.4
+    Patch:
+     - [ load, *gt6_122_fxaa ]
+  "Speedboost (disable Write Color Buffers)":
+    Games:
+      "Gran Turismo 6":
+        BCES01977: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_speedboost_notes
+    Patch Version: 1.0
+    Patch:
+     - [ load, *gt6_122_speedboost ]
+
+PPU-24a1522663d3230e5dce85388a73aa50d75858d5:
   "Develop Settings":
     Games:
       "Gran Turismo 6":
@@ -51426,6 +51668,63 @@ PPU-4213aba5ed17f7e3cd3f299fa44d9d9acef0ba18:
     Patch:
      - [ load, *gt6_122_speedboost ]
 
+PPU-b8f4deb3226d362c665e97d4d0e8fc7f173d94e2:
+  "Develop Settings":
+    Games:
+      "Gran Turismo 6":
+        BCAS25018: [ 01.22 ]
+    Author: "Nenkai (OpenAdhoc), illusion"
+    Notes: *gt6_devlop_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        BCAS25018: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        BCAS25018: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
+  "Disable MLAA":
+    Games:
+      "Gran Turismo 6":
+        BCAS25018: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_mlaa_notes
+    Patch Version: 3.11
+    Patch:
+     - [ load, *gt6_122_mlaa ]
+  "FXAA":
+    Games:
+      "Gran Turismo 6":
+        BCAS25018: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_fxaa_notes
+    Patch Version: 1.4
+    Patch:
+     - [ load, *gt6_122_fxaa ]
+  "Speedboost (disable Write Color Buffers)":
+    Games:
+      "Gran Turismo 6":
+        BCAS25018: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_speedboost_notes
+    Patch Version: 1.0
+    Patch:
+     - [ load, *gt6_122_speedboost ]
+
 PPU-6a7de7fdfd7e7cbd1031bf28a7104b29c308136c:
   "Develop Settings":
     Games:
@@ -51477,6 +51776,63 @@ PPU-6a7de7fdfd7e7cbd1031bf28a7104b29c308136c:
     Games:
       "Gran Turismo 6":
         NPHA80269: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_speedboost_notes
+    Patch Version: 1.0
+    Patch:
+     - [ load, *gt6_122_speedboost ]
+
+PPU-8475d040feeff2657bdf223a793c577da0282741:
+  "Develop Settings":
+    Games:
+      "Gran Turismo 6":
+        BCJS37016: [ 01.22 ]
+    Author: "Nenkai (OpenAdhoc), illusion"
+    Notes: *gt6_devlop_notes
+    Patch Version: 1.0
+    Patch:
+      - [ load, *gt6_devlop_122 ]
+  "Looser Chase Camera":
+    Games:
+      "Gran Turismo 6":
+        BCJS37016: [ 01.22 ]
+    Author: "Edo"
+    Notes: *gt6_chase_cam_notes
+    Configurable Values: *gt6_chase_cam_config
+    Patch Version: 1.2
+    Patch:
+      - [ load, *gt6_chase_cam_122 ]
+  "Disable Motion Blur":
+    Games:
+      "Gran Turismo 6":
+        BCJS37016: [ 01.22 ]
+    Author: "illusion"
+    Notes:
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008c2b4c, 0x38600000 ]
+  "Disable MLAA":
+    Games:
+      "Gran Turismo 6":
+        BCJS37016: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_mlaa_notes
+    Patch Version: 3.11
+    Patch:
+     - [ load, *gt6_122_mlaa ]
+  "FXAA":
+    Games:
+      "Gran Turismo 6":
+        BCJS37016: [ 01.22 ]
+    Author: "digant73"
+    Notes: *gt6_122_fxaa_notes
+    Patch Version: 1.4
+    Patch:
+     - [ load, *gt6_122_fxaa ]
+  "Speedboost (disable Write Color Buffers)":
+    Games:
+      "Gran Turismo 6":
+        BCJS37016: [ 01.22 ]
     Author: "digant73"
     Notes: *gt6_122_speedboost_notes
     Patch Version: 1.0
