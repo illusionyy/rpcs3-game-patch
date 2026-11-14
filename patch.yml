@@ -43948,6 +43948,15 @@ PPU-d73f342bf28ee016ef3d0ccb309b1acb03d8ecce:
       - [be32, 0x008EBD20, 0xED6B02B2]
 
       - [bef32, 0x0176D0F0, "Bloom Scale"]
+  "1920x1080 Resolution in 1080p Mode":
+    Games:
+      "Gran Turismo 5":
+        BCUS98114: [ 02.11 ]
+    Author: "Satan"
+    Notes: "Raises native internal resolution from 1280x1080 to 1920x1080 in gameplay."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008B0F80, 0x39200780 ]
 
 PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
   "Unlock FPS":
@@ -45371,6 +45380,15 @@ PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
       - [be32, 0x008EBD20, 0xED6B02B2]
 
       - [bef32, 0x0176D0F0, "Bloom Scale"]
+  "1920x1080 Resolution in 1080p Mode":
+    Games:
+      "Gran Turismo 5":
+        BCES00569: [ 02.11 ]
+    Author: "Satan"
+    Notes: "Raises native internal resolution from 1280x1080 to 1920x1080 in gameplay."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008B0F80, 0x39200780 ]
 
 PPU-223cc85fc80a6667fae775c7c02f7f65e6b2871f:
   "Unlock FPS":
@@ -45415,6 +45433,15 @@ PPU-26c56a42dbc303893506c4b76b496780f204d329:
     Notes: ""
     Patch:
       - [ utf8, 0x013debb0, "http://54.37.232.59\0" ] # https://gt5.ps3.online.jp.gran-turismo.com
+  "1920x1080 Resolution in 1080p Mode":
+    Games:
+      "Gran Turismo 5":
+        BCJS30001: [ 02.11 ]
+    Author: "Satan"
+    Notes: "Raises native internal resolution from 1280x1080 to 1920x1080 in gameplay."
+    Patch Version: 1.0
+    Patch:
+      - [ be32, 0x008B0F80, 0x39200780 ]
 
 
 PPU-7a5ee7bc2fef9566dd80e35893fe2c5571197726:
