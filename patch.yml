@@ -12874,7 +12874,7 @@ PPU-42873e59ecdd140f2a65cbd8f6671692b89bed3a:
     Games:
       "Need for Speed Hot Pursuit":
         NPEB00587: [ 01.00 ]
-    Author: "slimetime, ported by Alexis"
+    Author: "slimetime, Alexis"
     Notes: *hp_60fps_notes
     Patch Version: 1.0
     Patch:
